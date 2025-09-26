@@ -125,9 +125,9 @@ const PortfolioPage: React.FC = () => {
                   {/* Project Header */}
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-4">
-                      <div>
+                      <div className="flex items-start gap-3 flex-1">
                         {project.featured && (
-                          <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 mb-2">
+                          <div className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 mt-1 flex-shrink-0">
                             <Star className="w-3 h-3 mr-1" />
                             추천
                           </div>
@@ -206,20 +206,22 @@ const PortfolioPage: React.FC = () => {
                   <div className="flex flex-col md:flex-row md:items-center justify-between">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        {project.featured && (
-                          <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                            <Star className="w-3 h-3 mr-1" />
-                            추천
-                          </div>
-                        )}
                         <div className="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium">
                           {project.category}
                         </div>
                       </div>
                       
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">
-                        {project.title}
-                      </h3>
+                      <div className="flex items-start gap-3 mb-2">
+                        {project.featured && (
+                          <div className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 flex-shrink-0">
+                            <Star className="w-3 h-3 mr-1" />
+                            추천
+                          </div>
+                        )}
+                        <h3 className="text-xl font-bold text-gray-900">
+                          {project.title}
+                        </h3>
+                      </div>
                       
                       <p className="text-gray-600 mb-3">
                         {project.description}

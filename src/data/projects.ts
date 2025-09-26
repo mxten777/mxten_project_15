@@ -11,7 +11,7 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  // 최신 프로젝트들 (2024.09.18-19)
+  // 최신 프로젝트들 (2024.09.15-19)
   {
     id: "mvp-09",
     title: "만송시스템 홈페이지",
@@ -21,6 +21,26 @@ export const projects: Project[] = [
     date: "2024-09-19",
     tags: ["React", "TailwindCSS", "기업홈페이지"],
     featured: true
+  },
+  {
+    id: "mvp-04-baical",
+    title: "바이칼시스템즈 홈페이지",
+    description: "시스템 솔루션 기업의 브랜드와 기술력을 소개하는 홈페이지",
+    url: "https://mvp-project-04-cqcupnisp-dongyeol-jungs-projects.vercel.app/",
+    category: "웹사이트",
+    date: "2024-09-15",
+    tags: ["React", "시스템", "기업홈페이지", "TailwindCSS"],
+    featured: true
+  },
+  {
+    id: "new-mvp-02-daycare",
+    title: "아이뜨락 어린이집 홈페이지",
+    description: "어린이집 소개와 교육 프로그램을 안내하는 웹사이트",
+    url: "https://new-project-02-4ee93i64q-dongyeol-jungs-projects.vercel.app/",
+    category: "웹사이트",
+    date: "2024-09-15",
+    tags: ["React", "교육", "어린이집", "학부모"],
+    featured: false
   },
   {
     id: "mvp-03",
@@ -176,6 +196,16 @@ export const projects: Project[] = [
     tags: ["복지", "재가복지", "웹사이트", "React"]
   },
   {
+    id: "mvp-12-bookkeeping",
+    title: "AI 간편장부 앱",
+    description: "인공지능 기반 자동 기장 및 장부 관리 솔루션",
+    url: "https://mvp-project-12-n26m6q5fa-dongyeol-jungs-projects.vercel.app/",
+    category: "앱",
+    date: "2024-09-05",
+    tags: ["AI", "장부관리", "자동화", "회계"],
+    featured: true
+  },
+  {
     id: "mvp-14",
     title: "시군구 RPA 통합 플랫폼 앱",
     description: "지방자치단체 업무 자동화를 위한 RPA 통합 솔루션",
@@ -222,6 +252,16 @@ export const projects: Project[] = [
     category: "복지",
     date: "2024-08-22",
     tags: ["복지", "관리시스템", "재가복지", "React"]
+  },
+  {
+    id: "park-youngjin-dental",
+    title: "박영진치과 홈페이지",
+    description: "치과 진료 서비스와 의료진 소개를 위한 전문 웹사이트",
+    url: "https://park-youngjin-dental-d0z2pljp0-dongyeol-jungs-projects.vercel.app/",
+    category: "웹사이트",
+    date: "2024-08-16",
+    tags: ["React", "의료", "치과", "예약시스템"],
+    featured: false
   },
   {
     id: "mvp-20",
