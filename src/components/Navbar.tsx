@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
         transition={{ duration: 0.5 }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-18 md:h-20">
+          <div className="flex justify-between items-center h-16 md:h-20">
             {/* Logo - 개선된 버전 */}
             <Link
               to="/"
@@ -144,7 +144,7 @@ const Navbar: React.FC = () => {
             {/* Mobile menu button - 개선된 버전 */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`md:hidden p-3 rounded-xl transition-all duration-200 shadow-lg ${
+              className={`md:hidden p-2 rounded-lg transition-all duration-200 shadow-lg ${
                 scrolled 
                   ? 'text-gray-700 bg-gray-100 hover:bg-gray-200' 
                   : 'text-white bg-white/30 hover:bg-white/40 backdrop-blur-sm border border-white/50'
@@ -269,7 +269,7 @@ const Navbar: React.FC = () => {
       </AnimatePresence>
 
       {/* Spacer for fixed navbar */}
-      <div className="h-18 md:h-20" />
+      <div className="h-16 md:h-20" />
     </>
   );
 };

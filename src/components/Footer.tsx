@@ -243,20 +243,20 @@ const Footer: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="py-8 border-t border-gray-700"
+          className="py-6 px-4 border-t border-gray-700"
         >
-          <div className="max-w-md mx-auto text-center">
+          <div className="max-w-lg mx-auto text-center">
             <h4 className="text-lg font-semibold text-white mb-2">최신 소식 받기</h4>
-            <p className="text-gray-400 mb-4 text-sm">
+            <p className="text-gray-400 mb-6 text-sm">
               새로운 MVP 프로젝트와 개발 팁을 이메일로 받아보세요
             </p>
-            <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row gap-2">
               <input
                 type="email"
                 placeholder="이메일 주소를 입력하세요"
-                className="flex-1 px-4 py-2 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="flex-1 px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
               />
-              <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap">
+              <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap text-sm font-semibold">
                 구독하기
               </button>
             </div>
