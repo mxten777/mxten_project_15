@@ -8,19 +8,21 @@ export interface Project {
   date: string;
   tags: string[];
   featured?: boolean;
+  status?: 'active' | 'concept'; // active: 실제 프로젝트, concept: 아이디어 프로젝트
 }
 
 export const projects: Project[] = [
-  // 최신 프로젝트들 (2024.09.20-25)
+  // 최신 프로젝트들 (2025.09.20-25)
   {
     id: "mxten-12",
     title: "동해기계 홈페이지 리뉴얼",
     description: "기계 제조업체의 현대적인 홈페이지 리뉴얼 프로젝트",
     url: "https://mxten-project-12-9a0dcmszu-dongyeol-jungs-projects.vercel.app/ko/home",
     category: "웹사이트",
-    date: "2024-09-25",
+    date: "2025-09-25",
     tags: ["React", "리뉴얼", "제조업", "다국어"],
-    featured: true
+    featured: true,
+    status: 'active'
   },
   {
     id: "mxten-10",
@@ -28,9 +30,10 @@ export const projects: Project[] = [
     description: "재미있는 슬롯머신 스타일의 파칭코 게임 웹 애플리케이션",
     url: "https://mxten-project-10-f98097fis-dongyeol-jungs-projects.vercel.app/",
     category: "게임",
-    date: "2024-09-21",
+    date: "2025-09-21",
     tags: ["게임", "슬롯머신", "파칭코", "엔터테인먼트"],
-    featured: false
+    featured: false,
+    status: 'active'
   },
   {
     id: "lawmaker-landing",
@@ -38,20 +41,22 @@ export const projects: Project[] = [
     description: "시민과 함께하는 더 나은 미래를 위한 국회의원 랜딩페이지",
     url: "https://lawmaker-landing-4dvzqs09k-dongyeol-jungs-projects.vercel.app/",
     category: "공공서비스",
-    date: "2024-09-20",
+    date: "2025-09-20",
     tags: ["정치", "랜딩페이지", "시민참여", "공공"],
-    featured: true
+    featured: true,
+    status: 'active'
   },
-  // 기존 프로젝트들 (2024.09.15-19)
+  // 기존 프로젝트들 (2025.08-09)
   {
     id: "mvp-09",
     title: "만송시스템 홈페이지",
     description: "기업 브랜딩과 서비스 소개를 위한 현대적인 홈페이지",
     url: "https://mvp-project-09-cvel1fy8m-dongyeol-jungs-projects.vercel.app/",
     category: "웹사이트",
-    date: "2024-09-19",
+    date: "2025-09-19",
     tags: ["React", "TailwindCSS", "기업홈페이지"],
-    featured: true
+    featured: true,
+    status: 'active'
   },
   {
     id: "mvp-04-baical",
@@ -59,9 +64,10 @@ export const projects: Project[] = [
     description: "시스템 솔루션 기업의 브랜드와 기술력을 소개하는 홈페이지",
     url: "https://mvp-project-04-cqcupnisp-dongyeol-jungs-projects.vercel.app/",
     category: "웹사이트",
-    date: "2024-09-15",
+    date: "2025-09-15",
     tags: ["React", "시스템", "기업홈페이지", "TailwindCSS"],
-    featured: true
+    featured: true,
+    status: 'active'
   },
   {
     id: "new-mvp-02-daycare",
@@ -69,9 +75,10 @@ export const projects: Project[] = [
     description: "어린이집 소개와 교육 프로그램을 안내하는 웹사이트",
     url: "https://new-project-02-4ee93i64q-dongyeol-jungs-projects.vercel.app/",
     category: "웹사이트",
-    date: "2024-09-15",
+    date: "2025-09-15",
     tags: ["React", "교육", "어린이집", "학부모"],
-    featured: false
+    featured: false,
+    status: 'active'
   },
   {
     id: "mvp-03",
@@ -79,8 +86,9 @@ export const projects: Project[] = [
     description: "기업 정보와 제품 소개를 위한 반응형 웹사이트",
     url: "https://mvp-project-03-jqy07sslc-dongyeol-jungs-projects.vercel.app/",
     category: "웹사이트",
-    date: "2024-09-14",
-    tags: ["React", "기업정보", "제품소개"]
+    date: "2025-09-14",
+    tags: ["React", "기업정보", "제품소개"],
+    status: 'active'
   },
   {
     id: "mvp-02",
@@ -88,8 +96,9 @@ export const projects: Project[] = [
     description: "유통업체의 사업 영역과 서비스를 소개하는 홈페이지",
     url: "https://mvp-project-02-laqhz0s5k-dongyeol-jungs-projects.vercel.app/",
     category: "웹사이트",
-    date: "2024-09-13",
-    tags: ["React", "유통", "비즈니스"]
+    date: "2025-09-13",
+    tags: ["React", "유통", "비즈니스"],
+    status: 'active'
   },
   {
     id: "mvp-01-carmarket",
@@ -349,8 +358,9 @@ export const projects: Project[] = [
     description: "중장년층을 위한 AI 기반 취업 매칭 서비스",
     url: "https://ai-middle-aged-job-matching.onrender.com/",
     category: "취업지원",
-    date: "2024-08-14",
-    tags: ["AI", "중장년", "취업", "매칭플랫폼"]
+    date: "2025-08-14",
+    tags: ["AI", "중장년", "취업", "매칭플랫폼"],
+    status: 'active'
   },
   {
     id: "python-mvp-02",
@@ -358,8 +368,110 @@ export const projects: Project[] = [
     description: "경기도 지역 특화 날씨 정보 제공 서비스",
     url: "https://python-project-02.onrender.com/",
     category: "정보서비스",
-    date: "2024-08-12",
-    tags: ["Python", "날씨", "지역정보", "API"]
+    date: "2025-08-12",
+    tags: ["Python", "날씨", "지역정보", "API"],
+    status: 'active'
+  },
+  // 아이디어 프로젝트들 (2025년 1분기)
+  {
+    id: "mvp-concept-01",
+    title: "피트니스 트래커",
+    description: "개인 운동 기록과 건강 관리를 위한 애플리케이션",
+    url: "https://mvp-project-05-kgmk9u6x2-dongyeol-jungs-projects.vercel.app/",
+    category: "헬스케어",
+    date: "2025-03-15",
+    tags: ["헬스케어", "운동", "건강관리"],
+    status: 'concept'
+  },
+  {
+    id: "mvp-concept-02",
+    title: "간편 메모 앱",
+    description: "빠르고 쉬운 메모 작성과 관리 도구",
+    url: "https://mvp-project-06-xqr48k7n1-dongyeol-jungs-projects.vercel.app/",
+    category: "업무도구",
+    date: "2025-03-10",
+    tags: ["메모", "노트", "생산성"],
+    status: 'concept'
+  },
+  {
+    id: "mvp-concept-03",
+    title: "날씨 정보 앱",
+    description: "실시간 날씨 정보와 예보를 제공하는 서비스",
+    url: "https://mvp-project-07-ba6hj8s4n-dongyeol-jungs-projects.vercel.app/",
+    category: "정보서비스",
+    date: "2025-03-05",
+    tags: ["날씨", "정보", "실시간"],
+    status: 'concept'
+  },
+  {
+    id: "mvp-concept-04",
+    title: "간단한 계산기",
+    description: "기본적인 수학 연산을 수행하는 웹 계산기",
+    url: "https://mvp-project-08-hj2k9x7m3-dongyeol-jungs-projects.vercel.app/",
+    category: "업무도구",
+    date: "2025-02-28",
+    tags: ["계산기", "도구", "유틸리티"],
+    status: 'concept'
+  },
+  {
+    id: "mvp-concept-05",
+    title: "To-Do 리스트 앱",
+    description: "할 일 관리와 일정 계획을 위한 간편한 도구",
+    url: "https://mvp-project-13-qa9xl5k8r-dongyeol-jungs-projects.vercel.app/",
+    category: "업무도구",
+    date: "2025-02-25",
+    tags: ["할일관리", "일정", "생산성"],
+    status: 'concept'
+  },
+  {
+    id: "mvp-concept-06",
+    title: "영어 학습 도우미",
+    description: "영어 단어와 문법 학습을 돕는 교육 앱",
+    url: "https://mvp-project-21-uk5mx7q9l-dongyeol-jungs-projects.vercel.app/",
+    category: "교육",
+    date: "2025-02-20",
+    tags: ["영어학습", "교육", "언어", "학습도구"],
+    status: 'concept'
+  },
+  {
+    id: "mvp-concept-07",
+    title: "간단한 블로그 플랫폼",
+    description: "개인 블로그 작성과 관리를 위한 간단한 플랫폼",
+    url: "https://mvp-project-22-vl6nx8k2m-dongyeol-jungs-projects.vercel.app/",
+    category: "플랫폼",
+    date: "2025-02-15",
+    tags: ["블로그", "글쓰기", "개인미디어"],
+    status: 'concept'
+  },
+  {
+    id: "mvp-concept-08",
+    title: "음식 배달 앱 UI",
+    description: "음식 주문과 배달을 위한 사용자 인터페이스",
+    url: "https://mvp-project-23-wm7oy9k3n-dongyeol-jungs-projects.vercel.app/",
+    category: "플랫폼",
+    date: "2025-02-10",
+    tags: ["음식배달", "UI/UX", "모바일앱"],
+    status: 'concept'
+  },
+  {
+    id: "mvp-concept-09",
+    title: "개인 포트폴리오 사이트",
+    description: "개발자를 위한 개인 포트폴리오 웹사이트 템플릿",
+    url: "https://mvp-project-24-xn8pz0k4o-dongyeol-jungs-projects.vercel.app/",
+    category: "웹사이트",
+    date: "2025-02-05",
+    tags: ["포트폴리오", "개발자", "이력서"],
+    status: 'concept'
+  },
+  {
+    id: "mvp-concept-10",
+    title: "미니 게임 모음",
+    description: "간단한 웹 게임들을 모아놓은 미니게임 플랫폼",
+    url: "https://mvp-project-25-yo9qa1k5p-dongyeol-jungs-projects.vercel.app/",
+    category: "게임",
+    date: "2025-01-30",
+    tags: ["미니게임", "웹게임", "엔터테인먼트"],
+    status: 'concept'
   }
 ];
 
@@ -388,7 +500,5 @@ export const categories = [
   "대시보드",
   "정보서비스",
   "취업지원",
-  "교육",
-  "추천시스템",
-  "VR/AR"
+  "교육"
 ];

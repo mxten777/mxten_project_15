@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
-  Zap, 
   Mail, 
   Phone, 
   MapPin, 
@@ -77,8 +76,16 @@ const Footer: React.FC = () => {
             >
               {/* Logo */}
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-blue-600 rounded-lg">
-                  <Zap className="w-6 h-6 text-white" />
+                <div className="p-2 bg-white rounded-lg hover:bg-gray-50 transition-all duration-300 shadow-lg border border-gray-200">
+                  <img 
+                    src="/images/baikal_logo_trans.png" 
+                    alt="바이칼 로고" 
+                    className="w-9 h-9 object-contain rounded-md"
+                    style={{ 
+                      filter: 'contrast(1.2) brightness(1.1) saturate(1.3)',
+                      imageRendering: 'crisp-edges'
+                    }}
+                  />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold">바이브 코딩</h3>
@@ -182,10 +189,10 @@ const Footer: React.FC = () => {
                   <div>
                     <p className="text-sm text-gray-400">이메일</p>
                     <a 
-                      href="mailto:contact@vibecoding.com" 
+                      href="mailto:jngdy@baikalsys.kr" 
                       className="text-gray-200 hover:text-white transition-colors"
                     >
-                      contact@vibecoding.com
+                      jngdy@baikalsys.kr
                     </a>
                   </div>
                 </div>
@@ -196,10 +203,10 @@ const Footer: React.FC = () => {
                   <div>
                     <p className="text-sm text-gray-400">전화번호</p>
                     <a 
-                      href="tel:010-1234-5678" 
+                      href="tel:010-2380-4691" 
                       className="text-gray-200 hover:text-white transition-colors"
                     >
-                      010-1234-5678
+                      010-2380-4691
                     </a>
                   </div>
                 </div>
@@ -209,7 +216,7 @@ const Footer: React.FC = () => {
                   <MapPin className="w-5 h-5 text-red-400 flex-shrink-0" />
                   <div>
                     <p className="text-sm text-gray-400">위치</p>
-                    <p className="text-gray-200">서울특별시 강남구</p>
+                    <p className="text-gray-200">서울특별시 강남구 역삼로 138</p>
                     <p className="text-xs text-gray-400">온라인 상담 우선</p>
                   </div>
                 </div>

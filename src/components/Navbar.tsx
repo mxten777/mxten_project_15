@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Zap, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronRight } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -66,15 +66,19 @@ const Navbar: React.FC = () => {
               onClick={closeMenu}
             >
               <motion.div
-                className={`p-2.5 rounded-xl transition-all duration-300 shadow-lg ${
-                  scrolled 
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white' 
-                    : 'bg-white text-blue-600 shadow-xl'
-                } group-hover:scale-110`}
+                className="p-1.5 bg-white rounded-xl transition-all duration-300 shadow-lg border border-gray-200 group-hover:scale-110 group-hover:bg-gray-50"
                 whileHover={{ rotate: 180 }}
                 transition={{ duration: 0.3 }}
               >
-                <Zap className="w-7 h-7" />
+                <img 
+                  src="/images/baikal_logo_trans.png" 
+                  alt="바이칼 로고" 
+                  className="w-10 h-10 object-contain rounded-lg"
+                  style={{ 
+                    filter: 'contrast(1.2) brightness(1.1) saturate(1.3)',
+                    imageRendering: 'crisp-edges'
+                  }}
+                />
               </motion.div>
               <div className="flex flex-col">
                 <span className={`font-bold text-xl leading-tight ${

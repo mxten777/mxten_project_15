@@ -13,6 +13,14 @@ const PortfolioPage: React.FC = () => {
     ? getFeaturedProjects() 
     : getProjectsByCategory(selectedCategory);
 
+  const handleDemoClick = (project: any) => {
+    if (project.status === 'concept') {
+      alert('🔍 검토중인 아이디어 프로젝트입니다.\n\n현재 기획 단계에 있으며, 향후 개발 예정입니다.\n문의사항이 있으시면 연락주세요!');
+      return;
+    }
+    window.open(project.url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -179,15 +187,17 @@ const PortfolioPage: React.FC = () => {
                       >
                         자세히 보기
                       </Link>
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 inline-flex items-center justify-center px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                      <button
+                        onClick={() => handleDemoClick(project)}
+                        className={`flex-1 inline-flex items-center justify-center px-3 py-2 rounded-lg transition-colors text-sm ${
+                          project.status === 'concept'
+                            ? 'bg-orange-100 text-orange-700 hover:bg-orange-200'
+                            : 'bg-blue-600 text-white hover:bg-blue-700'
+                        }`}
                       >
                         <ExternalLink className="w-4 h-4 mr-1" />
-                        데모 보기
-                      </a>
+                        {project.status === 'concept' ? '검토중' : '데모 보기'}
+                      </button>
                     </div>
                   </div>
                 </motion.div>
@@ -252,15 +262,17 @@ const PortfolioPage: React.FC = () => {
                       >
                         자세히 보기
                       </Link>
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                      <button
+                        onClick={() => handleDemoClick(project)}
+                        className={`inline-flex items-center px-4 py-2 rounded-lg transition-colors ${
+                          project.status === 'concept'
+                            ? 'bg-orange-100 text-orange-700 hover:bg-orange-200'
+                            : 'bg-blue-600 text-white hover:bg-blue-700'
+                        }`}
                       >
                         <ExternalLink className="w-4 h-4 mr-2" />
-                        데모 보기
-                      </a>
+                        {project.status === 'concept' ? '검토중' : '데모 보기'}
+                      </button>
                     </div>
                   </div>
                 </motion.div>
