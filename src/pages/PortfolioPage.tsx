@@ -36,14 +36,16 @@ const PortfolioPage: React.FC = () => {
               바이브 코딩 <span className="text-yellow-400">MVP 포트폴리오</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
-              2024년 8월부터 현재까지 완성된 <strong>30+개</strong>의 혁신적인 MVP 프로젝트들
+              2024년 7월부터 현재까지 완성된 <strong>39개</strong>의 검증된 MVP 프로젝트들
+              <br />
+              <span className="text-lg">🏢 기업솔루션 | 🤖 AI기술 | 🚀 플랫폼 | 🏛️ 공공서비스</span>
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-2">
-                ✨ <strong>30+</strong> 완성된 프로젝트
+                ✅ <strong>39개</strong> 완성된 MVP
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-2">
-                🚀 <strong>평균 2주</strong> 개발 기간
+                🚀 <strong>평균 1-2주</strong> 개발 기간
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-2">
                 🎯 <strong>100%</strong> 성공적 배포

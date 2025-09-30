@@ -17,8 +17,8 @@ const LandingPage: React.FC = () => {
             transition={{ duration: 0.8 }}
             style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}
           >
-            빠른 실험으로 검증된<br />
-            <span className="text-yellow-300">20+ 개 MVP 포트폴리오</span>
+            체계적으로 검증된<br />
+            <span className="text-yellow-300">47개 전문 MVP 포트폴리오</span>
           </motion.h1>
           
           <motion.p 
@@ -27,8 +27,8 @@ const LandingPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            바이브 코딩과 함께 아이디어부터 출시까지, 
-            빠르고 효율적인 MVP 개발을 경험해보세요
+            🏢 기업솔루션부터 🤖 AI기술까지, 8개 전문분야의 
+            <br />체계적이고 실용적인 MVP 개발 경험을 제공합니다
           </motion.p>
           
           <motion.div 
@@ -70,18 +70,18 @@ const LandingPage: React.FC = () => {
             {[
               {
                 icon: <Zap className="w-12 h-12 text-blue-600 mb-4" />,
-                title: "빠른 MVP 개발",
-                description: "아이디어부터 출시까지 최단 시간 내 검증 가능한 제품을 만듭니다."
+                title: "체계적인 MVP 개발",
+                description: "8개 전문분야 47개 프로젝트로 검증된 체계적인 개발 방법론을 제공합니다."
               },
               {
                 icon: <Target className="w-12 h-12 text-purple-600 mb-4" />,
-                title: "검증된 방법론",
-                description: "20개 이상의 성공적인 MVP 경험으로 검증된 개발 프로세스를 제공합니다."
+                title: "검증된 기술력",
+                description: "React, AI, Python 등 최신 기술스택으로 구축된 실전 프로젝트 경험을 보유합니다."
               },
               {
                 icon: <Rocket className="w-12 h-12 text-green-600 mb-4" />,
-                title: "시장 출시 지원",
-                description: "개발뿐만 아니라 마케팅과 사용자 피드백 수집까지 전체 과정을 지원합니다."
+                title: "전문분야 특화",
+                description: "기업솔루션, AI기술, 공공서비스 등 다양한 도메인별 전문성을 제공합니다."
               }
             ].map((feature, index) => (
               <motion.div 
