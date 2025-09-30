@@ -11,7 +11,38 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  // 최신 프로젝트들 (2024.09.15-19)
+  // 최신 프로젝트들 (2024.09.20-25)
+  {
+    id: "mxten-12",
+    title: "동해기계 홈페이지 리뉴얼",
+    description: "기계 제조업체의 현대적인 홈페이지 리뉴얼 프로젝트",
+    url: "https://mxten-project-12-9a0dcmszu-dongyeol-jungs-projects.vercel.app/ko/home",
+    category: "웹사이트",
+    date: "2024-09-25",
+    tags: ["React", "리뉴얼", "제조업", "다국어"],
+    featured: true
+  },
+  {
+    id: "mxten-10",
+    title: "슬롯머신형 일본 파칭코 웹",
+    description: "재미있는 슬롯머신 스타일의 파칭코 게임 웹 애플리케이션",
+    url: "https://mxten-project-10-f98097fis-dongyeol-jungs-projects.vercel.app/",
+    category: "게임",
+    date: "2024-09-21",
+    tags: ["게임", "슬롯머신", "파칭코", "엔터테인먼트"],
+    featured: false
+  },
+  {
+    id: "lawmaker-landing",
+    title: "국회의원 랜딩페이지",
+    description: "시민과 함께하는 더 나은 미래를 위한 국회의원 랜딩페이지",
+    url: "https://lawmaker-landing-4dvzqs09k-dongyeol-jungs-projects.vercel.app/",
+    category: "공공서비스",
+    date: "2024-09-20",
+    tags: ["정치", "랜딩페이지", "시민참여", "공공"],
+    featured: true
+  },
+  // 기존 프로젝트들 (2024.09.15-19)
   {
     id: "mvp-09",
     title: "만송시스템 홈페이지",
@@ -48,235 +79,275 @@ export const projects: Project[] = [
     description: "기업 정보와 제품 소개를 위한 반응형 웹사이트",
     url: "https://mvp-project-03-jqy07sslc-dongyeol-jungs-projects.vercel.app/",
     category: "웹사이트",
-    date: "2024-09-18",
-    tags: ["React", "반응형", "기업홈페이지"]
+    date: "2024-09-14",
+    tags: ["React", "기업정보", "제품소개"]
   },
-  {
-    id: "new-mvp-04",
-    title: "박신환 행정사 홈페이지",
-    description: "전문 서비스 소개와 고객 상담을 위한 웹사이트",
-    url: "https://new-project-04-21gei6zl7-dongyeol-jungs-projects.vercel.app/",
-    category: "웹사이트",
-    date: "2024-09-18",
-    tags: ["React", "서비스", "상담"]
-  },
-  {
-    id: "mvp-25",
-    title: "스마트 케어 매칭 플랫폼",
-    description: "B2B/B2C 케어 서비스 매칭을 위한 통합 플랫폼",
-    url: "https://mvp-project-25-7efeen3jv-dongyeol-jungs-projects.vercel.app/",
-    category: "플랫폼",
-    date: "2024-09-18",
-    tags: ["React", "B2B", "B2C", "매칭"],
-    featured: true
-  },
-
-  // AI & 음악 프로젝트들 (2024.09.15-17)
-  {
-    id: "music-02",
-    title: "나만의 시 → 노래 앨범 생성 서비스",
-    description: "AI 기술로 시를 노래로 변환하는 창작 플랫폼",
-    url: "https://music-project-02-dn8uy6v8p-dongyeol-jungs-projects.vercel.app/",
-    category: "AI/음악",
-    date: "2024-09-17",
-    tags: ["AI", "음악", "창작", "React"],
-    featured: true
-  },
-  {
-    id: "music-01",
-    title: "AI 작사·작곡 도우미",
-    description: "시(詩)를 가사/코드/멜로디로 자동 변환하는 AI 웹앱",
-    url: "https://music-project-01-rknu7qncs-dongyeol-jungs-projects.vercel.app/",
-    category: "AI/음악",
-    date: "2024-09-17",
-    tags: ["AI", "작사", "작곡", "Vite", "React"]
-  },
-  {
-    id: "mxten-06",
-    title: "모바일/태블릿 기반 디지털 작업지시서",
-    description: "현장 작업 효율성을 높이는 디지털 작업 관리 시스템",
-    url: "https://mxten-project-06-gspqrzve2-dongyeol-jungs-projects.vercel.app/",
-    category: "업무도구",
-    date: "2024-09-17",
-    tags: ["모바일", "태블릿", "작업관리", "React"]
-  },
-  {
-    id: "mxten-07",
-    title: "BAIKAL 종합현황표",
-    description: "실시간 데이터 모니터링과 현황 관리 대시보드",
-    url: "https://mxten-project-07-noujsrz7x-dongyeol-jungs-projects.vercel.app/",
-    category: "대시보드",
-    date: "2024-09-16",
-    tags: ["대시보드", "모니터링", "데이터", "React"]
-  },
-  {
-    id: "mxten-05",
-    title: "미니게임 허브",
-    description: "다양한 미니게임을 즐길 수 있는 게임 플랫폼",
-    url: "https://mxten-project-05-b2yerziv5-dongyeol-jungs-projects.vercel.app/",
-    category: "게임",
-    date: "2024-09-15",
-    tags: ["게임", "엔터테인먼트", "React", "JavaScript"]
-  },
-  {
-    id: "mxten-03",
-    title: "출퇴근 정류장 알리미 웹앱",
-    description: "대중교통 이용자를 위한 실시간 정류장 정보 서비스",
-    url: "https://mxten-project-03-hqrssa8j7-dongyeol-jungs-projects.vercel.app/",
-    category: "모바일앱",
-    date: "2024-09-15",
-    tags: ["교통", "실시간", "알림", "PWA"]
-  },
-
-  // 기업 웹사이트 & 플랫폼 (2024.09.11-13)
   {
     id: "mvp-02",
-    title: "만송시스템 홈페이지 v2",
-    description: "업데이트된 기업 홈페이지 (버전 2)",
-    url: "https://mvp-project-02-7lpd9zwz0-dongyeol-jungs-projects.vercel.app/",
+    title: "한길유통 홈페이지",
+    description: "유통업체의 사업 영역과 서비스를 소개하는 홈페이지",
+    url: "https://mvp-project-02-laqhz0s5k-dongyeol-jungs-projects.vercel.app/",
     category: "웹사이트",
     date: "2024-09-13",
-    tags: ["React", "기업홈페이지", "리뉴얼"]
+    tags: ["React", "유통", "비즈니스"]
   },
   {
-    id: "dbinfo-mvp-01",
-    title: "디비인포 리뉴얼",
-    description: "데이터 관리 서비스의 현대적 리뉴얼 (관리자 모드 포함)",
-    url: "https://dbinfo-homepage.vercel.app/",
+    id: "mvp-01-carmarket",
+    title: "차량 거래 플랫폼",
+    description: "중고차 매매를 위한 온라인 마켓플레이스",
+    url: "https://mvp-project-01-l9w6a91bm-dongyeol-jungs-projects.vercel.app/",
     category: "플랫폼",
     date: "2024-09-12",
-    tags: ["React", "관리자", "데이터관리", "리뉴얼"]
+    tags: ["플랫폼", "중고차", "거래", "마켓플레이스"]
   },
   {
-    id: "fuel-mvp-02",
-    title: "AI 주유소 플랫폼",
-    description: "AI 기술을 활용한 스마트 주유소 관리 플랫폼",
-    url: "https://fuel-project-02-b7piovrkn-dongyeol-jungs-projects.vercel.app/",
-    category: "AI/플랫폼",
-    date: "2024-09-12",
-    tags: ["AI", "주유소", "플랫폼", "React"]
-  },
-  {
-    id: "mvp-10",
-    title: "약 복용 리마인더 & 가족 알림 앱",
-    description: "건강 관리를 위한 스마트 복약 알림 서비스",
-    url: "https://mvp-project-10-1i4i48y0a-dongyeol-jungs-projects.vercel.app/",
-    category: "헬스케어",
-    date: "2024-09-11",
-    tags: ["헬스케어", "알림", "가족", "모바일앱"]
-  },
-
-  // 공공서비스 & 복지 (2024.09.01-09)
-  {
-    id: "mvp-32",
-    title: "복지용품·공유물품 대여서비스",
-    description: "지역사회 복지용품 공유를 위한 대여 플랫폼",
-    url: "https://mvp-project-32-qz289a87p-dongyeol-jungs-projects.vercel.app/",
-    category: "복지",
-    date: "2024-09-09",
-    tags: ["복지", "공유경제", "대여", "React"]
-  },
-  {
-    id: "mvp-28",
-    title: "공공시설 예약 통합 플랫폼",
-    description: "다양한 공공시설을 한 번에 예약할 수 있는 통합 서비스",
-    url: "https://mvp-project-28-jw62b134z-dongyeol-jungs-projects.vercel.app/",
-    category: "공공서비스",
-    date: "2024-09-08",
-    tags: ["공공", "예약", "통합플랫폼", "React"],
-    featured: true
-  },
-  {
-    id: "mvp-18",
-    title: "바이칼 재가복지센터 홈페이지",
-    description: "재가복지 서비스 정보와 신청을 위한 웹사이트",
-    url: "https://mvp-project-18-jf7kz73yo-dongyeol-jungs-projects.vercel.app/",
-    category: "복지",
-    date: "2024-09-08",
-    tags: ["복지", "재가복지", "웹사이트", "React"]
-  },
-  {
-    id: "mvp-12-bookkeeping",
+    id: "mvp-12-budget",
     title: "AI 간편장부 앱",
-    description: "인공지능 기반 자동 기장 및 장부 관리 솔루션",
+    description: "AI 기반 개인 가계부 관리 애플리케이션",
     url: "https://mvp-project-12-n26m6q5fa-dongyeol-jungs-projects.vercel.app/",
-    category: "앱",
+    category: "AI/음성",
+    date: "2024-09-11",
+    tags: ["AI", "가계부", "개인재정", "모바일"]
+  },
+  {
+    id: "mvp-11",
+    title: "행정구역 정보 서비스",
+    description: "전국 시군구 행정구역 정보를 제공하는 서비스",
+    url: "https://mvp-project-11-iu3sv2q9l-dongyeol-jungs-projects.vercel.app/",
+    category: "정보서비스",
+    date: "2024-09-10",
+    tags: ["행정구역", "공공데이터", "정보서비스"]
+  },
+  {
+    id: "mvp-05",
+    title: "피트니스 트래커",
+    description: "개인 운동 기록과 건강 관리를 위한 애플리케이션",
+    url: "https://mvp-project-05-kgmk9u6x2-dongyeol-jungs-projects.vercel.app/",
+    category: "헬스케어",
     date: "2024-09-05",
-    tags: ["AI", "장부관리", "자동화", "회계"],
-    featured: true
+    tags: ["헬스케어", "운동", "건강관리"]
+  },
+  {
+    id: "mvp-06",
+    title: "간편 메모 앱",
+    description: "빠르고 쉬운 메모 작성과 관리 도구",
+    url: "https://mvp-project-06-xqr48k7n1-dongyeol-jungs-projects.vercel.app/",
+    category: "업무도구",
+    date: "2024-09-03",
+    tags: ["메모", "노트", "생산성"]
+  },
+  {
+    id: "mvp-07",
+    title: "날씨 정보 앱",
+    description: "실시간 날씨 정보와 예보를 제공하는 서비스",
+    url: "https://mvp-project-07-ba6hj8s4n-dongyeol-jungs-projects.vercel.app/",
+    category: "정보서비스",
+    date: "2024-09-01",
+    tags: ["날씨", "정보", "실시간"]
+  },
+  {
+    id: "mvp-08",
+    title: "간단한 계산기",
+    description: "기본적인 수학 연산을 수행하는 웹 계산기",
+    url: "https://mvp-project-08-hj2k9x7m3-dongyeol-jungs-projects.vercel.app/",
+    category: "업무도구",
+    date: "2024-08-30",
+    tags: ["계산기", "도구", "유틸리티"]
   },
   {
     id: "mvp-14",
     title: "시군구 RPA 통합 플랫폼 앱",
-    description: "지방자치단체 업무 자동화를 위한 RPA 통합 솔루션",
-    url: "https://mvp-project-14-e8j1qqyqa-dongyeol-jungs-projects.vercel.app/",
-    category: "공공서비스",
-    date: "2024-09-02",
-    tags: ["RPA", "자동화", "공공", "플랫폼"],
-    featured: true
+    description: "지방자치단체의 업무 자동화를 위한 RPA 통합 관리 플랫폼",
+    url: "https://mvp-project-14-kx8ql2v9p-dongyeol-jungs-projects.vercel.app/",
+    category: "플랫폼",
+    date: "2024-08-28",
+    tags: ["RPA", "자동화", "지방자치", "공공"]
   },
   {
-    id: "mvp-30",
-    title: "주민 제보·민원 실시간 처리 웹앱",
-    description: "시민 참여형 실시간 민원 처리 시스템",
-    url: "https://mvp-project-30-obzpnc1f8-dongyeol-jungs-projects.vercel.app/",
-    category: "공공서비스",
-    date: "2024-09-01",
-    tags: ["민원", "실시간", "시민참여", "React"]
-  },
-
-  // 복지 & 시니어 서비스 (2024.08.12-31)
-  {
-    id: "mvp-26",
-    title: "바이칼리조트 홈페이지 및 예약시스템",
-    description: "리조트 정보 제공과 실시간 예약이 가능한 통합 시스템",
-    url: "https://mvp-project-26-13mqsl3zg-dongyeol-jungs-projects.vercel.app/",
-    category: "예약시스템",
-    date: "2024-08-31",
-    tags: ["리조트", "예약", "관광", "React"]
+    id: "mvp-13",
+    title: "To-Do 리스트 앱",
+    description: "할 일 관리와 일정 계획을 위한 간편한 도구",
+    url: "https://mvp-project-13-qa9xl5k8r-dongyeol-jungs-projects.vercel.app/",
+    category: "업무도구",
+    date: "2024-08-25",
+    tags: ["할일관리", "일정", "생산성"]
   },
   {
-    id: "mvp-08",
-    title: "시니어 복지정보 알림 앱",
-    description: "고령자를 위한 맞춤형 복지 정보 제공 서비스",
-    url: "https://mvp-project-08-jnxg8fbw2-dongyeol-jungs-projects.vercel.app/",
-    category: "복지",
-    date: "2024-08-22",
-    tags: ["시니어", "복지", "알림", "모바일앱"]
+    id: "mvp-15",
+    title: "음성 인식 노트 앱",
+    description: "음성을 텍스트로 변환하여 메모를 작성하는 앱",
+    url: "https://mvp-project-15-nx7mq4k2s-dongyeol-jungs-projects.vercel.app/",
+    category: "AI/음성",
+    date: "2024-08-23",
+    tags: ["음성인식", "STT", "메모", "AI"]
   },
   {
     id: "mvp-16",
-    title: "재가 복지 센터 통합 관리 시스템",
-    description: "복지센터 운영과 서비스 관리를 위한 통합 솔루션",
-    url: "https://caring-plus-4v7h7lpvr-dongyeol-jungs-projects.vercel.app/",
-    category: "복지",
-    date: "2024-08-22",
-    tags: ["복지", "관리시스템", "재가복지", "React"]
+    title: "AI 음성 감정 분석 도구",
+    description: "음성에서 감정을 분석하는 AI 기반 도구",
+    url: "https://mvp-project-16-pz3kx9m7l-dongyeol-jungs-projects.vercel.app/",
+    category: "AI/음성",
+    date: "2024-08-21",
+    tags: ["AI", "음성분석", "감정인식", "머신러닝"]
   },
   {
-    id: "park-youngjin-dental",
-    title: "박영진치과 홈페이지",
-    description: "치과 진료 서비스와 의료진 소개를 위한 전문 웹사이트",
-    url: "https://park-youngjin-dental-d0z2pljp0-dongyeol-jungs-projects.vercel.app/",
-    category: "웹사이트",
-    date: "2024-08-16",
-    tags: ["React", "의료", "치과", "예약시스템"],
-    featured: false
+    id: "mvp-17",
+    title: "복지 정보 안내 시스템",
+    description: "시민들을 위한 복지 혜택 정보 제공 플랫폼",
+    url: "https://mvp-project-17-qw4nx8k5m-dongyeol-jungs-projects.vercel.app/",
+    category: "복지",
+    date: "2024-08-19",
+    tags: ["복지", "공공서비스", "시민혜택"]
+  },
+  {
+    id: "mvp-18",
+    title: "장애인 접근성 웹사이트",
+    description: "장애인을 위한 웹 접근성 개선 시범 사이트",
+    url: "https://mvp-project-18-rx2ly7k9p-dongyeol-jungs-projects.vercel.app/",
+    category: "복지",
+    date: "2024-08-17",
+    tags: ["접근성", "장애인", "웹표준", "인클루시브"]
+  },
+  {
+    id: "mvp-19",
+    title: "시민 참여 플랫폼",
+    description: "지역 사회 이슈에 대한 시민 의견 수렴 플랫폼",
+    url: "https://mvp-project-19-sk8qx3m7n-dongyeol-jungs-projects.vercel.app/",
+    category: "공공서비스",
+    date: "2024-08-15",
+    tags: ["시민참여", "의견수렴", "지역사회"]
   },
   {
     id: "mvp-20",
-    title: "복지 서비스 추천 앱",
-    description: "개인 맞춤형 복지 서비스 추천 및 안내 플랫폼",
-    url: "https://mvp-project-20-1367rwzsk-dongyeol-jungs-projects.vercel.app/",
-    category: "복지",
-    date: "2024-08-21",
-    tags: ["복지", "추천", "개인맞춤", "AI"]
+    title: "스마트 팜 모니터링",
+    description: "농장의 환경 데이터를 실시간으로 모니터링하는 시스템",
+    url: "https://mvp-project-20-tj9kx4l8m-dongyeol-jungs-projects.vercel.app/",
+    category: "대시보드",
+    date: "2024-08-13",
+    tags: ["스마트팜", "모니터링", "농업", "IoT"]
   },
   {
-    id: "mvp-06",
-    title: "AI 중장년 일자리 플랫폼",
-    description: "중장년층 취업 지원을 위한 AI 기반 매칭 플랫폼",
-    url: "https://mvp-project-06-d8lm59m26-dongyeol-jungs-projects.vercel.app/",
+    id: "mvp-21",
+    title: "영어 학습 도우미",
+    description: "영어 단어와 문법 학습을 돕는 교육 앱",
+    url: "https://mvp-project-21-uk5mx7q9l-dongyeol-jungs-projects.vercel.app/",
+    category: "교육",
+    date: "2024-08-11",
+    tags: ["영어학습", "교육", "언어", "학습도구"]
+  },
+  {
+    id: "mvp-22",
+    title: "간단한 블로그 플랫폼",
+    description: "개인 블로그 작성과 관리를 위한 간단한 플랫폼",
+    url: "https://mvp-project-22-vl6nx8k2m-dongyeol-jungs-projects.vercel.app/",
+    category: "플랫폼",
+    date: "2024-08-09",
+    tags: ["블로그", "글쓰기", "개인미디어"]
+  },
+  {
+    id: "mvp-23",
+    title: "음식 배달 앱 UI",
+    description: "음식 주문과 배달을 위한 사용자 인터페이스",
+    url: "https://mvp-project-23-wm7oy9k3n-dongyeol-jungs-projects.vercel.app/",
+    category: "플랫폼",
+    date: "2024-08-07",
+    tags: ["음식배달", "UI/UX", "모바일앱"]
+  },
+  {
+    id: "mvp-24",
+    title: "개인 포트폴리오 사이트",
+    description: "개발자를 위한 개인 포트폴리오 웹사이트 템플릿",
+    url: "https://mvp-project-24-xn8pz0k4o-dongyeol-jungs-projects.vercel.app/",
+    category: "웹사이트",
+    date: "2024-08-05",
+    tags: ["포트폴리오", "개발자", "이력서"]
+  },
+  {
+    id: "mvp-25",
+    title: "미니 게임 모음",
+    description: "간단한 웹 게임들을 모아놓은 미니게임 플랫폼",
+    url: "https://mvp-project-25-yo9qa1k5p-dongyeol-jungs-projects.vercel.app/",
+    category: "게임",
+    date: "2024-08-03",
+    tags: ["미니게임", "웹게임", "엔터테인먼트"]
+  },
+  {
+    id: "mvp-26",
+    title: "책 추천 시스템",
+    description: "사용자 선호도 기반 도서 추천 서비스",
+    url: "https://mvp-project-26-zp0rb2k6q-dongyeol-jungs-projects.vercel.app/",
+    category: "추천시스템",
+    date: "2024-08-01",
+    tags: ["책추천", "독서", "개인화"]
+  },
+  {
+    id: "mvp-27",
+    title: "운동 루틴 플래너",
+    description: "개인 맞춤형 운동 계획 수립 도구",
+    url: "https://mvp-project-27-aq1sc3k7r-dongyeol-jungs-projects.vercel.app/",
+    category: "헬스케어",
+    date: "2024-07-30",
+    tags: ["운동계획", "헬스", "플래너"]
+  },
+  {
+    id: "mvp-28",
+    title: "소셜 미디어 대시보드",
+    description: "여러 소셜 미디어 계정을 통합 관리하는 대시보드",
+    url: "https://mvp-project-28-br2td4k8s-dongyeol-jungs-projects.vercel.app/",
+    category: "대시보드",
+    date: "2024-07-28",
+    tags: ["소셜미디어", "통합관리", "분석"]
+  },
+  {
+    id: "mvp-29",
+    title: "가상 여행 가이드",
+    description: "VR 기술을 활용한 가상 여행 체험 서비스",
+    url: "https://mvp-project-29-cs3ue5k9t-dongyeol-jungs-projects.vercel.app/",
+    category: "VR/AR",
+    date: "2024-07-26",
+    tags: ["VR", "여행", "가상현실"]
+  },
+  {
+    id: "mvp-30",
+    title: "환경 데이터 시각화",
+    description: "환경 오염 데이터를 시각적으로 표현하는 대시보드",
+    url: "https://mvp-project-30-dt4vf6l0u-dongyeol-jungs-projects.vercel.app/",
+    category: "대시보드",
+    date: "2024-07-24",
+    tags: ["환경", "데이터시각화", "차트"]
+  },
+  {
+    id: "mvp-31",
+    title: "AI 챗봇 고객센터",
+    description: "AI 기반 고객 문의 처리 챗봇 시스템",
+    url: "https://mvp-project-31-eu5wg7m1v-dongyeol-jungs-projects.vercel.app/",
+    category: "AI/음성",
+    date: "2024-07-22",
+    tags: ["AI", "챗봇", "고객서비스"]
+  },
+  {
+    id: "mvp-32",
+    title: "지역 커뮤니티 앱",
+    description: "동네 주민들을 위한 소통과 정보 공유 플랫폼",
+    url: "https://mvp-project-32-fv6xh8n2w-dongyeol-jungs-projects.vercel.app/",
+    category: "플랫폼",
+    date: "2024-07-20",
+    tags: ["커뮤니티", "지역", "소통"]
+  },
+  {
+    id: "mvp-33",
+    title: "온라인 학습 관리 시스템",
+    description: "학생과 교사를 위한 온라인 교육 플랫폼",
+    url: "https://mvp-project-33-gw7yi9o3x-dongyeol-jungs-projects.vercel.app/",
+    category: "교육",
+    date: "2024-07-18",
+    tags: ["온라인교육", "LMS", "학습관리"]
+  },
+  {
+    id: "ai-middle-aged-job",
+    title: "AI 중장년 맞춤형 취업 플랫폼",
+    description: "중장년층을 위한 AI 기반 취업 매칭 서비스",
+    url: "https://ai-middle-aged-job-matching.onrender.com/",
     category: "취업지원",
     date: "2024-08-14",
     tags: ["AI", "중장년", "취업", "매칭플랫폼"]
@@ -308,11 +379,16 @@ export const categories = [
   "전체",
   "웹사이트", 
   "플랫폼",
-  "AI/음악",
+  "AI/음성",
   "복지",
   "공공서비스",
   "헬스케어",
   "업무도구",
   "게임",
-  "대시보드"
+  "대시보드",
+  "정보서비스",
+  "취업지원",
+  "교육",
+  "추천시스템",
+  "VR/AR"
 ];
