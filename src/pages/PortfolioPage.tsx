@@ -191,14 +191,10 @@ const PortfolioPage: React.FC = () => {
                       </Link>
                       <button
                         onClick={() => handleDemoClick(project)}
-                        className={`flex-1 inline-flex items-center justify-center px-3 py-2 rounded-lg transition-colors text-sm ${
-                          project.status === 'concept'
-                            ? 'bg-orange-100 text-orange-700 hover:bg-orange-200'
-                            : 'bg-blue-600 text-white hover:bg-blue-700'
-                        }`}
+                        className="flex-1 inline-flex items-center justify-center px-3 py-2 rounded-lg transition-colors text-sm bg-blue-600 text-white hover:bg-blue-700"
                       >
                         <ExternalLink className="w-4 h-4 mr-1" />
-                        {project.status === 'concept' ? '검토중' : '데모 보기'}
+                        데모 보기
                       </button>
                     </div>
                   </div>
@@ -266,14 +262,10 @@ const PortfolioPage: React.FC = () => {
                       </Link>
                       <button
                         onClick={() => handleDemoClick(project)}
-                        className={`inline-flex items-center px-4 py-2 rounded-lg transition-colors ${
-                          project.status === 'concept'
-                            ? 'bg-orange-100 text-orange-700 hover:bg-orange-200'
-                            : 'bg-blue-600 text-white hover:bg-blue-700'
-                        }`}
+                        className="inline-flex items-center px-4 py-2 rounded-lg transition-colors bg-blue-600 text-white hover:bg-blue-700"
                       >
                         <ExternalLink className="w-4 h-4 mr-2" />
-                        {project.status === 'concept' ? '검토중' : '데모 보기'}
+                        데모 보기
                       </button>
                     </div>
                   </div>
