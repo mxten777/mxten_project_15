@@ -18,7 +18,7 @@ const LandingPage: React.FC = () => {
             style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}
           >
             체계적으로 검증된<br />
-            <span className="text-yellow-300">47개 전문 MVP 포트폴리오</span>
+            <span className="text-yellow-300">35+ 전문 MVP 포트폴리오</span>
           </motion.h1>
           
           <motion.p 
@@ -27,7 +27,7 @@ const LandingPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            🏢 기업솔루션부터 🤖 AI기술까지, 8개 전문분야의 
+            🏢 기업솔루션부터 🤖 AI기술까지, 16개 전문분야의 
             <br />체계적이고 실용적인 MVP 개발 경험을 제공합니다
           </motion.p>
           
@@ -71,7 +71,7 @@ const LandingPage: React.FC = () => {
               {
                 icon: <Zap className="w-12 h-12 text-blue-600 mb-4" />,
                 title: "체계적인 MVP 개발",
-                description: "8개 전문분야 47개 프로젝트로 검증된 체계적인 개발 방법론을 제공합니다."
+                description: "16개 전문분야 35+ 프로젝트로 검증된 체계적인 개발 방법론을 제공합니다."
               },
               {
                 icon: <Target className="w-12 h-12 text-purple-600 mb-4" />,
@@ -106,7 +106,7 @@ const LandingPage: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { number: "20+", label: "완성된 MVP" },
+              { number: "35+", label: "완성된 MVP" },
               { number: "15+", label: "성공적 출시" },
               { number: "100+", label: "만족한 고객" },
               { number: "2주", label: "평균 개발 기간" }

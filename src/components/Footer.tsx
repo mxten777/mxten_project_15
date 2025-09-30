@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
   ];
 
   const stats = [
-    { value: '30+', label: '완성된 MVP', icon: <Award className="w-5 h-5" /> },
+    { value: '35+', label: '완성된 MVP', icon: <Award className="w-5 h-5" /> },
     { value: '100+', label: '만족한 고객', icon: <Users className="w-5 h-5" /> },
     { value: '2주', label: '평균 개발 기간', icon: <Calendar className="w-5 h-5" /> },
   ];

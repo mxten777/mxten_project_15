@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
 
   const navItems = [
     { name: '홈', path: '/', description: '서비스 소개' },
-    { name: '포트폴리오', path: '/portfolio', description: '30+ MVP 프로젝트' },
+    { name: '포트폴리오', path: '/portfolio', description: '35+ MVP 프로젝트' },
     { name: '상담 문의', path: '/contact', description: '무료 상담 신청' },
   ];
 
