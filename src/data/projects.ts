@@ -16,7 +16,7 @@ export const projects: Project[] = [
     id: "mxten-12",
     title: "동해기계 홈페이지 리뉴얼",
     description: "기계 제조업체의 현대적인 홈페이지 리뉴얼 프로젝트",
-    url: "https://mxten-project-12-gduor0mjr-dongyeol-jungs-projects.vercel.app/ko/home",
+    url: "https://mxten-project-12-hjiuk1z7k-dongyeol-jungs-projects.vercel.app/ko/home",
     category: "웹사이트",
     date: "2025-10-01",
     tags: ["React", "리뉴얼", "제조업", "다국어"],
