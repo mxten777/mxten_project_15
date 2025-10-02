@@ -13,6 +13,16 @@ export interface Project {
 export const projects: Project[] = [
   // 🔥 2025년 9월 최신 프로젝트들
   {
+    id: "jdx-01",
+    title: "JDX[1] 바이브 에듀 - 차세대 교육 플랫폼",
+    description: "최고의 교육 경험을 제공하는 차세대 온라인 교육 플랫폼. 실시간 강의, 커뮤니티, AI 기반 맞춤 학습 등 최신 기술을 집약한 서비스.",
+    url: "https://jdx-project-01-l3hn1uis4-dongyeol-jungs-projects.vercel.app/",
+    category: "교육 플랫폼",
+    date: "2025-10-02",
+    tags: ["교육", "플랫폼", "AI", "실시간", "커뮤니티"],
+    featured: true
+  },
+  {
     id: "mxten-12",
     title: "동해기계 홈페이지 리뉴얼",
     description: "기계 제조업체의 현대적인 홈페이지 리뉴얼 프로젝트",
