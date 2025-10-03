@@ -263,7 +263,7 @@ const Footer: React.FC = () => {
                 placeholder="이메일 주소를 입력하세요"
                 className="flex-1 px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
               />
-              <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap text-sm font-semibold font-heading">
+              <button className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl shadow-lg hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all whitespace-nowrap text-sm font-semibold font-heading">
                 구독하기
               </button>
             </div>

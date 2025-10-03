@@ -106,7 +106,7 @@ const Navbar: React.FC = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`relative px-5 py-3 rounded-xl font-bold font-heading transition-all duration-200 ${
+                  className={`relative px-5 py-3 rounded-2xl font-bold font-heading shadow-lg transition-all duration-200 hover:scale-105 ${
                     isActive(item.path)
                       ? scrolled
                         ? 'text-white bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg'
@@ -135,7 +135,7 @@ const Navbar: React.FC = () => {
               {/* CTA Button - 개선된 버전 */}
               <Link
                 to="/contact"
-                className={`ml-6 px-7 py-3 rounded-xl font-bold font-heading transition-all duration-200 transform hover:scale-105 shadow-xl ${
+                className={`ml-6 px-7 py-3 rounded-2xl font-bold font-heading shadow-lg transition-all duration-200 transform hover:scale-105 ${
                   scrolled
                     ? 'bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 hover:from-yellow-500 hover:to-orange-500'
                     : 'bg-yellow-400 text-gray-900 hover:bg-yellow-300 border-2 border-white/50'
@@ -245,7 +245,7 @@ const Navbar: React.FC = () => {
                   <Link
                     to="/contact"
                     onClick={closeMenu}
-                    className="block w-full text-center px-6 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold font-heading text-lg rounded-2xl hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-105 shadow-xl"
+                    className="block w-full text-center px-6 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold font-heading text-lg rounded-2xl shadow-lg hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all duration-200 transform"
                   >
                     무료 상담 신청하기
                   </Link>

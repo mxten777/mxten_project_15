@@ -7,7 +7,7 @@ const LandingPage: React.FC = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="hero min-h-screen flex items-center justify-center relative overflow-hidden">
+  <section className="hero min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-presentation">
         <div className="hero-overlay"></div>
         <div className="relative z-10 text-center text-white px-4">
           <motion.h1 
@@ -37,15 +37,17 @@ const LandingPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <Link 
-              to="/portfolio" 
-              className="inline-flex items-center px-8 py-4 bg-yellow-400 text-gray-900 font-semibold rounded-lg hover:bg-yellow-300 transition-colors duration-200"
+              <Link 
+                to="/portfolio" 
+                aria-label="포트폴리오 보기"
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-semibold rounded-2xl shadow-lg hover:from-yellow-300 hover:to-yellow-400 hover:scale-105 transition-all duration-200 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
             >
               포트폴리오 보기 <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
-            <Link 
-              to="/contact" 
-              className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-gray-900 transition-colors duration-200"
+              <Link 
+                to="/contact" 
+                aria-label="상담 문의하기"
+                className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-2xl shadow-lg hover:bg-white hover:text-gray-900 hover:scale-105 transition-all duration-200 focus:ring-2 focus:ring-blue-400 focus:outline-none"
             >
               상담 문의하기
             </Link>
@@ -54,7 +56,7 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white">
+  <section className="py-20 bg-gradient-radial from-presentation-bg via-presentation-card to-presentation-light border-b border-gray-200 mb-12">
         <div className="max-w-6xl mx-auto px-4">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold font-heading text-center mb-12 text-gray-800"
@@ -128,7 +130,7 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+  <section className="py-20 bg-gradient-radial from-presentation-bg via-presentation-card to-presentation-light border-b border-gray-200 mb-12">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold font-heading mb-6 text-gray-800"
@@ -154,9 +156,10 @@ const LandingPage: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Link 
-              to="/contact" 
-              className="inline-flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
+              <Link 
+                to="/contact" 
+                aria-label="무료 상담 신청하기"
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-2xl shadow-lg hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all duration-200 focus:ring-2 focus:ring-purple-400 focus:outline-none"
             >
               <Users className="mr-2 w-5 h-5" />
               무료 상담 신청하기

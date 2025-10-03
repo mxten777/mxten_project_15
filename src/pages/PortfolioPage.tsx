@@ -24,7 +24,7 @@ const PortfolioPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white py-20">
+  <section className="bg-gradient-presentation text-white py-20">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -56,7 +56,7 @@ const PortfolioPage: React.FC = () => {
       </section>
 
       {/* Filter Controls */}
-      <section className="bg-white border-b">
+  <section className="bg-gradient-radial from-presentation-bg via-presentation-card to-presentation-light border-b border-gray-200 mb-12">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Category Filters */}
@@ -120,7 +120,7 @@ const PortfolioPage: React.FC = () => {
       </section>
 
       {/* Projects Grid/List */}
-      <section className="py-12">
+  <section className="py-16 bg-gradient-radial from-presentation-bg via-presentation-card to-presentation-light divide-y divide-gray-100">
         <div className="max-w-7xl mx-auto px-4">
           {viewMode === 'grid' ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -130,7 +130,7 @@ const PortfolioPage: React.FC = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                  className="bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden group animate-fade-in"
                 >
                   {/* Project Header */}
                   <div className="p-6">
@@ -193,7 +193,11 @@ const PortfolioPage: React.FC = () => {
                         onClick={() => handleDemoClick(project)}
                         className="flex-1 inline-flex items-center justify-center px-3 py-2 rounded-lg transition-colors text-sm bg-blue-600 text-white hover:bg-blue-700"
                       >
-                        <ExternalLink className="w-4 h-4 mr-1" />
+                        {project.status === 'loading' ? (
+                          <span className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></span>
+                        ) : (
+                          <ExternalLink className="w-4 h-4 mr-1" />
+                        )}
                         데모 보기
                       </button>
                     </div>
@@ -209,7 +213,7 @@ const PortfolioPage: React.FC = () => {
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.05 }}
-                  className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-6"
+                  className="bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 p-6 animate-fade-in"
                 >
                   <div className="flex flex-col md:flex-row md:items-center justify-between">
                     <div className="flex-1">
@@ -256,13 +260,13 @@ const PortfolioPage: React.FC = () => {
                     <div className="mt-4 md:mt-0 md:ml-6 flex gap-2">
                       <Link
                         to={`/mvp/${project.id}`}
-                        className="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+                        className="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-700 rounded-2xl shadow hover:bg-gray-200 hover:scale-105 transition-all"
                       >
                         자세히 보기
                       </Link>
                       <button
                         onClick={() => handleDemoClick(project)}
-                        className="inline-flex items-center px-4 py-2 rounded-lg transition-colors bg-blue-600 text-white hover:bg-blue-700"
+                        className="inline-flex items-center px-4 py-2 rounded-2xl shadow bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all"
                       >
                         <ExternalLink className="w-4 h-4 mr-2" />
                         데모 보기
@@ -294,13 +298,13 @@ const PortfolioPage: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/contact"
-                className="inline-flex items-center px-8 py-3 bg-yellow-400 text-gray-900 font-semibold font-heading rounded-lg hover:bg-yellow-300 transition-colors"
+                className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-semibold font-heading rounded-2xl shadow-lg hover:from-yellow-300 hover:to-yellow-400 hover:scale-105 transition-all animate-bounce-gentle"
               >
                 무료 상담 신청하기
               </a>
               <a
                 href="/"
-                className="inline-flex items-center px-8 py-3 bg-transparent border-2 border-white text-white font-semibold font-heading rounded-lg hover:bg-white hover:text-gray-900 transition-colors"
+                className="inline-flex items-center px-8 py-3 bg-transparent border-2 border-white text-white font-semibold font-heading rounded-2xl shadow-lg hover:bg-white hover:text-gray-900 hover:scale-105 transition-all animate-fade-in"
               >
                 서비스 소개 보기
               </a>

@@ -48,9 +48,9 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-radial from-presentation-bg via-presentation-card to-presentation-light">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white py-20">
+  <section className="bg-gradient-presentation text-white py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -70,11 +70,11 @@ const ContactPage: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="bg-white rounded-2xl shadow-lg p-8"
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl hover:scale-105 transition-all duration-200"
           >
             <h2 className="text-2xl font-bold font-heading text-gray-900 mb-6">
               프로젝트 문의하기
@@ -123,7 +123,7 @@ const ContactPage: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-accent-500 focus:border-accent-400 transition-colors"
                     placeholder="홍길동"
                   />
                 </div>
@@ -143,7 +143,7 @@ const ContactPage: React.FC = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-accent-500 focus:border-accent-400 transition-colors"
                     placeholder="hong@example.com"
                   />
                 </div>
@@ -163,7 +163,7 @@ const ContactPage: React.FC = () => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
+                    className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-accent-500 focus:border-accent-400 transition-colors resize-none"
                     placeholder="어떤 프로젝트를 만들고 싶으신지 자유롭게 설명해주세요. 예상 예산, 일정, 필요한 기능 등을 포함해주시면 더 정확한 상담이 가능합니다."
                   />
                 </div>
@@ -173,16 +173,16 @@ const ContactPage: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting || !formData.name || !formData.email || !formData.message}
-                className={`w-full flex items-center justify-center px-6 py-3 rounded-lg font-semibold font-heading transition-all duration-200 ${
+                className={`w-full flex items-center justify-center px-6 py-3 rounded-2xl font-semibold font-heading shadow-lg transition-all duration-200 ${
                   isSubmitting || !formData.name || !formData.email || !formData.message
                     ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                    : 'bg-blue-600 text-white hover:bg-blue-700 hover:transform hover:translateY(-1px) shadow-lg'
+                    : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 hover:scale-105'
                 }`}
               >
                 {isSubmitting ? (
                   <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                    전송 중...
+                    <span className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></span>
+                    <span className="text-blue-600">전송 중...</span>
                   </>
                 ) : (
                   <>
