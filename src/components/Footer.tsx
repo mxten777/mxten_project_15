@@ -88,7 +88,7 @@ const Footer: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold">바이브 코딩</h3>
+                  <h3 className="text-xl font-bold font-heading">바이브 코딩</h3>
                   <p className="text-sm text-gray-400">MVP 전문 개발팀</p>
                 </div>
               </div>
@@ -104,7 +104,7 @@ const Footer: React.FC = () => {
                   <div key={index} className="flex items-center space-x-3 text-sm">
                     <div className="text-blue-400">{stat.icon}</div>
                     <div>
-                      <span className="font-bold text-white">{stat.value}</span>
+                      <span className="font-bold font-heading text-white">{stat.value}</span>
                       <span className="text-gray-400 ml-1">{stat.label}</span>
                     </div>
                   </div>
@@ -122,7 +122,7 @@ const Footer: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="space-y-4"
             >
-              <h4 className="text-lg font-semibold text-white mb-4">빠른 이동</h4>
+              <h4 className="text-lg font-semibold font-heading text-white mb-4">빠른 이동</h4>
               <div className="space-y-3">
                 {quickLinks.map((link) => (
                   <Link
@@ -132,7 +132,7 @@ const Footer: React.FC = () => {
                   >
                     <div className="flex items-center justify-between p-2 rounded-lg hover:bg-white/10 transition-colors">
                       <div>
-                        <div className="font-medium text-gray-200 group-hover:text-white transition-colors">
+                        <div className="font-medium font-sans text-gray-200 group-hover:text-white transition-colors">
                           {link.name}
                         </div>
                         <div className="text-xs text-gray-400">
@@ -156,12 +156,12 @@ const Footer: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="space-y-4"
             >
-              <h4 className="text-lg font-semibold text-white mb-4">제공 서비스</h4>
+              <h4 className="text-lg font-semibold font-heading text-white mb-4">제공 서비스</h4>
               <div className="space-y-3">
                 {services.map((service, index) => (
                   <div
                     key={index}
-                    className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors cursor-pointer"
+                    className="flex items-center space-x-3 text-gray-300 font-sans hover:text-white transition-colors cursor-pointer"
                   >
                     <span className="text-lg">{service.icon}</span>
                     <span className="text-sm">{service.name}</span>
@@ -180,7 +180,7 @@ const Footer: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="space-y-4"
             >
-              <h4 className="text-lg font-semibold text-white mb-4">연락처</h4>
+              <h4 className="text-lg font-semibold font-heading text-white mb-4">연락처</h4>
               
               <div className="space-y-4">
                 {/* Email */}
@@ -253,7 +253,7 @@ const Footer: React.FC = () => {
           className="py-6 px-4 border-t border-gray-700"
         >
           <div className="max-w-lg mx-auto text-center">
-            <h4 className="text-lg font-semibold text-white mb-2">최신 소식 받기</h4>
+            <h4 className="text-lg font-semibold font-heading text-white mb-2">최신 소식 받기</h4>
             <p className="text-gray-400 mb-6 text-sm">
               새로운 MVP 프로젝트와 개발 팁을 이메일로 받아보세요
             </p>
@@ -263,7 +263,7 @@ const Footer: React.FC = () => {
                 placeholder="이메일 주소를 입력하세요"
                 className="flex-1 px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
               />
-              <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap text-sm font-semibold">
+              <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap text-sm font-semibold font-heading">
                 구독하기
               </button>
             </div>

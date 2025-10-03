@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        'heading': ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
+  'sans': ['Space Grotesk', 'Sora', 'Manrope', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+  'heading': ['Space Grotesk', 'Montserrat', 'Sora', 'Poppins', 'Inter', 'system-ui', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in',

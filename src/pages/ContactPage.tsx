@@ -57,7 +57,7 @@ const ContactPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold font-heading mb-6">
               무료 상담 신청하기
             </h1>
             <p className="text-xl md:text-2xl opacity-90 max-w-2xl mx-auto">
@@ -76,7 +76,7 @@ const ContactPage: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="bg-white rounded-2xl shadow-lg p-8"
           >
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl font-bold font-heading text-gray-900 mb-6">
               프로젝트 문의하기
             </h2>
             
@@ -88,7 +88,7 @@ const ContactPage: React.FC = () => {
               >
                 <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
                 <div>
-                  <p className="text-green-800 font-medium">메시지가 성공적으로 전송되었습니다!</p>
+                  <p className="text-green-800 font-medium font-sans">메시지가 성공적으로 전송되었습니다!</p>
                   <p className="text-green-600 text-sm">24시간 내에 연락드리겠습니다.</p>
                 </div>
               </motion.div>
@@ -102,7 +102,7 @@ const ContactPage: React.FC = () => {
               >
                 <AlertCircle className="w-5 h-5 text-red-600 mr-3" />
                 <div>
-                  <p className="text-red-800 font-medium">메시지 전송에 실패했습니다.</p>
+                  <p className="text-red-800 font-medium font-sans">메시지 전송에 실패했습니다.</p>
                   <p className="text-red-600 text-sm">다시 시도해주세요.</p>
                 </div>
               </motion.div>
@@ -111,7 +111,7 @@ const ContactPage: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name Field */}
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium font-sans text-gray-700 mb-2">
                   이름 *
                 </label>
                 <div className="relative">
@@ -131,7 +131,7 @@ const ContactPage: React.FC = () => {
 
               {/* Email Field */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium font-sans text-gray-700 mb-2">
                   이메일 *
                 </label>
                 <div className="relative">
@@ -151,7 +151,7 @@ const ContactPage: React.FC = () => {
 
               {/* Message Field */}
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium font-sans text-gray-700 mb-2">
                   메시지 *
                 </label>
                 <div className="relative">
@@ -173,7 +173,7 @@ const ContactPage: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting || !formData.name || !formData.email || !formData.message}
-                className={`w-full flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
+                className={`w-full flex items-center justify-center px-6 py-3 rounded-lg font-semibold font-heading transition-all duration-200 ${
                   isSubmitting || !formData.name || !formData.email || !formData.message
                     ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     : 'bg-blue-600 text-white hover:bg-blue-700 hover:transform hover:translateY(-1px) shadow-lg'
@@ -211,7 +211,7 @@ const ContactPage: React.FC = () => {
           >
             {/* Why Choose Us */}
             <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">
+              <h3 className="text-xl font-bold font-heading text-gray-900 mb-6">
                 왜 바이브 코딩인가요?
               </h3>
               
@@ -219,7 +219,7 @@ const ContactPage: React.FC = () => {
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">검증된 경험</h4>
+                    <h4 className="font-semibold font-heading text-gray-900">검증된 경험</h4>
                     <p className="text-gray-600 text-sm">35+ 개의 성공적인 MVP 프로젝트 완성</p>
                   </div>
                 </div>
@@ -227,7 +227,7 @@ const ContactPage: React.FC = () => {
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">빠른 개발</h4>
+                    <h4 className="font-semibold font-heading text-gray-900">빠른 개발</h4>
                     <p className="text-gray-600 text-sm">평균 2주 내 MVP 완성 및 배포</p>
                   </div>
                 </div>
@@ -235,7 +235,7 @@ const ContactPage: React.FC = () => {
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">합리적 비용</h4>
+                    <h4 className="font-semibold font-heading text-gray-900">합리적 비용</h4>
                     <p className="text-gray-600 text-sm">불필요한 기능 없이 핵심만 구현</p>
                   </div>
                 </div>
@@ -243,7 +243,7 @@ const ContactPage: React.FC = () => {
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">지속적 지원</h4>
+                    <h4 className="font-semibold font-heading text-gray-900">지속적 지원</h4>
                     <p className="text-gray-600 text-sm">출시 후에도 운영 및 개선 지원</p>
                   </div>
                 </div>
@@ -252,7 +252,7 @@ const ContactPage: React.FC = () => {
 
             {/* Contact Info */}
             <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">
+              <h3 className="text-xl font-bold font-heading text-gray-900 mb-6">
                 연락처 정보
               </h3>
               
@@ -260,7 +260,7 @@ const ContactPage: React.FC = () => {
                 <div className="flex items-center">
                   <Mail className="w-5 h-5 text-blue-600 mr-3" />
                   <div>
-                    <p className="font-medium text-gray-900">이메일</p>
+                    <p className="font-medium font-sans text-gray-900">이메일</p>
                     <p className="text-gray-600">contact@vibecoding.com</p>
                   </div>
                 </div>
@@ -268,7 +268,7 @@ const ContactPage: React.FC = () => {
                 <div className="flex items-center">
                   <Phone className="w-5 h-5 text-blue-600 mr-3" />
                   <div>
-                    <p className="font-medium text-gray-900">전화번호</p>
+                    <p className="font-medium font-sans text-gray-900">전화번호</p>
                     <p className="text-gray-600">010-1234-5678</p>
                   </div>
                 </div>
@@ -276,7 +276,7 @@ const ContactPage: React.FC = () => {
                 <div className="flex items-center">
                   <Clock className="w-5 h-5 text-blue-600 mr-3" />
                   <div>
-                    <p className="font-medium text-gray-900">상담 시간</p>
+                    <p className="font-medium font-sans text-gray-900">상담 시간</p>
                     <p className="text-gray-600">평일 9:00 - 18:00</p>
                   </div>
                 </div>
@@ -284,7 +284,7 @@ const ContactPage: React.FC = () => {
                 <div className="flex items-start">
                   <MapPin className="w-5 h-5 text-blue-600 mr-3 mt-0.5" />
                   <div>
-                    <p className="font-medium text-gray-900">위치</p>
+                    <p className="font-medium font-sans text-gray-900">위치</p>
                     <p className="text-gray-600">서울특별시 강남구<br />온라인 상담 우선</p>
                   </div>
                 </div>
@@ -293,37 +293,37 @@ const ContactPage: React.FC = () => {
 
             {/* Process */}
             <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">
+              <h3 className="text-xl font-bold font-heading text-gray-900 mb-6">
                 상담 프로세스
               </h3>
               
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm mr-3">
+                  <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold font-heading text-sm mr-3">
                     1
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">문의 접수</p>
+                    <p className="font-medium font-sans text-gray-900">문의 접수</p>
                     <p className="text-gray-600 text-sm">폼 작성 후 24시간 내 연락</p>
                   </div>
                 </div>
                 
                 <div className="flex items-center">
-                  <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm mr-3">
+                  <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold font-heading text-sm mr-3">
                     2
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">무료 상담</p>
+                    <p className="font-medium font-sans text-gray-900">무료 상담</p>
                     <p className="text-gray-600 text-sm">아이디어 구체화 및 견적 제공</p>
                   </div>
                 </div>
                 
                 <div className="flex items-center">
-                  <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm mr-3">
+                  <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold font-heading text-sm mr-3">
                     3
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">MVP 개발</p>
+                    <p className="font-medium font-sans text-gray-900">MVP 개발</p>
                     <p className="text-gray-600 text-sm">2주 내 개발 및 배포 완료</p>
                   </div>
                 </div>

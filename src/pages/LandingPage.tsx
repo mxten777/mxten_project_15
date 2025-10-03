@@ -11,7 +11,7 @@ const LandingPage: React.FC = () => {
         <div className="hero-overlay"></div>
         <div className="relative z-10 text-center text-white px-4">
           <motion.h1 
-            className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
+            className="text-4xl md:text-6xl font-bold font-heading mb-6 leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -57,7 +57,7 @@ const LandingPage: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800"
+            className="text-3xl md:text-4xl font-bold font-heading text-center mb-12 text-gray-800"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -93,7 +93,7 @@ const LandingPage: React.FC = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 {feature.icon}
-                <h3 className="text-xl font-semibold mb-4 text-gray-800">{feature.title}</h3>
+                <h3 className="text-xl font-semibold font-heading mb-4 text-gray-800">{feature.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
@@ -119,7 +119,7 @@ const LandingPage: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className="text-4xl md:text-5xl font-bold mb-2">{stat.number}</div>
+                <div className="text-4xl md:text-5xl font-bold font-heading mb-2">{stat.number}</div>
                 <div className="text-lg opacity-90">{stat.label}</div>
               </motion.div>
             ))}
@@ -131,7 +131,7 @@ const LandingPage: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold mb-6 text-gray-800"
+            className="text-3xl md:text-4xl font-bold font-heading mb-6 text-gray-800"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

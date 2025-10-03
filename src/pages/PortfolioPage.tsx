@@ -32,7 +32,7 @@ const PortfolioPage: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6">
               바이브 코딩 <span className="text-yellow-400">MVP 포트폴리오</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
@@ -63,7 +63,7 @@ const PortfolioPage: React.FC = () => {
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setShowFeatured(!showFeatured)}
-                className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium font-sans transition-colors ${
                   showFeatured
                     ? 'bg-yellow-100 text-yellow-800 border-2 border-yellow-300'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -79,7 +79,7 @@ const PortfolioPage: React.FC = () => {
                     setSelectedCategory(category);
                     setShowFeatured(false);
                   }}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  className={`px-4 py-2 rounded-full text-sm font-medium font-sans transition-colors ${
                     selectedCategory === category && !showFeatured
                       ? 'bg-blue-100 text-blue-800 border-2 border-blue-300'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -137,12 +137,12 @@ const PortfolioPage: React.FC = () => {
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex items-start gap-3 flex-1">
                         {project.featured && (
-                          <div className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 mt-1 flex-shrink-0">
+                          <div className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium font-sans bg-yellow-100 text-yellow-800 mt-1 flex-shrink-0">
                             <Star className="w-3 h-3 mr-1" />
                             추천
                           </div>
                         )}
-                        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                        <h3 className="text-xl font-bold font-heading text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                           {project.title}
                         </h3>
                       </div>
@@ -158,7 +158,7 @@ const PortfolioPage: React.FC = () => {
                         <Calendar className="w-4 h-4 mr-1" />
                         {project.date}
                       </div>
-                      <div className="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium">
+                      <div className="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium font-sans">
                         {project.category}
                       </div>
                     </div>
@@ -168,7 +168,7 @@ const PortfolioPage: React.FC = () => {
                       {project.tags.slice(0, 3).map((tag, tagIndex) => (
                         <span
                           key={tagIndex}
-                          className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-blue-50 text-blue-700"
+                          className="inline-flex items-center px-2 py-1 rounded text-xs font-medium font-sans bg-blue-50 text-blue-700"
                         >
                           <Tag className="w-3 h-3 mr-1" />
                           {tag}
@@ -214,19 +214,19 @@ const PortfolioPage: React.FC = () => {
                   <div className="flex flex-col md:flex-row md:items-center justify-between">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <div className="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium">
+                        <div className="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium font-sans">
                           {project.category}
                         </div>
                       </div>
                       
                       <div className="flex items-start gap-3 mb-2">
                         {project.featured && (
-                          <div className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 flex-shrink-0">
+                          <div className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium font-sans bg-yellow-100 text-yellow-800 flex-shrink-0">
                             <Star className="w-3 h-3 mr-1" />
                             추천
                           </div>
                         )}
-                        <h3 className="text-xl font-bold text-gray-900">
+                        <h3 className="text-xl font-bold font-heading text-gray-900">
                           {project.title}
                         </h3>
                       </div>
@@ -239,7 +239,7 @@ const PortfolioPage: React.FC = () => {
                         {project.tags.map((tag, tagIndex) => (
                           <span
                             key={tagIndex}
-                            className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-blue-50 text-blue-700"
+                            className="inline-flex items-center px-2 py-1 rounded text-xs font-medium font-sans bg-blue-50 text-blue-700"
                           >
                             <Tag className="w-3 h-3 mr-1" />
                             {tag}
@@ -285,7 +285,7 @@ const PortfolioPage: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6">
               당신의 아이디어도 MVP로 만들어보세요
             </h2>
             <p className="text-xl mb-8 opacity-90">
@@ -294,13 +294,13 @@ const PortfolioPage: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/contact"
-                className="inline-flex items-center px-8 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-lg hover:bg-yellow-300 transition-colors"
+                className="inline-flex items-center px-8 py-3 bg-yellow-400 text-gray-900 font-semibold font-heading rounded-lg hover:bg-yellow-300 transition-colors"
               >
                 무료 상담 신청하기
               </a>
               <a
                 href="/"
-                className="inline-flex items-center px-8 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-gray-900 transition-colors"
+                className="inline-flex items-center px-8 py-3 bg-transparent border-2 border-white text-white font-semibold font-heading rounded-lg hover:bg-white hover:text-gray-900 transition-colors"
               >
                 서비스 소개 보기
               </a>

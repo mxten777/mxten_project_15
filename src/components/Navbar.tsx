@@ -81,7 +81,7 @@ const Navbar: React.FC = () => {
                 />
               </motion.div>
               <div className="flex flex-col">
-                <span className={`font-bold text-xl leading-tight ${
+                <span className={`font-bold font-heading text-xl leading-tight ${
                   scrolled ? 'text-gray-900' : 'text-white'
                 }`}
                 style={{
@@ -89,7 +89,7 @@ const Navbar: React.FC = () => {
                 }}>
                   바이브 코딩
                 </span>
-                <span className={`text-sm font-medium leading-tight ${
+                <span className={`text-sm font-medium font-sans leading-tight ${
                   scrolled ? 'text-blue-600' : 'text-white'
                 }`}
                 style={{
@@ -106,7 +106,7 @@ const Navbar: React.FC = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`relative px-5 py-3 rounded-xl font-bold transition-all duration-200 ${
+                  className={`relative px-5 py-3 rounded-xl font-bold font-heading transition-all duration-200 ${
                     isActive(item.path)
                       ? scrolled
                         ? 'text-white bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg'
@@ -135,7 +135,7 @@ const Navbar: React.FC = () => {
               {/* CTA Button - 개선된 버전 */}
               <Link
                 to="/contact"
-                className={`ml-6 px-7 py-3 rounded-xl font-bold transition-all duration-200 transform hover:scale-105 shadow-xl ${
+                className={`ml-6 px-7 py-3 rounded-xl font-bold font-heading transition-all duration-200 transform hover:scale-105 shadow-xl ${
                   scrolled
                     ? 'bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 hover:from-yellow-500 hover:to-orange-500'
                     : 'bg-yellow-400 text-gray-900 hover:bg-yellow-300 border-2 border-white/50'
@@ -224,8 +224,8 @@ const Navbar: React.FC = () => {
                         }`}
                       >
                         <div className="flex-1">
-                          <div className="font-bold text-lg">{item.name}</div>
-                          <div className="text-sm text-gray-500 font-medium">{item.description}</div>
+                          <div className="font-bold font-heading text-lg">{item.name}</div>
+                          <div className="text-sm text-gray-500 font-medium font-sans">{item.description}</div>
                         </div>
                         <ChevronRight className={`w-5 h-5 transition-transform duration-200 ${
                           isActive(item.path) ? 'text-blue-600' : 'text-gray-400 group-hover:translate-x-1'
@@ -245,7 +245,7 @@ const Navbar: React.FC = () => {
                   <Link
                     to="/contact"
                     onClick={closeMenu}
-                    className="block w-full text-center px-6 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg rounded-2xl hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-105 shadow-xl"
+                    className="block w-full text-center px-6 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold font-heading text-lg rounded-2xl hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-105 shadow-xl"
                   >
                     무료 상담 신청하기
                   </Link>
@@ -259,10 +259,10 @@ const Navbar: React.FC = () => {
                   transition={{ delay: 0.4 }}
                 >
                   <div className="text-center">
-                    <div className="font-bold text-gray-800 mb-2">빠른 연락</div>
+                    <div className="font-bold font-heading text-gray-800 mb-2">빠른 연락</div>
                     <div className="space-y-1 text-sm">
-                      <div className="font-semibold text-blue-600">contact@vibecoding.com</div>
-                      <div className="font-semibold text-blue-600">010-1234-5678</div>
+                      <div className="font-semibold font-sans text-blue-600">contact@vibecoding.com</div>
+                      <div className="font-semibold font-sans text-blue-600">010-1234-5678</div>
                     </div>
                   </div>
                 </motion.div>
