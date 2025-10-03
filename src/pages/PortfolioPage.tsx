@@ -193,11 +193,7 @@ const PortfolioPage: React.FC = () => {
                         onClick={() => handleDemoClick(project)}
                         className="flex-1 inline-flex items-center justify-center px-3 py-2 rounded-lg transition-colors text-sm bg-blue-600 text-white hover:bg-blue-700"
                       >
-                        {project.status === 'loading' ? (
-                          <span className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></span>
-                        ) : (
-                          <ExternalLink className="w-4 h-4 mr-1" />
-                        )}
+                        <ExternalLink className="w-4 h-4 mr-1" />
                         데모 보기
                       </button>
                     </div>
