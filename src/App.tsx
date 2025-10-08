@@ -6,36 +6,43 @@ import './App.css';
 // Import components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import PageLoader from './components/PageLoader';
+import CursorFollower from './components/CursorFollower';
+import { ScrollProgress } from './components/ScrollTriggered';
 import { SkipToContent } from './hooks/useAccessibility';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 // Import performance monitoring
-import { performanceMonitor } from './utils/performance';
+// import { performanceMonitor } from './utils/performance';
 
-// 코드 스플리팅을 위한 lazy 로딩
-const LandingPage = lazy(() => import('./pages/LandingPage'));
-const PortfolioPage = lazy(() => import('./pages/PortfolioPage'));
-const MVPDetailPage = lazy(() => import('./pages/MVPDetailPage'));
-const ContactPage = lazy(() => import('./pages/ContactPage'));
-
-// 로딩 컴포넌트
-const PageLoader = () => (
-  <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800">
-    <div className="text-center">
-      <div className="animate-spin rounded-full h-16 w-16 border-4 border-white border-t-transparent mx-auto mb-4"></div>
-      <p className="text-white text-lg font-semibold">페이지 로딩중...</p>
-    </div>
-  </div>
+// 코드 스플리팅을 위한 lazy 로딩 (더 세밀한 청크 분할)
+const LandingPage = lazy(() => 
+  import('./pages/LandingPage').then(module => ({ default: module.default }))
 );
+const PortfolioPage = lazy(() => 
+  import('./pages/PortfolioPage').then(module => ({ default: module.default }))
+);
+const MVPDetailPage = lazy(() => 
+  import('./pages/MVPDetailPage').then(module => ({ default: module.default }))
+);
+const ContactPage = lazy(() => 
+  import('./pages/ContactPage').then(module => ({ default: module.default }))
+);
+
+// 컴포넌트 프리로딩은 성능 최적화를 위해 추후 구현
+
+// 로딩 컴포넌트는 별도 파일로 분리됨
 
 function App() {
   useEffect(() => {
     // Initialize performance monitoring
-    performanceMonitor;
+    // performanceMonitor.init();
   }, []);
 
   return (
-    <Router>
-      <div className="min-h-screen bg-slate-50">
+    <ThemeProvider>
+      <Router>
+        <div className="min-h-screen bg-slate-50 dark:bg-secondary-900 transition-colors duration-300">
         <SkipToContent />
         <Navbar />
         <main id="main-content" role="main">
@@ -107,8 +114,13 @@ function App() {
         </main>
         
         <Footer />
-      </div>
-    </Router>
+        
+        {/* Interactive Elements */}
+        <CursorFollower />
+        <ScrollProgress />
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 

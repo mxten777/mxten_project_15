@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronRight } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,8 +51,8 @@ const Navbar: React.FC = () => {
       <motion.nav
         className={`fixed w-full z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-white shadow-xl border-b border-gray-100'
-            : 'bg-black/30 backdrop-blur-lg border-b border-white/30'
+            ? 'bg-white dark:bg-secondary-900 shadow-xl border-b border-gray-100 dark:border-gray-700'
+            : 'bg-black/30 dark:bg-black/50 backdrop-blur-lg border-b border-white/30 dark:border-white/20'
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -132,10 +133,15 @@ const Navbar: React.FC = () => {
                 </Link>
               ))}
               
+              {/* Theme Toggle */}
+              <div className="ml-4">
+                <ThemeToggle />
+              </div>
+
               {/* CTA Button - 개선된 버전 */}
               <Link
                 to="/contact"
-                className={`ml-6 px-7 py-3 rounded-2xl font-bold font-heading shadow-lg transition-all duration-200 transform hover:scale-105 ${
+                className={`ml-4 px-7 py-3 rounded-2xl font-bold font-heading shadow-lg transition-all duration-200 transform hover:scale-105 ${
                   scrolled
                     ? 'bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 hover:from-yellow-500 hover:to-orange-500'
                     : 'bg-yellow-400 text-gray-900 hover:bg-yellow-300 border-2 border-white/50'

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ExternalLink, Calendar, Tag, Star, Grid, List } from 'lucide-react';
 import { categories, getProjectsByCategory, getFeaturedProjects } from '../data/projects';
+import Interactive3DCard from '../components/Interactive3DCard';
+import ScrollTriggered from '../components/ScrollTriggered';
 
 const PortfolioPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState("전체");
@@ -13,7 +15,7 @@ const PortfolioPage: React.FC = () => {
     ? getFeaturedProjects() 
     : getProjectsByCategory(selectedCategory);
 
-  const handleDemoClick = (project: any) => {
+  const handleDemoClick = (project: { status?: string; url?: string }) => {
     if (project.status === 'concept') {
       alert('🔍 검토중인 아이디어 프로젝트입니다.\n\n현재 기획 단계에 있으며, 향후 개발 예정입니다.\n문의사항이 있으시면 연락주세요!');
       return;
@@ -24,17 +26,33 @@ const PortfolioPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-  <section className="bg-gradient-presentation text-white py-20">
-        <div className="max-w-7xl mx-auto px-4">
+  <section className="morphing-bg particle-bg text-white py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/50 via-purple-900/50 to-pink-900/50"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1, type: "spring", stiffness: 100 }}
             className="text-center"
           >
-            <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6">
-              바이브 코딩 <span className="text-yellow-400">MVP 포트폴리오</span>
-            </h1>
+            <motion.h1 
+              className="text-display font-black font-display mb-6 tracking-tighter"
+              initial={{ opacity: 0, rotateX: -15 }}
+              animate={{ opacity: 1, rotateX: 0 }}
+              transition={{ duration: 1, delay: 0.2 }}
+            >
+              바이브 코딩{' '}
+              <motion.span 
+                className="text-gradient bg-gradient-to-r from-yellow-300 via-pink-300 to-cyan-300 bg-clip-text text-transparent"
+                animate={{ 
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+                style={{ backgroundSize: "200% 200%" }}
+              >
+                MVP 포트폴리오
+              </motion.span>
+            </motion.h1>
             <p className="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
               2024년 7월부터 현재까지 완성된 <strong>39개</strong>의 검증된 MVP 프로젝트들
               <br />
@@ -123,15 +141,21 @@ const PortfolioPage: React.FC = () => {
   <section className="py-16 bg-gradient-radial from-presentation-bg via-presentation-card to-presentation-light divide-y divide-gray-100">
         <div className="max-w-7xl mx-auto px-4">
           {viewMode === 'grid' ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 lg:gap-8 auto-rows-max">
               {filteredProjects.map((project, index) => (
-                <motion.div
+                <ScrollTriggered
                   key={project.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden group animate-fade-in"
+                  animation="scale"
+                  delay={index * 0.1}
+                  duration={0.6}
                 >
+                  <Interactive3DCard
+                    className="glass-effect bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm 
+                             rounded-3xl border border-white/20 dark:border-gray-700/50 
+                             overflow-hidden h-full"
+                    intensity={0.3}
+                    glowEffect={true}
+                  >
                   {/* Project Header */}
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-4">
@@ -198,7 +222,8 @@ const PortfolioPage: React.FC = () => {
                       </button>
                     </div>
                   </div>
-                </motion.div>
+                  </Interactive3DCard>
+                </ScrollTriggered>
               ))}
             </div>
           ) : (
