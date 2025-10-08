@@ -18,6 +18,7 @@ const CursorFollower: React.FC<CursorFollowerProps> = ({
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
@@ -26,6 +27,22 @@ const CursorFollower: React.FC<CursorFollowerProps> = ({
   const springY = useSpring(cursorY, { stiffness, damping, mass });
 
   useEffect(() => {
+    // Check if device is mobile
+    const checkIsMobile = () => {
+      const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+        || window.matchMedia('(max-width: 768px)').matches 
+        || 'ontouchstart' in window;
+      setIsMobile(isMobileDevice);
+      return isMobileDevice;
+    };
+
+    const isMobileDevice = checkIsMobile();
+    
+    // Don't initialize cursor on mobile devices
+    if (isMobileDevice) {
+      return;
+    }
+
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
@@ -71,6 +88,11 @@ const CursorFollower: React.FC<CursorFollowerProps> = ({
       cleanup();
     };
   }, [cursorX, cursorY, isVisible]);
+
+  // Don't render cursor on mobile
+  if (isMobile) {
+    return <>{children}</>;
+  }
 
   return (
     <>

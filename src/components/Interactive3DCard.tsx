@@ -18,6 +18,21 @@ const Interactive3DCard: React.FC<Interactive3DCardProps> = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check for mobile device
+  React.useEffect(() => {
+    const checkIsMobile = () => {
+      const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+        || window.matchMedia('(max-width: 768px)').matches 
+        || 'ontouchstart' in window;
+      setIsMobile(isMobileDevice);
+    };
+
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -29,7 +44,7 @@ const Interactive3DCard: React.FC<Interactive3DCardProps> = ({
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], [`${25 * intensity}deg`, `${-25 * intensity}deg`]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current || !tiltEnabled) return;
+    if (!ref.current || !tiltEnabled || isMobile) return;
 
     const rect = ref.current.getBoundingClientRect();
     const width = rect.width;

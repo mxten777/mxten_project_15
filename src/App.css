@@ -6,9 +6,18 @@
   text-align: center;
 }
 
-/* Custom Cursor */
-* {
-  cursor: none !important;
+/* Custom Cursor - Desktop Only */
+@media (min-width: 769px) and (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Mobile Cursor - Show default cursor on mobile */
+@media (max-width: 768px), (hover: none), (pointer: coarse) {
+  * {
+    cursor: auto !important;
+  }
 }
 
 /* Line clamp utilities */
@@ -77,4 +86,33 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Touch optimization for mobile */
+@media (hover: none) {
+  .magnetic-hover:hover {
+    transform: none;
+  }
+  
+  .card-3d:hover {
+    transform: none;
+  }
+}
+
+/* Better touch targets */
+button, a, [role="button"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Prevent text selection on mobile */
+@media (max-width: 768px) {
+  .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+  }
 }

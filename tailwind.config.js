@@ -194,8 +194,30 @@ export default {
       },
       textColor: {
         'gradient-primary': 'transparent',
+      },
+      // Bento Grid Classes for responsive design
+      gridTemplateAreas: {
+        'bento-mobile': '"large large" "medium small"',
+        'bento-desktop': '"large medium small"'
       }
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities }) {
+      addUtilities({
+        '.bento-large': {
+          '@apply col-span-2 row-span-2 md:col-span-1 md:row-span-2': {},
+        },
+        '.bento-medium': {
+          '@apply col-span-1 row-span-1 md:col-span-1 md:row-span-1': {},
+        },
+        '.bento-small': {
+          '@apply col-span-1 row-span-1': {},
+        },
+        '.bento-grid': {
+          '@apply grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6': {},
+        }
+      })
+    }
+  ],
 }
