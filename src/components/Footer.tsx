@@ -64,9 +64,9 @@ const Footer: React.FC = () => {
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-8 xl:gap-12">
           {/* Company Info */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 flex flex-col justify-start">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +74,10 @@ const Footer: React.FC = () => {
               transition={{ duration: 0.6 }}
               className="space-y-4"
             >
-              {/* Logo */}
+              {/* Section Title */}
+              <h4 className="text-xl font-bold font-heading text-white mb-6">바이브 코딩</h4>
+              
+              {/* Company Description */}
               <div className="flex items-center space-x-3">
                 <div className="p-2 bg-white rounded-lg hover:bg-gray-50 transition-all duration-300 shadow-lg border border-gray-200">
                   <img 
@@ -88,7 +91,6 @@ const Footer: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold font-heading">바이브 코딩</h3>
                   <p className="text-sm text-gray-400">MVP 전문 개발팀</p>
                 </div>
               </div>
@@ -114,15 +116,15 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="flex flex-col justify-start">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="space-y-4"
+              className="space-y-4 h-full"
             >
-              <h4 className="text-lg font-semibold font-heading text-white mb-4">빠른 이동</h4>
+              <h4 className="text-xl font-bold font-heading text-white mb-6">빠른 이동</h4>
               <div className="space-y-3">
                 {quickLinks.map((link) => (
                   <Link
@@ -148,15 +150,15 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="flex flex-col justify-start">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-4"
+              className="space-y-4 h-full"
             >
-              <h4 className="text-lg font-semibold font-heading text-white mb-4">제공 서비스</h4>
+              <h4 className="text-xl font-bold font-heading text-white mb-6">제공 서비스</h4>
               <div className="space-y-3">
                 {services.map((service, index) => (
                   <div
@@ -172,15 +174,15 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="flex flex-col justify-start">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="space-y-4"
+              className="space-y-4 h-full"
             >
-              <h4 className="text-lg font-semibold font-heading text-white mb-4">연락처</h4>
+              <h4 className="text-xl font-bold font-heading text-white mb-6">연락처</h4>
               
               <div className="space-y-4">
                 {/* Email */}

@@ -8,7 +8,6 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import PageLoader from './components/PageLoader';
 import CursorFollower from './components/CursorFollower';
-import { ScrollProgress } from './components/ScrollTriggered';
 import { SkipToContent } from './hooks/useAccessibility';
 import { ThemeProvider } from './contexts/ThemeContext';
 
@@ -43,6 +42,7 @@ function App() {
     <ThemeProvider>
       <Router>
         <div className="min-h-screen bg-slate-50 dark:bg-secondary-900 transition-colors duration-300">
+        <CursorFollower />
         <SkipToContent />
         <Navbar />
         <main id="main-content" role="main">
@@ -114,10 +114,6 @@ function App() {
         </main>
         
         <Footer />
-        
-        {/* Interactive Elements */}
-        <CursorFollower />
-        <ScrollProgress />
         </div>
       </Router>
     </ThemeProvider>

@@ -11,10 +11,7 @@ interface CursorFollowerProps {
 
 const CursorFollower: React.FC<CursorFollowerProps> = ({
   children,
-  size = 20,
-  stiffness = 300,
-  damping = 30,
-  mass = 1
+  size = 20
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
@@ -23,8 +20,8 @@ const CursorFollower: React.FC<CursorFollowerProps> = ({
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  const springX = useSpring(cursorX, { stiffness, damping, mass });
-  const springY = useSpring(cursorY, { stiffness, damping, mass });
+  const springX = useSpring(cursorX, { stiffness: 500, damping: 20, mass: 0.5 });
+  const springY = useSpring(cursorY, { stiffness: 500, damping: 20, mass: 0.5 });
 
   useEffect(() => {
     // Check if device is mobile

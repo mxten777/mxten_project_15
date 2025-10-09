@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sun, Moon, Monitor } from 'lucide-react';
+import { Sun, Moon, Settings } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 const ThemeToggle: React.FC = () => {
@@ -9,11 +9,11 @@ const ThemeToggle: React.FC = () => {
   const getIcon = () => {
     switch (theme) {
       case 'light':
-        return <Sun className="w-5 h-5" />;
+        return <Sun className="w-4 h-4" />;
       case 'dark':
-        return <Moon className="w-5 h-5" />;
+        return <Moon className="w-4 h-4" />;
       default:
-        return <Monitor className="w-5 h-5" />;
+        return <Settings className="w-4 h-4" />;
     }
   };
 
@@ -31,9 +31,9 @@ const ThemeToggle: React.FC = () => {
   return (
     <motion.button
       onClick={toggleTheme}
-      className="relative p-3 rounded-2xl glass-effect border border-white/20 dark:border-gray-700/50 
-                hover:bg-white/10 dark:hover:bg-gray-800/50 transition-all duration-300 group"
-      whileHover={{ scale: 1.05, rotateY: 10 }}
+      className="p-2.5 rounded-lg bg-white/20 dark:bg-gray-800/50 border border-white/30 dark:border-gray-600/50 
+                hover:bg-white/30 dark:hover:bg-gray-700/50 transition-all duration-300 group backdrop-blur-sm"
+      whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       aria-label={`현재: ${getLabel()}, 클릭하여 테마 변경`}
       title={getLabel()}
@@ -49,20 +49,6 @@ const ThemeToggle: React.FC = () => {
       >
         {getIcon()}
       </motion.div>
-
-      {/* Indicator dots */}
-      <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 flex space-x-1">
-        {['light', 'dark', 'auto'].map((mode) => (
-          <div
-            key={mode}
-            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-              theme === mode
-                ? 'bg-blue-500 scale-125'
-                : 'bg-gray-400 dark:bg-gray-600 scale-100'
-            }`}
-          />
-        ))}
-      </div>
     </motion.button>
   );
 };

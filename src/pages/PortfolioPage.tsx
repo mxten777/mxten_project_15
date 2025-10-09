@@ -24,7 +24,7 @@ const PortfolioPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
   <section className="morphing-bg particle-bg text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/50 via-purple-900/50 to-pink-900/50"></div>
@@ -74,17 +74,17 @@ const PortfolioPage: React.FC = () => {
       </section>
 
       {/* Filter Controls */}
-  <section className="bg-gradient-radial from-presentation-bg via-presentation-card to-presentation-light border-b border-gray-200 mb-12">
+  <section className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 mb-12">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Category Filters */}
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setShowFeatured(!showFeatured)}
-                className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium font-sans transition-colors ${
+                className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-bold font-sans transition-colors ${
                   showFeatured
-                    ? 'bg-yellow-100 text-yellow-800 border-2 border-yellow-300'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-yellow-200 dark:bg-yellow-500 text-yellow-900 dark:text-yellow-100 border-2 border-yellow-400 dark:border-yellow-300'
+                    : 'bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-500 border border-gray-300 dark:border-gray-500'
                 }`}
               >
                 <Star className="w-4 h-4 mr-2" />
@@ -97,10 +97,10 @@ const PortfolioPage: React.FC = () => {
                     setSelectedCategory(category);
                     setShowFeatured(false);
                   }}
-                  className={`px-4 py-2 rounded-full text-sm font-medium font-sans transition-colors ${
+                  className={`px-4 py-2 rounded-full text-sm font-bold font-sans transition-colors ${
                     selectedCategory === category && !showFeatured
-                      ? 'bg-blue-100 text-blue-800 border-2 border-blue-300'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-blue-200 dark:bg-blue-600 text-blue-900 dark:text-blue-100 border-2 border-blue-400 dark:border-blue-400'
+                      : 'bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-500 border border-gray-300 dark:border-gray-500'
                   }`}
                 >
                   {category}
@@ -109,19 +109,19 @@ const PortfolioPage: React.FC = () => {
             </div>
 
             {/* View Mode Toggle */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 bg-gray-200 dark:bg-gray-600 rounded-lg p-1 border border-gray-300 dark:border-gray-500">
               <button
                 onClick={() => setViewMode('grid')}
-                className={`p-2 rounded ${
-                  viewMode === 'grid' ? 'bg-blue-100 text-blue-600' : 'text-gray-400 hover:text-gray-600'
+                className={`p-2 rounded font-semibold text-sm transition-all ${
+                  viewMode === 'grid' ? 'bg-blue-500 text-white shadow-md' : 'text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100'
                 }`}
               >
                 <Grid className="w-5 h-5" />
               </button>
               <button
                 onClick={() => setViewMode('list')}
-                className={`p-2 rounded ${
-                  viewMode === 'list' ? 'bg-blue-100 text-blue-600' : 'text-gray-400 hover:text-gray-600'
+                className={`p-2 rounded font-semibold text-sm transition-all ${
+                  viewMode === 'list' ? 'bg-blue-500 text-white shadow-md' : 'text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100'
                 }`}
               >
                 <List className="w-5 h-5" />
@@ -129,8 +129,8 @@ const PortfolioPage: React.FC = () => {
             </div>
           </div>
           
-          <div className="mt-4 text-sm text-gray-600">
-            총 <strong>{filteredProjects.length}개</strong> 프로젝트
+          <div className="mt-4 text-sm text-gray-700 dark:text-gray-300 font-semibold">
+            총 <strong className="text-blue-600 dark:text-blue-400">{filteredProjects.length}개</strong> 프로젝트
             {showFeatured && " (추천 프로젝트)"}
             {!showFeatured && selectedCategory !== "전체" && ` (${selectedCategory} 카테고리)`}
           </div>
@@ -138,10 +138,10 @@ const PortfolioPage: React.FC = () => {
       </section>
 
       {/* Projects Grid/List */}
-  <section className="py-16 bg-gradient-radial from-presentation-bg via-presentation-card to-presentation-light divide-y divide-gray-100">
+  <section className="py-16 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4">
           {viewMode === 'grid' ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 lg:gap-8 auto-rows-max">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8 auto-rows-max">
               {filteredProjects.map((project, index) => (
                 <ScrollTriggered
                   key={project.id}
@@ -150,9 +150,9 @@ const PortfolioPage: React.FC = () => {
                   duration={0.6}
                 >
                   <Interactive3DCard
-                    className="glass-effect bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm 
-                             rounded-3xl border border-white/20 dark:border-gray-700/50 
-                             overflow-hidden h-full"
+                    className="glass-effect bg-white dark:bg-gray-800 backdrop-blur-sm 
+                             rounded-3xl border-2 border-gray-200 dark:border-gray-600 
+                             overflow-hidden h-full shadow-lg hover:shadow-xl transition-shadow"
                     intensity={0.3}
                     glowEffect={true}
                   >
@@ -161,28 +161,28 @@ const PortfolioPage: React.FC = () => {
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex items-start gap-3 flex-1">
                         {project.featured && (
-                          <div className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium font-sans bg-yellow-100 text-yellow-800 mt-1 flex-shrink-0">
+                          <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold font-sans bg-yellow-200 dark:bg-yellow-500 text-yellow-900 dark:text-yellow-100 mt-1 flex-shrink-0 border border-yellow-300 dark:border-yellow-400">
                             <Star className="w-3 h-3 mr-1" />
                             추천
                           </div>
                         )}
-                        <h3 className="text-xl font-bold font-heading text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                        <h3 className="text-xl font-black font-heading text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors drop-shadow-sm dark:drop-shadow-lg">
                           {project.title}
                         </h3>
                       </div>
                     </div>
                     
-                    <p className="text-gray-600 mb-4 line-clamp-2">
+                    <p className="text-gray-700 dark:text-gray-200 mb-4 line-clamp-2 font-semibold">
                       {project.description}
                     </p>
                     
                     {/* Project Meta */}
-                    <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                    <div className="flex items-center justify-between text-sm text-gray-600 dark:text-gray-300 mb-4">
                       <div className="flex items-center">
                         <Calendar className="w-4 h-4 mr-1" />
                         {project.date}
                       </div>
-                      <div className="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium font-sans">
+                      <div className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-xs font-bold font-sans text-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-600">
                         {project.category}
                       </div>
                     </div>
@@ -192,14 +192,14 @@ const PortfolioPage: React.FC = () => {
                       {project.tags.slice(0, 3).map((tag, tagIndex) => (
                         <span
                           key={tagIndex}
-                          className="inline-flex items-center px-2 py-1 rounded text-xs font-medium font-sans bg-blue-50 text-blue-700"
+                          className="inline-flex items-center px-3 py-1 rounded text-xs font-bold font-sans bg-blue-100 dark:bg-blue-700 text-blue-800 dark:text-blue-100 border border-blue-200 dark:border-blue-600"
                         >
                           <Tag className="w-3 h-3 mr-1" />
                           {tag}
                         </span>
                       ))}
                       {project.tags.length > 3 && (
-                        <span className="text-xs text-gray-500">
+                        <span className="text-xs text-gray-600 dark:text-gray-400 font-semibold">
                           +{project.tags.length - 3} more
                         </span>
                       )}
@@ -209,13 +209,13 @@ const PortfolioPage: React.FC = () => {
                     <div className="flex gap-2">
                       <Link
                         to={`/mvp/${project.id}`}
-                        className="flex-1 inline-flex items-center justify-center px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors text-sm"
+                        className="flex-1 inline-flex items-center justify-center px-3 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-bold border border-gray-300 dark:border-gray-600"
                       >
                         자세히 보기
                       </Link>
                       <button
                         onClick={() => handleDemoClick(project)}
-                        className="flex-1 inline-flex items-center justify-center px-3 py-2 rounded-lg transition-colors text-sm bg-blue-600 text-white hover:bg-blue-700"
+                        className="flex-1 inline-flex items-center justify-center px-3 py-2 rounded-lg transition-colors text-sm font-bold bg-blue-600 dark:bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-500 border border-blue-600 dark:border-blue-500"
                       >
                         <ExternalLink className="w-4 h-4 mr-1" />
                         데모 보기
@@ -234,29 +234,29 @@ const PortfolioPage: React.FC = () => {
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.05 }}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 p-6 animate-fade-in"
+                  className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 p-6 animate-fade-in border-2 border-gray-200 dark:border-gray-600"
                 >
                   <div className="flex flex-col md:flex-row md:items-center justify-between">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <div className="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium font-sans">
+                        <div className="px-3 py-1 bg-gray-200 dark:bg-gray-600 rounded-full text-xs font-bold font-sans text-gray-800 dark:text-gray-200 border dark:border-gray-500">
                           {project.category}
                         </div>
                       </div>
                       
                       <div className="flex items-start gap-3 mb-2">
                         {project.featured && (
-                          <div className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium font-sans bg-yellow-100 text-yellow-800 flex-shrink-0">
+                          <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold font-sans bg-yellow-200 dark:bg-yellow-500 text-yellow-900 dark:text-yellow-100 flex-shrink-0 border border-yellow-300 dark:border-yellow-400">
                             <Star className="w-3 h-3 mr-1" />
                             추천
                           </div>
                         )}
-                        <h3 className="text-xl font-bold font-heading text-gray-900">
+                        <h3 className="text-xl font-black font-heading text-gray-900 dark:text-white drop-shadow-sm dark:drop-shadow-lg">
                           {project.title}
                         </h3>
                       </div>
                       
-                      <p className="text-gray-600 mb-3">
+                      <p className="text-gray-700 dark:text-gray-200 mb-3 font-semibold">
                         {project.description}
                       </p>
                       
@@ -264,7 +264,7 @@ const PortfolioPage: React.FC = () => {
                         {project.tags.map((tag, tagIndex) => (
                           <span
                             key={tagIndex}
-                            className="inline-flex items-center px-2 py-1 rounded text-xs font-medium font-sans bg-blue-50 text-blue-700"
+                            className="inline-flex items-center px-3 py-1 rounded text-xs font-bold font-sans bg-blue-100 dark:bg-blue-700 text-blue-800 dark:text-blue-100 border border-blue-200 dark:border-blue-600"
                           >
                             <Tag className="w-3 h-3 mr-1" />
                             {tag}
@@ -272,7 +272,7 @@ const PortfolioPage: React.FC = () => {
                         ))}
                       </div>
                       
-                      <div className="flex items-center text-sm text-gray-500">
+                      <div className="flex items-center text-sm text-gray-600 dark:text-gray-300 font-semibold">
                         <Calendar className="w-4 h-4 mr-1" />
                         {project.date}
                       </div>
@@ -281,13 +281,13 @@ const PortfolioPage: React.FC = () => {
                     <div className="mt-4 md:mt-0 md:ml-6 flex gap-2">
                       <Link
                         to={`/mvp/${project.id}`}
-                        className="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-700 rounded-2xl shadow hover:bg-gray-200 hover:scale-105 transition-all"
+                        className="inline-flex items-center px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-2xl shadow hover:bg-gray-300 dark:hover:bg-gray-600 hover:scale-105 transition-all font-semibold border border-gray-300 dark:border-gray-600"
                       >
                         자세히 보기
                       </Link>
                       <button
                         onClick={() => handleDemoClick(project)}
-                        className="inline-flex items-center px-4 py-2 rounded-2xl shadow bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all"
+                        className="inline-flex items-center px-4 py-2 rounded-2xl shadow bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-600 dark:to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 dark:hover:from-blue-500 dark:hover:to-purple-500 hover:scale-105 transition-all font-semibold border border-blue-600 dark:border-blue-500"
                       >
                         <ExternalLink className="w-4 h-4 mr-2" />
                         데모 보기

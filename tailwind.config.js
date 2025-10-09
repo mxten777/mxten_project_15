@@ -199,6 +199,20 @@ export default {
       gridTemplateAreas: {
         'bento-mobile': '"large large" "medium small"',
         'bento-desktop': '"large medium small"'
+      },
+      // Mobile Touch Optimization
+      minHeight: {
+        'touch': '44px',
+        'touch-lg': '48px',
+      },
+      spacing: {
+        'safe-top': 'env(safe-area-inset-top)',
+        'safe-bottom': 'env(safe-area-inset-bottom)',
+        'safe-left': 'env(safe-area-inset-left)',
+        'safe-right': 'env(safe-area-inset-right)',
+      },
+      borderWidth: {
+        '3': '3px',
       }
     },
   },
@@ -216,6 +230,18 @@ export default {
         },
         '.bento-grid': {
           '@apply grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6': {},
+        },
+        '.touch-manipulation': {
+          'touch-action': 'manipulation',
+        },
+        '.tap-highlight-none': {
+          '-webkit-tap-highlight-color': 'transparent',
+        },
+        '.safe-area-inset': {
+          'padding-top': 'env(safe-area-inset-top)',
+          'padding-right': 'env(safe-area-inset-right)',
+          'padding-bottom': 'env(safe-area-inset-bottom)',
+          'padding-left': 'env(safe-area-inset-left)',
         }
       })
     }
