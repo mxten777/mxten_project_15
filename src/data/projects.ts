@@ -14,9 +14,9 @@ export const projects: Project[] = [
   // 🔥 2025년 9월 최신 프로젝트들
   {
     id: "jdx-01",
-    title: "JDX[1] 바이브 에듀 - 차세대 교육 플랫폼",
+    title: "JDX[1] 바이브 에듀 - AI 기반 맞춤형 교육 플랫폼",
     description: "최고의 교육 경험을 제공하는 차세대 온라인 교육 플랫폼. 실시간 강의, 커뮤니티, AI 기반 맞춤 학습 등 최신 기술을 집약한 서비스.",
-    url: "https://jdx-project-01-l3hn1uis4-dongyeol-jungs-projects.vercel.app/",
+    url: "https://jdx-project-01-mrewf59ag-dongyeol-jungs-projects.vercel.app/",
     category: "교육 플랫폼",
     date: "2025-10-02",
     tags: ["교육", "플랫폼", "AI", "실시간", "커뮤니티"],
@@ -26,19 +26,29 @@ export const projects: Project[] = [
     id: "mxten-12",
     title: "동해기계 홈페이지 리뉴얼",
     description: "기계 제조업체의 현대적인 홈페이지 리뉴얼 프로젝트",
-      url: "https://mxten-project-12-861s5wpqr-dongyeol-jungs-projects.vercel.app/ko/home",
+    url: "https://mxten-project-12-4pwo921bz-dongyeol-jungs-projects.vercel.app/ko/home",
     category: "웹사이트",
-    date: "2025-10-01",
+    date: "2025-10-03",
     tags: ["React", "리뉴얼", "제조업", "다국어"],
+    featured: true
+  },
+  {
+    id: "jdx-02",
+    title: "직장인을 위한 AI교육 플랫폼",
+    description: "직장인들의 업무 역량 향상을 위한 AI 기반 맞춤형 교육 플랫폼",
+    url: "https://jdx-project-02-r5s7u3v9w-dongyeol-jungs-projects.vercel.app/",
+    category: "교육",
+    date: "2025-10-15",
+    tags: ["직장인교육", "AI", "역량개발", "교육플랫폼"],
     featured: true
   },
   {
     id: "mxten-10",
     title: "슬롯머신형 일본 파칭코 웹",
     description: "재미있는 슬롯머신 스타일의 파칭코 게임 웹 애플리케이션",
-    url: "https://mxten-project-10-f98097fis-dongyeol-jungs-projects.vercel.app/",
+    url: "https://mxten-project-10-4mmti96wq-dongyeol-jungs-projects.vercel.app/",
     category: "게임",
-    date: "2025-09-21",
+    date: "2025-10-11",
     tags: ["게임", "슬롯머신", "파칭코", "엔터테인먼트"],
     featured: true
   },
@@ -46,7 +56,7 @@ export const projects: Project[] = [
     id: "lawmaker-landing",
     title: "국회의원 랜딩페이지",
     description: "시민과 함께하는 더 나은 미래를 위한 국회의원 랜딩페이지",
-    url: "https://lawmaker-landing-4dvzqs09k-dongyeol-jungs-projects.vercel.app/",
+    url: "https://lawmaker-landing-akik9rar6-dongyeol-jungs-projects.vercel.app/",
     category: "공공서비스",
     date: "2025-09-20",
     tags: ["정치", "랜딩페이지", "시민참여", "공공"],
@@ -56,7 +66,7 @@ export const projects: Project[] = [
     id: "mvp-09",
     title: "만송시스템 홈페이지",
     description: "기업 브랜딩과 서비스 소개를 위한 현대적인 홈페이지",
-    url: "https://mvp-project-09-cvel1fy8m-dongyeol-jungs-projects.vercel.app/",
+    url: "https://mvp-project-09-mkg5tmd00-dongyeol-jungs-projects.vercel.app/",
     category: "웹사이트",
     date: "2025-09-19",
     tags: ["React", "TailwindCSS", "기업홈페이지"],
@@ -84,7 +94,7 @@ export const projects: Project[] = [
     id: "mvp-25",
     title: "스마트 케어 매칭 플랫폼",
     description: "B2B/B2C 스마트 케어 서비스 매칭 플랫폼",
-    url: "https://mvp-project-25-7efeen3jv-dongyeol-jungs-projects.vercel.app/",
+    url: "https://mvp-project-25-j4m8nqsxv-dongyeol-jungs-projects.vercel.app/",
     category: "플랫폼",
     date: "2025-09-18",
     tags: ["케어", "매칭", "B2B", "B2C", "헬스케어"]
@@ -147,7 +157,7 @@ export const projects: Project[] = [
     id: "mvp-04-baical",
     title: "바이칼시스템즈 홈페이지",
     description: "시스템 솔루션 기업의 브랜드와 기술력을 소개하는 홈페이지",
-    url: "https://mvp-project-04-cqcupnisp-dongyeol-jungs-projects.vercel.app/",
+    url: "https://mvp-project-04-4pwo921bz-dongyeol-jungs-projects.vercel.app/",
     category: "웹사이트",
     date: "2025-09-15",
     tags: ["React", "시스템", "기업홈페이지", "TailwindCSS"],
@@ -168,7 +178,7 @@ export const projects: Project[] = [
     id: "new-mvp-05-dental",
     title: "박영진치과 홈페이지",
     description: "치과 의료진과 진료 서비스를 소개하는 전문 의료 홈페이지",
-    url: "https://park-youngjin-dental-d0z2pljp0-dongyeol-jungs-projects.vercel.app/",
+    url: "https://park-youngjin-dental-u6xb6ynrw-dongyeol-jungs-projects.vercel.app/",
     category: "의료",
     date: "2025-08-16",
     tags: ["치과", "의료", "홈페이지", "예약시스템"]
@@ -177,7 +187,7 @@ export const projects: Project[] = [
     id: "mvp-14-budget",
     title: "AI 간편장부 앱",
     description: "AI 기반 개인 가계부 관리 애플리케이션",
-    url: "https://mvp-project-14-e8j1qqyqa-dongyeol-jungs-projects.vercel.app/",
+    url: "https://mvp-project-14-qa9xl5k8r-dongyeol-jungs-projects.vercel.app/",
     category: "AI/음성",
     date: "2025-08-14",
     tags: ["AI", "가계부", "개인재정", "모바일"]
@@ -197,7 +207,7 @@ export const projects: Project[] = [
     id: "dbinfo-main",
     title: "디비인포 리뉴얼",
     description: "데이터베이스 정보 서비스 플랫폼 리뉴얼",
-    url: "https://dbinfo-homepage.vercel.app/",
+    url: "https://dbinfo-homepage-ddysi6ynz-dongyeol-jungs-projects.vercel.app/",
     category: "플랫폼",
     date: "2025-09-12",
     tags: ["데이터베이스", "정보서비스", "리뉴얼"]
@@ -206,7 +216,7 @@ export const projects: Project[] = [
     id: "dbinfo-admin",
     title: "디비인포 관리자 모드",
     description: "디비인포 관리자 전용 관리 시스템 (비밀번호: admin1234!)",
-    url: "https://dbinfo-homepage.vercel.app/admin/login",
+    url: "https://dbinfo-homepage-ddysi6ynz-dongyeol-jungs-projects.vercel.app/admin/login",
     category: "관리시스템",
     date: "2025-09-12",
     tags: ["관리자", "백오피스", "관리시스템"]
@@ -215,7 +225,7 @@ export const projects: Project[] = [
     id: "fuel-02",
     title: "AI 주유소 플랫폼",
     description: "AI 기반 주유소 정보 및 서비스 플랫폼",
-    url: "https://fuel-project-02-b7piovrkn-dongyeol-jungs-projects.vercel.app/",
+    url: "https://fuel-project-02-fek6qfj2o-dongyeol-jungs-projects.vercel.app/",
     category: "플랫폼",
     date: "2025-09-12",
     tags: ["AI", "주유소", "플랫폼", "자동차"]
@@ -233,7 +243,7 @@ export const projects: Project[] = [
     id: "mvp-25-care",
     title: "스마트 케어 매칭 플랫폼 (Ver.2)",
     description: "B2B/B2C 스마트 케어 서비스 매칭 플랫폼 두 번째 버전",
-    url: "https://mvp-project-25-fyn9nbpd8-dongyeol-jungs-projects.vercel.app/",
+    url: "https://mvp-project-25-k7q3m9r5t-dongyeol-jungs-projects.vercel.app/",
     category: "플랫폼",
     date: "2025-09-11",
     tags: ["케어", "매칭", "B2B", "B2C", "헬스케어"]
@@ -260,7 +270,7 @@ export const projects: Project[] = [
     id: "mvp-18-welfare-center",
     title: "바이칼 재가복지센터 홈페이지",
     description: "재가복지센터의 서비스와 프로그램을 소개하는 홈페이지",
-    url: "https://mvp-project-18-jf7kz73yo-dongyeol-jungs-projects.vercel.app/",
+    url: "https://mvp-project-18-8t1lxe1o7-dongyeol-jungs-projects.vercel.app/",
     category: "복지",
     date: "2025-09-08",
     tags: ["복지센터", "재가복지", "사회서비스"]
@@ -287,7 +297,7 @@ export const projects: Project[] = [
     id: "mvp-14-rpa",
     title: "시군구 RPA 통합 플랫폼 앱",
     description: "지방자치단체의 업무 자동화를 위한 RPA 통합 관리 플랫폼",
-    url: "https://mvp-project-14-e8j1qqyqa-dongyeol-jungs-projects.vercel.app/",
+    url: "https://mvp-project-14-kx8ql2v9p-dongyeol-jungs-projects.vercel.app/",
     category: "공공서비스",
     date: "2025-09-02",
     tags: ["RPA", "자동화", "지방자치", "공공"],
@@ -306,7 +316,7 @@ export const projects: Project[] = [
     id: "mvp-26-resort",
     title: "바이칼리조트 홈페이지 및 예약시스템",
     description: "리조트 소개와 실시간 예약이 가능한 통합 시스템",
-    url: "https://mvp-project-26-13mqsl3zg-dongyeol-jungs-projects.vercel.app/",
+    url: "https://mvp-project-26-ak6wjm4yp-dongyeol-jungs-projects.vercel.app/",
     category: "숙박/예약",
     date: "2025-08-31",
     tags: ["리조트", "예약시스템", "숙박", "관광"]
@@ -351,11 +361,39 @@ export const projects: Project[] = [
     id: "mvp-06-job-platform",
     title: "AI 중장년 일자리 플랫폼",
     description: "중장년층을 위한 AI 기반 맞춤형 일자리 매칭 플랫폼",
-    url: "https://mvp-project-06-d8lm59m26-dongyeol-jungs-projects.vercel.app/",
+    url: "https://mvp-project-06-t4fmwazwp-dongyeol-jungs-projects.vercel.app/",
     category: "취업지원",
     date: "2025-08-15",
     tags: ["AI", "중장년", "취업", "매칭플랫폼"],
     featured: true
+  },
+  {
+    id: "music-01",
+    title: "AI 작사·작곡 도우미 플랫폼",
+    description: "AI 기술을 활용하여 창작자들의 작사와 작곡을 도와주는 창의적 플랫폼",
+    url: "https://music-project-01-k7h3m8n4q-dongyeol-jungs-projects.vercel.app/",
+    category: "AI/음성",
+    date: "2025-10-20",
+    tags: ["AI", "음악", "작사", "작곡", "창작도구"],
+    featured: true
+  },
+  {
+    id: "new-medical-01-ent",
+    title: "김정훈 이비인후과 홈페이지",
+    description: "전문적인 이비인후과 진료 서비스와 의료진을 소개하는 홈페이지",
+    url: "https://kim-jeonghun-ent-clinic-dongyeol-jungs-projects.vercel.app/",
+    category: "의료",
+    date: "2025-10-10",
+    tags: ["이비인후과", "의료", "진료서비스", "전문의"]
+  },
+  {
+    id: "new-medical-02-ortho",
+    title: "박준서 정형외과 홈페이지", 
+    description: "정형외과 전문 진료와 재활 치료 서비스를 안내하는 의료 홈페이지",
+    url: "https://park-junseo-orthopedic-clinic-dongyeol-jungs-projects.vercel.app/",
+    category: "의료",
+    date: "2025-10-10",
+    tags: ["정형외과", "의료", "재활치료", "전문의"]
   }
 ];
 

@@ -54,13 +54,13 @@ const PortfolioPage: React.FC = () => {
               </motion.span>
             </motion.h1>
             <p className="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
-              2024년 7월부터 현재까지 완성된 <strong>39개</strong>의 검증된 MVP 프로젝트들
+              2024년 7월부터 현재까지 완성된 <strong>43개</strong>의 검증된 MVP 프로젝트들
               <br />
               <span className="text-lg">🏢 기업솔루션 | 🤖 AI기술 | 🚀 플랫폼 | 🏛️ 공공서비스</span>
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-2">
-                ✅ <strong>39개</strong> 완성된 MVP
+                ✅ <strong>43개</strong> 완성된 MVP
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-2">
                 🚀 <strong>평균 1-2주</strong> 개발 기간
