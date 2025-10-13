@@ -210,7 +210,7 @@ export const projects: Project[] = [
     id: "music-01",
     title: "AI 작사·작곡 도우미 플랫폼",
     description: "AI 기술을 활용하여 창작자들의 작사와 작곡을 도와주는 창의적 플랫폼",
-    url: "https://music-project-01-k7h3m8n4q-dongyeol-jungs-projects.vercel.app/",
+    url: "https://music-project-01-jgqnm0s1m-dongyeol-jungs-projects.vercel.app/",
     category: "AI/음성",
     date: "2025-10-20",
     tags: ["AI", "음악", "작사", "작곡", "창작도구"],
