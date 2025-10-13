@@ -97,9 +97,9 @@ export const projects: Project[] = [
     id: "new-mvp-05-dental",
     title: "박영진치과 홈페이지",
     description: "치과 의료진과 진료 서비스를 소개하는 전문 의료 홈페이지",
-    url: "https://park-youngjin-dental-nu9npms7j-dongyeol-jungs-projects.vercel.app/",
+    url: "https://park-youngjin-dental-4qvw27a3v-dongyeol-jungs-projects.vercel.app/",
     category: "의료",
-    date: "2025-08-16",
+    date: "2025-10-13",
     tags: ["치과", "의료", "홈페이지", "예약시스템"]
   },
 
