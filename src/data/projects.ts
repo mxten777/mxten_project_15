@@ -109,18 +109,18 @@ export const projects: Project[] = [
     id: "dbinfo-main",
     title: "디비인포 리뉴얼",
     description: "데이터베이스 정보 서비스 플랫폼 리뉴얼",
-    url: "https://dbinfo-homepage.vercel.app/",
+    url: "https://dbinfo-final.vercel.app/",
     category: "기업홈페이지",
-    date: "2025-10-08",
+    date: "2025-10-13",
     tags: ["데이터베이스", "정보서비스", "리뉴얼"]
   },
   {
     id: "dbinfo-admin",
     title: "디비인포 관리자 모드",
     description: "디비인포 관리자 전용 관리 시스템 (비밀번호: admin1234!)",
-    url: "https://dbinfo-homepage.vercel.app/admin/login",
+    url: "https://dbinfo-final.vercel.app/admin/login",
     category: "관리시스템",
-    date: "2025-10-08",
+    date: "2025-10-13",
     tags: ["관리자", "백오피스", "관리시스템"]
   },
   {
