@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ExternalLink, Calendar, Tag, Star, Grid, List, Eye, Heart, Zap, Clock, Code2, Sparkles, Trophy, Flame } from 'lucide-react';
+import { ExternalLink, Calendar, Tag, Star, Grid, List, Eye, Heart, Zap, Clock, Code2, Sparkles, Trophy } from 'lucide-react';
 import { categories, getProjectsByCategory, getFeaturedProjects, categoryLabels } from '../data/projects';
 import Interactive3DCard from '../components/Interactive3DCard';
 import ScrollTriggered from '../components/ScrollTriggered';
@@ -40,7 +40,7 @@ const PortfolioPage: React.FC = () => {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
   <section className="morphing-bg particle-bg text-white py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/50 via-purple-900/50 to-pink-900/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 to-blue-800/50"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -49,14 +49,14 @@ const PortfolioPage: React.FC = () => {
             className="text-center"
           >
             <motion.h1 
-              className="text-display font-black font-display mb-6 tracking-tighter"
+              className="text-4xl md:text-6xl font-bold font-display mb-6 tracking-tight"
               initial={{ opacity: 0, rotateX: -15 }}
               animate={{ opacity: 1, rotateX: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
               바이브 코딩{' '}
               <motion.span 
-                className="text-gradient bg-gradient-to-r from-yellow-300 via-pink-300 to-cyan-300 bg-clip-text text-transparent"
+                className="text-white"
                 animate={{ 
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
                 }}
@@ -66,10 +66,10 @@ const PortfolioPage: React.FC = () => {
                 MVP 포트폴리오
               </motion.span>
             </motion.h1>
-            <p className="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl mb-8 opacity-90 max-w-3xl mx-auto font-medium">
               2025년 10월 현재 <strong>28개</strong>의 리뉴얼된 MVP 프로젝트들
               <br />
-              <span className="text-lg">🏢 기업홈페이지 | 💊 의료복지 | 🏛️ 공공서비스 | 🎓 교육플랫폼</span>
+              <span className="text-base opacity-80">🏢 기업홈페이지 | 💊 의료복지 | 🏛️ 공공서비스 | 🎓 교육플랫폼</span>
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-2">
@@ -192,23 +192,23 @@ const PortfolioPage: React.FC = () => {
                     className="group relative bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-black
                              rounded-3xl border border-gray-200/50 dark:border-gray-700/50 
                              overflow-hidden h-full shadow-2xl hover:shadow-3xl transition-all duration-700
-                             before:absolute before:inset-0 before:bg-gradient-to-br before:from-blue-500/10 before:via-purple-500/10 before:to-pink-500/10 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-700
+                             before:absolute before:inset-0 before:bg-blue-500/5 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300
                              after:absolute after:inset-0 after:bg-gradient-to-br after:from-transparent after:via-white/5 after:to-transparent after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-700"
                     intensity={0.5}
                     glowEffect={true}
                   >
                   {/* 🌟 네온 글로우 테두리 */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-30 transition-opacity duration-700 rounded-3xl blur-lg -z-10"></div>
+                  <div className="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-3xl blur-lg -z-10"></div>
                   
                   {/* 🎭 홀로그래픽 테두리 */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 opacity-20 group-hover:opacity-40 transition-opacity duration-700 rounded-3xl p-[1px]">
+                  <div className="absolute inset-0 bg-blue-500 opacity-5 group-hover:opacity-15 transition-opacity duration-300 rounded-3xl p-[1px]">
                     <div className="w-full h-full bg-white dark:bg-gray-800 rounded-3xl"></div>
                   </div>
 
                   {/* 🖼️ 프로젝트 썸네일 */}
                   <div className="relative h-48 overflow-hidden">
                     {/* 파티클 애니메이션 배경 */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     
                     <img 
                       src={project.image || "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop&crop=center"}
@@ -245,11 +245,11 @@ const PortfolioPage: React.FC = () => {
                       
                       {/* 프로젝트 상태 */}
                       {project.status && (
-                        <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold shadow-lg backdrop-blur-sm ${
-                          project.status === 'live' ? 'bg-gradient-to-r from-green-400 to-emerald-500 text-white' :
-                          project.status === 'beta' ? 'bg-gradient-to-r from-blue-400 to-cyan-500 text-white' :
-                          project.status === 'coming-soon' ? 'bg-gradient-to-r from-purple-400 to-pink-500 text-white' :
-                          'bg-gradient-to-r from-gray-400 to-gray-500 text-white'
+                        <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold shadow-sm ${
+                          project.status === 'live' ? 'bg-green-500 text-white' :
+                          project.status === 'beta' ? 'bg-blue-500 text-white' :
+                          project.status === 'coming-soon' ? 'bg-purple-500 text-white' :
+                          'bg-gray-500 text-white'
                         }`}>
                           <Zap className="w-3 h-3 mr-1" />
                           {project.status === 'live' ? 'LIVE' : 
@@ -260,14 +260,15 @@ const PortfolioPage: React.FC = () => {
 
                       {/* 난이도 */}
                       {project.difficulty && (
-                        <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold shadow-lg backdrop-blur-sm ${
-                          project.difficulty === 'easy' ? 'bg-gradient-to-r from-green-300 to-green-400 text-green-900' :
-                          project.difficulty === 'medium' ? 'bg-gradient-to-r from-yellow-300 to-yellow-400 text-yellow-900' :
-                          project.difficulty === 'hard' ? 'bg-gradient-to-r from-orange-300 to-orange-400 text-orange-900' :
-                          'bg-gradient-to-r from-red-400 to-red-500 text-white'
+                        <div className={`inline-flex items-center px-2 py-1 rounded-md text-xs font-medium ${
+                          project.difficulty === 'easy' ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300' :
+                          project.difficulty === 'medium' ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300' :
+                          project.difficulty === 'hard' ? 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300' :
+                          'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300'
                         }`}>
-                          <Flame className="w-3 h-3 mr-1" />
-                          {project.difficulty === 'expert' ? 'EXPERT' : project.difficulty?.toUpperCase()}
+                          {project.difficulty === 'easy' ? '초급' :
+                           project.difficulty === 'medium' ? '중급' :
+                           project.difficulty === 'hard' ? '고급' : '전문가'}
                         </div>
                       )}
                     </div>
@@ -303,7 +304,7 @@ const PortfolioPage: React.FC = () => {
                   <div className="relative p-6 bg-gradient-to-br from-transparent via-white/50 to-transparent dark:via-gray-800/50">
                     {/* 타이틀 */}
                     <motion.h3 
-                      className="text-xl font-black font-heading bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-300 dark:to-purple-300 bg-clip-text text-transparent mb-3 line-clamp-2 group-hover:scale-105 transition-transform duration-300"
+                      className="text-xl font-bold font-heading text-gray-900 dark:text-white mb-3 line-clamp-2 group-hover:scale-105 transition-transform duration-300"
                       whileHover={{ backgroundPosition: ["0% 50%", "100% 50%"] }}
                       transition={{ duration: 0.5 }}
                     >
@@ -323,7 +324,7 @@ const PortfolioPage: React.FC = () => {
                         </div>
                         <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
                           <motion.div 
-                            className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full"
+                            className="h-full bg-blue-500 rounded-full"
                             initial={{ width: 0 }}
                             animate={{ width: `${project.completion}%` }}
                             transition={{ duration: 1, delay: 0.2 }}
@@ -411,11 +412,11 @@ const PortfolioPage: React.FC = () => {
                         className="flex-1 relative group/demo overflow-hidden"
                       >
                         {/* 네온 글로우 효과 */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl opacity-0 group-hover/demo:opacity-75 transition-opacity duration-500 blur-lg animate-pulse"></div>
+                        <div className="absolute inset-0 bg-blue-500 rounded-xl opacity-0 group-hover/demo:opacity-20 transition-opacity duration-300 blur-lg"></div>
                         
                         {/* 버튼 본체 */}
                         <motion.div 
-                          className="relative inline-flex w-full items-center justify-center px-4 py-3 rounded-xl transition-all duration-500 text-sm font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white hover:from-blue-500 hover:via-purple-500 hover:to-pink-500 shadow-lg group-hover/demo:shadow-2xl group-hover/demo:scale-110"
+                          className="relative inline-flex w-full items-center justify-center px-4 py-3 rounded-xl transition-all duration-300 text-sm font-semibold bg-blue-600 text-white hover:bg-blue-500 shadow-md hover:shadow-lg"
                           whileHover={{ 
                             boxShadow: "0 0 30px rgba(147, 51, 234, 0.5)",
                             textShadow: "0 0 10px rgba(255, 255, 255, 0.8)"

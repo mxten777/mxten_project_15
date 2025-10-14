@@ -40,8 +40,8 @@ const Interactive3DCard: React.FC<Interactive3DCardProps> = ({
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], [`${-25 * intensity}deg`, `${25 * intensity}deg`]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], [`${25 * intensity}deg`, `${-25 * intensity}deg`]);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], [`${-10 * intensity}deg`, `${10 * intensity}deg`]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], [`${10 * intensity}deg`, `${-10 * intensity}deg`]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current || !tiltEnabled || isMobile) return;
@@ -83,19 +83,19 @@ const Interactive3DCard: React.FC<Interactive3DCardProps> = ({
         transformStyle: 'preserve-3d',
       }}
       animate={{
-        scale: isHovered ? 1.05 : 1,
-        z: isHovered ? 50 : 0,
+        scale: isHovered ? 1.02 : 1,
+        z: isHovered ? 20 : 0,
       }}
       transition={{
         type: 'spring',
-        stiffness: 300,
-        damping: 20,
+        stiffness: 200,
+        damping: 25,
       }}
     >
       {/* Glow Effect */}
       {glowEffect && isHovered && (
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-xl"
+          className="absolute inset-0 bg-blue-500/15 rounded-3xl blur-xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

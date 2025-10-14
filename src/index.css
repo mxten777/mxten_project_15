@@ -167,21 +167,20 @@ nav[class*="fixed"] {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.3), transparent),
-                    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.2), transparent),
-                    radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.4), transparent),
-                    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.3), transparent);
+  background-image: radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.15), transparent),
+                    radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.1), transparent),
+                    radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.12), transparent);
   background-repeat: repeat;
-  background-size: 200px 100px;
-  animation: float 8s linear infinite;
+  background-size: 300px 200px;
+  animation: float 12s linear infinite;
   pointer-events: none;
 }
 
 /* Morphing Backgrounds */
 .morphing-bg {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(-45deg, #1e40af, #3b82f6, #1d4ed8, #2563eb);
   background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
+  animation: gradientShift 20s ease infinite;
 }
 
 /* Animations */
@@ -193,7 +192,9 @@ nav[class*="fixed"] {
 
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
+  25% { background-position: 50% 25%; }
   50% { background-position: 100% 50%; }
+  75% { background-position: 50% 75%; }
   100% { background-position: 0% 50%; }
 }
 
