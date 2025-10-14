@@ -30,7 +30,7 @@ export const projects: Project[] = [
     date: "2025-10-08",
     tags: ["React", "시스템솔루션", "기업브랜딩", "리뉴얼"],
     featured: true,
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&crop=center",
+    image: "/images/20251014_mvp_04_jp.png",
     techStack: ["React", "TypeScript", "TailwindCSS", "Vercel"],
     status: "live",
     completion: 100,
@@ -47,7 +47,15 @@ export const projects: Project[] = [
     category: "기업/산업",
     date: "2025-10-03",
     tags: ["React", "기업브랜딩", "서비스소개", "리뉴얼"],
-    featured: true
+    featured: true,
+    image: "/images/20251014_mvp_09.png",
+    techStack: ["React", "TypeScript", "Tailwind CSS", "Vercel"],
+    status: "live",
+    completion: 100,
+    duration: "1주",
+    views: 234,
+    likes: 28,
+    difficulty: "medium"
   },
   {
     id: "portfolio-renewal",
@@ -58,7 +66,7 @@ export const projects: Project[] = [
     date: "2025-10-12",
     tags: ["포트폴리오", "프레젠테이션", "MVP소개", "React"],
     featured: true,
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop&crop=center",
+    image: "/images/20251014_mxten_15.png",
     techStack: ["React", "TypeScript", "Framer Motion", "Vite", "Firebase"],
     status: "live",
     completion: 95,
@@ -75,7 +83,8 @@ export const projects: Project[] = [
     category: "기업/산업",
     date: "2025-10-11",
     tags: ["게임", "슬롯머신", "파칭코", "엔터테인먼트"],
-    featured: true
+    featured: true,
+    image: "/images/20251014_mvp_03.png"
   },
   {
     id: "lawmaker-landing",
@@ -85,7 +94,15 @@ export const projects: Project[] = [
     category: "공공/행정",
     date: "2025-09-20",
     tags: ["정치", "랜딩페이지", "시민참여", "공공"],
-    featured: true
+    featured: true,
+    image: "/images/20251014_lawmaker.png",
+    techStack: ["React", "TailwindCSS", "Responsive", "SEO"],
+    status: "live",
+    completion: 100,
+    duration: "3주",
+    views: 1523,
+    likes: 98,
+    difficulty: "medium"
   },
   // 💼 전문서비스
   {
@@ -95,7 +112,15 @@ export const projects: Project[] = [
     url: "https://new-project-04-mwevrreb4-dongyeol-jungs-projects.vercel.app/",
     category: "일자리/사회서비스",
     date: "2025-10-10",
-    tags: ["행정사", "법무서비스", "전문직", "사무소홈페이지"]
+    tags: ["행정사", "법무서비스", "전문직", "사무소홈페이지"],
+    image: "/images/20251014_new_04_01.png",
+    techStack: ["React", "TypeScript", "Tailwind CSS", "Responsive Design"],
+    status: "live",
+    completion: 100,
+    duration: "1주",
+    views: 456,
+    likes: 34,
+    difficulty: "easy"
   },
 
   {
@@ -105,7 +130,15 @@ export const projects: Project[] = [
     url: "https://mxten-project-06-6xjxhg48i-dongyeol-jungs-projects.vercel.app/",
     category: "기업/산업",
     date: "2025-10-04",
-    tags: ["모바일", "태블릿", "작업지시", "현장관리"]
+    tags: ["모바일", "태블릿", "작업지시", "현장관리"],
+    image: "/images/20251014_mxten_06.png",
+    techStack: ["React", "Mobile-First", "PWA", "QR코드"],
+    status: "live",
+    completion: 100,
+    duration: "3주",
+    views: 756,
+    likes: 45,
+    difficulty: "hard"
   },
   {
     id: "new-mvp-02-daycare",
@@ -114,7 +147,15 @@ export const projects: Project[] = [
     url: "https://new-project-02-jj8qpb4j0-dongyeol-jungs-projects.vercel.app/",
     category: "복지/의료/돌봄",
     date: "2025-10-04",
-    tags: ["React", "교육", "어린이집", "학부모"]
+    tags: ["React", "교육", "어린이집", "학부모"],
+    image: "/images/20251014_new_02.png",
+    techStack: ["React", "TailwindCSS", "Responsive", "Family-Friendly"],
+    status: "live",
+    completion: 100,
+    duration: "2주",
+    views: 643,
+    likes: 78,
+    difficulty: "easy"
   },
 
   // 🌟 2025년 8월 프로젝트들
@@ -125,7 +166,15 @@ export const projects: Project[] = [
     url: "https://park-youngjin-dental-4qvw27a3v-dongyeol-jungs-projects.vercel.app/",
     category: "복지/의료/돌봄",
     date: "2025-10-13",
-    tags: ["치과", "의료", "홈페이지", "예약시스템"]
+    tags: ["치과", "의료", "홈페이지", "예약시스템"],
+    image: "/images/20251014_new_20.png",
+    techStack: ["React", "TypeScript", "Tailwind CSS", "Medical UI"],
+    status: "live",
+    completion: 100,
+    duration: "2주",
+    views: 567,
+    likes: 42,
+    difficulty: "medium"
   },
 
   // 🚀 주요 비즈니스 플랫폼들  
@@ -137,7 +186,15 @@ export const projects: Project[] = [
     url: "https://dbinfo-final.vercel.app/",
     category: "교육/AI/데이터",
     date: "2025-10-13",
-    tags: ["데이터베이스", "정보서비스", "리뉴얼"]
+    tags: ["데이터베이스", "정보서비스", "리뉴얼"],
+    image: "/images/20251014_dbinfo_final.png",
+    techStack: ["React", "Node.js", "PostgreSQL", "Tailwind"],
+    status: "live",
+    completion: 100,
+    duration: "4주",
+    views: 892,
+    likes: 67,
+    difficulty: "expert"
   },
   {
     id: "dbinfo-admin",
@@ -146,7 +203,15 @@ export const projects: Project[] = [
     url: "https://dbinfo-final.vercel.app/admin/login",
     category: "교육/AI/데이터",
     date: "2025-10-13",
-    tags: ["관리자", "백오피스", "관리시스템"]
+    tags: ["관리자", "백오피스", "관리시스템"],
+    image: "/images/20251014_dbinfo_final_admin.png",
+    techStack: ["React", "Auth", "Dashboard", "Analytics"],
+    status: "live",
+    completion: 100,
+    duration: "2주",
+    views: 234,
+    likes: 23,
+    difficulty: "hard"
   },
   {
     id: "mvp-10-medicine",
@@ -155,7 +220,15 @@ export const projects: Project[] = [
     url: "https://mvp-project-10-g3ca25sv4-dongyeol-jungs-projects.vercel.app/",
     category: "복지/의료/돌봄",
     date: "2025-10-11",
-    tags: ["약복용", "리마인더", "가족알림", "건강관리"]
+    tags: ["약복용", "리마인더", "가족알림", "건강관리"],
+    image: "/images/20251014_mvp_10.png",
+    techStack: ["React", "PWA", "Push Notifications", "Local Storage"],
+    status: "live",
+    completion: 100,
+    duration: "2주",
+    views: 389,
+    likes: 52,
+    difficulty: "medium"
   },
   {
     id: "mvp-32-welfare",
@@ -164,7 +237,15 @@ export const projects: Project[] = [
     url: "https://mvp-project-32-gcm09s8qr-dongyeol-jungs-projects.vercel.app/",
     category: "복지/의료/돌봄",
     date: "2025-10-11",
-    tags: ["복지", "대여서비스", "공유경제"]
+    tags: ["복지", "대여서비스", "공유경제"],
+    image: "/images/20251014_mvp_32.png",
+    techStack: ["React", "TypeScript", "Rental System", "Booking"],
+    status: "live",
+    completion: 100,
+    duration: "3주",
+    views: 445,
+    likes: 38,
+    difficulty: "medium"
   },
   {
     id: "mvp-28-facility",
@@ -173,7 +254,15 @@ export const projects: Project[] = [
     url: "https://mvp-project-28-h21qsrg0t-dongyeol-jungs-projects.vercel.app/",
     category: "공공/행정",
     date: "2025-10-11",
-    tags: ["공공시설", "예약시스템", "통합플랫폼"]
+    tags: ["공공시설", "예약시스템", "통합플랫폼"],
+    image: "/images/20251014_mvp_28.png",
+    techStack: ["React", "Booking System", "Calendar", "Public API"],
+    status: "live",
+    completion: 100,
+    duration: "4주",
+    views: 678,
+    likes: 49,
+    difficulty: "hard"
   },
   {
     id: "mvp-18-welfare-center",
@@ -182,7 +271,15 @@ export const projects: Project[] = [
     url: "https://mvp-project-18-n9qp4huj7-dongyeol-jungs-projects.vercel.app/",
     category: "복지/의료/돌봄",
     date: "2025-10-05",
-    tags: ["복지센터", "재가복지", "사회서비스"]
+    tags: ["복지센터", "재가복지", "사회서비스"],
+    image: "/images/20251014_mvp_18.png",
+    techStack: ["React", "TypeScript", "Welfare System", "Service Guide"],
+    status: "live",
+    completion: 100,
+    duration: "3주",
+    views: 523,
+    likes: 41,
+    difficulty: "medium"
   },
   {
     id: "mvp-14-rpa",
@@ -192,7 +289,15 @@ export const projects: Project[] = [
     category: "공공/행정",
     date: "2025-10-10",
     tags: ["RPA", "자동화", "지방자치", "공공"],
-    featured: true
+    featured: true,
+    image: "/images/20251014_mvp_14.png",
+    techStack: ["React", "RPA Integration", "Dashboard", "Automation"],
+    status: "live",
+    completion: 100,
+    duration: "6주",
+    views: 756,
+    likes: 63,
+    difficulty: "expert"
   },
   {
     id: "mvp-30-complaint",
@@ -201,7 +306,15 @@ export const projects: Project[] = [
     url: "https://mvp-project-30-czlodp7s2-dongyeol-jungs-projects.vercel.app/",
     category: "공공/행정",
     date: "2025-10-11",
-    tags: ["민원처리", "제보시스템", "실시간", "공공서비스"]
+    tags: ["민원처리", "주민제보", "실시간", "공공서비스"],
+    image: "/images/20251014_mvp_30.png",
+    techStack: ["React", "Real-time", "Complaint System", "Government"],
+    status: "live",
+    completion: 100,
+    duration: "4주",
+    views: 634,
+    likes: 47,
+    difficulty: "hard"
   },
   {
     id: "mvp-26-resort",
@@ -210,7 +323,15 @@ export const projects: Project[] = [
     url: "https://mvp-project-26-7iwsc36ux-dongyeol-jungs-projects.vercel.app/",
     category: "엔터테인먼트",
     date: "2025-10-03",
-    tags: ["리조트", "예약시스템", "숙박", "관광"]
+    tags: ["리조트", "예약시스템", "숙박", "관광"],
+    image: "/images/20251014_mvp_26.png",
+    techStack: ["React", "Booking System", "Hotel Management", "Tourism"],
+    status: "live",
+    completion: 100,
+    duration: "5주",
+    views: 892,
+    likes: 76,
+    difficulty: "hard"
   },
   {
     id: "caring-plus",
@@ -219,7 +340,15 @@ export const projects: Project[] = [
     url: "https://caring-plus-1usacqdhl-dongyeol-jungs-projects.vercel.app/login",
     category: "복지/의료/돌봄",
     date: "2025-10-10",
-    tags: ["재가복지", "통합관리", "복지센터", "관리시스템"]
+    tags: ["재가복지", "통합관리", "복지센터", "관리시스템"],
+    image: "/images/20251014_mvp_16.png",
+    techStack: ["React", "Management System", "Database", "User Management"],
+    status: "live",
+    completion: 100,
+    duration: "6주",
+    views: 445,
+    likes: 38,
+    difficulty: "expert"
   },
   {
     id: "mvp-06-job-platform",
@@ -229,7 +358,15 @@ export const projects: Project[] = [
     category: "일자리/사회서비스",
     date: "2025-10-13",
     tags: ["AI", "중장년", "취업", "매칭플랫폼"],
-    featured: true
+    featured: true,
+    image: "/images/20251014_mvp_06.png",
+    techStack: ["React", "AI/ML", "Job Matching", "User Profiles"],
+    status: "live",
+    completion: 100,
+    duration: "8주",
+    views: 1234,
+    likes: 89,
+    difficulty: "expert"
   },
   {
     id: "music-01",
@@ -239,7 +376,15 @@ export const projects: Project[] = [
     category: "교육/AI/데이터",
     date: "2025-10-20",
     tags: ["AI", "음악", "작사", "작곡", "창작도구"],
-    featured: true
+    featured: true,
+    image: "/images/20251014_music_01.png",
+    techStack: ["React", "AI/ML", "Music API", "Creative Tools"],
+    status: "live",
+    completion: 95,
+    duration: "6주",
+    views: 987,
+    likes: 112,
+    difficulty: "expert"
   },
   {
     id: "new-medical-01-ent",
@@ -248,7 +393,15 @@ export const projects: Project[] = [
     url: "https://new-project-30-6me2stquj-dongyeol-jungs-projects.vercel.app/",
     category: "복지/의료/돌봄",
     date: "2025-10-10",
-    tags: ["이비인후과", "의료", "진료서비스", "전문의"]
+    tags: ["이비인후과", "의료", "진료서비스", "전문의"],
+    image: "/images/20251014_new_30.png",
+    techStack: ["React", "Medical UI", "Appointment System", "Responsive"],
+    status: "live",
+    completion: 100,
+    duration: "2주",
+    views: 445,
+    likes: 34,
+    difficulty: "medium"
   },
   {
     id: "new-medical-03-sunghye-main",
@@ -257,7 +410,15 @@ export const projects: Project[] = [
     url: "https://new-project-40-im6ku6iue-dongyeol-jungs-projects.vercel.app/",
     category: "복지/의료/돌봄",
     date: "2025-10-10",
-    tags: ["정형외과", "의료", "프리미엄", "종합진료"]
+    tags: ["정형외과", "의료", "프리미엄", "종합진료"],
+    image: "/images/20251014_new_40.png",
+    techStack: ["React", "Premium Design", "Medical System", "Appointment"],
+    status: "live",
+    completion: 100,
+    duration: "3주",
+    views: 567,
+    likes: 45,
+    difficulty: "medium"
   },
   {
     id: "new-medical-03-sunghye-ai",
@@ -266,7 +427,15 @@ export const projects: Project[] = [
     url: "https://new-project-40-im6ku6iue-dongyeol-jungs-projects.vercel.app/ai-symptom-check/",
     category: "복지/의료/돌봄",
     date: "2025-10-10",
-    tags: ["AI", "증상체크", "스마트의료", "진단보조"]
+    tags: ["AI", "증상체크", "스마트의료", "진단보조"],
+    image: "/images/20251014_new_40_02.png",
+    techStack: ["React", "AI/ML", "Medical AI", "Symptom Analysis"],
+    status: "live",
+    completion: 100,
+    duration: "4주",
+    views: 743,
+    likes: 67,
+    difficulty: "expert"
   },
   {
     id: "new-medical-03-sunghye-booking",
@@ -275,7 +444,15 @@ export const projects: Project[] = [
     url: "https://new-project-40-im6ku6iue-dongyeol-jungs-projects.vercel.app/appointment/",
     category: "복지/의료/돌봄",
     date: "2025-10-10",
-    tags: ["실시간예약", "스케줄관리", "진료예약", "의료서비스"]
+    tags: ["실시간예약", "스케줄관리", "진료예약", "의료서비스"],
+    image: "/images/20251014_new_40_03.png",
+    techStack: ["React", "Real-time Booking", "Calendar System", "Medical"],
+    status: "live",
+    completion: 100,
+    duration: "3주",
+    views: 456,
+    likes: 39,
+    difficulty: "hard"
   },
   {
     id: "pachinko-slot-game",
@@ -284,7 +461,15 @@ export const projects: Project[] = [
     url: "https://mxten-project-10-4mmti96wq-dongyeol-jungs-projects.vercel.app/",
     category: "엔터테인먼트",
     date: "2025-10-11",
-    tags: ["게임", "슬롯머신", "파칭코", "엔터테인먼트"]
+    tags: ["게임", "슬롯머신", "파칭코", "엔터테인먼트"],
+    image: "/images/20251014_mxten_10.png",
+    techStack: ["React", "Game Engine", "Animation", "Casino Style"],
+    status: "live",
+    completion: 100,
+    duration: "4주",
+    views: 1234,
+    likes: 156,
+    difficulty: "hard"
   },
   {
     id: "vibe-edu-platform",
@@ -293,7 +478,15 @@ export const projects: Project[] = [
     url: "https://jdx-project-01-mrewf59ag-dongyeol-jungs-projects.vercel.app/",
     category: "교육/AI/데이터",
     date: "2025-10-02",
-    tags: ["AI교육", "맞춤형학습", "교육플랫폼", "개인화"]
+    tags: ["AI교육", "맞춤형학습", "교육플랫폼", "개인화"],
+    image: "/images/20251014_jdx_01.png",
+    techStack: ["React", "AI/ML", "Education Tech", "Personalization"],
+    status: "live",
+    completion: 100,
+    duration: "6주",
+    views: 987,
+    likes: 89,
+    difficulty: "expert"
   },
   {
     id: "worker-ai-edu",
@@ -302,7 +495,15 @@ export const projects: Project[] = [
     url: "https://jdx-project-02-odmxu88t2-dongyeol-jungs-projects.vercel.app/",
     category: "교육/AI/데이터",
     date: "2025-10-12",
-    tags: ["직장인교육", "AI학습", "온라인교육", "전문교육"]
+    tags: ["직장인교육", "AI학습", "온라인교육", "전문교육"],
+    image: "/images/20251014_jdx_02.png",
+    techStack: ["React", "AI Education", "LMS", "Professional Training"],
+    status: "live",
+    completion: 100,
+    duration: "5주",
+    views: 734,
+    likes: 67,
+    difficulty: "hard"
   }
 ];
 
