@@ -78,12 +78,12 @@ const Footer: React.FC = () => {
               <h4 className="text-xl font-bold font-heading text-white mb-6">바이브 코딩</h4>
               
               {/* Company Description */}
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-white rounded-lg hover:bg-gray-50 transition-all duration-300 shadow-lg border border-gray-200">
+              <div className="flex items-center space-x-4">
+                <div className="p-3 bg-white rounded-lg hover:bg-gray-50 transition-all duration-300 shadow-lg border border-gray-200">
                   <img 
                     src="/images/baikal_logo_trans.png" 
                     alt="바이칼 로고" 
-                    className="w-9 h-9 object-contain rounded-md"
+                    className="w-12 h-12 sm:w-14 sm:h-14 object-contain rounded-md"
                     style={{ 
                       filter: 'contrast(1.2) brightness(1.1) saturate(1.3)',
                       imageRendering: 'crisp-edges'

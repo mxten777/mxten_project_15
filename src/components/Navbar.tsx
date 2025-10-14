@@ -67,14 +67,14 @@ const Navbar: React.FC = () => {
               onClick={closeMenu}
             >
               <motion.div
-                className="p-2 bg-white rounded-lg transition-all duration-300 shadow-md border border-gray-200 group-hover:scale-105 group-hover:bg-gray-50"
+                className="p-3 bg-white rounded-lg transition-all duration-300 shadow-md border border-gray-200 group-hover:scale-105 group-hover:bg-gray-50"
                 whileHover={{ rotate: 5 }}
                 transition={{ duration: 0.3 }}
               >
                 <img 
                   src="/images/baikal_logo_trans.png" 
                   alt="바이칼 로고" 
-                  className="w-10 h-10 sm:w-11 sm:h-11 object-contain rounded-md"
+                  className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain rounded-md"
                   style={{ 
                     filter: 'contrast(1.2) brightness(1.1) saturate(1.3)',
                     imageRendering: 'crisp-edges'
