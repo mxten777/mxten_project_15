@@ -16,7 +16,7 @@ export const projects: Project[] = [
     id: "baical-renewal",
     title: "바이칼시스템즈 홈페이지",
     description: "시스템 솔루션 기업의 브랜드와 기술력을 소개하는 현대적 홈페이지 리뉴얼",
-    url: "https://mvp-project-04-qxxrfyiqy-dongyeol-jungs-projects.vercel.app/",
+    url: "https://mvp-project-04.vercel.app/",
     category: "기업홈페이지",
     date: "2025-10-08",
     tags: ["React", "시스템솔루션", "기업브랜딩", "리뉴얼"],

@@ -190,12 +190,26 @@ const Footer: React.FC = () => {
                   <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
                   <div>
                     <p className="text-sm text-gray-400">이메일</p>
-                    <a 
-                      href="mailto:jngdy@baikalsys.kr" 
-                      className="text-gray-200 hover:text-white transition-colors"
-                    >
-                      jngdy@baikalsys.kr
-                    </a>
+                    <div className="space-y-1">
+                      <a 
+                        href="mailto:mxten777@gmail.com" 
+                        className="block text-gray-200 hover:text-white transition-colors text-sm"
+                      >
+                        mxten777@gmail.com
+                      </a>
+                      <a 
+                        href="mailto:jngdy@naver.com" 
+                        className="block text-gray-200 hover:text-white transition-colors text-sm"
+                      >
+                        jngdy@naver.com
+                      </a>
+                      <a 
+                        href="mailto:jngdy@baikalsys.kr" 
+                        className="block text-gray-200 hover:text-white transition-colors text-sm"
+                      >
+                        jngdy@baikalsys.kr
+                      </a>
+                    </div>
                   </div>
                 </div>
 
