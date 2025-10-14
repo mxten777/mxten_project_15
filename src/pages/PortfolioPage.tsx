@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ExternalLink, Calendar, Tag, Star, Grid, List, Eye, Heart, Zap, Clock, Code2, Sparkles, Trophy } from 'lucide-react';
 import { categories, getProjectsByCategory, getFeaturedProjects, categoryLabels } from '../data/projects';
-import Interactive3DCard from '../components/Interactive3DCard';
+
 import ScrollTriggered from '../components/ScrollTriggered';
 
 const PortfolioPage: React.FC = () => {
@@ -188,32 +188,16 @@ const PortfolioPage: React.FC = () => {
                   delay={index * 0.1}
                   duration={0.6}
                 >
-                  <Interactive3DCard
-                    className="group relative bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-black
-                             rounded-3xl border border-gray-200/50 dark:border-gray-700/50 
-                             overflow-hidden h-full shadow-2xl hover:shadow-3xl transition-all duration-700
-                             before:absolute before:inset-0 before:bg-blue-500/5 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300
-                             after:absolute after:inset-0 after:bg-gradient-to-br after:from-transparent after:via-white/5 after:to-transparent after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-700"
-                    intensity={0.5}
-                    glowEffect={true}
-                  >
-                  {/* 🌟 네온 글로우 테두리 */}
-                  <div className="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-3xl blur-lg -z-10"></div>
-                  
-                  {/* 🎭 홀로그래픽 테두리 */}
-                  <div className="absolute inset-0 bg-blue-500 opacity-5 group-hover:opacity-15 transition-opacity duration-300 rounded-3xl p-[1px]">
-                    <div className="w-full h-full bg-white dark:bg-gray-800 rounded-3xl"></div>
-                  </div>
-
-                  {/* 🖼️ 프로젝트 썸네일 */}
-                  <div className="relative h-48 overflow-hidden">
-                    {/* 파티클 애니메이션 배경 */}
-                    <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="group bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-600 
+                                 shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden h-full
+                                 hover:border-blue-400 dark:hover:border-blue-500">
+                    {/* 프로젝트 썸네일 */}
+                    <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-700">
                     
                     <img 
                       src={project.image || "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop&crop=center"}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+                      className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.src = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop&crop=center";
@@ -300,20 +284,15 @@ const PortfolioPage: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                   </div>
 
-                  {/* 📝 프로젝트 콘텐츠 */}
-                  <div className="relative p-6 bg-gradient-to-br from-transparent via-white/50 to-transparent dark:via-gray-800/50">
-                    {/* 타이틀 */}
-                    <motion.h3 
-                      className="text-xl font-bold font-heading text-gray-900 dark:text-white mb-3 line-clamp-2 group-hover:scale-105 transition-transform duration-300"
-                      whileHover={{ backgroundPosition: ["0% 50%", "100% 50%"] }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      {project.title}
-                    </motion.h3>
-                    
-                    <p className="text-gray-700 dark:text-gray-200 mb-4 line-clamp-2 font-medium text-sm">
-                      {project.description}
-                    </p>
+                    {/* 프로젝트 정보 */}
+                    <div className="p-4">
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 line-clamp-2">
+                        {project.title}
+                      </h3>
+                      
+                      <p className="text-gray-600 dark:text-gray-300 mb-3 text-sm line-clamp-2">
+                        {project.description}
+                      </p>
                     
                     {/* 🔥 완성도 진행률 바 */}
                     {project.completion && (
@@ -322,12 +301,10 @@ const PortfolioPage: React.FC = () => {
                           <span className="text-xs font-bold text-gray-600 dark:text-gray-400">완성도</span>
                           <span className="text-xs font-bold text-blue-600 dark:text-blue-400">{project.completion}%</span>
                         </div>
-                        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
-                          <motion.div 
-                            className="h-full bg-blue-500 rounded-full"
-                            initial={{ width: 0 }}
-                            animate={{ width: `${project.completion}%` }}
-                            transition={{ duration: 1, delay: 0.2 }}
+                        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded h-1">
+                          <div 
+                            className="h-full bg-blue-500 rounded"
+                            style={{ width: `${project.completion}%` }}
                           />
                         </div>
                       </div>
@@ -443,7 +420,7 @@ const PortfolioPage: React.FC = () => {
                       </button>
                     </div>
                   </div>
-                  </Interactive3DCard>
+                  </div>
                 </ScrollTriggered>
               ))}
             </div>
