@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ExternalLink, Calendar, Tag, Star, Grid, List } from 'lucide-react';
-import { categories, getProjectsByCategory, getFeaturedProjects } from '../data/projects';
+import { categories, getProjectsByCategory, getFeaturedProjects, categoryLabels } from '../data/projects';
 import Interactive3DCard from '../components/Interactive3DCard';
 import ScrollTriggered from '../components/ScrollTriggered';
 
@@ -11,9 +11,22 @@ const PortfolioPage: React.FC = () => {
   const [showFeatured, setShowFeatured] = useState(false);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   
+  // 카테고리별 프로젝트 수 계산
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    categories.forEach(category => {
+      if (category === 'all') {
+        counts[category] = getProjectsByCategory(category).length;
+      } else {
+        counts[category] = getProjectsByCategory(category).length;
+      }
+    });
+    return counts;
+  }, []);
+  
   const filteredProjects = showFeatured 
     ? getFeaturedProjects() 
-    : getProjectsByCategory(selectedCategory);
+    : getProjectsByCategory(selectedCategory === "전체" ? "all" : selectedCategory);
 
   const handleDemoClick = (project: { status?: string; url?: string }) => {
     if (project.status === 'concept') {
@@ -81,31 +94,57 @@ const PortfolioPage: React.FC = () => {
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setShowFeatured(!showFeatured)}
-                className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-bold font-sans transition-colors ${
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold font-sans transition-all duration-300 ${
                   showFeatured
-                    ? 'bg-yellow-200 dark:bg-yellow-500 text-yellow-900 dark:text-yellow-100 border-2 border-yellow-400 dark:border-yellow-300'
-                    : 'bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-500 border border-gray-300 dark:border-gray-500'
+                    ? 'bg-yellow-500 text-white shadow-lg border-2 border-yellow-400 transform scale-105'
+                    : 'bg-yellow-100 dark:bg-yellow-800 text-yellow-800 dark:text-yellow-100 hover:bg-yellow-200 dark:hover:bg-yellow-700 border border-yellow-300 dark:border-yellow-600'
                 }`}
               >
-                <Star className="w-4 h-4 mr-2" />
-                추천 프로젝트
+                <Star className="w-4 h-4" />
+                <span>추천 프로젝트</span>
+                <span className={`inline-flex items-center justify-center w-5 h-5 text-xs font-bold rounded-full ${
+                  showFeatured 
+                    ? 'bg-white text-yellow-500'
+                    : 'bg-yellow-500 dark:bg-yellow-600 text-white'
+                }`}>
+                  {getFeaturedProjects().length}
+                </span>
               </button>
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => {
-                    setSelectedCategory(category);
-                    setShowFeatured(false);
-                  }}
-                  className={`px-4 py-2 rounded-full text-sm font-bold font-sans transition-colors ${
-                    selectedCategory === category && !showFeatured
-                      ? 'bg-blue-200 dark:bg-blue-600 text-blue-900 dark:text-blue-100 border-2 border-blue-400 dark:border-blue-400'
-                      : 'bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-500 border border-gray-300 dark:border-gray-500'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
+              {categories.map((category) => {
+                const displayName = categoryLabels[category] || category;
+                const count = categoryCounts[category] || 0;
+                const hasProjects = count > 0;
+                const isSelected = (selectedCategory === displayName || (category === 'all' && selectedCategory === '전체')) && !showFeatured;
+                
+                return (
+                  <button
+                    key={category}
+                    onClick={() => {
+                      setSelectedCategory(displayName);
+                      setShowFeatured(false);
+                    }}
+                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold font-sans transition-all duration-300 ${
+                      isSelected
+                        ? 'bg-blue-500 text-white shadow-lg border-2 border-blue-400 transform scale-105'
+                        : hasProjects
+                        ? 'bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-100 hover:bg-green-200 dark:hover:bg-green-700 border border-green-300 dark:border-green-600'
+                        : 'bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500 border border-gray-200 dark:border-gray-600 cursor-default opacity-60'
+                    }`}
+                    disabled={!hasProjects && category !== 'all'}
+                  >
+                    <span>{displayName}</span>
+                    {hasProjects && (
+                      <span className={`inline-flex items-center justify-center w-5 h-5 text-xs font-bold rounded-full ${
+                        isSelected 
+                          ? 'bg-white text-blue-500'
+                          : 'bg-green-500 dark:bg-green-600 text-white'
+                      }`}>
+                        {count}
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
             </div>
 
             {/* View Mode Toggle */}
