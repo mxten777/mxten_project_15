@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ExternalLink, Calendar, Tag, Star, Grid, List } from 'lucide-react';
+import { ExternalLink, Calendar, Tag, Star, Grid, List, Eye, Heart, Zap, Clock, Code2, Sparkles, Trophy, Flame } from 'lucide-react';
 import { categories, getProjectsByCategory, getFeaturedProjects, categoryLabels } from '../data/projects';
 import Interactive3DCard from '../components/Interactive3DCard';
 import ScrollTriggered from '../components/ScrollTriggered';
@@ -189,56 +189,190 @@ const PortfolioPage: React.FC = () => {
                   duration={0.6}
                 >
                   <Interactive3DCard
-                    className="glass-effect bg-white dark:bg-gray-800 backdrop-blur-sm 
-                             rounded-3xl border-2 border-gray-200 dark:border-gray-600 
-                             overflow-hidden h-full shadow-lg hover:shadow-xl transition-shadow"
-                    intensity={0.3}
+                    className="group relative bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-black
+                             rounded-3xl border border-gray-200/50 dark:border-gray-700/50 
+                             overflow-hidden h-full shadow-2xl hover:shadow-3xl transition-all duration-700
+                             before:absolute before:inset-0 before:bg-gradient-to-br before:from-blue-500/10 before:via-purple-500/10 before:to-pink-500/10 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-700
+                             after:absolute after:inset-0 after:bg-gradient-to-br after:from-transparent after:via-white/5 after:to-transparent after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-700"
+                    intensity={0.5}
                     glowEffect={true}
                   >
-                  {/* Project Thumbnail */}
+                  {/* 🌟 네온 글로우 테두리 */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-30 transition-opacity duration-700 rounded-3xl blur-lg -z-10"></div>
+                  
+                  {/* 🎭 홀로그래픽 테두리 */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 opacity-20 group-hover:opacity-40 transition-opacity duration-700 rounded-3xl p-[1px]">
+                    <div className="w-full h-full bg-white dark:bg-gray-800 rounded-3xl"></div>
+                  </div>
+
+                  {/* 🖼️ 프로젝트 썸네일 */}
                   <div className="relative h-48 overflow-hidden">
+                    {/* 파티클 애니메이션 배경 */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    
                     <img 
                       src={project.image || "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop&crop=center"}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.src = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop&crop=center";
                       }}
                     />
-                    {/* Overlay with badges */}
-                    <div className="absolute top-3 left-3 flex gap-2">
+
+                    {/* 💫 스파클링 오버레이 */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                      <div className="absolute top-4 left-4 w-2 h-2 bg-yellow-300 rounded-full animate-ping"></div>
+                      <div className="absolute top-8 right-8 w-1 h-1 bg-blue-300 rounded-full animate-pulse"></div>
+                      <div className="absolute bottom-8 left-8 w-1.5 h-1.5 bg-purple-300 rounded-full animate-bounce"></div>
+                    </div>
+
+                    {/* 🏆 상태 및 배지들 */}
+                    <div className="absolute top-3 left-3 flex flex-col gap-2">
                       {project.featured && (
-                        <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold font-sans bg-yellow-500 text-white shadow-lg backdrop-blur-sm">
+                        <motion.div 
+                          className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-yellow-400 to-orange-500 text-white shadow-lg backdrop-blur-sm"
+                          animate={{ 
+                            boxShadow: ["0 0 10px #f59e0b", "0 0 20px #f59e0b", "0 0 10px #f59e0b"]
+                          }}
+                          transition={{ duration: 2, repeat: Infinity }}
+                        >
                           <Star className="w-3 h-3 mr-1" />
+                          <Sparkles className="w-3 h-3 mr-1" />
                           추천
+                        </motion.div>
+                      )}
+                      
+                      {/* 프로젝트 상태 */}
+                      {project.status && (
+                        <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold shadow-lg backdrop-blur-sm ${
+                          project.status === 'live' ? 'bg-gradient-to-r from-green-400 to-emerald-500 text-white' :
+                          project.status === 'beta' ? 'bg-gradient-to-r from-blue-400 to-cyan-500 text-white' :
+                          project.status === 'coming-soon' ? 'bg-gradient-to-r from-purple-400 to-pink-500 text-white' :
+                          'bg-gradient-to-r from-gray-400 to-gray-500 text-white'
+                        }`}>
+                          <Zap className="w-3 h-3 mr-1" />
+                          {project.status === 'live' ? 'LIVE' : 
+                           project.status === 'beta' ? 'BETA' :
+                           project.status === 'coming-soon' ? 'COMING' : 'MAINTENANCE'}
+                        </div>
+                      )}
+
+                      {/* 난이도 */}
+                      {project.difficulty && (
+                        <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold shadow-lg backdrop-blur-sm ${
+                          project.difficulty === 'easy' ? 'bg-gradient-to-r from-green-300 to-green-400 text-green-900' :
+                          project.difficulty === 'medium' ? 'bg-gradient-to-r from-yellow-300 to-yellow-400 text-yellow-900' :
+                          project.difficulty === 'hard' ? 'bg-gradient-to-r from-orange-300 to-orange-400 text-orange-900' :
+                          'bg-gradient-to-r from-red-400 to-red-500 text-white'
+                        }`}>
+                          <Flame className="w-3 h-3 mr-1" />
+                          {project.difficulty === 'expert' ? 'EXPERT' : project.difficulty?.toUpperCase()}
                         </div>
                       )}
                     </div>
-                    {/* Category badge */}
-                    <div className="absolute top-3 right-3">
-                      <div className="px-3 py-1 bg-gray-900/70 text-white rounded-full text-xs font-bold backdrop-blur-sm">
+
+                    {/* 카테고리 & 통계 */}
+                    <div className="absolute top-3 right-3 flex flex-col items-end gap-2">
+                      <div className="px-3 py-1 bg-black/70 text-white rounded-full text-xs font-bold backdrop-blur-sm">
                         {project.category}
                       </div>
+                      
+                      {/* 조회수 & 좋아요 */}
+                      <div className="flex gap-2">
+                        {project.views && (
+                          <div className="flex items-center px-2 py-1 bg-white/90 dark:bg-gray-800/90 rounded-full text-xs font-bold backdrop-blur-sm">
+                            <Eye className="w-3 h-3 mr-1 text-blue-500" />
+                            {project.views.toLocaleString()}
+                          </div>
+                        )}
+                        {project.likes && (
+                          <div className="flex items-center px-2 py-1 bg-white/90 dark:bg-gray-800/90 rounded-full text-xs font-bold backdrop-blur-sm">
+                            <Heart className="w-3 h-3 mr-1 text-red-500" />
+                            {project.likes}
+                          </div>
+                        )}
+                      </div>
                     </div>
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+
+                    {/* 그라디언트 오버레이 */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                   </div>
 
-                  {/* Project Content */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-black font-heading text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors drop-shadow-sm dark:drop-shadow-lg line-clamp-2">
+                  {/* 📝 프로젝트 콘텐츠 */}
+                  <div className="relative p-6 bg-gradient-to-br from-transparent via-white/50 to-transparent dark:via-gray-800/50">
+                    {/* 타이틀 */}
+                    <motion.h3 
+                      className="text-xl font-black font-heading bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-300 dark:to-purple-300 bg-clip-text text-transparent mb-3 line-clamp-2 group-hover:scale-105 transition-transform duration-300"
+                      whileHover={{ backgroundPosition: ["0% 50%", "100% 50%"] }}
+                      transition={{ duration: 0.5 }}
+                    >
                       {project.title}
-                    </h3>
+                    </motion.h3>
                     
-                    <p className="text-gray-700 dark:text-gray-200 mb-4 line-clamp-3 font-medium">
+                    <p className="text-gray-700 dark:text-gray-200 mb-4 line-clamp-2 font-medium text-sm">
                       {project.description}
                     </p>
                     
-                    {/* Project Meta */}
-                    <div className="flex items-center text-sm text-gray-600 dark:text-gray-300 mb-4">
-                      <Calendar className="w-4 h-4 mr-1" />
-                      {project.date}
+                    {/* 🔥 완성도 진행률 바 */}
+                    {project.completion && (
+                      <div className="mb-4">
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="text-xs font-bold text-gray-600 dark:text-gray-400">완성도</span>
+                          <span className="text-xs font-bold text-blue-600 dark:text-blue-400">{project.completion}%</span>
+                        </div>
+                        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                          <motion.div 
+                            className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full"
+                            initial={{ width: 0 }}
+                            animate={{ width: `${project.completion}%` }}
+                            transition={{ duration: 1, delay: 0.2 }}
+                          />
+                        </div>
+                      </div>
+                    )}
+
+                    {/* 🛠️ 기술 스택 */}
+                    {project.techStack && project.techStack.length > 0 && (
+                      <div className="mb-4">
+                        <div className="flex items-center mb-2">
+                          <Code2 className="w-4 h-4 mr-1 text-indigo-500" />
+                          <span className="text-xs font-bold text-gray-600 dark:text-gray-400">기술 스택</span>
+                        </div>
+                        <div className="flex flex-wrap gap-1">
+                          {project.techStack.slice(0, 4).map((tech, techIndex) => (
+                            <motion.span
+                              key={tech}
+                              className="inline-flex items-center px-2 py-1 rounded-md text-xs font-bold bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900 dark:to-purple-900 text-indigo-800 dark:text-indigo-200 border border-indigo-200 dark:border-indigo-700"
+                              initial={{ opacity: 0, scale: 0 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              transition={{ duration: 0.3, delay: techIndex * 0.1 }}
+                              whileHover={{ scale: 1.05 }}
+                            >
+                              {tech}
+                            </motion.span>
+                          ))}
+                          {project.techStack.length > 4 && (
+                            <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+                              +{project.techStack.length - 4}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    )}
+                    
+                    {/* 📅 프로젝트 메타 정보 */}
+                    <div className="flex items-center justify-between text-sm text-gray-600 dark:text-gray-300 mb-4">
+                      <div className="flex items-center">
+                        <Calendar className="w-4 h-4 mr-1 text-green-500" />
+                        {project.date}
+                      </div>
+                      {project.duration && (
+                        <div className="flex items-center">
+                          <Clock className="w-4 h-4 mr-1 text-blue-500" />
+                          {project.duration}
+                        </div>
+                      )}
                     </div>
                     
                     {/* Tags */}
@@ -259,20 +393,52 @@ const PortfolioPage: React.FC = () => {
                       )}
                     </div>
                     
-                    {/* Actions */}
+                    {/* 🚀 궁극의 액션 버튼들 */}
                     <div className="flex gap-3 mt-auto">
                       <Link
                         to={`/mvp/${project.id}`}
-                        className="flex-1 inline-flex items-center justify-center px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300 text-sm font-bold border border-gray-200 dark:border-gray-600 hover:scale-105"
+                        className="flex-1 relative group/btn overflow-hidden"
                       >
-                        자세히 보기
+                        <div className="absolute inset-0 bg-gradient-to-r from-gray-400 to-gray-600 rounded-xl opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 blur-lg"></div>
+                        <div className="relative inline-flex w-full items-center justify-center px-4 py-3 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 text-gray-800 dark:text-gray-200 rounded-xl hover:from-gray-200 hover:to-gray-300 dark:hover:from-gray-600 dark:hover:to-gray-700 transition-all duration-300 text-sm font-bold border border-gray-200 dark:border-gray-600 group-hover/btn:scale-105 group-hover/btn:shadow-xl">
+                          <Trophy className="w-4 h-4 mr-2 text-amber-500" />
+                          자세히 보기
+                        </div>
                       </Link>
+                      
                       <button
                         onClick={() => handleDemoClick(project)}
-                        className="flex-1 inline-flex items-center justify-center px-4 py-3 rounded-xl transition-all duration-300 text-sm font-bold bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl hover:scale-105"
+                        className="flex-1 relative group/demo overflow-hidden"
                       >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        라이브 데모
+                        {/* 네온 글로우 효과 */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl opacity-0 group-hover/demo:opacity-75 transition-opacity duration-500 blur-lg animate-pulse"></div>
+                        
+                        {/* 버튼 본체 */}
+                        <motion.div 
+                          className="relative inline-flex w-full items-center justify-center px-4 py-3 rounded-xl transition-all duration-500 text-sm font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white hover:from-blue-500 hover:via-purple-500 hover:to-pink-500 shadow-lg group-hover/demo:shadow-2xl group-hover/demo:scale-110"
+                          whileHover={{ 
+                            boxShadow: "0 0 30px rgba(147, 51, 234, 0.5)",
+                            textShadow: "0 0 10px rgba(255, 255, 255, 0.8)"
+                          }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          {/* 스파클 애니메이션 */}
+                          <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20"
+                            animate={{
+                              x: ["-100%", "100%"]
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                              repeatType: "loop"
+                            }}
+                          />
+                          
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          <span className="relative z-10">라이브 데모</span>
+                          <Sparkles className="w-4 h-4 ml-2 animate-spin" />
+                        </motion.div>
                       </button>
                     </div>
                   </div>

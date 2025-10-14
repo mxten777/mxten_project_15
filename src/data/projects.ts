@@ -9,6 +9,14 @@ export interface Project {
   tags: string[];
   featured?: boolean;
   image?: string; // 썸네일 이미지 URL
+  // 🚀 궁극의 카드를 위한 고급 데이터
+  techStack?: string[]; // 기술 스택
+  status?: 'live' | 'beta' | 'coming-soon' | 'maintenance'; // 프로젝트 상태
+  completion?: number; // 완성도 (0-100)
+  duration?: string; // 개발 기간
+  views?: number; // 조회수
+  likes?: number; // 좋아요
+  difficulty?: 'easy' | 'medium' | 'hard' | 'expert'; // 난이도
 }
 
 export const projects: Project[] = [
@@ -22,7 +30,14 @@ export const projects: Project[] = [
     date: "2025-10-08",
     tags: ["React", "시스템솔루션", "기업브랜딩", "리뉴얼"],
     featured: true,
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&crop=center"
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&crop=center",
+    techStack: ["React", "TypeScript", "TailwindCSS", "Vercel"],
+    status: "live",
+    completion: 100,
+    duration: "2주",
+    views: 1247,
+    likes: 89,
+    difficulty: "medium"
   },
   {
     id: "mansong-renewal",
@@ -43,7 +58,14 @@ export const projects: Project[] = [
     date: "2025-10-12",
     tags: ["포트폴리오", "프레젠테이션", "MVP소개", "React"],
     featured: true,
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop&crop=center"
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop&crop=center",
+    techStack: ["React", "TypeScript", "Framer Motion", "Vite", "Firebase"],
+    status: "live",
+    completion: 95,
+    duration: "3주",
+    views: 2341,
+    likes: 156,
+    difficulty: "expert"
   },
   {
     id: "korea-copron",
