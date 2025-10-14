@@ -174,6 +174,12 @@ const Footer: React.FC = () => {
                         mxten777@gmail.com
                       </a>
                       <a
+                        href="mailto:jngdy@naver.com"
+                        className="block text-white hover:text-blue-300 transition-colors text-sm hover:scale-105 font-medium"
+                      >
+                        jngdy@naver.com
+                      </a>
+                      <a
                         href="mailto:jngdy@baikalsys.kr"
                         className="block text-white hover:text-blue-300 transition-colors text-sm hover:scale-105 font-medium"
                       >
