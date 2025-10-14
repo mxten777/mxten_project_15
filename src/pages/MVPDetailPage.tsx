@@ -187,7 +187,7 @@ const MVPDetailPage: React.FC = () => {
                 </h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {getProjectResults(project).map((result, index) => (
+                  {getProjectResults().map((result, index) => (
                     <div key={index} className="bg-white rounded-lg p-4">
                       <div className="flex items-center">
                         <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
@@ -388,7 +388,7 @@ function getProjectFeatures(project: Project): string[] {
   ];
 }
 
-function getProjectResults(_project: Project): string[] {
+function getProjectResults(): string[] {
   return [
     "사용자 만족도 95% 달성",
     "서비스 이용률 300% 증가",

@@ -77,11 +77,11 @@ const LandingPage: React.FC = () => {
                 className="flex-1"
               >
                 <Link 
-                  to="/contact" 
-                  aria-label="상담 문의하기"
+                  to="/campaign" 
+                  aria-label="특별 런칭 이벤트 확인하기"
                   className="inline-flex items-center justify-center w-full px-8 py-4 sm:px-10 sm:py-5 border-3 border-white/50 text-white font-bold text-base sm:text-lg rounded-2xl backdrop-blur-sm hover:bg-white/15 transition-all duration-200 min-h-[60px]"
                 >
-                  상담 문의하기
+                  🎉 런칭 이벤트
                 </Link>
               </motion.div>
           </motion.div>

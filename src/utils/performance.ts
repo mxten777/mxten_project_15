@@ -37,6 +37,7 @@ export class PerformanceMonitor {
     // First Input Delay
     new PerformanceObserver((entryList) => {
       const entries = entryList.getEntries();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       entries.forEach((entry: any) => {
         this.metrics.FID = entry.processingStart - entry.startTime;
         this.logMetric('FID', entry.processingStart - entry.startTime);
@@ -46,6 +47,7 @@ export class PerformanceMonitor {
     // Cumulative Layout Shift
     let clsValue = 0;
     new PerformanceObserver((entryList) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       for (const entry of entryList.getEntries() as any[]) {
         if (!entry.hadRecentInput) {
           clsValue += entry.value;
@@ -69,7 +71,9 @@ export class PerformanceMonitor {
     }
     
     // 프로덕션에서는 Analytics로 전송
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     if (import.meta.env.PROD && (window as any).gtag) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (window as any).gtag('event', 'web_vital', {
         name,
         value: Math.round(value),
@@ -104,6 +108,7 @@ export class PerformanceMonitor {
   // 메모리 사용량 모니터링
   static monitorMemoryUsage() {
     if ('memory' in performance) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const memory = (performance as any).memory;
       console.log(`🧠 메모리 사용량: ${(memory.usedJSHeapSize / 1048576).toFixed(2)}MB`);
       return {

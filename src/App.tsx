@@ -27,6 +27,9 @@ const MVPDetailPage = lazy(() =>
 const ContactPage = lazy(() => 
   import('./pages/ContactPage').then(module => ({ default: module.default }))
 );
+const CampaignPage = lazy(() => 
+  import('./pages/CampaignPage').then(module => ({ default: module.default }))
+);
 
 // 컴포넌트 프리로딩은 성능 최적화를 위해 추후 구현
 
@@ -105,6 +108,21 @@ function App() {
                     transition={{ duration: 0.3 }}
                   >
                     <ContactPage />
+                  </motion.div>
+                </Suspense>
+              } 
+            />
+            <Route 
+              path="/campaign" 
+              element={
+                <Suspense fallback={<PageLoader />}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <CampaignPage />
                   </motion.div>
                 </Suspense>
               } 
