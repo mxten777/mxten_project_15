@@ -8,6 +8,7 @@ export interface Project {
   date: string;
   tags: string[];
   featured?: boolean;
+  image?: string; // 썸네일 이미지 URL
 }
 
 export const projects: Project[] = [
@@ -20,7 +21,8 @@ export const projects: Project[] = [
     category: "기업/산업",
     date: "2025-10-08",
     tags: ["React", "시스템솔루션", "기업브랜딩", "리뉴얼"],
-    featured: true
+    featured: true,
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&crop=center"
   },
   {
     id: "mansong-renewal",
@@ -40,7 +42,8 @@ export const projects: Project[] = [
     category: "대표/통합",
     date: "2025-10-12",
     tags: ["포트폴리오", "프레젠테이션", "MVP소개", "React"],
-    featured: true
+    featured: true,
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop&crop=center"
   },
   {
     id: "korea-copron",
