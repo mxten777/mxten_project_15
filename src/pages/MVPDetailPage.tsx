@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, Calendar, Star, Globe, Code, Target, CheckCircle } from 'lucide-react';
 import { projects } from '../data/projects';
 import type { Project } from '../data/projects';
@@ -109,12 +108,7 @@ const MVPDetailPage: React.FC = () => {
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-8">
               {/* Project Overview */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="bg-white rounded-xl shadow-sm p-8"
-              >
+              <div className="bg-white rounded-xl shadow-sm p-8 animate-fade-in">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                   <Target className="w-6 h-6 mr-3 text-blue-600" />
                   프로젝트 개요
@@ -125,15 +119,10 @@ const MVPDetailPage: React.FC = () => {
                     {getProjectOverview(project)}
                   </p>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Technical Implementation */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="bg-white rounded-xl shadow-sm p-8"
-              >
+              <div className="bg-white rounded-xl shadow-sm p-8 animate-fade-in">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                   <Code className="w-6 h-6 mr-3 text-blue-600" />
                   기술 스택
@@ -150,15 +139,10 @@ const MVPDetailPage: React.FC = () => {
                     </div>
                   ))}
                 </div>
-              </motion.div>
+              </div>
 
               {/* Key Features */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-white rounded-xl shadow-sm p-8"
-              >
+              <div className="bg-white rounded-xl shadow-sm p-8 animate-fade-in">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                   <CheckCircle className="w-6 h-6 mr-3 text-green-600" />
                   핵심 기능
@@ -166,21 +150,16 @@ const MVPDetailPage: React.FC = () => {
                 
                 <div className="space-y-4">
                   {getProjectFeatures(project).map((feature, index) => (
-                    <div key={index} className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                    <div key={index} className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}
                 </div>
-              </motion.div>
+              </div>
 
               {/* Project Results */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-8"
-              >
+              <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-8 animate-fade-in">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                   <Star className="w-6 h-6 mr-3 text-yellow-500" />
                   프로젝트 성과
@@ -196,18 +175,13 @@ const MVPDetailPage: React.FC = () => {
                     </div>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             </div>
 
             {/* Sidebar */}
             <div className="space-y-6">
               {/* Project Info */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                className="bg-white rounded-xl shadow-sm p-6"
-              >
+              <div className="bg-white rounded-xl shadow-sm p-6 animate-fade-in">
                 <h3 className="text-lg font-bold text-gray-900 mb-4">프로젝트 정보</h3>
                 
                 <div className="space-y-4">
@@ -252,15 +226,10 @@ const MVPDetailPage: React.FC = () => {
                     사이트 방문하기
                   </a>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Related Projects */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-white rounded-xl shadow-sm p-6"
-              >
+              <div className="bg-white rounded-xl shadow-sm p-6 animate-fade-in">
                 <h3 className="text-lg font-bold text-gray-900 mb-4">관련 프로젝트</h3>
                 
                 <div className="space-y-3">
@@ -284,7 +253,7 @@ const MVPDetailPage: React.FC = () => {
                     </Link>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>
@@ -293,17 +262,12 @@ const MVPDetailPage: React.FC = () => {
       {/* CTA Section */}
       <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="animate-fade-in">
             <h2 className="text-3xl font-bold mb-4">
               이런 프로젝트를 만들어보고 싶으신가요?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              바이브 코딩과 함께 아이디어를 현실로 만들어보세요
+              바이칼시스템즈와 함께 아이디어를 현실로 만들어보세요
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -319,7 +283,7 @@ const MVPDetailPage: React.FC = () => {
                 다른 프로젝트 보기
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>

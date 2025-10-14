@@ -8,6 +8,16 @@ export interface PerformanceMetrics {
   TTFB: number; // Time to First Byte
 }
 
+// 확장된 PerformanceEntry 인터페이스
+interface FirstInputEntry extends PerformanceEntry {
+  processingStart: number;
+}
+
+interface LayoutShiftEntry extends PerformanceEntry {
+  value: number;
+  hadRecentInput: boolean;
+}
+
 export class PerformanceMonitor {
   private metrics: Partial<PerformanceMetrics> = {};
 
@@ -30,27 +40,29 @@ export class PerformanceMonitor {
     new PerformanceObserver((entryList) => {
       const entries = entryList.getEntries();
       const lastEntry = entries[entries.length - 1];
-      this.metrics.LCP = lastEntry.startTime;
-      this.logMetric('LCP', lastEntry.startTime);
+      if (lastEntry) {
+        this.metrics.LCP = lastEntry.startTime;
+        this.logMetric('LCP', lastEntry.startTime);
+      }
     }).observe({ entryTypes: ['largest-contentful-paint'] });
 
     // First Input Delay
     new PerformanceObserver((entryList) => {
       const entries = entryList.getEntries();
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      entries.forEach((entry: any) => {
-        this.metrics.FID = entry.processingStart - entry.startTime;
-        this.logMetric('FID', entry.processingStart - entry.startTime);
+      entries.forEach((entry) => {
+        const firstInputEntry = entry as FirstInputEntry;
+        this.metrics.FID = firstInputEntry.processingStart - firstInputEntry.startTime;
+        this.logMetric('FID', firstInputEntry.processingStart - firstInputEntry.startTime);
       });
     }).observe({ entryTypes: ['first-input'] });
 
     // Cumulative Layout Shift
     let clsValue = 0;
     new PerformanceObserver((entryList) => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      for (const entry of entryList.getEntries() as any[]) {
-        if (!entry.hadRecentInput) {
-          clsValue += entry.value;
+      for (const entry of entryList.getEntries()) {
+        const layoutShiftEntry = entry as LayoutShiftEntry;
+        if (!layoutShiftEntry.hadRecentInput) {
+          clsValue += layoutShiftEntry.value;
         }
       }
       this.metrics.CLS = clsValue;

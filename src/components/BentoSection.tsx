@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+
 import { TrendingUp, Users, Clock, Award, Target, Zap } from 'lucide-react';
 
 interface BentoCardProps {
@@ -16,21 +16,14 @@ const BentoCard: React.FC<BentoCardProps> = ({ size, children, className = '' })
   };
 
   return (
-    <motion.div
+    <div
       className={`${sizeClasses[size]} ${className} 
         rounded-3xl p-8 border-2 
-        hover:shadow-2xl transition-all duration-500 group cursor-pointer shadow-lg hover:scale-[1.02]
+        hover:shadow-2xl transition-all duration-500 group cursor-pointer shadow-lg hover:scale-[1.02] animate-fade-in
       `}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      whileHover={{ 
-        transform: "translateY(-4px)",
-        boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)"
-      }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 };
 
@@ -38,14 +31,9 @@ const BentoSection: React.FC = () => {
   return (
     <section className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        <motion.h2 
-          className="text-4xl md:text-5xl font-black text-center mb-16 text-gray-900 dark:text-gray-50 tracking-tight drop-shadow-sm"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <h2 className="text-4xl md:text-5xl font-black text-center mb-16 text-gray-900 dark:text-gray-50 tracking-tight drop-shadow-sm animate-fade-in">
           우리의 강점
-        </motion.h2>
+        </h2>
 
         <div className="bento-grid">
           {/* Large Card - Main Hero */}
@@ -89,11 +77,9 @@ const BentoSection: React.FC = () => {
                   <span className="font-black text-xl text-gray-900 dark:text-white">95%</span>
                 </div>
                 <div className="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-3 border border-gray-400 dark:border-gray-600">
-                  <motion.div 
-                    className="bg-gradient-to-r from-green-500 to-green-600 h-3 rounded-full"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "95%" }}
-                    transition={{ duration: 2, delay: 0.5 }}
+                  <div 
+                    className="bg-gradient-to-r from-green-500 to-green-600 h-3 rounded-full animate-pulse"
+                    style={{ width: "95%" }}
                   />
                 </div>
               </div>
@@ -103,11 +89,9 @@ const BentoSection: React.FC = () => {
                   <span className="font-black text-xl text-gray-900 dark:text-white">98%</span>
                 </div>
                 <div className="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-3 border border-gray-400 dark:border-gray-600">
-                  <motion.div 
-                    className="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "98%" }}
-                    transition={{ duration: 2, delay: 0.7 }}
+                  <div 
+                    className="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full animate-pulse"
+                    style={{ width: "98%" }}
                   />
                 </div>
               </div>

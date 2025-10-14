@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
 import { lazy, Suspense, useEffect } from 'react';
 import './App.css';
 
@@ -7,7 +6,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import PageLoader from './components/PageLoader';
-import CursorFollower from './components/CursorFollower';
+import ErrorBoundary from './components/ErrorBoundary';
 import { SkipToContent } from './hooks/useAccessibility';
 import { ThemeProvider } from './contexts/ThemeContext';
 
@@ -30,6 +29,9 @@ const ContactPage = lazy(() =>
 const CampaignPage = lazy(() => 
   import('./pages/CampaignPage').then(module => ({ default: module.default }))
 );
+const NotFoundPage = lazy(() => 
+  import('./pages/NotFoundPage').then(module => ({ default: module.default }))
+);
 
 // 컴포넌트 프리로딩은 성능 최적화를 위해 추후 구현
 
@@ -43,97 +45,82 @@ function App() {
 
   return (
     <ThemeProvider>
-      <Router>
-        <div className="min-h-screen bg-slate-50 dark:bg-secondary-900 transition-colors duration-300">
-        <CursorFollower />
-        <SkipToContent />
-        <Navbar />
+      <ErrorBoundary>
+        <Router>
+          <div className="min-h-screen bg-slate-50 dark:bg-secondary-900 transition-colors duration-300">
+          <SkipToContent />
+          <Navbar />
         <main id="main-content" role="main">
         
-        <AnimatePresence mode="wait">
-          <Routes>
-            <Route 
-              path="/" 
-              element={
-                <Suspense fallback={<PageLoader />}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <LandingPage />
-                  </motion.div>
-                </Suspense>
-              } 
-            />
-            <Route 
-              path="/portfolio" 
-              element={
-                <Suspense fallback={<PageLoader />}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <PortfolioPage />
-                  </motion.div>
-                </Suspense>
-              } 
-            />
-            <Route 
-              path="/mvp/:id" 
-              element={
-                <Suspense fallback={<PageLoader />}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <MVPDetailPage />
-                  </motion.div>
-                </Suspense>
-              } 
-            />
-            <Route 
-              path="/contact" 
-              element={
-                <Suspense fallback={<PageLoader />}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <ContactPage />
-                  </motion.div>
-                </Suspense>
-              } 
-            />
-            <Route 
-              path="/campaign" 
-              element={
-                <Suspense fallback={<PageLoader />}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <CampaignPage />
-                  </motion.div>
-                </Suspense>
-              } 
-            />
-          </Routes>
-        </AnimatePresence>
+        <Routes>
+          <Route 
+            path="/" 
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <div className="animate-fade-in">
+                  <LandingPage />
+                </div>
+              </Suspense>
+            } 
+          />
+          <Route 
+            path="/portfolio" 
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <div className="animate-fade-in">
+                  <PortfolioPage />
+                </div>
+              </Suspense>
+            } 
+          />
+          <Route 
+            path="/mvp/:id" 
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <div className="animate-fade-in">
+                  <MVPDetailPage />
+                </div>
+              </Suspense>
+            } 
+          />
+          <Route 
+            path="/contact" 
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <div className="animate-fade-in">
+                  <ContactPage />
+                </div>
+              </Suspense>
+            } 
+          />
+          <Route 
+            path="/campaign" 
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <div className="animate-fade-in">
+                  <CampaignPage />
+                </div>
+              </Suspense>
+            } 
+          />
+          {/* 404 Catch-all Route */}
+          <Route 
+            path="*" 
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <div className="animate-fade-in">
+                  <NotFoundPage />
+                </div>
+              </Suspense>
+            } 
+          />
+        </Routes>
         </main>
         
         <Footer />
-        </div>
-      </Router>
+          </div>
+        </Router>
+      </ErrorBoundary>
     </ThemeProvider>
   );
 }

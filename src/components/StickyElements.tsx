@@ -1,5 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
 import { ChevronUp } from 'lucide-react';
 
 const StickyElements: React.FC = () => {
@@ -17,23 +16,23 @@ const StickyElements: React.FC = () => {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
+
+  if (!showBackToTop) return null;
 
   return (
     <>
-      <motion.button
-        className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 p-4 sm:p-5 bg-blue-600 text-white rounded-full shadow-xl hover:bg-blue-700 hover:scale-110 transition-all duration-200 touch-manipulation"
-        animate={{ 
-          opacity: showBackToTop ? 1 : 0, 
-          scale: showBackToTop ? 1 : 0 
-        }}
-        transition={{ duration: 0.3 }}
+      <button
         onClick={scrollToTop}
-        aria-label="맨 위로 이동"
+        className="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 hover:transform hover:scale-110 z-50 animate-fade-in"
+        aria-label="맨 위로 스크롤"
       >
-        <ChevronUp className="w-7 h-7 sm:w-8 sm:h-8" />
-      </motion.button>
+        <ChevronUp className="w-6 h-6 mx-auto" />
+      </button>
     </>
   );
 };

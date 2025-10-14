@@ -1,5 +1,4 @@
 import React, { useState, useRef, useCallback } from 'react';
-import { motion } from 'framer-motion';
 
 interface OptimizedImageProps {
   src: string;
@@ -8,80 +7,60 @@ interface OptimizedImageProps {
   fallback?: string;
   webp?: string;
   loading?: 'lazy' | 'eager';
-  priority?: boolean;
+  onLoad?: () => void;
+  onError?: () => void;
 }
 
 const OptimizedImage: React.FC<OptimizedImageProps> = ({
   src,
   alt,
   className = '',
-  fallback,
+  fallback = '/images/placeholder.jpg',
   webp,
   loading = 'lazy',
-  priority = false
+  onLoad,
+  onError,
 }) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const [imageError, setImageError] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
   const handleLoad = useCallback(() => {
-    setImageLoaded(true);
-  }, []);
+    setIsLoaded(true);
+    onLoad?.();
+  }, [onLoad]);
 
   const handleError = useCallback(() => {
-    setImageError(true);
-    if (fallback && imgRef.current) {
-      imgRef.current.src = fallback;
-    }
-  }, [fallback]);
+    setHasError(true);
+    onError?.();
+  }, [onError]);
+
+  const imageSrc = hasError ? fallback : src;
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      {/* Loading Skeleton */}
-      {!imageLoaded && !imageError && (
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 animate-pulse">
-          <div className="shimmer-effect absolute inset-0" />
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+          <div className="w-8 h-8 border-2 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
         </div>
       )}
-
-      {/* Optimized Picture Element with WebP */}
+      
       <picture>
         {webp && (
-          <source 
-            srcSet={webp} 
-            type="image/webp"
-          />
+          <source srcSet={webp} type="image/webp" />
         )}
-        <motion.img
+        <img
           ref={imgRef}
-          src={src}
+          src={imageSrc}
           alt={alt}
-          loading={priority ? 'eager' : loading}
+          loading={loading}
           onLoad={handleLoad}
           onError={handleError}
-          className={`w-full h-full object-cover transition-opacity duration-500 ${
-            imageLoaded ? 'opacity-100' : 'opacity-0'
+          className={`w-full h-full object-cover transition-opacity duration-300 ${
+            isLoaded ? 'opacity-100' : 'opacity-0'
           }`}
-          initial={{ scale: 1.1, opacity: 0 }}
-          animate={{ 
-            scale: imageLoaded ? 1 : 1.1,
-            opacity: imageLoaded ? 1 : 0
-          }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          decoding="async"
-          fetchPriority={priority ? 'high' : 'auto'}
         />
       </picture>
-
-      {/* Error State */}
-      {imageError && !fallback && (
-        <div className="absolute inset-0 bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
-          <div className="text-center text-gray-500 dark:text-gray-400">
-            <div className="text-2xl mb-2">🖼️</div>
-            <div className="text-sm">이미지를 불러올 수 없습니다</div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

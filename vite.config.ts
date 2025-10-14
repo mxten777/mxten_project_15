@@ -51,9 +51,9 @@ export default defineConfig({
         ],
       },
       manifest: {
-        name: '바이브 코딩 - MVP 포트폴리오',
-        short_name: '바이브 코딩',
-        description: '35+ 검증된 MVP 포트폴리오와 빠른 개발 서비스',
+        name: '바이칼시스템즈 - MVP 포트폴리오',
+        short_name: '바이칼시스템즈',
+        description: '28개 검증된 MVP 포트폴리오와 빠른 개발 서비스',
         theme_color: '#2563eb',
         background_color: '#ffffff',
         display: 'standalone',

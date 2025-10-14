@@ -49,6 +49,7 @@ export default {
         'wiggle': 'wiggle 1s ease-in-out infinite',
         'spin-slow': 'spin 3s linear infinite',
         'bounce-x': 'bounceX 1s infinite',
+        'loading-bar': 'loadingBar 2s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -87,6 +88,11 @@ export default {
         bounceX: {
           '0%, 100%': { transform: 'translateX(0)' },
           '50%': { transform: 'translateX(25px)' },
+        },
+        loadingBar: {
+          '0%': { transform: 'translateX(-100%)' },
+          '50%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(100%)' },
         },
       },
       colors: {

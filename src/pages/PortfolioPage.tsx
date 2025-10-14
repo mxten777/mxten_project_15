@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ExternalLink, Calendar, Tag, Star, Grid, List, Eye, Heart, Zap, Clock, Code2, Sparkles, Trophy } from 'lucide-react';
@@ -24,17 +24,19 @@ const PortfolioPage: React.FC = () => {
     return counts;
   }, []);
   
-  const filteredProjects = showFeatured 
-    ? getFeaturedProjects() 
-    : getProjectsByCategory(selectedCategory === "전체" ? "all" : selectedCategory);
+  const filteredProjects = useMemo(() => {
+    return showFeatured 
+      ? getFeaturedProjects() 
+      : getProjectsByCategory(selectedCategory === "전체" ? "all" : selectedCategory);
+  }, [showFeatured, selectedCategory]);
 
-  const handleDemoClick = (project: { status?: string; url?: string }) => {
+  const handleDemoClick = useCallback((project: { status?: string; url?: string }) => {
     if (project.status === 'concept') {
       alert('🔍 검토중인 아이디어 프로젝트입니다.\n\n현재 기획 단계에 있으며, 향후 개발 예정입니다.\n문의사항이 있으시면 연락주세요!');
       return;
     }
     window.open(project.url, '_blank', 'noopener,noreferrer');
-  };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -67,13 +69,13 @@ const PortfolioPage: React.FC = () => {
               </motion.span>
             </motion.h1>
             <p className="text-lg md:text-xl mb-8 opacity-90 max-w-3xl mx-auto font-medium">
-              2025년 10월 현재 <strong>28개</strong>의 리뉴얼된 MVP 프로젝트들
+              2025년 10월 현재 <strong>35+개</strong>의 리뉴얼된 MVP 프로젝트들
               <br />
               <span className="text-base opacity-80">🏢 기업홈페이지 | 💊 의료복지 | 🏛️ 공공서비스 | 🎓 교육플랫폼</span>
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-2">
-                ✅ <strong>28개</strong> 리뉴얼 완료
+                ✅ <strong>35+개</strong> 리뉴얼 완료
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-2">
                 🚀 <strong>평균 1-2주</strong> 개발 기간

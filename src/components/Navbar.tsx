@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronRight } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 
@@ -9,14 +8,14 @@ const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+  const handleScroll = useCallback(() => {
+    setScrolled(window.scrollY > 50);
+  }, []);
 
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   // 모바일 메뉴 열릴 때 스크롤 방지
   useEffect(() => {
@@ -33,69 +32,62 @@ const Navbar: React.FC = () => {
 
   const navItems = [
     { name: '홈', path: '/', description: '서비스 소개' },
-    { name: '포트폴리오', path: '/portfolio', description: '28+ MVP 프로젝트' },
+    { name: '포트폴리오', path: '/portfolio', description: '35+개 MVP 프로젝트' },
     { name: '🎉 캠페인', path: '/campaign', description: '특별 런칭 이벤트' },
   ];
 
   const isActive = (path: string) => {
-    if (path === '/') {
-      return location.pathname === '/';
-    }
-    return location.pathname.startsWith(path);
+    if (path === '/' && location.pathname === '/') return true;
+    if (path !== '/' && location.pathname.startsWith(path)) return true;
+    return false;
   };
-
-  const closeMenu = () => setIsOpen(false);
 
   return (
     <>
-      <motion.nav
-        className={`fixed w-full left-0 right-0 top-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? 'bg-white dark:bg-secondary-900 shadow-xl border-b border-gray-100 dark:border-gray-700'
-            : 'bg-black/30 dark:bg-black/50 backdrop-blur-lg border-b border-white/30 dark:border-white/20'
-        }`}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
+      <nav className={`fixed w-full left-0 right-0 top-0 z-50 transition-all duration-300 animate-slide-in-top ${
+        scrolled
+          ? 'bg-white/98 dark:bg-gray-900/98 backdrop-blur-xl shadow-2xl border-b-2 border-gray-200 dark:border-gray-600'
+          : 'bg-black/30 dark:bg-black/50 backdrop-blur-xl border-b border-white/30 dark:border-white/20'
+      }`}>
+        {/* Animated gradient background overlay */}
+        {!scrolled && (
+          <div className="absolute inset-0 opacity-30 animate-gradient-bg"></div>
+        )}
         <div className="w-full">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-18 md:h-20">
+            
             {/* Logo */}
             <Link
               to="/"
-              className="flex items-center space-x-3 group flex-shrink-0"
-              onClick={closeMenu}
+              className="flex items-center space-x-2 group flex-shrink-0"
+              onClick={() => setIsOpen(false)}
             >
-              <motion.div
-                className="p-3 bg-white rounded-lg transition-all duration-300 shadow-md border border-gray-200 group-hover:scale-105 group-hover:bg-gray-50"
-                whileHover={{ rotate: 5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <img 
-                  src="/images/baikal_logo_trans.png" 
-                  alt="바이칼 로고" 
-                  className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain rounded-md"
-                  style={{ 
+              <div className="p-2 bg-white rounded-lg transition-all duration-300 shadow-md border border-gray-200 group-hover:scale-105 group-hover:bg-gray-50 animate-float">
+                <img
+                  src="/images/baikal_logo_trans.png"
+                  alt="바이브코딩 로고"
+                  className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+                  style={{
                     filter: 'contrast(1.2) brightness(1.1) saturate(1.3)',
                     imageRendering: 'crisp-edges'
                   }}
                 />
-              </motion.div>
-              <div className="flex flex-col ml-3">
-                <span className={`font-bold font-heading text-xl sm:text-2xl md:text-3xl leading-tight tracking-tight ${
-                  scrolled ? 'text-gray-900 dark:text-white' : 'text-white'
+              </div>
+              <div className="flex flex-col">
+                <span className={`font-bold font-heading text-lg sm:text-xl leading-tight tracking-tight transition-colors ${
+                  scrolled ? 'text-gray-900 dark:text-white drop-shadow-sm' : 'text-white'
                 }`}
                 style={{
-                  textShadow: scrolled ? 'none' : '2px 2px 6px rgba(0,0,0,0.9), 0 0 12px rgba(0,0,0,0.5)'
+                  textShadow: scrolled ? '0 1px 2px rgba(0,0,0,0.1)' : '2px 2px 6px rgba(0,0,0,0.9), 0 0 12px rgba(0,0,0,0.5)'
                 }}>
-                  바이브 코딩
+                  바이브코딩
                 </span>
-                <span className={`text-sm sm:text-base font-semibold font-sans leading-tight tracking-wide ${
-                  scrolled ? 'text-blue-600 dark:text-blue-400' : 'text-blue-100'
+                <span className={`text-xs sm:text-sm font-semibold font-sans leading-tight tracking-wide ${
+                  scrolled ? 'text-blue-700 dark:text-blue-300 font-bold' : 'text-blue-100'
                 }`}
                 style={{
-                  textShadow: scrolled ? 'none' : '1px 1px 4px rgba(0,0,0,0.8)'
+                  textShadow: scrolled ? '0 1px 2px rgba(0,0,0,0.2)' : '1px 1px 4px rgba(0,0,0,0.8)'
                 }}>
                   MVP 개발 전문
                 </span>
@@ -108,17 +100,19 @@ const Navbar: React.FC = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`relative px-6 py-3 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 ${
+                  className={`relative px-6 py-3 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 cursor-pointer ${
                     isActive(item.path)
                       ? scrolled
-                        ? 'text-white bg-gradient-to-r from-blue-600 to-blue-700 shadow-lg'
+                        ? 'text-white bg-gradient-to-r from-blue-600 to-blue-700 shadow-lg animate-pulse-glow'
                         : 'text-blue-900 bg-white/95 backdrop-blur-sm shadow-lg border border-white/50'
                       : scrolled
-                        ? 'text-gray-800 dark:text-gray-200 hover:text-blue-600 hover:bg-gray-100 dark:hover:bg-gray-700'
+                        ? 'text-gray-900 dark:text-white font-extrabold hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-gray-700 hover:shadow-md'
                         : 'text-white hover:bg-white/25 backdrop-blur-sm border border-white/30'
                   }`}
                   style={{
-                    textShadow: !scrolled && !isActive(item.path) ? '1px 1px 3px rgba(0,0,0,0.7)' : 'none'
+                    textShadow: scrolled 
+                      ? isActive(item.path) ? 'none' : '0 1px 3px rgba(0,0,0,0.3)' 
+                      : !isActive(item.path) ? '1px 1px 3px rgba(0,0,0,0.7)' : 'none'
                   }}
                 >
                   {item.name}
@@ -128,13 +122,13 @@ const Navbar: React.FC = () => {
 
             {/* Right Side - 테마 토글과 CTA */}
             <div className="hidden md:flex items-center space-x-4 flex-shrink-0">
-              <ThemeToggle />
-              
+              <ThemeToggle scrolled={scrolled} />
+
               <Link
                 to="/contact"
-                className={`px-8 py-3 rounded-xl font-bold text-base shadow-lg transition-all duration-300 transform hover:scale-105 ${
+                className={`px-8 py-3 rounded-xl font-bold text-base shadow-lg transition-all duration-300 transform hover:scale-105 cursor-pointer ${
                   scrolled
-                    ? 'bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 text-white hover:from-blue-700 hover:via-blue-800 hover:to-purple-700 shadow-blue-200 dark:shadow-blue-900/50'
+                    ? 'bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 text-white hover:from-blue-700 hover:via-blue-800 hover:to-purple-700 shadow-xl hover:shadow-2xl animate-pulse-glow'
                     : 'bg-white text-blue-700 hover:bg-gray-50 shadow-white/30 border border-white/50'
                 }`}
               >
@@ -146,142 +140,83 @@ const Navbar: React.FC = () => {
             <div className="md:hidden flex items-center space-x-3">
               {/* Mobile Theme Toggle */}
               <div className="flex-shrink-0">
-                <ThemeToggle />
+                <ThemeToggle scrolled={scrolled} />
               </div>
-              
+
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className={`p-2.5 rounded-lg transition-all duration-200 touch-manipulation ${
-                  scrolled 
-                    ? 'text-gray-700 bg-gray-100 hover:bg-gray-200' 
+                  scrolled
+                    ? 'text-gray-700 bg-gray-100 hover:bg-gray-200'
                     : 'text-white bg-white/20 hover:bg-white/30 backdrop-blur-sm'
                 }`}
                 aria-label="메뉴 토글"
               >
-              <AnimatePresence mode="wait">
-                {isOpen ? (
-                  <motion.div
-                    key="close"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <X className="w-6 h-6" />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="menu"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Menu className="w-6 h-6" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
             </div>
           </div>
         </div>
-      </motion.nav>
+      </nav>
 
       {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={closeMenu}
-            />
+      {isOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+            onClick={() => setIsOpen(false)}
+          />
 
-            {/* Mobile Menu - 간소화된 버전 */}
-            <motion.div
-              className="fixed top-20 left-4 right-4 bg-white rounded-2xl shadow-xl z-50 md:hidden overflow-hidden border border-gray-100"
-              initial={{ opacity: 0, y: -20, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -20, scale: 0.95 }}
-              transition={{ duration: 0.2 }}
-            >
-              <div className="py-8">
-                {/* Mobile Navigation Items */}
-                <div className="space-y-2 px-6">
-                  {navItems.map((item, index) => (
-                    <motion.div
-                      key={item.path}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                    >
-                      <Link
-                        to={item.path}
-                        onClick={closeMenu}
-                        className={`flex items-center justify-between px-5 py-4 rounded-2xl transition-all duration-200 group ${
-                          isActive(item.path)
-                            ? 'bg-gradient-to-r from-blue-50 to-purple-50 text-blue-600 border-2 border-blue-200'
-                            : 'text-gray-700 hover:bg-gray-50 border-2 border-transparent'
-                        }`}
-                      >
-                        <div className="flex-1">
-                          <div className="font-bold font-heading text-lg">{item.name}</div>
-                          <div className="text-sm text-gray-500 font-medium font-sans">{item.description}</div>
-                        </div>
-                        <ChevronRight className={`w-5 h-5 transition-transform duration-200 ${
-                          isActive(item.path) ? 'text-blue-600' : 'text-gray-400 group-hover:translate-x-1'
-                        }`} />
-                      </Link>
-                    </motion.div>
-                  ))}
-
-                  {/* 상담 문의 추가 (모바일 전용) */}
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: navItems.length * 0.1 }}
-                  >
+          {/* Mobile Menu - 간소화된 버전 */}
+          <div className="fixed top-20 left-4 right-4 bg-white rounded-2xl shadow-2xl z-50 md:hidden overflow-hidden border border-gray-100">
+            <div className="px-4 py-4 max-h-[calc(100vh-4rem)] overflow-y-auto">
+              
+              {/* Mobile Navigation Links */}
+              <div className="space-y-3">
+                {navItems.map((item) => (
+                  <div key={item.path} className="relative">
                     <Link
-                      to="/contact"
-                      onClick={closeMenu}
-                      className="flex items-center justify-between px-5 py-4 rounded-2xl transition-all duration-200 group text-gray-700 hover:bg-gray-50 border-2 border-transparent"
+                      to={item.path}
+                      onClick={() => setIsOpen(false)}
+                      className={`group flex items-center justify-between w-full px-4 py-4 rounded-xl transition-all duration-300 ${
+                        isActive(item.path)
+                          ? 'bg-blue-50 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 border-2 border-blue-200 dark:border-blue-600 shadow-md'
+                          : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white border-2 border-transparent hover:border-gray-200 dark:hover:border-gray-600'
+                      }`}
                     >
-                      <div className="flex-1">
-                        <div className="font-bold font-heading text-lg">상담 문의</div>
-                        <div className="text-sm text-gray-500 font-medium font-sans">무료 상담 신청</div>
+                      <div className="flex flex-col items-start">
+                        <span className="font-semibold text-lg">{item.name}</span>
+                        <span className="text-sm text-gray-500 dark:text-gray-400 mt-1">{item.description}</span>
                       </div>
-                      <ChevronRight className="w-5 h-5 transition-transform duration-200 text-gray-400 group-hover:translate-x-1" />
+                      
+                      <ChevronRight 
+                        size={22} 
+                        className={`transition-all duration-300 ${
+                          isActive(item.path) ? 'text-blue-500' : 'text-gray-400 group-hover:translate-x-1 group-hover:text-blue-500'
+                        }`} 
+                      />
                     </Link>
-                  </motion.div>
-                </div>
-
-
-
-                {/* Mobile Contact Info */}
-                <motion.div
-                  className="mt-8 pt-6 px-6 border-t border-gray-200"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  <div className="text-center">
-                    <div className="font-bold font-heading text-gray-800 mb-2">빠른 연락</div>
-                    <div className="space-y-1 text-sm">
-                      <div className="font-semibold font-sans text-blue-600">contact@vibecoding.com</div>
-                      <div className="font-semibold font-sans text-blue-600">010-1234-5678</div>
-                    </div>
                   </div>
-                </motion.div>
+                ))}
               </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+
+              {/* Mobile Contact Button */}
+              <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+                <Link
+                  to="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-center w-full px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold text-lg rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+                >
+                  📞 문의하기
+                </Link>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
 
       {/* Spacer for fixed navbar */}
       <div className="h-18 md:h-20" />

@@ -59,8 +59,8 @@ export const projects: Project[] = [
   },
   {
     id: "portfolio-renewal",
-    title: "바이브 코딩 MVP 소개자료(포트폴리오) 웹앱",
-    description: "28개 MVP 프로젝트를 소개하는 프레젠테이션 스타일 포트폴리오 웹사이트",
+    title: "바이칼시스템즈 MVP 소개자료(포트폴리오) 웹앱",
+    description: "35+개 MVP 프로젝트를 소개하는 프레젠테이션 스타일 포트폴리오 웹사이트",
     url: "https://mxten-project-15-48zl7ce5t-dongyeol-jungs-projects.vercel.app/",
     category: "대표/통합",
     date: "2025-10-12",
@@ -82,9 +82,16 @@ export const projects: Project[] = [
     url: "https://mvp-project-03-jhbjp3e6e-dongyeol-jungs-projects.vercel.app/",
     category: "기업/산업",
     date: "2025-10-11",
-    tags: ["게임", "슬롯머신", "파칭코", "엔터테인먼트"],
+    tags: ["React", "기업브랜딩", "제품소개", "반응형"],
     featured: true,
-    image: "/images/20251014_mvp_03.png"
+    image: "/images/20251014_mvp_03.png",
+    techStack: ["React", "TypeScript", "TailwindCSS", "Responsive"],
+    status: "live",
+    completion: 100,
+    duration: "2주",
+    views: 892,
+    likes: 67,
+    difficulty: "medium"
   },
   {
     id: "lawmaker-landing",
@@ -321,7 +328,7 @@ export const projects: Project[] = [
     title: "바이칼리조트 홈페이지 및 예약시스템",
     description: "리조트 소개와 실시간 예약이 가능한 통합 시스템",
     url: "https://mvp-project-26-7iwsc36ux-dongyeol-jungs-projects.vercel.app/",
-    category: "엔터테인먼트",
+    category: "서비스/여행",
     date: "2025-10-03",
     tags: ["리조트", "예약시스템", "숙박", "관광"],
     image: "/images/20251014_mvp_26.png",
@@ -454,23 +461,7 @@ export const projects: Project[] = [
     likes: 39,
     difficulty: "hard"
   },
-  {
-    id: "pachinko-slot-game",
-    title: "슬롯머신형 일본 파칭코 웹 MVP",
-    description: "일본 파칭코 게임을 모티브로 한 슬롯머신 스타일 웹 게임",
-    url: "https://mxten-project-10-4mmti96wq-dongyeol-jungs-projects.vercel.app/",
-    category: "엔터테인먼트",
-    date: "2025-10-11",
-    tags: ["게임", "슬롯머신", "파칭코", "엔터테인먼트"],
-    image: "/images/20251014_mxten_10.png",
-    techStack: ["React", "Game Engine", "Animation", "Casino Style"],
-    status: "live",
-    completion: 100,
-    duration: "4주",
-    views: 1234,
-    likes: 156,
-    difficulty: "hard"
-  },
+
   {
     id: "vibe-edu-platform",
     title: "AI 기반 맞춤형 교육 플랫폼(바이브에듀)",
@@ -504,6 +495,24 @@ export const projects: Project[] = [
     views: 734,
     likes: 67,
     difficulty: "hard"
+  },
+  {
+    id: "slot-pachinko",
+    title: "슬롯형 빠찡코 게임",
+    description: "리얼타임 애니메이션과 사운드 효과를 갖춘 슬롯 머신 스타일 빠찡코 게임",
+    url: "https://slot-pachinko-game.vercel.app/",
+    category: "게임/엔터테인먼트",
+    date: "2025-10-14",
+    tags: ["React", "Canvas API", "Web Audio API", "CSS3 Animation", "게임개발", "애니메이션"],
+    image: "/images/slot-pachinko.png",
+    techStack: ["React", "Canvas API", "Web Audio API", "CSS3 Animation"],
+    status: "live",
+    completion: 100,
+    duration: "4주",
+    views: 1234,
+    likes: 89,
+    difficulty: "medium",
+    featured: true
   }
 ];
 
@@ -514,7 +523,7 @@ export const getProjectsByCategory = (category: string) => {
 };
 
 export const getFeaturedProjects = () => {
-  return projects.filter(project => project.featured);
+  return projects.filter(project => Boolean(project.featured));
 };
 
 export const getProjectById = (id: string) => {
@@ -530,7 +539,7 @@ export const categories = [
   "복지/의료/돌봄",
   "교육/AI/데이터",
   "일자리/사회서비스",
-  "엔터테인먼트",
+  "서비스/여행",
   "대표/통합",
   
   // 🚀 향후 확장 카테고리 (고도화 예정)
@@ -557,7 +566,7 @@ export const categoryLabels: Record<string, string> = {
   "복지/의료/돌봄": "복지/의료/돌봄",
   "교육/AI/데이터": "교육/AI/데이터",
   "일자리/사회서비스": "일자리/사회서비스",
-  "엔터테인먼트": "엔터테인먼트",
+  "서비스/여행": "서비스/여행",
   "대표/통합": "대표/통합",
   
   // 향후 확장 카테고리
