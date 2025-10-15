@@ -45,6 +45,26 @@ nav a, nav button, footer a, section button {
   cursor: pointer !important;
 }
 
+/* 상세페이지 전용 커서 규칙 */
+.bg-gradient-to-r, .bg-gradient-to-br, .bg-white, .bg-blue-600,
+.transform, .hover\:scale-105, .hover\:bg-gray-100, .hover\:bg-blue-700,
+.inline-flex, .backdrop-blur-sm, .backdrop-blur-lg,
+.rounded-2xl, .rounded-3xl, .shadow-2xl {
+  cursor: pointer !important;
+}
+
+/* MVP 상세페이지 특수 요소들 */
+[class*="bg-gradient"], [class*="hover:"], [class*="transition"],
+.animate-bounce, .animate-pulse, .animate-ping, .animate-float {
+  cursor: default !important;
+}
+
+/* 클릭 가능한 요소만 포인터 */
+a[href], button:not([disabled]), [role="button"], 
+.cursor-pointer, [onclick], [data-clickable] {
+  cursor: pointer !important;
+}
+
 /* 커서 아웃라인 강화 */
 body {
   cursor: default !important;

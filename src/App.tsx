@@ -20,9 +20,6 @@ const LandingPage = lazy(() =>
 const PortfolioPage = lazy(() => 
   import('./pages/PortfolioPage').then(module => ({ default: module.default }))
 );
-const MVPDetailPage = lazy(() => 
-  import('./pages/MVPDetailPage').then(module => ({ default: module.default }))
-);
 const ContactPage = lazy(() => 
   import('./pages/ContactPage').then(module => ({ default: module.default }))
 );
@@ -69,16 +66,6 @@ function App() {
               <Suspense fallback={<PageLoader />}>
                 <div className="animate-fade-in">
                   <PortfolioPage />
-                </div>
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/mvp/:id" 
-            element={
-              <Suspense fallback={<PageLoader />}>
-                <div className="animate-fade-in">
-                  <MVPDetailPage />
                 </div>
               </Suspense>
             } 
