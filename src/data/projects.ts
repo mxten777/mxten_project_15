@@ -505,7 +505,7 @@ export const projects: Project[] = [
     category: "게임/엔터테인먼트",
     date: "2025-10-11",
     tags: ["게임", "슬롯머신", "파칭코", "엔터테인먼트", "React"],
-    image: "/images/game-entertainment-thumb.png",
+    image: "/images/20251014_mxten_10.png",
     techStack: ["React", "TypeScript", "CSS3 Animation", "JavaScript"],
     status: "live",
     completion: 100,
