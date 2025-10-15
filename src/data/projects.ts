@@ -513,6 +513,24 @@ export const projects: Project[] = [
     likes: 89,
     difficulty: "medium",
     featured: true
+  },
+  {
+    id: "mxten-10",
+    title: "슬롯머신형 일본 파칭코 웹 MVP_251011",
+    description: "재미있는 슬롯머신 스타일의 파칭코 게임 웹 애플리케이션",
+    url: "https://mxten-project-10-4mmti96wq-dongyeol-jungs-projects.vercel.app/",
+    category: "게임/엔터테인먼트",
+    date: "2025-10-11",
+    tags: ["게임", "슬롯머신", "파칭코", "엔터테인먼트", "React"],
+    image: "/images/pachinko-slot.png",
+    techStack: ["React", "TypeScript", "CSS3 Animation", "JavaScript"],
+    status: "live",
+    completion: 100,
+    duration: "2주",
+    views: 892,
+    likes: 67,
+    difficulty: "medium",
+    featured: true
   }
 ];
 
