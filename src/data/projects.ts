@@ -43,7 +43,7 @@ export const projects: Project[] = [
     id: "mansong-renewal",
     title: "만송시스템 홈페이지 (버전2)",
     description: "기업 브랜딩과 서비스 소개를 위한 프리미엄 홈페이지 리뉴얼 - 최신 업데이트",
-    url: "https://mxten-project-30-2n8aaiba4-dongyeol-jungs-projects.vercel.app/",
+    url: "https://mxten-project-30-peogyy34i-dongyeol-jungs-projects.vercel.app/",
     category: "기업/산업",
     date: "2025-10-16",
     tags: ["React", "기업브랜딩", "서비스소개", "리뉴얼", "버전2"],
