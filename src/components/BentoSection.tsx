@@ -66,36 +66,71 @@ const BentoSection: React.FC = () => {
             size="medium" 
             className="bg-gradient-to-br from-green-50 to-green-100 dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900 border-green-300 dark:border-gray-600"
           >
-            <div className="w-16 h-16 mb-6 text-green-600 dark:text-green-400 bg-green-200/50 dark:bg-green-900/50 rounded-xl flex items-center justify-center border-2 border-green-300 dark:border-green-500">
-              <TrendingUp className="w-9 h-9" />
-            </div>
-            <h3 className="text-2xl font-black mb-6 text-gray-900 dark:text-white tracking-tight drop-shadow-sm dark:drop-shadow-lg">성장 지표</h3>
-            <div className="space-y-6">
-              <div>
-                <div className="flex justify-between items-center mb-3">
-                  <span className="text-base font-bold text-gray-700 dark:text-gray-200">완성도</span>
-                  <span className="font-black text-xl text-gray-900 dark:text-white">95%</span>
+              <div className="relative w-full rounded-2xl pt-7 pb-4 px-2 mb-4 bg-gradient-to-br from-green-100 via-blue-50 to-purple-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 shadow-2xl">
+                <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{boxShadow:'0 8px 32px rgba(59,130,246,0.10), 0 1.5px 6px rgba(0,0,0,0.06)'}} />
+                <div className="w-16 h-16 mb-8 mx-auto flex items-center justify-center rounded-full bg-gradient-to-br from-green-200 via-blue-100 to-purple-200 dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 shadow-lg">
+                  <TrendingUp className="w-10 h-10 text-green-600 dark:text-green-400" />
                 </div>
-                <div className="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-3 border border-gray-400 dark:border-gray-600">
-                  <div 
-                    className="bg-gradient-to-r from-green-500 to-green-600 h-3 rounded-full animate-pulse"
-                    style={{ width: "95%" }}
-                  />
+                <h3 className="text-2xl font-black mb-7 text-gray-900 dark:text-white tracking-tight drop-shadow-lg text-center">성장 지표</h3>
+                <div className="space-y-7">
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-base font-bold text-gray-700 dark:text-gray-200">완성도</span>
+                      <span className="font-black text-xl text-gray-900 dark:text-white whitespace-nowrap">95%</span>
+                    </div>
+                    <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-4 border border-gray-300 dark:border-gray-700 flex items-center">
+                      <div className="w-full h-4 rounded-full overflow-hidden flex items-center">
+                        <div className="relative w-full h-4">
+                          <div className="w-full h-4 rounded-full bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 overflow-hidden" style={{position:'relative'}}>
+                            <div 
+                              className="absolute left-0 top-0 h-full bg-gradient-to-r from-green-400 via-green-500 to-blue-400 animate-pulse will-change-transform shadow-md"
+                              style={{ width: "95%", borderRadius: '2rem' }}
+                              ref={el => {
+                                if (el) {
+                                  console.log('[게이지 디버그] 완성도:', {
+                                    width: '95%',
+                                    rect: el.getBoundingClientRect(),
+                                    left: el.style.left,
+                                    top: el.style.top
+                                  });
+                                }
+                              }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-base font-bold text-gray-700 dark:text-gray-200">고객 만족도</span>
+                      <span className="font-black text-xl text-gray-900 dark:text-white whitespace-nowrap">98%</span>
+                    </div>
+                    <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-4 border border-gray-300 dark:border-gray-700 flex items-center">
+                      <div className="w-full h-4 rounded-full overflow-hidden flex items-center">
+                        <div className="relative w-full h-4">
+                          <div className="w-full h-4 rounded-full bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 overflow-hidden" style={{position:'relative'}}>
+                            <div 
+                              className="absolute left-0 top-0 h-full bg-gradient-to-r from-blue-400 via-blue-500 to-purple-400 animate-pulse will-change-transform shadow-md"
+                              style={{ width: "98%", borderRadius: '2rem' }}
+                              ref={el => {
+                                if (el) {
+                                  console.log('[게이지 디버그] 고객만족도:', {
+                                    width: '98%',
+                                    rect: el.getBoundingClientRect(),
+                                    left: el.style.left,
+                                    top: el.style.top
+                                  });
+                                }
+                              }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div>
-                <div className="flex justify-between items-center mb-3">
-                  <span className="text-base font-bold text-gray-700 dark:text-gray-200">고객 만족도</span>
-                  <span className="font-black text-xl text-gray-900 dark:text-white">98%</span>
-                </div>
-                <div className="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-3 border border-gray-400 dark:border-gray-600">
-                  <div 
-                    className="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full animate-pulse"
-                    style={{ width: "98%" }}
-                  />
-                </div>
-              </div>
-            </div>
           </BentoCard>
 
           {/* Small Card - Team */}

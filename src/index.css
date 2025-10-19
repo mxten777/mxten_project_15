@@ -1,7 +1,27 @@
-/* Tailwind CSS imports */
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+/* 게이지 바 모바일 보정 */
+.bento-medium .w-full.h-4,
+.bento-large .w-full.h-4 {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 1.25rem !important;
+  border-radius: 2rem !important;
+  overflow: hidden !important;
+  position: relative !important;
+  background: #e5e7eb !important;
+  box-shadow: none !important;
+}
+.bento-medium .w-full.h-4 > div,
+.bento-large .w-full.h-4 > div {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  height: 100% !important;
+  border-radius: 2rem !important;
+  box-shadow: none !important;
+}
 
 /* 가독성 최우선 기본 설정 */
 * {
@@ -508,6 +528,75 @@ nav[class*="fixed"] {
 }
 
 /* Responsive Grid */
+@media (max-width: 640px) {
+  .grid-bento {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+  .bento-large, .bento-medium, .bento-small {
+    grid-column: span 12 !important;
+    grid-row: auto !important;
+    padding: 1rem !important;
+    font-size: 0.95rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .bento-large h3, .bento-medium h3, .bento-small h3 {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .bento-large p, .bento-medium p, .bento-small p {
+    font-size: 0.95rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .fab {
+    bottom: 1rem !important;
+    right: 1rem !important;
+    width: 44px !important;
+    height: 44px !important;
+  }
+  /* 프리미엄급 카드/버튼/섹션 여백 및 스타일 */
+  .bento-large, .bento-medium, .bento-small {
+    grid-column: span 12 !important;
+    grid-row: auto !important;
+    padding: 1.25rem 1rem !important;
+    font-size: 1rem !important;
+    margin-bottom: 1.25rem !important;
+    border-radius: 1.25rem !important;
+    box-shadow: 0 8px 32px rgba(59,130,246,0.08), 0 1.5px 6px rgba(0,0,0,0.04);
+    background: linear-gradient(135deg, #f3f4f6 0%, #e0e7ff 100%);
+  }
+  .bento-large h3, .bento-medium h3, .bento-small h3 {
+    font-size: 1.2rem !important;
+    margin-bottom: 0.75rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.01em;
+  }
+  .bento-large p, .bento-medium p, .bento-small p {
+    font-size: 1rem !important;
+    margin-bottom: 0.75rem !important;
+    line-height: 1.6 !important;
+  }
+  .bento-large .flex, .bento-medium .flex, .bento-small .flex {
+    gap: 0.75rem !important;
+  }
+  .bento-large .rounded-full, .bento-medium .rounded-full, .bento-small .rounded-full {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.95rem !important;
+    box-shadow: 0 2px 8px rgba(59,130,246,0.07);
+  }
+  .fab, .btn, .button, .cta {
+    min-height: 56px !important;
+    font-size: 1.1rem !important;
+    border-radius: 1rem !important;
+    box-shadow: 0 4px 16px rgba(59,130,246,0.12);
+    margin-bottom: 1.5rem !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  .mb-8 {
+    margin-bottom: 2.5rem !important;
+  }
+}
 @media (min-width: 640px) {
   .grid-masonry {
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));

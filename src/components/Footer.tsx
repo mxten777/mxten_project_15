@@ -238,19 +238,17 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Newsletter Signup */}
-        <div className="py-6 px-4 border-t border-gray-700">
-          <div className="max-w-lg mx-auto text-center animate-shimmer">
-            <h4 className="text-lg font-semibold font-heading text-white mb-2">최신 소식 받기</h4>
-            <p className="text-gray-400 mb-6 text-sm">
-              새로운 MVP 프로젝트와 개발 팁을 이메일로 받아보세요
-            </p>
-            <div className="flex flex-col sm:flex-row gap-2">
+        <div className="py-8 px-4 border-t border-gray-700">
+          <div className="max-w-lg mx-auto text-center animate-shimmer rounded-2xl shadow-2xl bg-gradient-to-br from-blue-900/60 via-purple-900/40 to-blue-800/60 backdrop-blur-lg px-6 py-8">
+            <h4 className="text-xl font-extrabold font-heading text-white mb-3 drop-shadow-lg tracking-tight">최신 소식 받기</h4>
+            <p className="text-gray-300 mb-6 text-base font-semibold">새로운 MVP 프로젝트와 개발 팁을 이메일로 받아보세요</p>
+            <div className="flex flex-col sm:flex-row gap-4">
               <input
                 type="email"
                 placeholder="이메일 주소를 입력하세요"
-                className="flex-1 px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm backdrop-blur-sm"
+                className="flex-1 px-5 py-4 bg-white/10 border border-blue-500 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-base font-semibold shadow-md backdrop-blur-md"
               />
-              <button className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl shadow-lg hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all whitespace-nowrap text-sm font-semibold font-heading animate-pulse-glow">
+              <button className="px-8 py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-700 text-white rounded-xl shadow-xl hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition-all whitespace-nowrap text-base font-bold font-heading animate-pulse-glow mb-2">
                 구독하기
               </button>
             </div>

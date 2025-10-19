@@ -8,7 +8,7 @@ const LandingPage: React.FC = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section id="hero" className="hero min-h-screen flex items-center justify-center relative overflow-hidden morphing-bg particle-bg">
+      <section id="hero" className="hero min-h-screen flex items-center justify-center relative overflow-hidden morphing-bg particle-bg pt-20">
         <div className="hero-overlay"></div>
         <div className="relative z-10 text-center text-white px-6 sm:px-8 max-w-5xl mx-auto">
           <h1 
@@ -49,7 +49,7 @@ const LandingPage: React.FC = () => {
               <Link 
                 to="/campaign" 
                 aria-label="특별 런칭 이벤트 확인하기"
-                className="inline-flex items-center justify-center w-full px-8 py-4 sm:px-10 sm:py-5 border-3 border-white/50 text-white font-bold text-base sm:text-lg rounded-2xl backdrop-blur-sm hover:bg-white/20 hover:scale-110 transition-all duration-300 min-h-[60px] animate-shimmer"
+                className="inline-flex items-center justify-center w-full px-8 py-4 sm:px-10 sm:py-5 border-3 border-white/50 text-white font-bold text-base sm:text-lg rounded-2xl backdrop-blur-sm hover:bg-white/20 hover:scale-110 transition-all duration-300 min-h-[60px] animate-shimmer mb-8"
               >
                 🎉 런칭 이벤트
               </Link>
