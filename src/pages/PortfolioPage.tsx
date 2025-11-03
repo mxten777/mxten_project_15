@@ -68,13 +68,13 @@ const PortfolioPage: React.FC = () => {
               </motion.span>
             </motion.h1>
             <p className="text-lg md:text-xl mb-8 opacity-90 max-w-3xl mx-auto font-medium">
-              2025년 10월 현재 <strong>35+개</strong>의 리뉴얼된 MVP 프로젝트들
+              2025년 11월 현재 <strong>40+개</strong>의 리뉴얼된 MVP 프로젝트들
               <br />
               <span className="text-base opacity-80">🏢 기업홈페이지 | 💊 의료복지 | 🏛️ 공공서비스 | 🎓 교육플랫폼</span>
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-2">
-                ✅ <strong>35+개</strong> 리뉴얼 완료
+                ✅ <strong>40+개</strong> 리뉴얼 완료
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-2">
                 🚀 <strong>평균 1-2주</strong> 개발 기간

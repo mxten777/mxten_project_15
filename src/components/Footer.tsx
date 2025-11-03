@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
   ];
 
   const stats = [
-    { value: '35+', label: '완성된 MVP', icon: <Award className="w-5 h-5" /> },
+    { value: '40+', label: '완성된 MVP', icon: <Award className="w-5 h-5" /> },
     { value: '100+', label: '만족한 고객', icon: <Users className="w-5 h-5" /> },
     { value: '2주', label: '평균 개발 기간', icon: <Calendar className="w-5 h-5" /> },
   ];
@@ -91,7 +91,7 @@ const Footer: React.FC = () => {
               </div>
 
               <p className="text-gray-200 leading-relaxed font-medium">
-                35+개의 성공적인 프로젝트 경험으로 여러분의 꿈을 실현시켜드립니다.
+                40+개의 성공적인 프로젝트 경험으로 여러분의 꿈을 실현시켜드립니다.
                 검증된 방법론과 최신 기술로 성공적인 런칭을 지원합니다.
               </p>
 

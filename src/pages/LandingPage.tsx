@@ -17,7 +17,7 @@ const LandingPage: React.FC = () => {
           >
             <span className="block mb-3 sm:mb-4 text-white animate-fade-in">체계적으로 검증된</span>
             <span className="block text-yellow-300 font-extrabold animate-text-glow" style={{ animationDelay: '0.3s' }}>
-              35+개 전문 MVP 포트폴리오
+              40+개 전문 MVP 포트폴리오
             </span>
           </h1>
           
@@ -70,7 +70,7 @@ const LandingPage: React.FC = () => {
               {
                 icon: <Zap className="w-12 h-12 text-blue-600 mb-4" />,
                 title: "체계적 MVP 개발",
-                description: "16개 전문분야 35+ 프로젝트 검증된 개발 방법론을 제공합니다."
+                description: "16개 전문분야 40+ 프로젝트 검증된 개발 방법론을 제공합니다."
               },
               {
                 icon: <Target className="w-12 h-12 text-purple-600 mb-4" />,
@@ -117,7 +117,7 @@ const LandingPage: React.FC = () => {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10">
             {[
-              { number: "35+", label: "완성된 MVP" },
+              { number: "40+", label: "완성된 MVP" },
               { number: "15+", label: "성공적 출시" },
               { number: "100+", label: "만족한 고객" },
               { number: "2주", label: "개발 기간" }

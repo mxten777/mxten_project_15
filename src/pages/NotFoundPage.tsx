@@ -7,7 +7,7 @@ const NotFoundPage: React.FC = () => {
 
   const suggestions = [
     { name: '홈', path: '/', icon: Home, description: '메인 페이지로 돌아가기' },
-    { name: '포트폴리오', path: '/portfolio', icon: Search, description: '35+개 MVP 프로젝트 보기' },
+    { name: '포트폴리오', path: '/portfolio', icon: Search, description: '40+개 MVP 프로젝트 보기' },
     { name: '문의하기', path: '/contact', icon: AlertTriangle, description: '도움이 필요하시면 연락주세요' }
   ];
 

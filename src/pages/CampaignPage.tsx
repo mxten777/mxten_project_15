@@ -30,7 +30,7 @@ const CampaignPage: React.FC = () => {
     },
     {
       icon: Trophy,
-      title: "35+개 성공 사례",
+      title: "40+개 성공 사례",
       description: "다양한 업계의 실제 성공 프로젝트들",
       color: "from-purple-500 to-purple-600"
     },

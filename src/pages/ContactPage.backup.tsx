@@ -220,7 +220,7 @@ const ContactPage: React.FC = () => {
                   <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                   <div>
                     <h4 className="font-semibold font-heading text-gray-900">검증된 경험</h4>
-                    <p className="text-gray-600 text-sm">35+ 개의 성공적인 MVP 프로젝트 완성</p>
+                    <p className="text-gray-600 text-sm">40+ 개의 성공적인 MVP 프로젝트 완성</p>
                   </div>
                 </div>
                 

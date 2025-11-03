@@ -45,7 +45,7 @@ const BentoSection: React.FC = () => {
               <Award className="w-12 h-12" />
             </div>
             <h3 className="text-3xl md:text-4xl font-black mb-6 text-gray-900 dark:text-white tracking-tight drop-shadow-sm dark:drop-shadow-lg">
-              35+ 검증된 MVP
+              40+ 검증된 MVP
             </h3>
             <p className="text-lg text-gray-800 dark:text-gray-100 leading-relaxed mb-8 font-semibold">
               2024년부터 현재까지 다양한 분야에서 성공적으로 출시된 
