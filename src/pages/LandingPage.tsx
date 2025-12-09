@@ -7,52 +7,108 @@ import StickyElements from '../components/StickyElements';
 const LandingPage: React.FC = () => {
   return (
     <div>
-      {/* Hero Section */}
-      <section id="hero" className="hero min-h-screen flex items-center justify-center relative overflow-hidden morphing-bg particle-bg pt-20">
-        <div className="hero-overlay"></div>
-        <div className="relative z-10 text-center text-white px-6 sm:px-8 max-w-5xl mx-auto">
-          <h1 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 sm:mb-10 leading-relaxed tracking-normal animate-slide-up"
-            style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}
-          >
-            <span className="block mb-3 sm:mb-4 text-white animate-fade-in">체계적으로 검증된</span>
-            <span className="block text-yellow-300 font-extrabold animate-text-glow" style={{ animationDelay: '0.3s' }}>
-              40+개 전문 MVP 포트폴리오
-            </span>
-          </h1>
-          
-          <p 
-            className="text-lg sm:text-xl md:text-2xl font-normal mb-12 sm:mb-14 text-white/95 max-w-3xl mx-auto leading-loose px-4 animate-fade-in"
-            style={{ animationDelay: '0.6s' }}
-          >
-            기업솔루션부터 AI기술까지, 16개 전문분야의 체계적이고 실용적인 MVP 개발 경험을 제공합니다
-          </p>
-          
-          <div 
-            className="flex flex-col sm:flex-row gap-6 justify-center items-stretch max-w-2xl mx-auto animate-bounce-in"
-            style={{ animationDelay: '0.8s' }}
-          >
-            <div className="flex-1 animate-float" style={{ animationDelay: '1s' }}>
-              <Link 
-                to="/portfolio" 
-                aria-label="포트폴리오 보기"
-                className="group inline-flex items-center justify-center w-full px-8 py-4 sm:px-10 sm:py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-base sm:text-lg rounded-2xl shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 min-h-[60px] animate-pulse-glow"
-              >
-                포트폴리오 보기 
-                <div className="ml-2 animate-float" style={{ animationDelay: '1.5s' }}>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
-                </div>
-              </Link>
+      {/* Hero Section - Premium 3D/Glassmorphism */}
+      <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        {/* Animated gradient background with mesh effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-pink-900 animate-gradient-bg"></div>
+        
+        {/* Glassmorphism overlay layers */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/30 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
+        </div>
+        
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px)', backgroundSize: '50px 50px' }}></div>
+        
+        {/* Content with glassmorphism card */}
+        <div className="relative z-10 text-center text-white px-6 sm:px-8 max-w-6xl mx-auto">
+          {/* Glassmorphism card container */}
+          <div className="relative backdrop-blur-2xl bg-white/10 rounded-3xl p-8 sm:p-12 md:p-16 border border-white/20 shadow-premium-lg">
+            {/* Inner glow effect */}
+            <div className="absolute inset-0 rounded-3xl shadow-inner-glow"></div>
+            
+            <h1 
+              className="relative text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 sm:mb-10 leading-tight tracking-tight animate-slide-up"
+            >
+              <span className="block mb-4 text-white animate-fade-in" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6), 0 4px 16px rgba(0,0,0,0.4)' }}>
+                체계적으로 검증된
+              </span>
+              <span className="block text-yellow-300 font-extrabold animate-shimmer" style={{ 
+                animationDelay: '0.3s',
+                textShadow: '0 2px 4px rgba(0,0,0,0.5), 0 0 20px rgba(255,215,0,0.3)'
+              }}>
+                40+개 전문 MVP 포트폴리오
+              </span>
+            </h1>
+            
+            <p 
+              className="text-lg sm:text-xl md:text-2xl font-medium mb-12 sm:mb-14 text-white max-w-4xl mx-auto leading-relaxed px-4 animate-fade-in"
+              style={{ 
+                animationDelay: '0.6s',
+                textShadow: '0 2px 6px rgba(0,0,0,0.5)'
+              }}
+            >
+              기업솔루션부터 AI기술까지, <span className="font-bold text-yellow-300" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>16개 전문분야</span>의<br className="hidden sm:block" />
+              체계적이고 실용적인 MVP 개발 경험을 제공합니다
+            </p>
+            
+            {/* Premium CTA Buttons */}
+            <div 
+              className="flex flex-col sm:flex-row gap-6 justify-center items-stretch max-w-2xl mx-auto animate-bounce-in"
+              style={{ animationDelay: '0.8s' }}
+            >
+              <div className="flex-1 animate-float" style={{ animationDelay: '1s' }}>
+                <Link 
+                  to="/portfolio" 
+                  aria-label="포트폴리오 보기"
+                  className="group relative inline-flex items-center justify-center w-full px-10 py-5 sm:px-12 sm:py-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold text-base sm:text-lg rounded-2xl shadow-premium hover:shadow-premium-lg hover:scale-105 transition-all duration-400 min-h-[70px] overflow-hidden"
+                >
+                  {/* Button shine effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
+                  <span className="relative z-10">포트폴리오 보기</span>
+                  <div className="relative z-10 ml-3 animate-float" style={{ animationDelay: '1.5s' }}>
+                    <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
+                  </div>
+                </Link>
+              </div>
+              
+              <div className="flex-1 animate-float" style={{ animationDelay: '1.2s' }}>
+                <Link 
+                  to="/campaign" 
+                  aria-label="특별 런칭 이벤트 확인하기"
+                  className="group relative inline-flex items-center justify-center w-full px-10 py-5 sm:px-12 sm:py-6 bg-white/10 backdrop-blur-xl text-white font-bold text-base sm:text-lg rounded-2xl border-2 border-white/30 hover:bg-white/20 hover:border-white/50 hover:scale-105 transition-all duration-400 min-h-[70px] shadow-glass"
+                >
+                  <span className="text-2xl mr-2 animate-bounce-gentle">🎉</span>
+                  <span>런칭 이벤트</span>
+                </Link>
+              </div>
             </div>
             
-            <div className="flex-1 animate-float" style={{ animationDelay: '1.2s' }}>
-              <Link 
-                to="/campaign" 
-                aria-label="특별 런칭 이벤트 확인하기"
-                className="inline-flex items-center justify-center w-full px-8 py-4 sm:px-10 sm:py-5 border-3 border-white/50 text-white font-bold text-base sm:text-lg rounded-2xl backdrop-blur-sm hover:bg-white/20 hover:scale-110 transition-all duration-300 min-h-[60px] animate-shimmer mb-8"
-              >
-                🎉 런칭 이벤트
-              </Link>
+            {/* Floating stats badges */}
+            <div className="flex flex-wrap justify-center gap-4 mt-12 sm:mt-16 animate-fade-in" style={{ animationDelay: '1.4s' }}>
+              {[
+                { icon: '✅', text: '40+개 리뉴얼 완료' },
+                { icon: '🚀', text: '평균 1-2주 개발' },
+                { icon: '🎯', text: '100% 성공 배포' },
+              ].map((badge, index) => (
+                <div 
+                  key={index}
+                  className="px-6 py-3 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-sm sm:text-base font-semibold shadow-glass hover:bg-white/20 hover:scale-102 transition-all duration-300"
+                  style={{ animationDelay: `${1.6 + index * 0.2}s` }}
+                >
+                  <span className="mr-2">{badge.icon}</span>
+                  {badge.text}
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Scroll indicator */}
+          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div className="w-6 h-10 border-2 border-white/50 rounded-full p-1">
+              <div className="w-1.5 h-3 bg-white/70 rounded-full mx-auto animate-pulse"></div>
             </div>
           </div>
         </div>

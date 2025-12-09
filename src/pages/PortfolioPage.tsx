@@ -54,23 +54,27 @@ const PortfolioPage: React.FC = () => {
               initial={{ opacity: 0, rotateX: -15 }}
               animate={{ opacity: 1, rotateX: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
+              style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8), 0 4px 20px rgba(0,0,0,0.6)' }}
             >
-              바이브 코딩{' '}
+              <span className="text-white">바이브 코딩</span>{' '}
               <motion.span 
-                className="text-white"
+                className="text-yellow-300"
                 animate={{ 
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
-                style={{ backgroundSize: "200% 200%" }}
+                style={{ 
+                  backgroundSize: "200% 200%",
+                  textShadow: '0 2px 8px rgba(0,0,0,0.9), 0 4px 16px rgba(0,0,0,0.8)'
+                }}
               >
                 MVP 포트폴리오
               </motion.span>
             </motion.h1>
-            <p className="text-lg md:text-xl mb-8 opacity-90 max-w-3xl mx-auto font-medium">
-              2025년 11월 현재 <strong>40+개</strong>의 리뉴얼된 MVP 프로젝트들
+            <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto font-medium text-white" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.6)' }}>
+              2025년 11월 현재 <strong className="text-yellow-300">40+개</strong>의 리뉴얼된 MVP 프로젝트들
               <br />
-              <span className="text-base opacity-80">🏢 기업홈페이지 | 💊 의료복지 | 🏛️ 공공서비스 | 🎓 교육플랫폼</span>
+              <span className="text-base">🏢 기업홈페이지 | 💊 의료복지 | 🏛️ 공공서비스 | 🎓 교육플랫폼</span>
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-2">
@@ -178,32 +182,32 @@ const PortfolioPage: React.FC = () => {
       </section>
 
       {/* Projects Grid/List */}
-  <section className="py-16 bg-gray-50 dark:bg-gray-900">
+  <section className="py-16 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900">
         <div className="max-w-7xl mx-auto px-4">
           {viewMode === 'grid' ? (
-            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8 auto-rows-max">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 md:gap-8 auto-rows-max">
               {filteredProjects.map((project, index) => (
                 <ScrollTriggered
                   key={project.id}
                   animation="scale"
-                  delay={index * 0.1}
-                  duration={0.6}
+                  delay={index * 0.05}
+                  duration={0.5}
                 >
-                  <div className="group bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-600 
-                                 shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden h-full
-                                 hover:border-blue-400 dark:hover:border-blue-500">
-                    {/* 심플한 썸네일 영역 */}
-                    <div className="relative h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700">
-                      {/* 이미지가 있으면 표시, 없으면 깔끔한 배경 */}
+                  <div className="group relative bg-white dark:bg-gray-800 rounded-2xl border border-gray-200/50 dark:border-gray-700/50 
+                                 shadow-lg hover:shadow-premium transition-all duration-400 overflow-hidden h-full
+                                 hover:border-blue-400/50 dark:hover:border-blue-500/50 hover:-translate-y-2">
+                    {/* Premium 썸네일 영역 with 3D effect */}
+                    <div className="relative h-56 overflow-hidden bg-gradient-to-br from-gray-100 via-blue-50 to-purple-50 dark:from-gray-800 dark:via-gray-750 dark:to-gray-700">
+                      {/* 이미지 */}
                       {project.image ? (
                         <img 
                           src={project.image} 
                           alt={project.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-600"
                         />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center">
-                          <div className="text-6xl opacity-30">
+                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-500/10 to-purple-500/10">
+                          <div className="text-7xl opacity-40 group-hover:scale-110 transition-transform duration-400">
                             {project.category.includes('기업') ? '🏢' :
                              project.category.includes('의료') ? '🏥' :
                              project.category.includes('교육') ? '🎓' :
@@ -213,45 +217,90 @@ const PortfolioPage: React.FC = () => {
                         </div>
                       )}
                       
-                      {/* 간단한 오버레이 */}
-                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      {/* 그라데이션 오버레이 */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
                       
-                      {/* 최소한의 배지들 */}
-                      <div className="absolute top-3 left-3">
+                      {/* Premium 배지들 */}
+                      <div className="absolute top-4 left-4 flex gap-2">
                         {project.featured && (
-                          <div className="inline-flex items-center px-2 py-1 rounded-full text-xs font-bold bg-yellow-500 text-white">
-                            <Star className="w-3 h-3 mr-1" />
+                          <div className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-yellow-400 to-yellow-500 text-white shadow-premium backdrop-blur-sm">
+                            <Star className="w-3.5 h-3.5 mr-1 fill-current" />
                             추천
+                          </div>
+                        )}
+                        {project.status && (
+                          <div className={`px-3 py-1.5 rounded-full text-xs font-bold backdrop-blur-xl border ${
+                            project.status === 'live' ? 'bg-green-500/90 text-white border-green-400/50' :
+                            project.status === 'beta' ? 'bg-blue-500/90 text-white border-blue-400/50' :
+                            'bg-gray-500/90 text-white border-gray-400/50'
+                          }`}>
+                            {project.status === 'live' ? '운영중' : project.status === 'beta' ? '베타' : '개발중'}
                           </div>
                         )}
                       </div>
                       
-                      <div className="absolute top-3 right-3">
-                        <div className="px-2 py-1 bg-white/90 dark:bg-gray-800/90 rounded-full text-xs font-bold text-gray-800 dark:text-gray-200">
+                      <div className="absolute top-4 right-4">
+                        <div className="px-3 py-1.5 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl rounded-full text-xs font-bold text-gray-800 dark:text-gray-200 border border-gray-200/50 dark:border-gray-600/50 shadow-lg">
                           {project.category}
+                        </div>
+                      </div>
+                      
+                      {/* Hover 시 나타나는 추가 정보 */}
+                      <div className="absolute bottom-4 left-4 right-4 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
+                        <div className="flex gap-2 flex-wrap">
+                          {project.techStack?.slice(0, 3).map((tech, i) => (
+                            <span key={i} className="px-2 py-1 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl rounded text-xs font-semibold text-gray-700 dark:text-gray-300 border border-white/50 dark:border-gray-700/50">
+                              {tech}
+                            </span>
+                          ))}
                         </div>
                       </div>
                     </div>
 
-                    {/* 깔끔한 프로젝트 정보 */}
+                    {/* Premium 프로젝트 정보 */}
                     <div className="p-6">
-                      <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 line-clamp-2">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2 leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                         {project.title}
                       </h3>
                       
-                      <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm line-clamp-2 leading-relaxed">
+                      <p className="text-gray-600 dark:text-gray-400 mb-5 text-sm line-clamp-2 leading-relaxed">
                         {project.description}
                       </p>
+                      
+                      {/* 프로젝트 메타 정보 */}
+                      {(project.views || project.likes || project.duration) && (
+                        <div className="flex items-center gap-4 mb-4 text-xs text-gray-500 dark:text-gray-400">
+                          {project.views && (
+                            <span className="flex items-center gap-1">
+                              👁️ {project.views.toLocaleString()}
+                            </span>
+                          )}
+                          {project.likes && (
+                            <span className="flex items-center gap-1">
+                              ❤️ {project.likes}
+                            </span>
+                          )}
+                          {project.duration && (
+                            <span className="flex items-center gap-1">
+                              ⏱️ {project.duration}
+                            </span>
+                          )}
+                        </div>
+                      )}
                     
-                      {/* 간단한 라이브 데모 버튼 */}
+                      {/* Premium 라이브 데모 버튼 */}
                       <button
                         onClick={() => handleDemoClick(project)}
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+                        className="group/btn relative w-full bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-600 text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-400 flex items-center justify-center gap-2 shadow-lg hover:shadow-premium overflow-hidden"
                       >
-                        <ExternalLink className="w-4 h-4" />
-                        라이브 데모
+                        {/* Button shine effect */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover/btn:translate-x-[200%] transition-transform duration-800"></div>
+                        <span className="relative z-10 flex items-center gap-2">
+                          라이브 데모 보기
+                          <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-300" />
+                        </span>
                       </button>
-                  </div>
+                    </div>
                   </div>
                 </ScrollTriggered>
               ))}

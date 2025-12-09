@@ -35,19 +35,22 @@ const Footer: React.FC = () => {
       icon: <Github className="w-5 h-5" />,
       href: 'https://github.com/mxten777',
       label: 'GitHub',
-      color: 'hover:text-gray-300'
+      color: 'hover:bg-gray-800',
+      gradient: 'from-gray-700 to-gray-900'
     },
     {
       icon: <Linkedin className="w-5 h-5" />,
       href: 'https://linkedin.com/in/dongyeol-jung',
       label: 'LinkedIn',
-      color: 'hover:text-blue-400'
+      color: 'hover:bg-blue-600',
+      gradient: 'from-blue-600 to-blue-800'
     },
     {
       icon: <Twitter className="w-5 h-5" />,
       href: 'https://twitter.com/mxten777',
       label: 'Twitter',
-      color: 'hover:text-sky-400'
+      color: 'hover:bg-sky-500',
+      gradient: 'from-sky-500 to-sky-700'
     },
   ];
 
@@ -60,25 +63,32 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-800/50 via-blue-900/20 to-purple-900/20"></div>
+    <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+      </div>
+      
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
-        <div className="py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-8 xl:gap-12">
+        <div className="py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           
-          {/* Company Info */}
-          <div className="lg:col-span-1 flex flex-col justify-start">
-            <div className="space-y-4 animate-float">
-              {/* Section Title */}
-              <h4 className="text-xl font-bold font-heading text-white mb-6">바이브코딩</h4>
+          {/* Company Info - Premium */}
+          <div className="lg:col-span-1 animate-fade-in">
+            <div className="space-y-6">
+              <h4 className="text-2xl font-bold font-heading bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-6">
+                바이브코딩
+              </h4>
               
-              {/* Company Description */}
+              {/* Logo with premium effect */}
               <div className="flex items-center space-x-4">
-                <div className="p-3 bg-white rounded-lg hover:bg-gray-50 transition-all duration-300 shadow-lg border border-gray-200 animate-pulse-glow">
+                <div className="relative p-3 bg-gradient-to-br from-white to-gray-100 rounded-xl shadow-premium border border-gray-200 hover:scale-105 transition-transform duration-400">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl"></div>
                   <img
                     src="/images/baikal_logo_trans.png"
                     alt="바이브코딩 로고"
-                    className="w-12 h-12 sm:w-14 sm:h-14 object-contain rounded-md"
+                    className="relative w-12 h-12 object-contain"
                     style={{
                       filter: 'contrast(1.2) brightness(1.1) saturate(1.3)',
                       imageRendering: 'crisp-edges'
@@ -86,23 +96,27 @@ const Footer: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400">MVP 개발 전문</p>
+                  <p className="text-sm font-bold text-blue-400">MVP 개발 전문</p>
+                  <p className="text-xs text-gray-400">Professional Solutions</p>
                 </div>
               </div>
 
-              <p className="text-gray-200 leading-relaxed font-medium">
-                40+개의 성공적인 프로젝트 경험으로 여러분의 꿈을 실현시켜드립니다.
-                검증된 방법론과 최신 기술로 성공적인 런칭을 지원합니다.
+              <p className="text-gray-300 leading-relaxed font-medium text-sm">
+                <span className="font-bold text-white">40+개</span>의 성공적인 프로젝트 경험으로<br />
+                여러분의 꿈을 실현시켜드립니다.
               </p>
 
-              {/* Stats */}
-              <div className="grid grid-cols-1 gap-3">
+              {/* Premium Stats */}
+              <div className="space-y-3 pt-4">
                 {stats.map((stat, index) => (
-                  <div key={index} className="flex items-center space-x-3 text-sm hover:scale-105 transition-transform">
-                    <div className="text-blue-400">{stat.icon}</div>
+                  <div 
+                    key={index} 
+                    className="group flex items-center space-x-3 p-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-blue-400/50 transition-all duration-300 hover:scale-102"
+                  >
+                    <div className="text-blue-400 group-hover:text-blue-300 transition-colors">{stat.icon}</div>
                     <div>
-                      <span className="font-bold font-heading text-white">{stat.value}</span>
-                      <span className="text-gray-400 ml-1">{stat.label}</span>
+                      <span className="font-bold text-lg text-white">{stat.value}</span>
+                      <span className="text-gray-400 text-sm ml-2">{stat.label}</span>
                     </div>
                   </div>
                 ))}
@@ -110,123 +124,118 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="flex flex-col justify-start">
-            <div className="space-y-4 h-full">
-              <h4 className="text-xl font-bold font-heading text-white mb-6">빠른 이동</h4>
-              <div className="space-y-3">
-                {quickLinks.map((link) => (
-                  <Link
-                    key={link.path}
+          {/* Quick Links - Premium */}
+          <div className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            <h4 className="text-xl font-bold font-heading text-white mb-6">빠른 이동</h4>
+            <div className="space-y-3">
+              {quickLinks.map((link) => (
+                <Link
+                  key={link.path}
                     to={link.path}
-                    className="block group"
-                  >
-                    <div className="flex items-center justify-between p-2 rounded-lg hover:bg-white/10 transition-all duration-300 hover:scale-105">
-                      <div>
-                        <div className="font-semibold text-white group-hover:text-blue-300 transition-colors">
-                          {link.name}
-                        </div>
-                        <div className="text-sm text-gray-300 font-medium">
-                          {link.description}
-                        </div>
+                  className="group block p-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-blue-400/50 transition-all duration-300 hover:scale-102"
+                >
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="font-bold text-white group-hover:text-blue-300 transition-colors mb-1">
+                        {link.name}
                       </div>
-                      <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
+                      <div className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                        {link.description}
+                      </div>
                     </div>
-                  </Link>
-                ))}
-              </div>
+                    <ExternalLink className="w-4 h-4 text-gray-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
 
-          {/* Services */}
-          <div className="flex flex-col justify-start">
-            <div className="space-y-4 h-full">
-              <h4 className="text-xl font-bold font-heading text-white mb-6">제공 서비스</h4>
-              <div className="space-y-3">
-                {services.map((service, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center space-x-3 text-gray-200 font-sans hover:text-white transition-all duration-300 cursor-pointer hover:scale-105"
-                  >
-                    <span className="text-lg animate-float" style={{ animationDelay: `${index * 0.1}s` }}>{service.icon}</span>
-                    <span className="text-sm font-medium">{service.name}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Contact Info */}
-          <div className="flex flex-col justify-start">
-            <div className="space-y-4 h-full">
-              <h4 className="text-xl font-bold font-heading text-white mb-6">연락처</h4>
-              <div className="space-y-4">
-                {/* Email */}
-                <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-blue-400 flex-shrink-0 animate-pulse" />
-                  <div>
-                    <p className="text-sm text-gray-300 font-semibold">이메일</p>
-                    <div className="space-y-1">
-                      <a
-                        href="mailto:mxten777@gmail.com"
-                        className="block text-white hover:text-blue-300 transition-colors text-sm hover:scale-105 font-medium"
-                      >
-                        mxten777@gmail.com
-                      </a>
-                      <a
-                        href="mailto:jngdy@naver.com"
-                        className="block text-white hover:text-blue-300 transition-colors text-sm hover:scale-105 font-medium"
-                      >
-                        jngdy@naver.com
-                      </a>
-                      <a
-                        href="mailto:jngdy@baikalsys.kr"
-                        className="block text-white hover:text-blue-300 transition-colors text-sm hover:scale-105 font-medium"
-                      >
-                        jngdy@baikalsys.kr
-                      </a>
-                    </div>
-                  </div>
+          {/* Services - Premium */}
+          <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <h4 className="text-xl font-bold font-heading text-white mb-6">제공 서비스</h4>
+            <div className="space-y-2">
+              {services.map((service, index) => (
+                <div
+                  key={index}
+                  className="group flex items-center space-x-3 p-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-300 cursor-pointer"
+                >
+                  <span className="text-xl group-hover:scale-110 transition-transform" style={{ animationDelay: `${index * 0.1}s` }}>
+                    {service.icon}
+                  </span>
+                  <span className="text-sm font-medium group-hover:translate-x-1 transition-transform">{service.name}</span>
                 </div>
+              ))}
+            </div>
+          </div>
 
-                {/* Phone */}
-                <div className="flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-green-400 flex-shrink-0 animate-pulse" />
-                  <div>
-                    <p className="text-sm text-gray-300 font-semibold">전화번호</p>
+          {/* Contact Info - Premium */}
+          <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <h4 className="text-xl font-bold font-heading text-white mb-6">연락처</h4>
+            <div className="space-y-4">
+              {/* Email */}
+              <div className="group flex items-start space-x-3 p-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-blue-400/50 transition-all duration-300">
+                <Mail className="w-5 h-5 text-blue-400 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                <div>
+                  <p className="text-sm text-gray-300 font-semibold mb-2">이메일</p>
+                  <div className="space-y-1">
                     <a
-                      href="tel:010-2380-4691"
-                      className="text-white hover:text-blue-300 transition-colors hover:scale-105 font-medium"
+                      href="mailto:mxten777@gmail.com"
+                      className="block text-white hover:text-blue-300 transition-colors text-sm font-medium"
                     >
-                      010-2380-4691
+                      mxten777@gmail.com
+                    </a>
+                    <a
+                      href="mailto:jngdy@naver.com"
+                      className="block text-white hover:text-blue-300 transition-colors text-sm font-medium"
+                    >
+                      jngdy@naver.com
+                    </a>
+                    <a
+                      href="mailto:jngdy@baikalsys.kr"
+                      className="block text-white hover:text-blue-300 transition-colors text-sm font-medium"
+                    >
+                      jngdy@baikalsys.kr
                     </a>
                   </div>
                 </div>
+              </div>
 
-                {/* Location */}
-                <div className="flex items-center space-x-3">
-                  <MapPin className="w-5 h-5 text-red-400 flex-shrink-0 animate-pulse" />
-                  <div>
-                    <p className="text-sm text-gray-300 font-semibold">위치</p>
-                    <p className="text-white font-medium">서울특별시 강남구 역삼로 138</p>
-                    <p className="text-xs text-gray-300 font-medium">온라인 상담 우선</p>
-                  </div>
+              {/* Phone */}
+              <div className="flex items-start space-x-3 p-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-green-400/50 transition-all duration-300">
+                <Phone className="w-5 h-5 text-green-400 flex-shrink-0" />
+                <div>
+                  <p className="text-sm text-gray-300 font-semibold mb-1">전화번호</p>
+                  <a
+                    href="tel:010-2380-4691"
+                    className="text-white hover:text-green-300 transition-colors font-medium"
+                  >
+                    010-2380-4691
+                  </a>
+                </div>
+              </div>
+
+              {/* Location */}
+              <div className="flex items-start space-x-3 p-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
+                <MapPin className="w-5 h-5 text-red-400 flex-shrink-0" />
+                <div>
+                  <p className="text-sm text-gray-300 font-semibold mb-1">위치</p>
+                  <p className="text-white font-medium text-sm">서울특별시 강남구 역삼로 138</p>
+                  <p className="text-xs text-gray-400 font-medium mt-1">온라인 상담 우선</p>
                 </div>
               </div>
 
               {/* Social Links */}
               <div className="pt-4">
-                <p className="text-sm text-gray-400 mb-3">소셜 미디어</p>
-                <div className="flex space-x-4">
+                <p className="text-sm font-bold text-gray-300 mb-3">소셜 미디어</p>
+                <div className="flex space-x-3">
                   {socialLinks.map((social, index) => (
                     <a
                       key={index}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`p-2 bg-white/10 rounded-lg transition-all duration-300 hover:scale-110 animate-pulse-glow ${social.color}`}
+                      className={`p-3 bg-white/10 rounded-xl transition-all duration-300 hover:scale-110 border border-white/10 ${social.color}`}
                       aria-label={social.label}
-                      style={{ animationDelay: `${index * 0.2}s` }}
                     >
                       {social.icon}
                     </a>

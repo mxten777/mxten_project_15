@@ -44,95 +44,95 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav className={`fixed w-full left-0 right-0 top-0 z-50 transition-all duration-300 animate-slide-in-top ${
+      <nav className={`fixed w-full left-0 right-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-white/98 dark:bg-gray-900/98 backdrop-blur-xl shadow-2xl border-b-2 border-gray-200 dark:border-gray-600'
-          : 'bg-black/30 dark:bg-black/50 backdrop-blur-xl border-b border-white/30 dark:border-white/20'
+          ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-2xl shadow-premium border-b border-gray-200/50 dark:border-gray-700/50'
+          : 'bg-gradient-to-r from-blue-900/95 via-purple-900/95 to-pink-900/95 backdrop-blur-xl border-b border-white/20'
       }`}>
-        {/* Animated gradient background overlay */}
+        {/* Premium gradient overlay for non-scrolled state */}
         {!scrolled && (
-          <div className="absolute inset-0 opacity-30 animate-gradient-bg"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 animate-gradient-bg"></div>
         )}
+        
         <div className="w-full">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-18 md:h-20">
+            <div className="flex items-center justify-between h-20 md:h-24">
             
-            {/* Logo */}
+            {/* Logo - Enhanced */}
             <Link
               to="/"
-              className="flex items-center space-x-2 group flex-shrink-0"
+              className="relative z-20 flex items-center space-x-3 group flex-shrink-0 hover:scale-102 transition-transform duration-300"
               onClick={() => setIsOpen(false)}
             >
-              <div className="p-2 bg-white rounded-lg transition-all duration-300 shadow-md border border-gray-200 group-hover:scale-105 group-hover:bg-gray-50 animate-float">
+              <div className="relative p-2.5 bg-gradient-to-br from-white to-gray-50 rounded-xl transition-all duration-300 shadow-lg border border-gray-200 group-hover:shadow-premium group-hover:scale-105">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <img
                   src="/images/baikal_logo_trans.png"
                   alt="바이브코딩 로고"
-                  className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+                  className="relative w-10 h-10 sm:w-12 sm:h-12 object-contain"
                   style={{
                     filter: 'contrast(1.2) brightness(1.1) saturate(1.3)',
                     imageRendering: 'crisp-edges'
                   }}
                 />
               </div>
-              <div className="flex flex-col">
-                <span className={`font-bold font-heading text-lg sm:text-xl leading-tight tracking-tight transition-colors ${
-                  scrolled ? 'text-gray-900 dark:text-white drop-shadow-sm' : 'text-white'
-                }`}
-                style={{
-                  textShadow: scrolled ? '0 1px 2px rgba(0,0,0,0.1)' : '2px 2px 6px rgba(0,0,0,0.9), 0 0 12px rgba(0,0,0,0.5)'
-                }}>
+              <div className="relative flex flex-col">
+                <span className={`relative z-10 font-bold font-heading text-2xl sm:text-3xl leading-tight tracking-tight transition-all duration-300 ${
+                  scrolled ? 'text-gray-900 dark:text-white' : 'text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]'
+                }`}>
                   바이브코딩
                 </span>
-                <span className={`text-xs sm:text-sm font-semibold font-sans leading-tight tracking-wide ${
-                  scrolled ? 'text-blue-700 dark:text-blue-300 font-bold' : 'text-blue-100'
-                }`}
-                style={{
-                  textShadow: scrolled ? '0 1px 2px rgba(0,0,0,0.2)' : '1px 1px 4px rgba(0,0,0,0.8)'
-                }}>
+                <span className={`relative z-10 text-sm sm:text-base font-bold font-sans leading-tight tracking-wide transition-all duration-300 ${
+                  scrolled ? 'text-blue-600 dark:text-blue-400' : 'text-yellow-300 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]'
+                }`}>
                   MVP 개발 전문
                 </span>
               </div>
             </Link>
 
-            {/* Desktop Navigation - 중앙 배치 */}
-            <div className="hidden md:flex items-center justify-center flex-1 space-x-10">
+            {/* Desktop Navigation - Premium Design */}
+            <div className="hidden md:flex items-center justify-center flex-1 space-x-2">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`relative px-6 py-3 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 cursor-pointer ${
+                  className={`group relative px-6 py-3.5 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-102 cursor-pointer overflow-hidden ${
                     isActive(item.path)
                       ? scrolled
-                        ? 'text-white bg-gradient-to-r from-blue-600 to-blue-700 shadow-lg animate-pulse-glow'
-                        : 'text-blue-900 bg-white/95 backdrop-blur-sm shadow-lg border border-white/50'
+                        ? 'text-white bg-gradient-to-r from-blue-600 to-purple-600 shadow-premium'
+                        : 'text-gray-900 bg-white/95 backdrop-blur-sm shadow-premium border border-white/30'
                       : scrolled
-                        ? 'text-gray-900 dark:text-white font-extrabold hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-gray-700 hover:shadow-md'
-                        : 'text-white hover:bg-white/25 backdrop-blur-sm border border-white/30'
+                        ? 'text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-lg'
+                        : 'text-white hover:bg-white/15 backdrop-blur-sm border border-transparent hover:border-white/20'
                   }`}
                   style={{
                     textShadow: scrolled 
-                      ? isActive(item.path) ? 'none' : '0 1px 3px rgba(0,0,0,0.3)' 
-                      : !isActive(item.path) ? '1px 1px 3px rgba(0,0,0,0.7)' : 'none'
+                      ? 'none' 
+                      : !isActive(item.path) ? '0 1px 3px rgba(0,0,0,0.7)' : 'none'
                   }}
                 >
-                  {item.name}
+                  {/* Shine effect on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-800"></div>
+                  <span className="relative z-10">{item.name}</span>
                 </Link>
               ))}
             </div>
 
-            {/* Right Side - 테마 토글과 CTA */}
+            {/* Right Side - Premium CTA */}
             <div className="hidden md:flex items-center space-x-4 flex-shrink-0">
               <ThemeToggle scrolled={scrolled} />
 
               <Link
                 to="/contact"
-                className={`px-8 py-3 rounded-xl font-bold text-base shadow-lg transition-all duration-300 transform hover:scale-105 cursor-pointer ${
+                className={`group relative px-8 py-3.5 rounded-xl font-bold text-lg shadow-premium transition-all duration-400 transform hover:scale-105 cursor-pointer overflow-hidden ${
                   scrolled
-                    ? 'bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 text-white hover:from-blue-700 hover:via-blue-800 hover:to-purple-700 shadow-xl hover:shadow-2xl animate-pulse-glow'
-                    : 'bg-white text-blue-700 hover:bg-gray-50 shadow-white/30 border border-white/50'
+                    ? 'bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white hover:shadow-premium-lg'
+                    : 'bg-white text-blue-600 hover:bg-gray-50 shadow-glass border border-white/30'
                 }`}
               >
-                상담 신청
+                {/* Button shine effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-800"></div>
+                <span className="relative z-10">상담 신청</span>
               </Link>
             </div>
 
@@ -171,8 +171,8 @@ const Navbar: React.FC = () => {
           />
 
           {/* Mobile Menu - 간소화된 버전 */}
-          <div className="fixed top-20 left-4 right-4 bg-white rounded-2xl shadow-2xl z-50 md:hidden overflow-hidden border border-gray-100">
-            <div className="px-4 py-4 max-h-[calc(100vh-4rem)] overflow-y-auto">
+          <div className="fixed top-24 left-4 right-4 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl z-50 md:hidden overflow-hidden border border-gray-200 dark:border-gray-700">
+            <div className="px-4 py-4 max-h-[calc(100vh-6rem)] overflow-y-auto">
               
               {/* Mobile Navigation Links */}
               <div className="space-y-3">
@@ -183,19 +183,19 @@ const Navbar: React.FC = () => {
                       onClick={() => setIsOpen(false)}
                       className={`group flex items-center justify-between w-full px-4 py-4 rounded-xl transition-all duration-300 ${
                         isActive(item.path)
-                          ? 'bg-blue-50 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 border-2 border-blue-200 dark:border-blue-600 shadow-md'
-                          : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white border-2 border-transparent hover:border-gray-200 dark:hover:border-gray-600'
+                          ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
+                          : 'text-gray-700 dark:text-gray-200 bg-gray-50 dark:bg-gray-700/50 hover:bg-gray-100 dark:hover:bg-gray-700 border-2 border-transparent hover:border-blue-200 dark:hover:border-blue-500'
                       }`}
                     >
                       <div className="flex flex-col items-start">
                         <span className="font-semibold text-lg">{item.name}</span>
-                        <span className="text-sm text-gray-500 dark:text-gray-400 mt-1">{item.description}</span>
+                        <span className={`text-sm mt-1 ${isActive(item.path) ? 'text-white/90' : 'text-gray-500 dark:text-gray-400'}`}>{item.description}</span>
                       </div>
                       
                       <ChevronRight 
                         size={22} 
                         className={`transition-all duration-300 ${
-                          isActive(item.path) ? 'text-blue-500' : 'text-gray-400 group-hover:translate-x-1 group-hover:text-blue-500'
+                          isActive(item.path) ? 'text-white' : 'text-gray-400 group-hover:translate-x-1 group-hover:text-blue-500'
                         }`} 
                       />
                     </Link>
@@ -204,11 +204,11 @@ const Navbar: React.FC = () => {
               </div>
 
               {/* Mobile Contact Button */}
-              <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+              <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-600">
                 <Link
                   to="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center w-full px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold text-lg rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+                  className="flex items-center justify-center w-full px-6 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white font-semibold text-lg rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
                 >
                   📞 문의하기
                 </Link>

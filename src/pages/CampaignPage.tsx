@@ -62,13 +62,13 @@ const CampaignPage: React.FC = () => {
               <span className="text-blue-300 text-sm font-medium">바이칼시스템즈 - 빠르게 검증하는 MVP</span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8), 0 4px 20px rgba(0,0,0,0.6)' }}>
               아이디어를
-              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"> 현실로</span>
+              <span className="text-yellow-300" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.9), 0 4px 16px rgba(0,0,0,0.8)' }}> 현실로</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-blue-100 mb-12 max-w-3xl mx-auto">
-              바이칼시스템즈와 함께 혁신적인 MVP를 개발하고 
+            <p className="text-xl md:text-2xl text-white mb-12 max-w-3xl mx-auto" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.6)' }}>
+              <span className="font-semibold text-yellow-300">바이브코딩</span>과 함께 혁신적인 MVP를 개발하고 
               <br className="hidden md:block" />
               비즈니스 성공의 첫걸음을 내딛으세요
             </p>
