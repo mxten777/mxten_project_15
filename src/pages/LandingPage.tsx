@@ -8,7 +8,7 @@ const LandingPage: React.FC = () => {
   return (
     <div>
       {/* Hero Section - Premium 3D/Glassmorphism */}
-      <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+      <section id="hero" data-hero-bleed className="min-h-screen flex items-center justify-center relative overflow-hidden">
         {/* Animated gradient background with mesh effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-pink-900 animate-gradient-bg"></div>
         

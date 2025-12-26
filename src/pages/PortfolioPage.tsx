@@ -39,8 +39,8 @@ const PortfolioPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      {/* Hero Section */}
-  <section className="morphing-bg particle-bg text-white py-20 relative overflow-hidden">
+        {/* Hero Section */}
+      <section data-has-hero className="morphing-bg particle-bg text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 to-blue-800/50"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4">
           <motion.div

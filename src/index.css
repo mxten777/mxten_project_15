@@ -395,6 +395,29 @@ nav[class*="fixed"] {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
+/* KETRI UI Standard v1.0 header spacing variable and anchor fix */
+:root {
+  --app-header-h: 5rem; /* default matches h-20 */
+}
+
+@media (min-width: 768px) {
+  :root {
+    --app-header-h: 6rem; /* matches md:h-24 */
+  }
+}
+
+/* Header inner wrapper -- components must use .app-header-inner */
+.app-header-inner {
+  height: var(--app-header-h);
+  display: flex;
+  align-items: center;
+}
+
+/* Anchor targeting should account for header height */
+:target {
+  scroll-margin-top: var(--app-header-h);
+}
+
 .shimmer-effect {
   background: linear-gradient(90deg, 
     transparent, 
