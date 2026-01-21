@@ -31,7 +31,7 @@ const TagFilter: React.FC<TagFilterProps> = ({
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              onClick={() => onTagToggle(tag)}
+              onClick={() => { onTagToggle(tag); }}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 text-white rounded-full text-sm font-medium hover:bg-blue-700 transition-colors"
             >
               <span>{tag}</span>

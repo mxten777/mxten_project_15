@@ -104,9 +104,9 @@ export const Button: React.FC<ButtonProps> = ({
         ${className}
       `.trim().replace(/\s+/g, ' ')}
     >
-      {icon && iconPosition === 'left' && <span className="flex-shrink-0">{icon}</span>}
+      {Boolean(icon) && iconPosition === 'left' && <span className="flex-shrink-0">{icon}</span>}
       {children}
-      {icon && iconPosition === 'right' && <span className="flex-shrink-0">{icon}</span>}
+      {Boolean(icon) && iconPosition === 'right' && <span className="flex-shrink-0">{icon}</span>}
     </motion.button>
   );
 };

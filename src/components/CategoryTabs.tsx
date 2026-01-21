@@ -15,7 +15,7 @@ const CategoryTabs: React.FC<CategoryTabsProps> = ({
 }) => {
   return (
     <div className="flex flex-wrap gap-2 justify-center">
-      {CATEGORIES.map((category) => {
+      {CATEGORIES.map((category: string) => {
         const isActive = selectedCategory === category;
         const count = getCategoryCount(category);
         

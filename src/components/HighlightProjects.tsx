@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { getFeaturedProjects } from '../data/portfolio';
+import { getFeaturedProjects, type PortfolioProject } from '../data/portfolio';
 import ProjectCard from './ProjectCard';
 
 const HighlightProjects: React.FC = () => {
@@ -25,7 +25,7 @@ const HighlightProjects: React.FC = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {featuredProjects.map((project, index) => (
+          {featuredProjects.map((project: PortfolioProject, index: number) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>

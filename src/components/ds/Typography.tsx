@@ -33,7 +33,7 @@ export const Heading: React.FC<HeadingProps> = ({
   color = 'primary',
   style,
 }) => {
-  const Tag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4';
+  const Tag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   const styles = typography[`h${level}` as keyof typeof typography];
 
   // Figma: Text / Color
@@ -44,17 +44,17 @@ export const Heading: React.FC<HeadingProps> = ({
     accent: colorClasses.textAccent,
   };
 
-  return (
-    <Tag
-      style={style}
-      className={`
+  return React.createElement(
+    Tag,
+    {
+      style,
+      className: `
         ${styles.className}
         ${colorClass[color]}
         ${className}
-      `.trim().replace(/\s+/g, ' ')}
-    >
-      {children}
-    </Tag>
+      `.trim().replace(/\s+/g, ' ')
+    },
+    children
   );
 };
 

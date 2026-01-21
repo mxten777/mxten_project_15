@@ -38,14 +38,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               onError={(e) => {
                 const target = e.currentTarget;
-                if (!target.dataset['errored']) {
+                if (target.dataset['errored'] !== 'true') {
                   target.dataset['errored'] = 'true';
                   target.src = `https://via.placeholder.com/400x300/6366f1/ffffff?text=${encodeURIComponent(project.title)}`;
                 }
               }}
             />
             {/* Featured 뱃지 */}
-            {project.featured === true && (
+            {project.featured && (
               <div className="absolute top-4 right-4 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-xs font-bold shadow-lg">
                 ⭐ Featured
               </div>
@@ -71,7 +71,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
             {/* 기술 스택 */}
             <div className="flex flex-wrap gap-2 mb-4">
-              {project.stack.slice(0, 3).map((tech, i) => (
+              {project.stack.slice(0, 3).map((tech: string, i: number) => (
                 <span 
                   key={i}
                   className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded"

@@ -92,7 +92,7 @@ export const Tag: React.FC<TagProps> = ({
         ${className}
       `.trim().replace(/\s+/g, ' ')}
     >
-      {icon && <span className="flex-shrink-0">{icon}</span>}
+      {Boolean(icon) && <span className="flex-shrink-0">{icon}</span>}
       {children}
     </span>
   );

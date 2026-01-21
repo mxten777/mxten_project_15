@@ -1,276 +1,845 @@
-# 🚀 바이브 코딩 MVP 소개자료 웹앱# React + TypeScript + Vite
-
-
-
-빠른 실험으로 검증된 20+ 개 MVP 포트폴리오를 소개하는 프레젠테이션 스타일 웹애플리케이션입니다.This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-
-
-## ✨ 주요 기능Currently, two official plugins are available:
-
-
-
-### 🎯 핵심 구성- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-
-- **Landing Page**: 회사 비전과 히어로 섹션으로 강력한 첫인상- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-- **Portfolio Section**: 카드 형식의 MVP 그리드뷰 및 상세 모달
-
-- **MVP Detail Page**: 문제정의, 솔루션, 기술스택, 결과 상세 표시## React Compiler
-
-- **Contact Form**: 맞춤형 제안 요청 및 Firestore 연동
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-### 💻 기술적 특징
-
-- **프레젠테이션 스타일**: TailwindCSS로 슬라이드/PPT 같은 비주얼 구현## Expanding the ESLint configuration
-
-- **부드러운 애니메이션**: Framer Motion으로 전문적인 UX
-
-- **반응형 디자인**: 모든 디바이스에서 완벽한 경험If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-- **실시간 업데이트**: Firebase Firestore로 동적 콘텐츠 관리
-
-```js
-
-## 🛠️ 기술 스택export default defineConfig([
-
-  globalIgnores(['dist']),
-
-### Frontend  {
-
-- **React 18** + **TypeScript**: 현대적인 UI 개발    files: ['**/*.{ts,tsx}'],
-
-- **Vite**: 빠른 개발 환경    extends: [
-
-- **TailwindCSS**: 유틸리티 우선 CSS 프레임워크      // Other configs...
-
-- **Framer Motion**: 고급 애니메이션 라이브러리
-
-- **React Router**: SPA 라우팅      // Remove tseslint.configs.recommended and replace with this
-
-      tseslint.configs.recommendedTypeChecked,
-
-### Backend & 서비스      // Alternatively, use this for stricter rules
-
-- **Firebase Firestore**: NoSQL 실시간 데이터베이스      tseslint.configs.strictTypeChecked,
-
-- **Firebase Hosting**: 안정적인 웹 호스팅      // Optionally, add this for stylistic rules
-
-- **Firebase Analytics**: 사용자 행동 분석      tseslint.configs.stylisticTypeChecked,
-
-
-
-### 개발 도구      // Other configs...
-
-- **ESLint**: 코드 품질 관리    ],
-
-- **TypeScript**: 타입 안전성    languageOptions: {
-
-- **Lucide React**: 일관된 아이콘 시스템      parserOptions: {
-
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-
-## 🚀 시작하기        tsconfigRootDir: import.meta.dirname,
-
-      },
-
-### 필수 요구사항      // other options...
-
-- Node.js 18+     },
-
-- npm 또는 yarn  },
-
-])
-
-### 설치 및 실행```
-
-
-
-```bashYou can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-# 의존성 설치
-
-npm install```js
-
-// eslint.config.js
-
-# 개발 서버 실행import reactX from 'eslint-plugin-react-x'
-
-npm run devimport reactDom from 'eslint-plugin-react-dom'
-
-
-
-# 프로덕션 빌드export default defineConfig([
-
-npm run build  globalIgnores(['dist']),
-
-  {
-
-# 빌드 결과 미리보기    files: ['**/*.{ts,tsx}'],
-
-npm run preview    extends: [
-
-```      // Other configs...
-
-      // Enable lint rules for React
-
-### Firebase 설정      reactX.configs['recommended-typescript'],
-
-      // Enable lint rules for React DOM
-
-1. Firebase 프로젝트 생성      reactDom.configs.recommended,
-
-2. `src/utils/firebase.ts`에서 설정값 업데이트:    ],
-
-    languageOptions: {
-
-```typescript      parserOptions: {
-
-const firebaseConfig = {        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-
-  apiKey: "your-api-key",        tsconfigRootDir: import.meta.dirname,
-
-  authDomain: "your-auth-domain",      },
-
-  projectId: "your-project-id",      // other options...
-
-  storageBucket: "your-storage-bucket",    },
-
-  messagingSenderId: "your-messaging-sender-id",  },
-
-  appId: "your-app-id",])
-
-  measurementId: "your-measurement-id"```
-
-};
+# 바이브 코딩 MVP 포트폴리오
+
+> **83개의 실제 프로젝트를 하나의 체계적인 포트폴리오 시스템으로 통합**
+
+프레젠테이션 스타일의 웹 애플리케이션으로 기업·기관, 교육·AI, SaaS·업무자동화, 공공·예약·문화 분야의 MVP 프로젝트를 소개합니다.
+
+[![Production](https://img.shields.io/badge/Production-Live-success)](https://mxten-project-15-kkoj3lt34-dongyeol-jungs-projects.vercel.app)
+[![React](https://img.shields.io/badge/React-18.3.1-blue)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.6.3-blue)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-7.1.7-646CFF)](https://vite.dev/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4.17-38B2AC)](https://tailwindcss.com/)
+
+---
+
+## 📖 목차
+
+- [프로젝트 개요](#-프로젝트-개요)
+- [주요 기능](#-주요-기능)
+- [기술 스택](#️-기술-스택)
+- [프로젝트 구조](#-프로젝트-구조)
+- [시작하기](#-시작하기)
+- [데이터 스키마](#-데이터-스키마)
+- [컴포넌트 가이드](#-컴포넌트-가이드)
+- [Design Tokens](#-design-tokens)
+- [배포](#-배포)
+- [개발 가이드](#-개발-가이드)
+- [문제 해결](#-문제-해결)
+- [변경 이력](#-변경-이력)
+
+---
+
+## 🎯 프로젝트 개요
+
+### 핵심 가치
+
+- ✅ **83개 실제 프로젝트**: 가짜 데이터 0%, 모든 프로젝트 실제 구현 완료
+- ✅ **12개 대표 프로젝트**: Featured로 강조 표시
+- ✅ **4개 카테고리**: 기업·기관 (21개), 교육·AI (12개), SaaS·업무자동화 (28개), 공공·예약·문화 (22개)
+- ✅ **검색·필터·정렬**: 실시간 검색, 50+ 태그 필터, 다중 정렬 옵션
+- ✅ **반응형 디자인**: 모바일/태블릿/데스크톱 완벽 대응
+- ✅ **Design System**: Token 기반 일관된 디자인 시스템
+
+### 프로젝트 통계
+
+```
+📊 총 프로젝트: 83개
+⭐ Featured: 12개
+🏷️ 카테고리: 4개
+🔖 태그: 50+ 개
+🎨 디자인 컴포넌트: 15+ 개
+📱 완전 반응형: 100%
 ```
 
-3. Firestore 규칙 설정
-4. Firebase Hosting 배포
+---
+
+## ✨ 주요 기능
+
+### 1. UI/UX
+
+- **프레젠테이션 스타일**: 슬라이드/PPT 같은 시각적 매력
+- **부드러운 애니메이션**: Framer Motion으로 전문적인 인터랙션
+- **Design System**: Token 기반 일관된 디자인 언어
+- **접근성**: WCAG 2.1 AA 준수
+- **Dark Mode**: 다크 모드 준비 완료 (토큰 기반)
+
+### 2. 검색 & 필터
+
+- **실시간 검색**: 제목, 설명, 태그 기반 즉시 검색
+- **카테고리 필터**: 4개 카테고리 간편 전환
+- **태그 필터**: 50+ 개 기술/산업 태그로 세밀한 필터링
+- **정렬 옵션**: 최신순, 이름순, Featured 우선
+
+### 3. 페이지 구성
+
+#### 🏠 랜딩 페이지 (`/`)
+- 히어로 섹션: 임팩트 있는 첫인상
+- Featured 12 프로젝트: 대표 작업물 하이라이트
+- 신뢰도 표시: 통계 및 클라이언트 증언
+- CTA 섹션: 명확한 행동 유도
+
+#### 📂 포트폴리오 페이지 (`/portfolio`)
+- 83개 전체 프로젝트 그리드
+- 검색/필터/정렬 인터페이스
+- 무한 스크롤 또는 페이지네이션
+- 카드 뷰 (기본/컴팩트/Featured 변형)
+
+#### 📄 프로젝트 상세 페이지 (`/portfolio/:slug`)
+- 프로젝트 정보: 제목, 카테고리, 설명
+- 스크린샷 갤러리: 라이트박스 지원
+- 기술 스택: 사용된 기술 뱃지
+- 데모 링크: 실제 사이트 방문
+- 관련 프로젝트: 추천 시스템
+
+#### 📧 문의 페이지 (`/contact`)
+- 문의 폼: Firebase Firestore 연동
+- 실시간 검증: 이메일, 필수 필드
+- 성공/실패 피드백
+
+---
+
+## 🛠️ 기술 스택
+
+### Frontend
+
+```json
+{
+  "react": "18.3.1",
+  "react-router": "7.1.4",
+  "typescript": "5.6.3",
+  "vite": "7.1.7",
+  "tailwindcss": "3.4.17",
+  "framer-motion": "12.0.11",
+  "lucide-react": "0.474.0"
+}
+```
+
+### Backend & Services
+
+```json
+{
+  "firebase": "11.1.0"
+}
+```
+
+- **Firestore**: 문의 데이터 저장
+- **Analytics**: 사용자 행동 추적
+
+### Build & Deploy
+
+- **Vite**: 빠른 개발 서버 & 빌드 (~14초)
+- **Vercel**: 프로덕션 배포
+- **PWA**: Service Worker, 오프라인 지원
+- **ESLint**: 코드 품질 관리
+
+### DevOps
+
+- **Git**: 버전 관리
+- **GitHub**: 소스 코드 호스팅
+- **Vercel CLI**: 자동 배포
+- **Firebase CLI**: Firebase 관리
+
+---
 
 ## 📁 프로젝트 구조
 
 ```
-src/
-├── components/          # 재사용 가능한 UI 컴포넌트
-│   ├── Navbar.tsx      # 네비게이션 바
-│   └── Footer.tsx      # 푸터
-├── pages/              # 페이지 컴포넌트
-│   ├── LandingPage.tsx # 메인 랜딩 페이지
-│   ├── PortfolioPage.tsx # MVP 포트폴리오
-│   ├── MVPDetailPage.tsx # MVP 상세 페이지
-│   └── ContactPage.tsx # 연락처 폼
-├── types/              # TypeScript 타입 정의
-│   └── index.ts
-├── utils/              # 유틸리티 함수
-│   └── firebase.ts     # Firebase 설정
-├── hooks/              # 커스텀 React Hook
-├── App.tsx             # 메인 앱 컴포넌트
-└── main.tsx           # 앱 진입점
+mxten_project_15/
+│
+├── public/                          # 정적 리소스
+│   ├── fonts/                       # 웹폰트 (Inter, Poppins)
+│   ├── images/                      # 스크린샷
+│   └── thumbnails/                  # 썸네일
+│
+├── src/
+│   ├── components/                  # 컴포넌트
+│   │   ├── ds/                      # Design System
+│   │   │   ├── Button.tsx
+│   │   │   ├── Card.tsx
+│   │   │   ├── Badge.tsx
+│   │   │   ├── Tag.tsx
+│   │   │   └── Typography.tsx
+│   │   ├── ProjectCard.tsx
+│   │   ├── CategoryTabs.tsx
+│   │   ├── SearchBar.tsx
+│   │   ├── TagFilter.tsx
+│   │   ├── HighlightProjects.tsx
+│   │   ├── Navbar.tsx
+│   │   └── Footer.tsx
+│   │
+│   ├── pages/                       # 페이지 컴포넌트
+│   │   ├── LandingPage.tsx
+│   │   ├── PortfolioPage.tsx
+│   │   ├── MVPDetailPage.tsx
+│   │   ├── ContactPage.tsx
+│   │   └── NotFoundPage.tsx
+│   │
+│   ├── data/
+│   │   └── portfolio.ts             # 🔥 83개 프로젝트 데이터
+│   │
+│   ├── design-tokens/               # 디자인 토큰
+│   │   ├── colors.ts
+│   │   ├── typography.ts
+│   │   ├── spacing.ts
+│   │   ├── shadows.ts
+│   │   └── radius.ts
+│   │
+│   ├── contexts/
+│   │   └── ThemeContext.tsx
+│   │
+│   ├── utils/
+│   │   ├── firebase.ts
+│   │   ├── performance.ts
+│   │   └── profiler.tsx
+│   │
+│   ├── types/
+│   │   └── index.ts
+│   │
+│   ├── App.tsx                      # 메인 앱 (라우터)
+│   ├── main.tsx                     # 엔트리 포인트
+│   └── index.css                    # 글로벌 스타일
+│
+├── docs/                            # 📚 문서
+│   ├── PROJECT_STRUCTURE.md
+│   ├── figma-design-system-report.md
+│   └── qa-report.md
+│
+├── .github/
+│   └── copilot-instructions.md
+│
+├── vercel.json                      # Vercel 설정
+├── vite.config.ts                   # Vite 설정
+├── tailwind.config.js               # Tailwind 설정
+├── tsconfig.json                    # TypeScript 설정
+├── package.json
+└── README.md                        # (이 문서)
 ```
 
-## 🎨 디자인 시스템
+> 📖 **상세 구조**: [`docs/PROJECT_STRUCTURE.md`](docs/PROJECT_STRUCTURE.md) 참조
 
-### 컬러 팔레트
-- **Primary**: Blue (600-700)
-- **Secondary**: Purple (600)  
-- **Accent**: Yellow/Orange (400-600)
-- **Background**: Slate (50, 900)
+---
 
-### 타이포그래피
-- **Heading**: Poppins (400-800)
-- **Body**: Inter (300-700)
+## 🚀 시작하기
 
-### 애니메이션
-- **페이지 전환**: 0.3s ease
-- **호버 효과**: 0.2s ease
-- **스크롤 애니메이션**: Framer Motion
+### 사전 요구사항
 
-## 📊 데이터 구조
+- **Node.js**: >= 18.0.0
+- **npm**: >= 9.0.0
+- **Git**: 최신 버전
 
-### MVP 데이터 타입
+### 설치
+
+```bash
+# 저장소 클론
+git clone https://github.com/mxten777/mxten_project_15.git
+cd mxten_project_15
+
+# 의존성 설치
+npm install
+```
+
+### 환경 변수 설정
+
+`.env` 파일 생성:
+
+```env
+# Firebase 설정
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+VITE_FIREBASE_MEASUREMENT_ID=your_measurement_id
+```
+
+### 개발 서버 실행
+
+```bash
+npm run dev
+```
+
+브라우저에서 http://localhost:5173 열기
+
+### 빌드
+
+```bash
+# 프로덕션 빌드
+npm run build
+
+# 빌드 결과 미리보기
+npm run preview
+```
+
+### 린트
+
+```bash
+npm run lint
+```
+
+---
+
+## 📐 데이터 스키마
+
+### PortfolioProject Interface
+
 ```typescript
-interface MVP {
-  id: string;
-  title: string;
-  description: string;
-  problemStatement: string;
-  solution: string;
-  techStack: string[];
-  results: string[];
-  screenshots: string[];
-  demoUrl?: string;
-  category: string;
-  industry: string;
-  developmentTime: string;
-  teamSize: number;
-  featured: boolean;
-  status: 'completed' | 'in-progress' | 'concept';
+export interface PortfolioProject {
+  id: string;                          // 고유 ID (예: "mvp-01", "gen-01")
+  title: string;                       // 프로젝트 제목
+  slug: string;                        // URL 슬러그
+  category: Category;                  // 4개 카테고리 중 하나
+  oneLiner: string;                    // 한 줄 설명
+  features: [string, string, string];  // 3개 주요 기능
+  fitFor: string;                      // 적합한 고객
+  demoUrl?: string;                    // 데모 URL (선택)
+  thumbnail: string;                   // 썸네일 경로
+  screenshots: string[];               // 스크린샷 배열
+  stack: string[];                     // 기술 스택
+  tags: string[];                      // 태그 배열
+  featured: boolean;                   // Featured 여부
+  yearMonth: string;                   // 제작 시기 (예: "2024-06")
 }
 ```
 
-## 🚢 배포
+### 카테고리 정의
 
-### Vercel 배포
+```typescript
+export const CATEGORIES = [
+  '전체',
+  '기업·기관 홈페이지',
+  '교육·AI 플랫폼',
+  'SaaS·업무자동화',
+  '공공·예약·문화'
+] as const;
+```
+
+### 데이터 예시
+
+```typescript
+{
+  id: 'mvp-04',
+  title: '바이칼시스템즈 홈페이지',
+  slug: 'baical-systems',
+  category: '기업·기관 홈페이지',
+  oneLiner: '글로벌 IT 기업의 프리미엄 홈페이지 솔루션',
+  features: [
+    '반응형 다국어 지원',
+    '제품/솔루션 쇼케이스',
+    '기업 정보 관리 시스템'
+  ],
+  fitFor: 'IT 기업, 제조업, B2B 서비스',
+  demoUrl: 'https://www.baicalsystems.com',
+  thumbnail: '/thumbnails/baical-systems.jpg',
+  screenshots: [
+    '/images/baical-systems-1.jpg',
+    '/images/baical-systems-2.jpg'
+  ],
+  stack: ['React', 'TypeScript', 'TailwindCSS', 'Firebase'],
+  tags: ['기업 홈페이지', 'B2B', '다국어', '반응형'],
+  featured: true,
+  yearMonth: '2024-08'
+}
+```
+
+### 유틸리티 함수
+
+```typescript
+// Featured 프로젝트 조회 (12개)
+export const getFeaturedProjects = (): PortfolioProject[] => {
+  return portfolioProjects.filter(p => p.featured);
+};
+
+// 카테고리별 조회
+export const getProjectsByCategory = (category: string): PortfolioProject[] => {
+  if (category === '전체') return portfolioProjects;
+  return portfolioProjects.filter(p => p.category === category);
+};
+
+// ID로 조회
+export const getProjectById = (id: string): PortfolioProject | undefined => {
+  return portfolioProjects.find(p => p.id === id);
+};
+
+// 슬러그로 조회
+export const getProjectBySlug = (slug: string): PortfolioProject | undefined => {
+  return portfolioProjects.find(p => p.slug === slug);
+};
+
+// 카테고리 통계
+export const getCategoryCount = (category: string): number => {
+  return getProjectsByCategory(category).length;
+};
+
+// 전체 통계
+export const getPortfolioStats = () => ({
+  total: portfolioProjects.length,
+  featured: getFeaturedProjects().length,
+  categories: CATEGORIES.slice(1).map(cat => ({
+    name: cat,
+    count: getCategoryCount(cat)
+  }))
+});
+
+// 모든 태그 추출
+export const getAllTags = (): string[] => {
+  const tagsSet = new Set<string>();
+  portfolioProjects.forEach(p => p.tags.forEach(tag => tagsSet.add(tag)));
+  return Array.from(tagsSet).sort();
+};
+```
+
+---
+
+## 🧩 컴포넌트 가이드
+
+### Design System 컴포넌트
+
+#### Button
+
+```tsx
+import { Button } from '@/components/ds';
+
+<Button variant="primary" size="md">
+  클릭하기
+</Button>
+
+// Variants: primary, secondary, ghost, outline
+// Sizes: sm, md, lg
+```
+
+#### Card
+
+```tsx
+import { Card } from '@/components/ds';
+
+<Card variant="elevated" interactive>
+  <h3>카드 제목</h3>
+  <p>카드 내용</p>
+</Card>
+
+// Variants: elevated, flat, outlined
+// Props: interactive (hover 효과)
+```
+
+#### Badge
+
+```tsx
+import { Badge } from '@/components/ds';
+
+<Badge variant="primary">New</Badge>
+
+// Variants: primary, success, warning, info, neutral
+```
+
+#### Tag
+
+```tsx
+import { Tag } from '@/components/ds';
+
+<Tag active={isActive} onClick={() => setActive(!isActive)}>
+  React
+</Tag>
+```
+
+#### Typography
+
+```tsx
+import { Heading, Text } from '@/components/ds';
+
+<Heading level={1}>페이지 제목</Heading>
+<Heading level={2}>섹션 제목</Heading>
+<Text variant="body">본문 텍스트</Text>
+<Text variant="caption">캡션 텍스트</Text>
+
+// Heading levels: 1-6
+// Text variants: body, caption, small, lead
+```
+
+### 비즈니스 컴포넌트
+
+#### ProjectCard
+
+```tsx
+import { ProjectCard } from '@/components';
+
+<ProjectCard
+  project={projectData}
+  variant="default"
+/>
+
+// Variants: default, compact, featured
+```
+
+#### CategoryTabs
+
+```tsx
+import { CategoryTabs } from '@/components';
+
+<CategoryTabs
+  activeCategory={category}
+  onCategoryChange={setCategory}
+/>
+```
+
+#### SearchBar
+
+```tsx
+import { SearchBar } from '@/components';
+
+<SearchBar
+  value={searchTerm}
+  onChange={setSearchTerm}
+  placeholder="프로젝트 검색..."
+/>
+```
+
+#### TagFilter
+
+```tsx
+import { TagFilter } from '@/components';
+
+<TagFilter
+  tags={allTags}
+  selectedTags={selectedTags}
+  onTagToggle={(tag) => {/* toggle logic */}}
+/>
+```
+
+---
+
+## 🎨 Design Tokens
+
+### 색상 시스템
+
+```typescript
+import { colors } from '@/design-tokens';
+
+// Primary (Blue)
+colors.primary[50]  // 가장 밝음
+colors.primary[500] // 기본
+colors.primary[900] // 가장 어두움
+
+// Secondary (Purple)
+colors.secondary[500]
+
+// Semantic Colors
+colors.success[500]  // 초록
+colors.warning[500]  // 노랑
+colors.error[500]    // 빨강
+colors.info[500]     // 파랑
+
+// Neutral (Gray)
+colors.neutral[100]  // 배경
+colors.neutral[600]  // 텍스트
+colors.neutral[900]  // 제목
+```
+
+### 타이포그래피
+
+```typescript
+import { typography } from '@/design-tokens';
+
+// Font Family
+typography.fontFamily.sans     // Inter
+typography.fontFamily.display  // Poppins
+
+// Font Size
+typography.fontSize.xs   // 0.75rem (12px)
+typography.fontSize.sm   // 0.875rem (14px)
+typography.fontSize.base // 1rem (16px)
+typography.fontSize.lg   // 1.125rem (18px)
+typography.fontSize.xl   // 1.25rem (20px)
+typography.fontSize['2xl'] // 1.5rem (24px)
+typography.fontSize['4xl'] // 2.25rem (36px)
+
+// Font Weight
+typography.fontWeight.normal // 400
+typography.fontWeight.medium // 500
+typography.fontWeight.semibold // 600
+typography.fontWeight.bold // 700
+```
+
+### 간격 (8px Grid)
+
+```typescript
+import { spacing } from '@/design-tokens';
+
+spacing[1]  // 0.25rem (4px)
+spacing[2]  // 0.5rem (8px)
+spacing[4]  // 1rem (16px)
+spacing[8]  // 2rem (32px)
+spacing[16] // 4rem (64px)
+```
+
+### 그림자
+
+```typescript
+import { shadows } from '@/design-tokens';
+
+shadows.sm  // 작은 그림자
+shadows.md  // 중간 그림자
+shadows.lg  // 큰 그림자
+shadows.xl  // 매우 큰 그림자
+```
+
+### 모서리 반경
+
+```typescript
+import { radius } from '@/design-tokens';
+
+radius.sm   // 0.25rem (4px)
+radius.md   // 0.5rem (8px)
+radius.lg   // 0.75rem (12px)
+radius.xl   // 1rem (16px)
+radius.full // 9999px (완전 둥글게)
+```
+
+---
+
+## 📦 배포
+
+### Vercel (권장)
+
 ```bash
 # Vercel CLI 설치
 npm i -g vercel
 
-# 배포
+# 로그인
+vercel login
+
+# 프로덕션 배포
 vercel --prod
 ```
 
+**배포 URL**: https://mxten-project-15-kkoj3lt34-dongyeol-jungs-projects.vercel.app
+
 ### Firebase Hosting
+
 ```bash
 # Firebase CLI 설치
-npm install -g firebase-tools
+npm i -g firebase-tools
+
+# 로그인
+firebase login
+
+# 초기화 (최초 1회)
+firebase init hosting
 
 # 빌드
 npm run build
 
-# Firebase 배포
-firebase deploy
+# 배포
+firebase deploy --only hosting
 ```
 
-## 📈 성능 최적화
+### 환경 변수 설정 (Vercel)
 
-- **코드 스플리팅**: React.lazy()로 페이지별 분할
-- **이미지 최적화**: WebP 형식 사용 권장
-- **번들 크기 최적화**: Tree shaking 및 불필요한 의존성 제거
-- **CDN 활용**: Firebase Hosting의 글로벌 CDN
-
-## 🔧 개발 팁
-
-### 새로운 MVP 추가
-1. Firestore에 MVP 데이터 추가
-2. 스크린샷 이미지를 Firebase Storage에 업로드
-3. 자동으로 포트폴리오에 반영됨
-
-### 커스터마이징
-- `tailwind.config.js`에서 색상/테마 수정
-- `src/components/`에서 UI 컴포넌트 커스터마이징
-- `src/types/index.ts`에서 데이터 구조 확장
-
-## 🤝 기여하기
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 라이센스
-
-MIT License - 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
-
-## 📞 문의
-
-- **이메일**: contact@vibecoding.com
-- **전화**: 02-1234-5678
-- **웹사이트**: https://vibecoding.com
+1. Vercel Dashboard → 프로젝트 선택
+2. Settings → Environment Variables
+3. `.env` 파일의 모든 변수 추가
+4. Production / Preview / Development 체크
+5. Save
 
 ---
 
-⚡ **바이브 코딩**으로 여러분의 아이디어를 현실로 만들어보세요!
+## 🔧 개발 가이드
+
+### 새 프로젝트 추가하기
+
+1. **데이터 추가** (`src/data/portfolio.ts`):
+
+```typescript
+{
+  id: 'mvp-XX',
+  title: '프로젝트 제목',
+  slug: 'project-slug',
+  category: '기업·기관 홈페이지', // 또는 다른 카테고리
+  oneLiner: '한 줄 설명',
+  features: ['기능 1', '기능 2', '기능 3'],
+  fitFor: '적합한 고객',
+  demoUrl: 'https://example.com',
+  thumbnail: '/thumbnails/project.jpg',
+  screenshots: ['/images/project-1.jpg'],
+  stack: ['React', 'TypeScript'],
+  tags: ['태그1', '태그2'],
+  featured: false,
+  yearMonth: '2024-12'
+}
+```
+
+2. **이미지 추가**:
+   - 썸네일: `/public/thumbnails/project.jpg`
+   - 스크린샷: `/public/images/project-1.jpg`
+
+3. **검증**:
+   - 총 프로젝트 수 확인
+   - Featured 개수 (12개 유지 권장)
+   - 카테고리 합계
+
+### Featured 프로젝트 변경
+
+`src/data/portfolio.ts`에서 `featured: true` 설정:
+
+```typescript
+// 기존 featured 제거
+{ id: 'old-01', featured: false, ... }
+
+// 새 featured 추가
+{ id: 'new-01', featured: true, ... }
+```
+
+**규칙**: 총 12개 유지
+
+### 카테고리 추가
+
+1. `src/data/portfolio.ts`에서 `CATEGORIES` 수정:
+
+```typescript
+export const CATEGORIES = [
+  '전체',
+  '기업·기관 홈페이지',
+  '교육·AI 플랫폼',
+  'SaaS·업무자동화',
+  '공공·예약·문화',
+  '새 카테고리' // 추가
+] as const;
+```
+
+2. `Category` 타입 업데이트
+3. `CategoryTabs` 컴포넌트 스타일 조정
+
+### 새 디자인 토큰 추가
+
+```typescript
+// src/design-tokens/colors.ts
+export const colors = {
+  // 기존 색상
+  primary: { ... },
+  
+  // 새 색상 추가
+  accent: {
+    50: '#fef2f2',
+    // ... 50-900 정의
+  }
+};
+```
+
+### 성능 최적화 팁
+
+1. **이미지 최적화**:
+   - WebP 포맷 사용
+   - 썸네일: 400x300px
+   - 스크린샷: 1200x900px
+
+2. **코드 스플리팅**:
+   - 페이지별 lazy loading
+   - 대용량 라이브러리 분리
+
+3. **번들 분석**:
+```bash
+npm run build -- --analyze
+```
+
+---
+
+## 🐛 문제 해결
+
+### 빌드 실패
+
+**오류**: `Module not found`
+
+```bash
+# node_modules 재설치
+rm -rf node_modules package-lock.json
+npm install
+```
+
+### 환경 변수 인식 안 됨
+
+- Vite는 `VITE_` 접두사 필요
+- `.env` 파일이 프로젝트 루트에 있는지 확인
+- 개발 서버 재시작
+
+### Firebase 연결 실패
+
+1. Firebase 프로젝트 생성 확인
+2. 환경 변수 값 정확성 검증
+3. Firebase Rules 설정 (Firestore)
+
+### 이미지 로딩 실패
+
+- 경로가 `/public`에서 시작하는지 확인
+- 파일명 대소문자 일치 확인
+- 이미지 파일 존재 여부 확인
+
+### TypeScript 에러
+
+```bash
+# 타입 체크
+npm run type-check
+
+# 캐시 삭제
+rm -rf node_modules/.vite
+```
+
+---
+
+## 📝 변경 이력
+
+### v1.0.0 (2026-01-21)
+
+**🎉 초기 릴리스**
+
+- ✅ 83개 실제 프로젝트 통합
+- ✅ 12개 Featured 프로젝트 선정
+- ✅ 4개 카테고리 분류 시스템
+- ✅ Design System 구축 (Token 기반)
+- ✅ 검색/필터/정렬 기능
+- ✅ 반응형 디자인 (모바일/태블릿/데스크톱)
+- ✅ Firebase 연동 (Firestore, Analytics)
+- ✅ Vercel 프로덕션 배포
+- ✅ PWA 지원 (Service Worker)
+
+**🔧 기술 세부사항**
+
+- React 18.3.1 + TypeScript 5.6.3
+- Vite 7.1.7 빌드 시스템
+- TailwindCSS 3.4.17 스타일링
+- Framer Motion 12 애니메이션
+- React Router 7.1.4 라우팅
+
+**📊 데이터 검증**
+
+- QA 리포트: 100/100 (가짜 데이터 0%)
+- 카테고리 합계: 21 + 12 + 28 + 22 = 83 ✓
+- Featured 개수: 12개 (정확)
+- ID 중복: 0건
+- 빈 값: 0건
+
+**🚀 배포 정보**
+
+- Git 커밋: `7355345`
+- 프로덕션 URL: https://mxten-project-15-kkoj3lt34-dongyeol-jungs-projects.vercel.app
+- 빌드 시간: 13.77초
+- 배포 시간: 36초
+
+---
+
+## 📞 문의
+
+**프로젝트 관련 문의**:
+- 웹사이트: https://mxten-project-15-kkoj3lt34-dongyeol-jungs-projects.vercel.app/contact
+
+**개발자**:
+- GitHub: https://github.com/mxten777
+
+---
+
+## 📄 라이선스
+
+이 프로젝트는 비공개 저작물입니다. 무단 복제 및 배포를 금지합니다.
+
+---
+
+**Last Updated: 2026-01-21** | **Version: 1.0.0** | **Built with ❤️ by 바이브 코딩**
