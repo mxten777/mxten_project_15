@@ -1,0 +1,19 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="publicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D97706;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#publicGrad)"/>
+  <g transform="translate(400, 300)">
+    <circle cx="0" cy="0" r="100" fill="white" fill-opacity="0.1"/>
+    <path d="M-50 0 L0 -60 L50 0 L30 0 L30 40 L15 40 L15 60 L-15 60 L-15 40 L-30 40 L-30 0 Z" fill="white" fill-opacity="0.3"/>
+    <text x="0" y="130" font-family="'Inter', sans-serif" font-size="24" font-weight="600" fill="white" text-anchor="middle">
+      공공·예약·문화
+    </text>
+    <text x="0" y="160" font-family="'Inter', sans-serif" font-size="16" fill="white" fill-opacity="0.8" text-anchor="middle">
+      Public & Culture
+    </text>
+  </g>
+</svg>

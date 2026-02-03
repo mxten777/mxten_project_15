@@ -1,0 +1,15 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad-finance" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#grad-finance)"/>
+  <circle cx="400" cy="200" r="100" stroke="white" stroke-width="3" fill="none" opacity="0.3"/>
+  <circle cx="400" cy="200" r="70" stroke="white" stroke-width="2" fill="none" opacity="0.4"/>
+  <path d="M 400 200 L 400 130 M 400 200 L 450 180" stroke="white" stroke-width="3" opacity="0.5"/>
+  <text x="400" y="340" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="40" font-weight="bold">Vibe Finance Hub</text>
+  <text x="400" y="380" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" opacity="0.9">간편 재무 관리 툴</text>
+  <text x="400" y="520" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" opacity="0.7">프리랜서 • 소상공인 • 세금관리</text>
+</svg>

@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, CheckCircle, Users, Tag } from 'lucide-react';
 import { getProjectBySlug } from '../data/portfolio';
+import { getThumbnailPath, handleImageError } from '../utils/thumbnailUtils';
 
 const MVPDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -162,18 +163,17 @@ const MVPDetailPage: React.FC = () => {
                   프로젝트 미리보기
                 </h2>
                 <div className="grid grid-cols-1 gap-6">
-                  {project.screenshots.map((screenshot, index) => (
+                  {project.screenshots.map((_, index) => (
                     <div 
                       key={index}
                       className="relative rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-700 dark:to-gray-800"
                     >
                       <img 
-                        src={screenshot}
+                        src={getThumbnailPath(project.demoUrl || '', project.category)}
                         alt={`${project.title} 스크린샷 ${index + 1}`}
                         className="w-full h-auto object-cover"
-                        onError={(e) => {
-                          e.currentTarget.src = `https://via.placeholder.com/800x600/6366f1/ffffff?text=${encodeURIComponent(project.title)}`;
-                        }}
+                        loading="lazy"
+                        onError={(e) => handleImageError(e, project.category)}
                       />
                     </div>
                   ))}

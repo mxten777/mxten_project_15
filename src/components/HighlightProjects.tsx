@@ -4,7 +4,7 @@ import { getFeaturedProjects, type PortfolioProject } from '../data/portfolio';
 import ProjectCard from './ProjectCard';
 
 const HighlightProjects: React.FC = () => {
-  const featuredProjects = getFeaturedProjects().slice(0, 4); // 최대 4개
+  const featuredProjects = getFeaturedProjects(); // 모든 Featured 프로젝트 표시
 
   return (
     <section className="py-20 bg-white dark:bg-gray-900">
@@ -20,7 +20,7 @@ const HighlightProjects: React.FC = () => {
             대표 프로젝트 하이라이트
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400">
-            실제 운영 가능한 수준으로 구축한 Featured 프로젝트
+            실제 운영 가능한 수준으로 구축한 Featured 프로젝트 {featuredProjects.length}개
           </p>
         </motion.div>
 

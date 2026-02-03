@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ExternalLink, Tag } from 'lucide-react';
 import { PortfolioProject } from '../data/portfolio';
+import { getThumbnailPath, handleImageError } from '../utils/thumbnailUtils';
 
 interface ProjectCardProps {
   project: PortfolioProject;
@@ -10,6 +11,9 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+  // URL 기반 썸네일 경로 생성 (4단계 Fallback)
+  const thumbnailPath = getThumbnailPath(project.demoUrl || '', project.category);
+  
   const handleDemoClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -33,16 +37,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           {/* 썸네일 */}
           <div className="relative h-56 overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-700 dark:to-gray-800">
             <img 
-              src={project.thumbnail} 
+              src={thumbnailPath}
               alt={project.title}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              onError={(e) => {
-                const target = e.currentTarget;
-                if (target.dataset['errored'] !== 'true') {
-                  target.dataset['errored'] = 'true';
-                  target.src = `https://via.placeholder.com/400x300/6366f1/ffffff?text=${encodeURIComponent(project.title)}`;
-                }
-              }}
+              loading="lazy"
+              onError={(e) => handleImageError(e, project.category)}
             />
             {/* Featured 뱃지 */}
             {project.featured && (

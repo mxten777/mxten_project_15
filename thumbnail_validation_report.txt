@@ -1,0 +1,431 @@
+
+===================================================================
+83개 프로젝트 썸네일 검증 리포트
+생성일시: 2026. 1. 22. 오전 11:37:14
+===================================================================
+
+📊 요약
+- 전체 프로젝트: 83개
+- ✅ 정상: 38개  
+- ❌ 불일치: 45개
+- ⚠️ URL 누락: 0개
+
+===================================================================
+❌ 불일치 프로젝트 (수정 필요)
+===================================================================
+
+
+⭐ ID: mvp-04
+  DemoURL: https://mvp-project-04.vercel.app/
+  현재 썸네일: 20251014_mvp_04_jp.png
+  필요한 파일명: mvp-project-04.png
+
+
+⭐ ID: dbinfo-final
+  DemoURL: https://dbinfo-final.vercel.app/
+  현재 썸네일: 20251014_dbinfo_final.png
+  필요한 파일명: dbinfo-final.png
+
+
+⭐ ID: mvp-03
+  DemoURL: https://mvp-project-03.vercel.app/
+  현재 썸네일: 20251014_mvp_03.png
+  필요한 파일명: mvp-project-03.png
+
+
+⭐ ID: gen-30
+  DemoURL: https://gen-project-30.vercel.app/
+  현재 썸네일: 20251014_new_30.png
+  필요한 파일명: gen-project-30.png
+
+
+⭐ ID: jdx-01
+  DemoURL: https://jdx-project-01.vercel.app/
+  현재 썸네일: 20251014_jdx_01.png
+  필요한 파일명: jdx-project-01.png
+
+
+⭐ ID: jdx-02
+  DemoURL: https://jdx-project-02.vercel.app/
+  현재 썸네일: 20251014_jdx_02.png
+  필요한 파일명: jdx-project-02.png
+
+
+⭐ ID: mvp-26
+  DemoURL: https://mvp-project-26.vercel.app/
+  현재 썸네일: 20251014_mvp_26.png
+  필요한 파일명: mvp-project-26.png
+
+
+ ID: mxten-15
+  DemoURL: http://baikalsys.kr/
+  현재 썸네일: 20251014_mxten_15.png
+  필요한 파일명: baikalsys-kr.png
+
+
+ ID: lawmaker-landing
+  DemoURL: https://lawmaker-landing.vercel.app/
+  현재 썸네일: 20251014_lawmaker.png
+  필요한 파일명: lawmaker-landing.png
+
+
+ ID: new-04
+  DemoURL: https://new-project-04.vercel.app/
+  현재 썸네일: 20251014_new_04_01.png
+  필요한 파일명: new-project-04.png
+
+
+ ID: new-20
+  DemoURL: https://new-project-20.vercel.app/
+  현재 썸네일: 20251014_new_20.png
+  필요한 파일명: new-project-20.png
+
+
+ ID: new-30
+  DemoURL: https://new-project-30.vercel.app/
+  현재 썸네일: 20251014_new_30.png
+  필요한 파일명: new-project-30.png
+
+
+ ID: new-40
+  DemoURL: https://new-project-40.vercel.app/
+  현재 썸네일: 20251014_new_40.png
+  필요한 파일명: new-project-40.png
+
+
+ ID: mvp-09
+  DemoURL: https://mvp-project-09.vercel.app/
+  현재 썸네일: 20251103_mvp_09_v1.png
+  필요한 파일명: mvp-project-09.png
+
+
+ ID: mxten-30
+  DemoURL: https://mxten-project-30.vercel.app/
+  현재 썸네일: 20251014_mvp_09.png
+  필요한 파일명: mxten-project-30.png
+
+
+ ID: new-02
+  DemoURL: https://new-project-02.vercel.app/
+  현재 썸네일: 20251014_new_02.png
+  필요한 파일명: new-project-02.png
+
+
+ ID: mxten-20
+  DemoURL: https://mxten-project-20.vercel.app/
+  현재 썸네일: 20251103_mxten_20.png
+  필요한 파일명: mxten-project-20.png
+
+
+ ID: jdx-50
+  DemoURL: https://jdx-project-50.vercel.app/
+  현재 썸네일: 20251103_jdx_50.png
+  필요한 파일명: jdx-project-50.png
+
+
+ ID: grok-72
+  DemoURL: https://grokproject72.vercel.app/
+  현재 썸네일: grok-project-72.png
+  필요한 파일명: grokproject72.png
+
+
+ ID: mvp-06
+  DemoURL: https://mvp-project-06.vercel.app/
+  현재 썸네일: 20251014_mvp_06.png
+  필요한 파일명: mvp-project-06.png
+
+
+ ID: new-40-ai
+  DemoURL: https://new-project-40.vercel.app/ai-symptom-check/
+  현재 썸네일: 20251014_new_40_02.png
+  필요한 파일명: new-project-40.png
+
+
+ ID: baikal-20
+  DemoURL: https://vibe-academy-mvp.vercel.app/
+  현재 썸네일: baikal-project-20.png
+  필요한 파일명: vibe-academy-mvp.png
+
+
+ ID: music-01
+  DemoURL: https://music-project-01.vercel.app/
+  현재 썸네일: 20251014_music_01.png
+  필요한 파일명: music-project-01.png
+
+
+ ID: figma-01
+  DemoURL: https://figma-projet-01.vercel.app/
+  현재 썸네일: figma-project-01.png
+  필요한 파일명: figma-projet-01.png
+
+
+ ID: mxten-06
+  DemoURL: https://mxten-project-06.vercel.app/
+  현재 썸네일: 20251014_mxten_06.png
+  필요한 파일명: mxten-project-06.png
+
+
+ ID: dbinfo-admin
+  DemoURL: https://dbinfo-final.vercel.app/admin/login
+  현재 썸네일: 20251014_dbinfo_final_admin.png
+  필요한 파일명: dbinfo-final.png
+
+
+ ID: mvp-14
+  DemoURL: https://mvp-project-14.vercel.app/
+  현재 썸네일: 20251014_mvp_14.png
+  필요한 파일명: mvp-project-14.png
+
+
+ ID: mvp-16
+  DemoURL: https://caring-plus.vercel.app/login
+  현재 썸네일: 20251014_mvp_16.png
+  필요한 파일명: caring-plus.png
+
+
+ ID: mvp-10
+  DemoURL: https://mvp-project-10.vercel.app/
+  현재 썸네일: 20251014_mvp_10.png
+  필요한 파일명: mvp-project-10.png
+
+
+ ID: mvp-12
+  DemoURL: https://mvp-project-12.vercel.app/
+  현재 썸네일: 20251103_mvp_12.png
+  필요한 파일명: mvp-project-12.png
+
+
+ ID: figma-02
+  DemoURL: https://figma-projet-02.vercel.app/
+  현재 썸네일: figma-project-02.png
+  필요한 파일명: figma-projet-02.png
+
+
+ ID: new-40-booking
+  DemoURL: https://new-project-40.vercel.app/appointment/
+  현재 썸네일: 20251014_new_40_03.png
+  필요한 파일명: new-project-40.png
+
+
+ ID: mvp-18
+  DemoURL: https://mvp-project-18.vercel.app/
+  현재 썸네일: 20251014_mvp_18.png
+  필요한 파일명: mvp-project-18.png
+
+
+ ID: mvp-28
+  DemoURL: https://mvp-project-28.vercel.app/
+  현재 썸네일: 20251014_mvp_28.png
+  필요한 파일명: mvp-project-28.png
+
+
+ ID: mvp-30
+  DemoURL: https://mvp-project-30.vercel.app/
+  현재 썸네일: 20251014_mvp_30.png
+  필요한 파일명: mvp-project-30.png
+
+
+ ID: mvp-32
+  DemoURL: https://mvp-project-32.vercel.app/
+  현재 썸네일: 20251014_mvp_32.png
+  필요한 파일명: mvp-project-32.png
+
+
+ ID: mvp-08
+  DemoURL: https://mvp-project-08.vercel.app/
+  현재 썸네일: 20251103_mvp_08.png
+  필요한 파일명: mvp-project-08.png
+
+
+ ID: mvp-20
+  DemoURL: https://mvp-project-20.vercel.app/
+  현재 썸네일: 20251103_mvp_20.png
+  필요한 파일명: mvp-project-20.png
+
+
+ ID: fuel-05
+  DemoURL: https://fuel-project-05.vercel.app/
+  현재 썸네일: 20251103_fuel_05.png
+  필요한 파일명: fuel-project-05.png
+
+
+ ID: mxten-10
+  DemoURL: https://mxten-project-10.vercel.app/
+  현재 썸네일: 20251014_mxten_10.png
+  필요한 파일명: mxten-project-10.png
+
+
+ ID: jdx-05
+  DemoURL: https://jdx-project-05.vercel.app/
+  현재 썸네일: 20251103_jdx_05.png
+  필요한 파일명: jdx-project-05.png
+
+
+ ID: jdx-10
+  DemoURL: https://jdx-project-10.vercel.app/
+  현재 썸네일: 20251103_jdx_10.png
+  필요한 파일명: jdx-project-10.png
+
+
+ ID: jdx-12
+  DemoURL: https://jdx-project-12.vercel.app/
+  현재 썸네일: 20251103_jdx_12.png
+  필요한 파일명: jdx-project-12.png
+
+
+ ID: jdx-20
+  DemoURL: https://jdx-project-20.vercel.app/
+  현재 썸네일: 20251103_jdx_20.png
+  필요한 파일명: jdx-project-20.png
+
+
+ ID: jdx-30
+  DemoURL: https://jdx-project-30.vercel.app/
+  현재 썸네일: 20251103_jdx_30.png
+  필요한 파일명: jdx-project-30.png
+
+
+===================================================================
+🎨 생성해야 할 썸네일 이미지 목록 (중복 제거)
+===================================================================
+
+  - baikalsys-kr.png
+  - caring-plus.png
+  - dbinfo-final.png
+  - figma-projet-01.png
+  - figma-projet-02.png
+  - fuel-project-05.png
+  - gen-project-30.png
+  - grokproject72.png
+  - jdx-project-01.png
+  - jdx-project-02.png
+  - jdx-project-05.png
+  - jdx-project-10.png
+  - jdx-project-12.png
+  - jdx-project-20.png
+  - jdx-project-30.png
+  - jdx-project-50.png
+  - lawmaker-landing.png
+  - music-project-01.png
+  - mvp-project-03.png
+  - mvp-project-04.png
+  - mvp-project-06.png
+  - mvp-project-08.png
+  - mvp-project-09.png
+  - mvp-project-10.png
+  - mvp-project-12.png
+  - mvp-project-14.png
+  - mvp-project-18.png
+  - mvp-project-20.png
+  - mvp-project-26.png
+  - mvp-project-28.png
+  - mvp-project-30.png
+  - mvp-project-32.png
+  - mxten-project-06.png
+  - mxten-project-10.png
+  - mxten-project-20.png
+  - mxten-project-30.png
+  - new-project-02.png
+  - new-project-04.png
+  - new-project-20.png
+  - new-project-30.png
+  - new-project-40.png
+  - vibe-academy-mvp.png
+
+===================================================================
+✅ 정상 프로젝트 (Featured만)
+===================================================================
+
+  ⭐ ketri-01: ketri-project-01.png
+  ⭐ gen-01: gen-project-01.png
+  ⭐ gen-02: gen-project-02.png
+  ⭐ baikal-01: baikal-project-01.png
+  ⭐ grok-57: grok-project-57.png
+
+===================================================================
+📋 전체 프로젝트 매핑 테이블
+===================================================================
+
+❌ mvp-04               | 20251014_mvp_04_jp.png
+❌ dbinfo-final         | 20251014_dbinfo_final.png
+❌ mvp-03               | 20251014_mvp_03.png
+❌ gen-30               | 20251014_new_30.png
+✅ ketri-01             | ketri-project-01.png
+❌ jdx-01               | 20251014_jdx_01.png
+❌ jdx-02               | 20251014_jdx_02.png
+✅ gen-01               | gen-project-01.png
+✅ gen-02               | gen-project-02.png
+❌ mvp-26               | 20251014_mvp_26.png
+✅ baikal-01            | baikal-project-01.png
+✅ grok-57              | grok-project-57.png
+❌ mxten-15             | 20251014_mxten_15.png
+❌ lawmaker-landing     | 20251014_lawmaker.png
+❌ new-04               | 20251014_new_04_01.png
+❌ new-20               | 20251014_new_20.png
+❌ new-30               | 20251014_new_30.png
+❌ new-40               | 20251014_new_40.png
+❌ mvp-09               | 20251103_mvp_09_v1.png
+❌ mxten-30             | 20251014_mvp_09.png
+❌ new-02               | 20251014_new_02.png
+❌ mxten-20             | 20251103_mxten_20.png
+❌ jdx-50               | 20251103_jdx_50.png
+✅ grok-20              | grok-project-20.png
+✅ grok-22              | grok-project-22.png
+✅ ketri-10             | ketri-project-10.png
+❌ grok-72              | grok-project-72.png
+✅ bank-01              | bank-project-01.png
+❌ mvp-06               | 20251014_mvp_06.png
+❌ new-40-ai            | 20251014_new_40_02.png
+✅ jdx-60               | jdx-project-60.png
+✅ jdx-70               | jdx-project-70.png
+✅ baikal-10            | baikal-project-10.png
+❌ baikal-20            | baikal-project-20.png
+❌ music-01             | 20251014_music_01.png
+✅ music-02             | music-project-02.png
+✅ grok-01              | grok-project-01.png
+❌ figma-01             | figma-project-01.png
+❌ mxten-06             | 20251014_mxten_06.png
+❌ dbinfo-admin         | 20251014_dbinfo_final_admin.png
+❌ mvp-14               | 20251014_mvp_14.png
+❌ mvp-16               | 20251014_mvp_16.png
+❌ mvp-10               | 20251014_mvp_10.png
+❌ mvp-12               | 20251103_mvp_12.png
+✅ gen-03               | gen-project-03.png
+✅ gen-04               | gen-project-04.png
+✅ baikal-50            | baikal-project-50.png
+✅ gen-20               | gen-project-20.png
+✅ grok-10              | grok-project-10.png
+✅ grok-50              | grok-project-50.png
+✅ grok-73              | grok-project-73.png
+✅ grok-74              | grok-project-74.png
+✅ grok-75              | grok-project-75.png
+✅ pub-02               | pub-project-02.png
+✅ pub-03               | pub-project-03.png
+✅ pub-04               | pub-project-04.png
+✅ grok-23              | grok-project-23.png
+✅ grok-24              | grok-project-24.png
+✅ grok-55              | grok-project-55.png
+✅ grok-56              | grok-project-56.png
+✅ grok-58              | grok-project-58.png
+❌ figma-02             | figma-project-02.png
+❌ new-40-booking       | 20251014_new_40_03.png
+✅ pub-01               | pub-project-01.png
+❌ mvp-18               | 20251014_mvp_18.png
+❌ mvp-28               | 20251014_mvp_28.png
+❌ mvp-30               | 20251014_mvp_30.png
+❌ mvp-32               | 20251014_mvp_32.png
+❌ mvp-08               | 20251103_mvp_08.png
+❌ mvp-20               | 20251103_mvp_20.png
+❌ fuel-05              | 20251103_fuel_05.png
+❌ mxten-10             | 20251014_mxten_10.png
+❌ jdx-05               | 20251103_jdx_05.png
+❌ jdx-10               | 20251103_jdx_10.png
+❌ jdx-12               | 20251103_jdx_12.png
+❌ jdx-20               | 20251103_jdx_20.png
+❌ jdx-30               | 20251103_jdx_30.png
+✅ gen-10               | gen-project-10.png
+✅ grok-21              | grok-project-21.png
+✅ grok-30              | grok-project-30.png
+✅ grok-40              | grok-project-40.png
+✅ grok-70              | grok-project-70.png
+✅ mvp-24               | mvp-project-24.png

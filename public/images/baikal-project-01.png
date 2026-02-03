@@ -1,0 +1,20 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad-literature" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#grad-literature)"/>
+  <rect x="250" y="120" width="300" height="360" rx="10" fill="white" opacity="0.2"/>
+  <rect x="270" y="140" width="260" height="40" fill="white" opacity="0.3"/>
+  <rect x="280" y="200" width="240" height="8" fill="white" opacity="0.25"/>
+  <rect x="280" y="220" width="240" height="8" fill="white" opacity="0.25"/>
+  <rect x="280" y="240" width="200" height="8" fill="white" opacity="0.25"/>
+  <rect x="280" y="280" width="240" height="8" fill="white" opacity="0.25"/>
+  <rect x="280" y="300" width="240" height="8" fill="white" opacity="0.25"/>
+  <rect x="280" y="320" width="180" height="8" fill="white" opacity="0.25"/>
+  <text x="400" y="420" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="36" font-weight="bold">문학 플랫폼</text>
+  <text x="400" y="460" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" opacity="0.9">시·산문·여행기</text>
+  <text x="400" y="530" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" opacity="0.7">작가 • 독자 • 커뮤니티</text>
+</svg>

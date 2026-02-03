@@ -1,0 +1,19 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="defaultGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6B7280;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#374151;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#defaultGrad)"/>
+  <g transform="translate(400, 300)">
+    <rect x="-100" y="-100" width="200" height="200" fill="white" fill-opacity="0.1" rx="20"/>
+    <path d="M-40 -40 L40 -40 L40 -20 L-40 -20 Z M-40 0 L40 0 L40 20 L-40 20 Z M-40 40 L0 40 L0 60 L-40 60 Z" fill="white" fill-opacity="0.3"/>
+    <text x="0" y="130" font-family="'Inter', sans-serif" font-size="24" font-weight="600" fill="white" text-anchor="middle">
+      프로젝트 썸네일
+    </text>
+    <text x="0" y="160" font-family="'Inter', sans-serif" font-size="16" fill="white" fill-opacity="0.8" text-anchor="middle">
+      Project Thumbnail
+    </text>
+  </g>
+</svg>

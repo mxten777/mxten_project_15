@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { CATEGORIES, getCategoryCount } from '../data/portfolio';
 
 interface CategoryTabsProps {
-  selectedCategory: string;
-  onCategoryChange: (category: string) => void;
-  showCounts?: boolean;
+  readonly selectedCategory: string;
+  readonly onCategoryChange: (category: string) => void;
+  readonly showCounts?: boolean;
 }
 
 const CategoryTabs: React.FC<CategoryTabsProps> = ({ 

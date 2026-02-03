@@ -1,0 +1,562 @@
+{
+  "summary": {
+    "total": 83,
+    "correct": 38,
+    "incorrect": 45,
+    "missingUrl": 0
+  },
+  "correct": [
+    {
+      "id": "ketri-01",
+      "fileName": "ketri-project-01.png",
+      "featured": true
+    },
+    {
+      "id": "gen-01",
+      "fileName": "gen-project-01.png",
+      "featured": true
+    },
+    {
+      "id": "gen-02",
+      "fileName": "gen-project-02.png",
+      "featured": true
+    },
+    {
+      "id": "baikal-01",
+      "fileName": "baikal-project-01.png",
+      "featured": true
+    },
+    {
+      "id": "grok-57",
+      "fileName": "grok-project-57.png",
+      "featured": true
+    },
+    {
+      "id": "grok-20",
+      "fileName": "grok-project-20.png",
+      "featured": false
+    },
+    {
+      "id": "grok-22",
+      "fileName": "grok-project-22.png",
+      "featured": false
+    },
+    {
+      "id": "ketri-10",
+      "fileName": "ketri-project-10.png",
+      "featured": false
+    },
+    {
+      "id": "bank-01",
+      "fileName": "bank-project-01.png",
+      "featured": false
+    },
+    {
+      "id": "jdx-60",
+      "fileName": "jdx-project-60.png",
+      "featured": false
+    },
+    {
+      "id": "jdx-70",
+      "fileName": "jdx-project-70.png",
+      "featured": false
+    },
+    {
+      "id": "baikal-10",
+      "fileName": "baikal-project-10.png",
+      "featured": false
+    },
+    {
+      "id": "music-02",
+      "fileName": "music-project-02.png",
+      "featured": false
+    },
+    {
+      "id": "grok-01",
+      "fileName": "grok-project-01.png",
+      "featured": false
+    },
+    {
+      "id": "gen-03",
+      "fileName": "gen-project-03.png",
+      "featured": false
+    },
+    {
+      "id": "gen-04",
+      "fileName": "gen-project-04.png",
+      "featured": false
+    },
+    {
+      "id": "baikal-50",
+      "fileName": "baikal-project-50.png",
+      "featured": false
+    },
+    {
+      "id": "gen-20",
+      "fileName": "gen-project-20.png",
+      "featured": false
+    },
+    {
+      "id": "grok-10",
+      "fileName": "grok-project-10.png",
+      "featured": false
+    },
+    {
+      "id": "grok-50",
+      "fileName": "grok-project-50.png",
+      "featured": false
+    },
+    {
+      "id": "grok-73",
+      "fileName": "grok-project-73.png",
+      "featured": false
+    },
+    {
+      "id": "grok-74",
+      "fileName": "grok-project-74.png",
+      "featured": false
+    },
+    {
+      "id": "grok-75",
+      "fileName": "grok-project-75.png",
+      "featured": false
+    },
+    {
+      "id": "pub-02",
+      "fileName": "pub-project-02.png",
+      "featured": false
+    },
+    {
+      "id": "pub-03",
+      "fileName": "pub-project-03.png",
+      "featured": false
+    },
+    {
+      "id": "pub-04",
+      "fileName": "pub-project-04.png",
+      "featured": false
+    },
+    {
+      "id": "grok-23",
+      "fileName": "grok-project-23.png",
+      "featured": false
+    },
+    {
+      "id": "grok-24",
+      "fileName": "grok-project-24.png",
+      "featured": false
+    },
+    {
+      "id": "grok-55",
+      "fileName": "grok-project-55.png",
+      "featured": false
+    },
+    {
+      "id": "grok-56",
+      "fileName": "grok-project-56.png",
+      "featured": false
+    },
+    {
+      "id": "grok-58",
+      "fileName": "grok-project-58.png",
+      "featured": false
+    },
+    {
+      "id": "pub-01",
+      "fileName": "pub-project-01.png",
+      "featured": false
+    },
+    {
+      "id": "gen-10",
+      "fileName": "gen-project-10.png",
+      "featured": false
+    },
+    {
+      "id": "grok-21",
+      "fileName": "grok-project-21.png",
+      "featured": false
+    },
+    {
+      "id": "grok-30",
+      "fileName": "grok-project-30.png",
+      "featured": false
+    },
+    {
+      "id": "grok-40",
+      "fileName": "grok-project-40.png",
+      "featured": false
+    },
+    {
+      "id": "grok-70",
+      "fileName": "grok-project-70.png",
+      "featured": false
+    },
+    {
+      "id": "mvp-24",
+      "fileName": "mvp-project-24.png",
+      "featured": false
+    }
+  ],
+  "incorrect": [
+    {
+      "id": "mvp-04",
+      "demoUrl": "https://mvp-project-04.vercel.app/",
+      "expected": "mvp-project-04.png",
+      "actual": "20251014_mvp_04_jp.png",
+      "featured": true
+    },
+    {
+      "id": "dbinfo-final",
+      "demoUrl": "https://dbinfo-final.vercel.app/",
+      "expected": "dbinfo-final.png",
+      "actual": "20251014_dbinfo_final.png",
+      "featured": true
+    },
+    {
+      "id": "mvp-03",
+      "demoUrl": "https://mvp-project-03.vercel.app/",
+      "expected": "mvp-project-03.png",
+      "actual": "20251014_mvp_03.png",
+      "featured": true
+    },
+    {
+      "id": "gen-30",
+      "demoUrl": "https://gen-project-30.vercel.app/",
+      "expected": "gen-project-30.png",
+      "actual": "20251014_new_30.png",
+      "featured": true
+    },
+    {
+      "id": "jdx-01",
+      "demoUrl": "https://jdx-project-01.vercel.app/",
+      "expected": "jdx-project-01.png",
+      "actual": "20251014_jdx_01.png",
+      "featured": true
+    },
+    {
+      "id": "jdx-02",
+      "demoUrl": "https://jdx-project-02.vercel.app/",
+      "expected": "jdx-project-02.png",
+      "actual": "20251014_jdx_02.png",
+      "featured": true
+    },
+    {
+      "id": "mvp-26",
+      "demoUrl": "https://mvp-project-26.vercel.app/",
+      "expected": "mvp-project-26.png",
+      "actual": "20251014_mvp_26.png",
+      "featured": true
+    },
+    {
+      "id": "mxten-15",
+      "demoUrl": "http://baikalsys.kr/",
+      "expected": "baikalsys-kr.png",
+      "actual": "20251014_mxten_15.png",
+      "featured": false
+    },
+    {
+      "id": "lawmaker-landing",
+      "demoUrl": "https://lawmaker-landing.vercel.app/",
+      "expected": "lawmaker-landing.png",
+      "actual": "20251014_lawmaker.png",
+      "featured": false
+    },
+    {
+      "id": "new-04",
+      "demoUrl": "https://new-project-04.vercel.app/",
+      "expected": "new-project-04.png",
+      "actual": "20251014_new_04_01.png",
+      "featured": false
+    },
+    {
+      "id": "new-20",
+      "demoUrl": "https://new-project-20.vercel.app/",
+      "expected": "new-project-20.png",
+      "actual": "20251014_new_20.png",
+      "featured": false
+    },
+    {
+      "id": "new-30",
+      "demoUrl": "https://new-project-30.vercel.app/",
+      "expected": "new-project-30.png",
+      "actual": "20251014_new_30.png",
+      "featured": false
+    },
+    {
+      "id": "new-40",
+      "demoUrl": "https://new-project-40.vercel.app/",
+      "expected": "new-project-40.png",
+      "actual": "20251014_new_40.png",
+      "featured": false
+    },
+    {
+      "id": "mvp-09",
+      "demoUrl": "https://mvp-project-09.vercel.app/",
+      "expected": "mvp-project-09.png",
+      "actual": "20251103_mvp_09_v1.png",
+      "featured": false
+    },
+    {
+      "id": "mxten-30",
+      "demoUrl": "https://mxten-project-30.vercel.app/",
+      "expected": "mxten-project-30.png",
+      "actual": "20251014_mvp_09.png",
+      "featured": false
+    },
+    {
+      "id": "new-02",
+      "demoUrl": "https://new-project-02.vercel.app/",
+      "expected": "new-project-02.png",
+      "actual": "20251014_new_02.png",
+      "featured": false
+    },
+    {
+      "id": "mxten-20",
+      "demoUrl": "https://mxten-project-20.vercel.app/",
+      "expected": "mxten-project-20.png",
+      "actual": "20251103_mxten_20.png",
+      "featured": false
+    },
+    {
+      "id": "jdx-50",
+      "demoUrl": "https://jdx-project-50.vercel.app/",
+      "expected": "jdx-project-50.png",
+      "actual": "20251103_jdx_50.png",
+      "featured": false
+    },
+    {
+      "id": "grok-72",
+      "demoUrl": "https://grokproject72.vercel.app/",
+      "expected": "grokproject72.png",
+      "actual": "grok-project-72.png",
+      "featured": false
+    },
+    {
+      "id": "mvp-06",
+      "demoUrl": "https://mvp-project-06.vercel.app/",
+      "expected": "mvp-project-06.png",
+      "actual": "20251014_mvp_06.png",
+      "featured": false
+    },
+    {
+      "id": "new-40-ai",
+      "demoUrl": "https://new-project-40.vercel.app/ai-symptom-check/",
+      "expected": "new-project-40.png",
+      "actual": "20251014_new_40_02.png",
+      "featured": false
+    },
+    {
+      "id": "baikal-20",
+      "demoUrl": "https://vibe-academy-mvp.vercel.app/",
+      "expected": "vibe-academy-mvp.png",
+      "actual": "baikal-project-20.png",
+      "featured": false
+    },
+    {
+      "id": "music-01",
+      "demoUrl": "https://music-project-01.vercel.app/",
+      "expected": "music-project-01.png",
+      "actual": "20251014_music_01.png",
+      "featured": false
+    },
+    {
+      "id": "figma-01",
+      "demoUrl": "https://figma-projet-01.vercel.app/",
+      "expected": "figma-projet-01.png",
+      "actual": "figma-project-01.png",
+      "featured": false
+    },
+    {
+      "id": "mxten-06",
+      "demoUrl": "https://mxten-project-06.vercel.app/",
+      "expected": "mxten-project-06.png",
+      "actual": "20251014_mxten_06.png",
+      "featured": false
+    },
+    {
+      "id": "dbinfo-admin",
+      "demoUrl": "https://dbinfo-final.vercel.app/admin/login",
+      "expected": "dbinfo-final.png",
+      "actual": "20251014_dbinfo_final_admin.png",
+      "featured": false
+    },
+    {
+      "id": "mvp-14",
+      "demoUrl": "https://mvp-project-14.vercel.app/",
+      "expected": "mvp-project-14.png",
+      "actual": "20251014_mvp_14.png",
+      "featured": false
+    },
+    {
+      "id": "mvp-16",
+      "demoUrl": "https://caring-plus.vercel.app/login",
+      "expected": "caring-plus.png",
+      "actual": "20251014_mvp_16.png",
+      "featured": false
+    },
+    {
+      "id": "mvp-10",
+      "demoUrl": "https://mvp-project-10.vercel.app/",
+      "expected": "mvp-project-10.png",
+      "actual": "20251014_mvp_10.png",
+      "featured": false
+    },
+    {
+      "id": "mvp-12",
+      "demoUrl": "https://mvp-project-12.vercel.app/",
+      "expected": "mvp-project-12.png",
+      "actual": "20251103_mvp_12.png",
+      "featured": false
+    },
+    {
+      "id": "figma-02",
+      "demoUrl": "https://figma-projet-02.vercel.app/",
+      "expected": "figma-projet-02.png",
+      "actual": "figma-project-02.png",
+      "featured": false
+    },
+    {
+      "id": "new-40-booking",
+      "demoUrl": "https://new-project-40.vercel.app/appointment/",
+      "expected": "new-project-40.png",
+      "actual": "20251014_new_40_03.png",
+      "featured": false
+    },
+    {
+      "id": "mvp-18",
+      "demoUrl": "https://mvp-project-18.vercel.app/",
+      "expected": "mvp-project-18.png",
+      "actual": "20251014_mvp_18.png",
+      "featured": false
+    },
+    {
+      "id": "mvp-28",
+      "demoUrl": "https://mvp-project-28.vercel.app/",
+      "expected": "mvp-project-28.png",
+      "actual": "20251014_mvp_28.png",
+      "featured": false
+    },
+    {
+      "id": "mvp-30",
+      "demoUrl": "https://mvp-project-30.vercel.app/",
+      "expected": "mvp-project-30.png",
+      "actual": "20251014_mvp_30.png",
+      "featured": false
+    },
+    {
+      "id": "mvp-32",
+      "demoUrl": "https://mvp-project-32.vercel.app/",
+      "expected": "mvp-project-32.png",
+      "actual": "20251014_mvp_32.png",
+      "featured": false
+    },
+    {
+      "id": "mvp-08",
+      "demoUrl": "https://mvp-project-08.vercel.app/",
+      "expected": "mvp-project-08.png",
+      "actual": "20251103_mvp_08.png",
+      "featured": false
+    },
+    {
+      "id": "mvp-20",
+      "demoUrl": "https://mvp-project-20.vercel.app/",
+      "expected": "mvp-project-20.png",
+      "actual": "20251103_mvp_20.png",
+      "featured": false
+    },
+    {
+      "id": "fuel-05",
+      "demoUrl": "https://fuel-project-05.vercel.app/",
+      "expected": "fuel-project-05.png",
+      "actual": "20251103_fuel_05.png",
+      "featured": false
+    },
+    {
+      "id": "mxten-10",
+      "demoUrl": "https://mxten-project-10.vercel.app/",
+      "expected": "mxten-project-10.png",
+      "actual": "20251014_mxten_10.png",
+      "featured": false
+    },
+    {
+      "id": "jdx-05",
+      "demoUrl": "https://jdx-project-05.vercel.app/",
+      "expected": "jdx-project-05.png",
+      "actual": "20251103_jdx_05.png",
+      "featured": false
+    },
+    {
+      "id": "jdx-10",
+      "demoUrl": "https://jdx-project-10.vercel.app/",
+      "expected": "jdx-project-10.png",
+      "actual": "20251103_jdx_10.png",
+      "featured": false
+    },
+    {
+      "id": "jdx-12",
+      "demoUrl": "https://jdx-project-12.vercel.app/",
+      "expected": "jdx-project-12.png",
+      "actual": "20251103_jdx_12.png",
+      "featured": false
+    },
+    {
+      "id": "jdx-20",
+      "demoUrl": "https://jdx-project-20.vercel.app/",
+      "expected": "jdx-project-20.png",
+      "actual": "20251103_jdx_20.png",
+      "featured": false
+    },
+    {
+      "id": "jdx-30",
+      "demoUrl": "https://jdx-project-30.vercel.app/",
+      "expected": "jdx-project-30.png",
+      "actual": "20251103_jdx_30.png",
+      "featured": false
+    }
+  ],
+  "missingUrl": [],
+  "needToCreate": [
+    "baikalsys-kr.png",
+    "caring-plus.png",
+    "dbinfo-final.png",
+    "figma-projet-01.png",
+    "figma-projet-02.png",
+    "fuel-project-05.png",
+    "gen-project-30.png",
+    "grokproject72.png",
+    "jdx-project-01.png",
+    "jdx-project-02.png",
+    "jdx-project-05.png",
+    "jdx-project-10.png",
+    "jdx-project-12.png",
+    "jdx-project-20.png",
+    "jdx-project-30.png",
+    "jdx-project-50.png",
+    "lawmaker-landing.png",
+    "music-project-01.png",
+    "mvp-project-03.png",
+    "mvp-project-04.png",
+    "mvp-project-06.png",
+    "mvp-project-08.png",
+    "mvp-project-09.png",
+    "mvp-project-10.png",
+    "mvp-project-12.png",
+    "mvp-project-14.png",
+    "mvp-project-18.png",
+    "mvp-project-20.png",
+    "mvp-project-26.png",
+    "mvp-project-28.png",
+    "mvp-project-30.png",
+    "mvp-project-32.png",
+    "mxten-project-06.png",
+    "mxten-project-10.png",
+    "mxten-project-20.png",
+    "mxten-project-30.png",
+    "new-project-02.png",
+    "new-project-04.png",
+    "new-project-20.png",
+    "new-project-30.png",
+    "new-project-40.png",
+    "vibe-academy-mvp.png"
+  ]
+}

@@ -1,0 +1,22 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="saasGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#saasGrad)"/>
+  <g transform="translate(400, 300)">
+    <rect x="-90" y="-90" width="180" height="180" fill="white" fill-opacity="0.1" rx="15"/>
+    <rect x="-60" y="-60" width="50" height="50" fill="white" fill-opacity="0.3" rx="5"/>
+    <rect x="10" y="-60" width="50" height="50" fill="white" fill-opacity="0.3" rx="5"/>
+    <rect x="-60" y="10" width="50" height="50" fill="white" fill-opacity="0.3" rx="5"/>
+    <rect x="10" y="10" width="50" height="50" fill="white" fill-opacity="0.3" rx="5"/>
+    <text x="0" y="120" font-family="'Inter', sans-serif" font-size="24" font-weight="600" fill="white" text-anchor="middle">
+      SaaS·업무자동화
+    </text>
+    <text x="0" y="150" font-family="'Inter', sans-serif" font-size="16" fill="white" fill-opacity="0.8" text-anchor="middle">
+      SaaS & Automation
+    </text>
+  </g>
+</svg>
