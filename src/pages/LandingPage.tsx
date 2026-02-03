@@ -133,14 +133,14 @@ const LandingPage: React.FC = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="space-y-4"
+                className="space-y-3"
               >
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter leading-[1.1]">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter leading-[1.08]">
                   <span className="block text-slate-900 dark:text-white">
-                    비즈니스 요구사항을
+                    비즈니스 아이디어를 4주 만에
                   </span>
                   <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
-                    실제 운영 가능한 시스템으로
+                    실제 제품으로
                   </span>
                 </h1>
               </motion.div>
