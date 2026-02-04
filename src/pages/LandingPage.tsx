@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Briefcase, Layers, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ProblemSolutionSection from '../components/ProblemSolutionSection';
@@ -12,7 +12,6 @@ import { TRUST_METRICS, BUSINESS_GUARANTEES, ROUTES, NEW_PROJECT_CATEGORIES } fr
 
 const LandingPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = React.useState<string>(NEW_PROJECT_CATEGORIES.ALL);
-  const navigate = useNavigate();
 
   // Stagger animation variants
   const containerVariants = {
@@ -33,7 +32,7 @@ const LandingPage: React.FC = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.4, 0.25, 1],
+        ease: "easeOut" as const,
       },
     },
   };
