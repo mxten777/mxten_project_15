@@ -88,39 +88,83 @@ const ProblemSolutionSection: React.FC = () => {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
               >
-                {/* Problem Card */}
-                <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 border-2 border-red-100 dark:border-red-900/30 hover:border-red-200 dark:hover:border-red-900/50 transition-colors">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-red-50 dark:bg-red-900/20 flex items-center justify-center">
-                      <ProblemIcon className="w-6 h-6 text-red-600 dark:text-red-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                        ❌ {item.problem.title}
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                {/* Problem Card - Premium Design */}
+                <motion.div 
+                  className="relative bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:from-orange-900/10 dark:via-amber-900/10 dark:to-yellow-900/10 rounded-2xl p-8 border-2 border-orange-200/60 dark:border-orange-700/40 shadow-lg shadow-orange-100/50 dark:shadow-orange-900/20 hover:shadow-xl hover:shadow-orange-200/60 dark:hover:shadow-orange-900/30 transition-all duration-300 overflow-hidden"
+                  whileHover={{ scale: 1.02, y: -4 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {/* Subtle Background Pattern */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div className="absolute inset-0" style={{
+                      backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(251, 146, 60, 0.3) 1px, transparent 0)',
+                      backgroundSize: '40px 40px'
+                    }} />
+                  </div>
+                  
+                  <div className="relative flex items-start gap-4">
+                    <motion.div 
+                      className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-400 to-amber-500 dark:from-orange-500 dark:to-amber-600 flex items-center justify-center shadow-lg shadow-orange-500/30"
+                      whileHover={{ rotate: [0, -10, 10, 0] }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <ProblemIcon className="w-7 h-7 text-white" />
+                    </motion.div>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-2xl">⚠️</span>
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                          {item.problem.title}
+                        </h3>
+                      </div>
+                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed font-medium">
                         {item.problem.description}
                       </p>
                     </div>
                   </div>
-                </div>
+                  
+                  {/* Corner Accent */}
+                  <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br from-orange-300/20 to-amber-400/20 dark:from-orange-600/10 dark:to-amber-700/10 rounded-full blur-2xl" />
+                </motion.div>
 
-                {/* Solution Card */}
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 border-2 border-blue-200 dark:border-blue-800 hover:border-blue-300 dark:hover:border-blue-700 transition-colors shadow-lg">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-600 dark:bg-blue-500 flex items-center justify-center">
-                      <SolutionIcon className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                        ✅ {item.solution.title}
-                      </h3>
-                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed font-medium">
+                {/* Solution Card - Enhanced Premium */}
+                <motion.div 
+                  className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 rounded-2xl p-8 border-2 border-blue-300/60 dark:border-blue-700/50 shadow-xl shadow-blue-100/50 dark:shadow-blue-900/30 hover:shadow-2xl hover:shadow-blue-200/60 dark:hover:shadow-blue-900/40 transition-all duration-300 overflow-hidden"
+                  whileHover={{ scale: 1.02, y: -4 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {/* Subtle Background Pattern */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div className="absolute inset-0" style={{
+                      backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(59, 130, 246, 0.4) 1px, transparent 0)',
+                      backgroundSize: '40px 40px'
+                    }} />
+                  </div>
+                  
+                  <div className="relative flex items-start gap-4">
+                    <motion.div 
+                      className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 dark:from-blue-600 dark:to-indigo-700 flex items-center justify-center shadow-lg shadow-blue-500/40"
+                      whileHover={{ scale: 1.1, rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <SolutionIcon className="w-7 h-7 text-white" />
+                    </motion.div>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-2xl">✅</span>
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                          {item.solution.title}
+                        </h3>
+                      </div>
+                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed font-semibold">
                         {item.solution.description}
                       </p>
                     </div>
                   </div>
-                </div>
+                  
+                  {/* Corner Accent */}
+                  <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br from-blue-400/20 to-indigo-500/20 dark:from-blue-600/15 dark:to-indigo-700/15 rounded-full blur-2xl" />
+                </motion.div>
               </motion.div>
             );
           })}
