@@ -86,6 +86,8 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
       mediaQuery.addEventListener('change', handleChange);
       return () => mediaQuery.removeEventListener('change', handleChange);
     }
+    
+    return undefined;
   }, [theme, actualTheme]);
 
   const toggleTheme = () => {
