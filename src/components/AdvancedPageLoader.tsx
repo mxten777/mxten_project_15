@@ -64,7 +64,7 @@ const AdvancedPageLoader: React.FC<AdvancedPageLoaderProps> = ({
         {/* 팁 메시지 */}
         <div className="mt-8 text-center">
           <p className="text-blue-200 text-sm opacity-75">
-            💡 잠깐! 40+개의 검증된 MVP 프로젝트를 준비하고 있어요
+            💡 잠깐! 80+개의 검증된 MVP 프로젝트를 준비하고 있어요
           </p>
         </div>
       </div>

@@ -147,7 +147,7 @@ const CTASection: React.FC<CTASectionProps> = ({
             {[
               { icon: '📄', text: `${BUSINESS_GUARANTEES.QUOTATION_TIME} 내 견적 제공` },
               { icon: '🔒', text: 'NDA 체결 가능' },
-              { icon: '✅', text: `유지보수 ${String(BUSINESS_GUARANTEES.WARRANTY_YEARS)}년 무상` }
+              { icon: '✅', text: '유지보수 지원' }
             ].map((item, index) => (
               <motion.div
                 key={index}

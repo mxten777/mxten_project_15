@@ -45,7 +45,7 @@ const BentoSection: React.FC = () => {
               <Award className="w-12 h-12" />
             </div>
             <h3 className="text-3xl md:text-4xl font-black mb-6 text-gray-900 dark:text-white tracking-tight drop-shadow-sm dark:drop-shadow-lg">
-              40+ 검증된 MVP
+              80+ 검증된 MVP
             </h3>
             <p className="text-lg text-gray-800 dark:text-gray-100 leading-relaxed mb-8 font-semibold">
               2024년부터 현재까지 다양한 분야에서 성공적으로 출시된 
@@ -154,7 +154,7 @@ const BentoSection: React.FC = () => {
               <Zap className="w-8 h-8" />
             </div>
             <h3 className="text-xl font-black mb-3 text-gray-900 dark:text-white tracking-tight drop-shadow-sm dark:drop-shadow-lg">빠른 개발</h3>
-            <p className="text-base font-bold text-gray-700 dark:text-gray-200">평균 2주 완성</p>
+            <p className="text-base font-bold text-gray-700 dark:text-gray-200">평균 4주 완성</p>
           </BentoCard>
 
           {/* Small Card - Precision */}

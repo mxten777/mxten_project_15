@@ -42,14 +42,14 @@ const LandingPage: React.FC = () => {
       number: TRUST_METRICS.TOTAL_PROJECTS, 
       unit: '',
       label: '실전 검증', 
-      description: '대기업·공공기관·제조업 실제 배포',
+      description: '글로벌표준을 적용한 실제배포',
       icon: Briefcase
     },
     { 
       number: TRUST_METRICS.ON_TIME_DELIVERY.replace('%', ''), 
       unit: '%',
       label: '정시 납품', 
-      description: `${BUSINESS_GUARANTEES.MVP_WEEKS}주 이내 MVP, ${BUSINESS_GUARANTEES.FULL_SYSTEM_WEEKS}주 이내 Full 시스템`,
+      description: `${String(BUSINESS_GUARANTEES.MVP_WEEKS)}주 이내 MVP, ${String(BUSINESS_GUARANTEES.FULL_SYSTEM_WEEKS)}주 이내 Full 시스템`,
       icon: Zap
     },
     { 
@@ -109,13 +109,13 @@ const LandingPage: React.FC = () => {
         />
         
         {/* Floating Tech Elements */}
-        {[...Array(12)].map((_, i) => (
+        {[...Array(12) as undefined[]].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full opacity-40 dark:opacity-30"
             style={{
-              left: `${15 + (i * 7)}%`,
-              top: `${20 + (i * 5)}%`,
+              left: `${String(15 + (i * 7))}%`,
+              top: `${String(20 + (i * 5))}%`,
             }}
             animate={{
               y: [0, -40, 0],
@@ -812,7 +812,7 @@ const LandingPage: React.FC = () => {
             
             <CategoryTabs 
               selectedCategory={selectedCategory} 
-              onCategoryChange={(cat) => setSelectedCategory(cat)}
+              onCategoryChange={(cat) => { setSelectedCategory(cat); }}
               showCounts={true}
             />
           </motion.div>

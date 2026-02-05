@@ -60,11 +60,11 @@ const Navbar: React.FC = () => {
               className="relative z-20 flex items-center space-x-2.5 group flex-shrink-0 hover:scale-[1.02] transition-transform duration-200"
               onClick={() => setIsOpen(false)}
             >
-              <div className="relative p-1.5 bg-white dark:bg-slate-800 rounded-lg transition-all duration-200 shadow-sm border-2 border-slate-300 dark:border-slate-600 group-hover:shadow-md group-hover:border-blue-500 dark:group-hover:border-blue-400">
+              <div className="relative px-2 py-1.5 bg-white dark:bg-slate-800 rounded-lg transition-all duration-200 shadow-sm border-2 border-slate-300 dark:border-slate-600 group-hover:shadow-md group-hover:border-blue-500 dark:group-hover:border-blue-400">
                 <img
-                  src="/images/baikal_logo_trans.png"
+                  src="/images/baikal_logo_new_trans.png"
                   alt="바이브코딩"
-                  className="relative w-8 h-8 sm:w-9 sm:h-9 object-contain"
+                  className="relative h-8 sm:h-9 w-auto object-contain"
                   style={{
                     filter: 'contrast(1.2) brightness(1.1) saturate(1.2)',
                     imageRendering: 'crisp-edges'
@@ -77,12 +77,12 @@ const Navbar: React.FC = () => {
             </Link>
 
             {/* Desktop Navigation - Maximum Contrast */}
-            <div className="hidden md:flex items-center justify-center flex-1 space-x-1">
+            <div className="hidden md:flex items-center justify-center flex-1 space-x-1 mx-4">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`group relative px-4 py-2 rounded-lg font-bold text-[15px] transition-all duration-200 cursor-pointer ${
+                  className={`group relative px-4 py-2 rounded-lg font-bold text-[15px] transition-all duration-200 cursor-pointer whitespace-nowrap ${
                     isActive(item.path)
                       ? 'text-white bg-blue-600 shadow-lg border-2 border-blue-500'
                       : 'text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border-2 border-transparent hover:border-slate-300 dark:hover:border-slate-600'

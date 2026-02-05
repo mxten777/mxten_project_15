@@ -78,13 +78,26 @@ const Footer: React.FC = () => {
           <div className="lg:col-span-1 animate-fade-in">
             <div className="space-y-8">
               <Link to="/" className="inline-block group">
+                <div className="flex items-center space-x-3 mb-2">
+                  <div className="relative px-2 py-1.5 bg-white dark:bg-slate-800 rounded-lg transition-all duration-200 shadow-sm border-2 border-slate-300 dark:border-slate-600 group-hover:shadow-md group-hover:border-blue-500 dark:group-hover:border-blue-400">
+                    <img
+                      src="/images/baikal_logo_new_trans.png"
+                      alt="바이브코딩"
+                      className="h-8 w-auto object-contain"
+                      style={{
+                        filter: 'contrast(1.2) brightness(1.1) saturate(1.2)',
+                        imageRendering: 'crisp-edges'
+                      }}
+                    />
+                  </div>
+                </div>
                 <h4 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
                   바이브코딩
                 </h4>
               </Link>
               
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-base">
-                2년차 풀스택 개발자의 실전 포트폴리오. 4주 만에 MVP를 현실로 만드는 민첩한 개발 파트너입니다.
+                AI활용 풀스택 개발자의 실전 포트폴리오. 4주 만에 MVP를 현실로 만드는 민첩한 개발 파트너입니다.
               </p>
 
               {/* Premium Stats */}
@@ -158,12 +171,6 @@ const Footer: React.FC = () => {
                 <div>
                   <p className="text-sm text-slate-700 dark:text-slate-300 font-bold mb-2">이메일</p>
                   <div className="space-y-1">
-                    <a
-                      href="mailto:mxten777@gmail.com"
-                      className="block text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-300 transition-colors text-sm font-medium"
-                    >
-                      mxten777@gmail.com
-                    </a>
                     <a
                       href="mailto:jngdy@naver.com"
                       className="block text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-300 transition-colors text-sm font-medium"

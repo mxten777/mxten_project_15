@@ -60,7 +60,7 @@ export const projects: Project[] = [
   {
     id: "portfolio-renewal",
     title: "바이칼시스템즈 MVP 소개자료(포트폴리오) 웹앱",
-    description: "40+개 MVP 프로젝트를 소개하는 프레젠테이션 스타일 포트폴리오 웹사이트",
+    description: "80+개 MVP 프로젝트를 소개하는 프레젠테이션 스타일 포트폴리오 웹사이트",
     url: "http://baikalsys.kr/",
     category: "대표/통합",
     date: "2025-10-18",
