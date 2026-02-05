@@ -87,80 +87,58 @@ const LandingPage: React.FC = () => {
           />
         </div>
         
-        {/* Main Content - 중앙 정렬 */}
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-10 text-center">
+        {/* Main Content - 중앙 정렬, 균형잡힌 레이아웃 */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 text-center">
             
             {/* Content with Stagger Animation */}
             <motion.div 
-              className="space-y-10"
+              className="space-y-8"
               variants={containerVariants}
               initial="hidden"
               animate="visible"
             >
               
-              {/* Badge - 임팩트 디자인 */}
+              {/* Badge - 상단 배지 */}
               <motion.div variants={itemVariants}>
                 <Badge 
                   variant="default" 
                   size="md" 
-                  className="inline-flex bg-white/20 dark:bg-white/10 backdrop-blur-xl border-2 border-white/30 px-6 py-3 font-bold text-base md:text-lg shadow-2xl hover:scale-105 transition-all duration-300"
+                  className="inline-flex bg-white/20 dark:bg-white/10 backdrop-blur-xl border-2 border-white/30 px-8 py-4 font-bold text-lg md:text-xl shadow-2xl hover:scale-105 transition-all duration-300"
                 >
-                  <motion.span 
-                    className="text-white"
-                    animate={{
-                      scale: [1, 1.05, 1],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
+                  <span className="text-white">
                     ✨ 4주 구축 · 80+ 실전 검증
-                  </motion.span>
+                  </span>
                 </Badge>
               </motion.div>
               
-              {/* Headline - 임팩트있는 타이포그래피 */}
+              {/* Headline - 메인 헤드라인 */}
               <motion.div variants={itemVariants}>
-                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-[-0.02em] leading-[1.1]">
-                  <motion.span 
-                    className="block text-white"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    비즈니스 아이디어를
-                  </motion.span>
-                  <motion.span 
-                    className="block mt-3 bg-gradient-to-r from-yellow-300 via-amber-200 to-yellow-400 bg-clip-text text-transparent"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    4주 만에
-                  </motion.span>
-                  <motion.span 
-                    className="block mt-3 text-white"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    실제 제품으로
-                  </motion.span>
+                <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight leading-tight">
+                  <span className="block text-white mb-2">비즈니스 아이디어를</span>
+                  <span className="block bg-gradient-to-r from-yellow-300 to-yellow-400 bg-clip-text text-transparent mb-2">4주 만에</span>
+                  <span className="block text-white">실제 제품으로</span>
                 </h1>
               </motion.div>
               
-              {/* Sub-headline - 강력한 메시지 */}
+              {/* Tech Stack Badge - 기술 스택 강조 */}
               <motion.div variants={itemVariants}>
-                <p className="text-lg md:text-xl lg:text-2xl text-blue-50 dark:text-slate-200 leading-relaxed font-medium max-w-4xl mx-auto">
-                  <span className="inline-block px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-lg text-yellow-300 font-bold text-base md:text-lg mr-2">React · TypeScript · Firebase</span>
-                  글로벌 표준 스택으로
-                  <br className="hidden sm:block" />
-                  <span className="text-white font-bold">{BUSINESS_GUARANTEES.MVP_WEEKS}주 내 구축</span> 보장.
-                  <span className="block mt-4 text-base md:text-lg text-blue-100 dark:text-slate-300">
-                    AI 보조 · 사람 검증으로 <span className="text-white font-bold">운영 가능한 품질</span> 제공
+                <div className="inline-block bg-gradient-to-r from-yellow-300 via-amber-200 to-yellow-400 px-10 py-5 rounded-2xl shadow-2xl">
+                  <span className="text-blue-900 font-black text-2xl md:text-3xl tracking-tight">
+                    React · TypeScript · Firebase
                   </span>
+                </div>
+              </motion.div>
+
+              {/* Sub-headline - 서브 메시지 */}
+              <motion.div variants={itemVariants}>
+                <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto font-semibold text-white">
+                  글로벌 표준 스택으로{' '}
+                  <span className="bg-gradient-to-r from-yellow-300 to-yellow-400 bg-clip-text text-transparent font-bold text-2xl md:text-3xl">
+                    {BUSINESS_GUARANTEES.MVP_WEEKS}주 내 구축 보장
+                  </span>
+                </p>
+                <p className="text-base md:text-lg text-white/90 font-medium">
+                  AI 보조 · 사람 검증으로 운영 가능한 품질 제공
                 </p>
               </motion.div>
               
@@ -201,6 +179,202 @@ const LandingPage: React.FC = () => {
               
             </motion.div>
             
+        </div>
+      </section>
+
+      {/* 기술 스택 섹션 - 프리미엄 카드 디자인 */}
+      <section className="relative py-32 bg-gradient-to-b from-slate-50 via-blue-50/30 to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+        <div className="relative max-w-7xl mx-auto px-8">
+          
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-20"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+              className="inline-block mb-8"
+            >
+              <span className="px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-600 text-white rounded-full text-base font-black border-2 border-white/30 shadow-xl">
+                🚀 기술 스택
+              </span>
+            </motion.div>
+            <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-slate-900 via-blue-900 to-cyan-900 dark:from-white dark:via-blue-200 dark:to-cyan-200 bg-clip-text text-transparent tracking-tight">
+              검증된 글로벌 표준 기술
+            </h2>
+            <p className="text-xl text-slate-700 dark:text-slate-300 max-w-3xl mx-auto font-medium">
+              최신 기술 스택으로 <span className="text-blue-600 dark:text-blue-400 font-bold">빠르고 안정적인</span> 개발을 보장합니다
+            </p>
+          </motion.div>
+
+          {/* Tech Stack Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+            
+            {/* Core Stack Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border-2 border-slate-200 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-2xl transition-all duration-300 w-full max-w-md"
+            >
+              <div className="text-center">
+                <div className="text-4xl mb-4">🎯</div>
+                <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-6">Core Stack</h3>
+              </div>
+              <ul className="space-y-4 text-center">
+                <li>
+                  <div className="font-bold text-slate-900 dark:text-white">React 19.1</div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">프론트엔드 프레임워크</p>
+                </li>
+                <li>
+                  <div className="font-bold text-slate-900 dark:text-white">TypeScript 5.8</div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">타입 안정성</p>
+                </li>
+                <li>
+                  <div className="font-bold text-slate-900 dark:text-white">Vite 7.1</div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">빌드 도구 및 개발 서버</p>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* UI/UX Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border-2 border-slate-200 dark:border-slate-700 hover:border-purple-400 dark:hover:border-purple-500 hover:shadow-2xl transition-all duration-300 w-full max-w-md"
+            >
+              <div className="text-center">
+                <div className="text-4xl mb-4">🎨</div>
+                <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-6">UI/UX</h3>
+              </div>
+              <ul className="space-y-4 text-center">
+                <li>
+                  <div className="font-bold text-slate-900 dark:text-white">TailwindCSS 3.4</div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">유틸리티 CSS 프레임워크</p>
+                </li>
+                <li>
+                  <div className="font-bold text-slate-900 dark:text-white">Framer Motion 12</div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">애니메이션 라이브러리</p>
+                </li>
+                <li>
+                  <div className="font-bold text-slate-900 dark:text-white">Lucide React</div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">아이콘 시스템</p>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Routing Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border-2 border-slate-200 dark:border-slate-700 hover:border-cyan-400 dark:hover:border-cyan-500 hover:shadow-2xl transition-all duration-300 w-full max-w-md"
+            >
+              <div className="text-center">
+                <div className="text-4xl mb-4">🗺️</div>
+                <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-6">라우팅</h3>
+              </div>
+              <ul className="space-y-4 text-center">
+                <li>
+                  <div className="font-bold text-slate-900 dark:text-white">React Router DOM 7.9</div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">클라이언트 사이드 라우팅</p>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Backend/Infrastructure Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border-2 border-slate-200 dark:border-slate-700 hover:border-orange-400 dark:hover:border-orange-500 hover:shadow-2xl transition-all duration-300 w-full max-w-md"
+            >
+              <div className="text-center">
+                <div className="text-4xl mb-4">🔥</div>
+                <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-6">백엔드/인프라</h3>
+              </div>
+              <ul className="space-y-4 text-center">
+                <li>
+                  <div className="font-bold text-slate-900 dark:text-white">Firebase 12.3</div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">Firestore (DB) + Analytics</p>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Testing Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border-2 border-slate-200 dark:border-slate-700 hover:border-green-400 dark:hover:border-green-500 hover:shadow-2xl transition-all duration-300 w-full max-w-md"
+            >
+              <div className="text-center">
+                <div className="text-4xl mb-4">🧪</div>
+                <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-6">테스팅</h3>
+              </div>
+              <ul className="space-y-4 text-center">
+                <li>
+                  <div className="font-bold text-slate-900 dark:text-white">Vitest 1.1</div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">테스트 러너</p>
+                </li>
+                <li>
+                  <div className="font-bold text-slate-900 dark:text-white">Testing Library</div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">React 컴포넌트 테스트</p>
+                </li>
+                <li>
+                  <div className="font-bold text-slate-900 dark:text-white">Happy DOM</div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">DOM 환경</p>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Dev Tools & Deployment Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border-2 border-slate-200 dark:border-slate-700 hover:border-pink-400 dark:hover:border-pink-500 hover:shadow-2xl transition-all duration-300 w-full max-w-md"
+            >
+              <div className="text-center">
+                <div className="text-4xl mb-4">🛠️</div>
+                <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-6">개발 도구 & 배포</h3>
+              </div>
+              <ul className="space-y-4 text-center">
+                <li>
+                  <div className="font-bold text-slate-900 dark:text-white">ESLint 9</div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">코드 품질 검사</p>
+                </li>
+                <li>
+                  <div className="font-bold text-slate-900 dark:text-white">Vite PWA Plugin</div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">Progressive Web App 지원</p>
+                </li>
+                <li>
+                  <div className="font-bold text-slate-900 dark:text-white">Vercel / Firebase</div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">프로덕션 배포</p>
+                </li>
+              </ul>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 

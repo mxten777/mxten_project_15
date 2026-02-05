@@ -107,44 +107,40 @@
 
 ## 🛠️ 기술 스택
 
-### Frontend
+<div align="center">
 
-```json
-{
-  "react": "18.3.1",
-  "react-router": "7.1.4",
-  "typescript": "5.6.3",
-  "vite": "7.1.7",
-  "tailwindcss": "3.4.17",
-  "framer-motion": "12.0.11",
-  "lucide-react": "0.474.0"
-}
-```
+### **React · TypeScript · Firebase**
 
-### Backend & Services
+## **글로벌 표준 스택으로**
+## **4주 내 구축 보장.**
 
-```json
-{
-  "firebase": "11.1.0"
-}
-```
+**AI 보조 · 사람 검증으로 운영 가능한 품질 제공**
 
-- **Firestore**: 문의 데이터 저장
-- **Analytics**: 사용자 행동 추적
+</div>
 
-### Build & Deploy
+---
 
-- **Vite**: 빠른 개발 서버 & 빌드 (~14초)
-- **Vercel**: 프로덕션 배포
-- **PWA**: Service Worker, 오프라인 지원
-- **ESLint**: 코드 품질 관리
+### Core Stack
+- **React 19.1** - 최신 프론트엔드 프레임워크
+- **TypeScript 5.8** - 타입 안정성 보장
+- **Vite 7.1** - 초고속 빌드 도구
+- **Firebase 12.3** - Firestore + Analytics
 
-### DevOps
+### UI/UX
+- **TailwindCSS 3.4** - 유틸리티 CSS 프레임워크
+- **Framer Motion 12** - 프리미엄 애니메이션
+- **Lucide React** - 아이콘 시스템
+- **React Router DOM 7.9** - 라우팅
 
-- **Git**: 버전 관리
-- **GitHub**: 소스 코드 호스팅
-- **Vercel CLI**: 자동 배포
-- **Firebase CLI**: Firebase 관리
+### Testing & Quality
+- **Vitest** - 단위/통합 테스트
+- **Testing Library** - React 컴포넌트 테스트
+- **ESLint** - 코드 품질 검증
+
+### Deployment
+- **Vercel** - 프로덕션 배포
+- **Firebase Hosting** - 백업 호스팅
+- **PWA** - Progressive Web App 지원
 
 ---
 
