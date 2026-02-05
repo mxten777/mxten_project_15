@@ -24,54 +24,72 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
+  // 초기 테마 설정 및 즉시 DOM 반영
   const [theme, setTheme] = useState<Theme>(() => {
     const savedTheme = localStorage.getItem('theme') as Theme;
-    return savedTheme || 'auto';
-  });
-
-  const [actualTheme, setActualTheme] = useState<'light' | 'dark'>('light');
-
-  useEffect(() => {
-    const root = document.documentElement;
+    const initialTheme = savedTheme || 'light';
     
-    const updateTheme = () => {
-      if (theme === 'auto') {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const newActualTheme = prefersDark ? 'dark' : 'light';
-        setActualTheme(newActualTheme);
-        
-        if (newActualTheme === 'dark') {
-          root.classList.add('dark');
-        } else {
-          root.classList.remove('dark');
-        }
-      } else {
-        setActualTheme(theme);
-        if (theme === 'dark') {
+    // 즉시 DOM에 반영 (첫 렌더부터 정확한 테마 적용)
+    if (typeof window !== 'undefined') {
+      const root = document.documentElement;
+      if (initialTheme === 'dark') {
+        root.classList.add('dark');
+      } else if (initialTheme === 'light') {
+        root.classList.remove('dark');
+      } else if (initialTheme === 'auto') {
+        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (isDark) {
           root.classList.add('dark');
         } else {
           root.classList.remove('dark');
         }
       }
-    };
-
-    updateTheme();
-    localStorage.setItem('theme', theme);
-
-    if (theme === 'auto') {
-      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-      mediaQuery.addEventListener('change', updateTheme);
-      return () => mediaQuery.removeEventListener('change', updateTheme);
     }
-    return undefined;
+    
+    return initialTheme;
+  });
+
+  // actualTheme은 계산된 값 (별도 state 없음)
+  const actualTheme: 'light' | 'dark' = React.useMemo(() => {
+    if (theme === 'auto') {
+      return typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches 
+        ? 'dark' 
+        : 'light';
+    }
+    return theme;
   }, [theme]);
 
+  // theme 변경 시 DOM 즉시 업데이트
+  useEffect(() => {
+    const root = document.documentElement;
+    
+    // 즉시 DOM 클래스 토글
+    if (actualTheme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+    
+    // localStorage 저장
+    localStorage.setItem('theme', theme);
+
+    // auto 모드: 시스템 테마 변경 감지
+    if (theme === 'auto') {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      const handleChange = (e: MediaQueryListEvent) => {
+        if (e.matches) {
+          root.classList.add('dark');
+        } else {
+          root.classList.remove('dark');
+        }
+      };
+      mediaQuery.addEventListener('change', handleChange);
+      return () => mediaQuery.removeEventListener('change', handleChange);
+    }
+  }, [theme, actualTheme]);
+
   const toggleTheme = () => {
-    setTheme(current => {
-      if (current === 'light') return 'dark';
-      if (current === 'dark') return 'auto';
-      return 'light';
-    });
+    setTheme(current => current === 'light' ? 'dark' : 'light');
   };
 
   const contextValue: ThemeContextType = {

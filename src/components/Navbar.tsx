@@ -61,18 +61,29 @@ const Navbar: React.FC = () => {
               onClick={() => setIsOpen(false)}
             >
               <div className="relative px-2 py-1.5 bg-white dark:bg-slate-800 rounded-lg transition-all duration-200 shadow-sm border-2 border-slate-300 dark:border-slate-600 group-hover:shadow-md group-hover:border-blue-500 dark:group-hover:border-blue-400">
+                {/* Light mode logo */}
                 <img
                   src="/images/baikal_logo_new_trans.png"
-                  alt="바이브코딩"
-                  className="relative h-8 sm:h-9 w-auto object-contain"
+                  alt="(주)바이칼시스템즈"
+                  className="relative h-8 sm:h-9 w-auto object-contain block dark:hidden"
                   style={{
                     filter: 'contrast(1.2) brightness(1.1) saturate(1.2)',
                     imageRendering: 'crisp-edges'
                   }}
                 />
+                {/* Dark mode logo */}
+                <img
+                  src="/images/baikal_logo_white.png"
+                  alt="(주)바이칼시스템즈"
+                  className="relative h-8 sm:h-9 w-auto object-contain hidden dark:block"
+                  style={{
+                    filter: 'contrast(1.1) brightness(1.05)',
+                    imageRendering: 'crisp-edges'
+                  }}
+                />
               </div>
-              <span className="relative z-10 font-bold font-heading text-xl sm:text-2xl leading-none tracking-tight transition-colors duration-200 text-slate-900 dark:text-white">
-                바이브코딩
+              <span className="relative z-10 font-black font-heading text-base sm:text-lg leading-none tracking-[-0.02em] transition-colors duration-200 text-slate-900 dark:text-white whitespace-nowrap">
+                (주)바이칼시스템즈
               </span>
             </Link>
 

@@ -80,19 +80,30 @@ const Footer: React.FC = () => {
               <Link to="/" className="inline-block group">
                 <div className="flex items-center space-x-3 mb-2">
                   <div className="relative px-2 py-1.5 bg-white dark:bg-slate-800 rounded-lg transition-all duration-200 shadow-sm border-2 border-slate-300 dark:border-slate-600 group-hover:shadow-md group-hover:border-blue-500 dark:group-hover:border-blue-400">
+                    {/* Light mode logo */}
                     <img
                       src="/images/baikal_logo_new_trans.png"
-                      alt="바이브코딩"
-                      className="h-8 w-auto object-contain"
+                      alt="(주)바이칼시스템즈"
+                      className="h-8 w-auto object-contain block dark:hidden"
                       style={{
                         filter: 'contrast(1.2) brightness(1.1) saturate(1.2)',
                         imageRendering: 'crisp-edges'
                       }}
                     />
+                    {/* Dark mode logo */}
+                    <img
+                      src="/images/baikal_logo_white.png"
+                      alt="(주)바이칼시스템즈"
+                      className="h-8 w-auto object-contain hidden dark:block"
+                      style={{
+                        filter: 'contrast(1.1) brightness(1.05)',
+                        imageRendering: 'crisp-edges'
+                      }}
+                    />
                   </div>
                 </div>
-                <h4 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
-                  바이브코딩
+                <h4 className="text-2xl sm:text-3xl font-black bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 tracking-[-0.02em] leading-tight whitespace-nowrap">
+                  (주)바이칼시스템즈
                 </h4>
               </Link>
               
@@ -255,7 +266,7 @@ const Footer: React.FC = () => {
         <div className="py-8 border-t-2 border-slate-200 dark:border-slate-700/50">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-4 text-sm text-slate-600 dark:text-slate-400">
-              <span className="font-medium">© {currentYear} 바이브코딩. All rights reserved.</span>
+              <span className="font-medium">© {currentYear} (주)바이칼시스템즈. All rights reserved.</span>
               <div className="hidden md:flex items-center space-x-1">
                 <span>Made with</span>
                 <Heart className="w-4 h-4 text-red-500 dark:text-red-400" />
