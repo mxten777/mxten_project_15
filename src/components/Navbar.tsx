@@ -17,23 +17,20 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
-  // 모바일 메뉴 열릴 때 스크롤 방지
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
+    document.body.style.overflow = isOpen ? 'hidden' : 'unset';
+    return () => { document.body.style.overflow = 'unset'; };
   }, [isOpen]);
+
+  // 페이지 이동 시 모바일 메뉴 자동 닫기
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
   const navItems = [
     { name: '홈', path: '/', description: '서비스 소개' },
     { name: '포트폴리오', path: '/portfolio', description: '80+개 MVP 프로젝트' },
-    { name: '🎉 캠페인', path: '/campaign', description: '특별 런칭 이벤트' },
+    { name: '캠페인', path: '/campaign', description: '특별 런칭 이벤트' },
   ];
 
   const isActive = (path: string) => {
@@ -46,85 +43,72 @@ const Navbar: React.FC = () => {
     <>
       <nav className={`fixed w-full left-0 right-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white dark:bg-slate-900 shadow-md border-b-2 border-slate-200 dark:border-slate-700'
-          : 'bg-white dark:bg-slate-900 border-b-2 border-slate-200 dark:border-slate-700'
+          ? 'bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm border-b border-slate-200/60 dark:border-slate-800/60'
+          : 'bg-white/60 dark:bg-slate-950/60 backdrop-blur-md border-b border-transparent'
       }`}>
-        
         <div className="w-full">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 app-header-inner">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 app-header-inner">
             <div className="flex items-center justify-between">
-            
-            {/* Logo - Premium Clean */}
+
+            {/* Logo */}
             <Link
               to="/"
-              className="relative z-20 flex items-center space-x-2.5 group flex-shrink-0 hover:scale-[1.02] transition-transform duration-200"
+              className="relative z-20 flex items-center gap-2 sm:gap-2.5 group flex-shrink-0 min-w-0"
               onClick={() => setIsOpen(false)}
             >
-              <div className="relative px-2 py-1.5 bg-white dark:bg-slate-800 rounded-lg transition-all duration-200 shadow-sm border-2 border-slate-300 dark:border-slate-600 group-hover:shadow-md group-hover:border-blue-500 dark:group-hover:border-blue-400">
-                {/* Light mode logo */}
+              <div className="relative px-1.5 py-1 sm:px-2 sm:py-1.5 bg-white dark:bg-slate-900 rounded-lg sm:rounded-xl transition-all duration-200 shadow-sm border border-slate-200 dark:border-slate-800 group-hover:shadow-md group-hover:border-indigo-300 dark:group-hover:border-indigo-700 flex-shrink-0">
                 <img
                   src="/images/baikal_logo_new_trans.png"
                   alt="(주)바이칼시스템즈"
-                  className="relative h-8 sm:h-9 w-auto object-contain block dark:hidden"
-                  style={{
-                    filter: 'contrast(1.2) brightness(1.1) saturate(1.2)',
-                    imageRendering: 'crisp-edges'
-                  }}
+                  className="relative h-6 sm:h-8 w-auto object-contain block dark:hidden"
+                  style={{ imageRendering: 'crisp-edges' }}
                 />
-                {/* Dark mode logo */}
                 <img
                   src="/images/baikal_logo_white.png"
                   alt="(주)바이칼시스템즈"
-                  className="relative h-8 sm:h-9 w-auto object-contain hidden dark:block"
-                  style={{
-                    filter: 'contrast(1.1) brightness(1.05)',
-                    imageRendering: 'crisp-edges'
-                  }}
+                  className="relative h-6 sm:h-8 w-auto object-contain hidden dark:block"
+                  style={{ imageRendering: 'crisp-edges' }}
                 />
               </div>
-              <span className="relative z-10 font-black font-heading text-base sm:text-lg leading-none tracking-[-0.02em] transition-colors duration-200 text-slate-900 dark:text-white whitespace-nowrap">
+              <span className="font-bold text-sm sm:text-base text-slate-900 dark:text-white tracking-tight whitespace-nowrap hidden xs:inline">
                 (주)바이칼시스템즈
               </span>
             </Link>
 
-            {/* Desktop Navigation - Maximum Contrast */}
-            <div className="hidden md:flex items-center justify-center flex-1 space-x-1 mx-4">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center justify-center flex-1 space-x-1 mx-6">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`group relative px-4 py-2 rounded-lg font-bold text-[15px] transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                  className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 ${
                     isActive(item.path)
-                      ? 'text-white bg-blue-600 shadow-lg border-2 border-blue-500'
-                      : 'text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border-2 border-transparent hover:border-slate-300 dark:hover:border-slate-600'
+                      ? 'text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/50'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
                   }`}
                 >
-                  <span className="relative z-10">{item.name}</span>
+                  {item.name}
                 </Link>
               ))}
             </div>
 
-            {/* Right Side - High Contrast CTA */}
+            {/* Right Side */}
             <div className="hidden md:flex items-center space-x-3 flex-shrink-0">
               <ThemeToggle />
-
               <Link
                 to="/contact"
-                className="group relative px-5 py-2 rounded-lg font-bold text-[15px] bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl border-2 border-blue-500 hover:border-blue-400 transition-all duration-200 transform hover:scale-[1.02] cursor-pointer"
+                className="px-5 py-2 rounded-xl text-sm font-bold bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm shadow-indigo-600/20 hover:shadow-md transition-all duration-200"
               >
-                <span className="relative z-10">상담 신청</span>
+                상담 신청
               </Link>
             </div>
 
-            {/* Mobile Right Side */}
-            <div className="md:hidden flex items-center space-x-2">
-              <div className="flex-shrink-0">
-                <ThemeToggle />
-              </div>
-
+            {/* Mobile Right */}
+            <div className="md:hidden flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+              <ThemeToggle />
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-2 rounded-lg text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border-2 border-slate-300 dark:border-slate-600 transition-all duration-200"
+                className="p-2 rounded-xl text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition-all duration-200"
                 aria-label="메뉴 토글"
               >
                 {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -135,56 +119,42 @@ const Navbar: React.FC = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       {isOpen && (
         <>
-          {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+            className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 md:hidden"
             onClick={() => setIsOpen(false)}
           />
-
-          {/* Mobile Menu - 간소화된 버전 */}
-          <div className="fixed top-24 left-4 right-4 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl z-50 md:hidden overflow-hidden border border-gray-200 dark:border-gray-700">
+          <div className="fixed top-20 left-4 right-4 bg-white dark:bg-slate-900 rounded-2xl shadow-xl z-50 md:hidden overflow-hidden border border-slate-200 dark:border-slate-800">
             <div className="px-4 py-4 max-h-[calc(100vh-6rem)] overflow-y-auto">
-              
-              {/* Mobile Navigation Links */}
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {navItems.map((item) => (
-                  <div key={item.path} className="relative">
-                    <Link
-                      to={item.path}
-                      onClick={() => setIsOpen(false)}
-                      className={`group flex items-center justify-between w-full px-4 py-4 rounded-xl transition-all duration-300 ${
-                        isActive(item.path)
-                          ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
-                          : 'text-gray-700 dark:text-gray-200 bg-gray-50 dark:bg-gray-700/50 hover:bg-gray-100 dark:hover:bg-gray-700 border-2 border-transparent hover:border-blue-200 dark:hover:border-blue-500'
-                      }`}
-                    >
-                      <div className="flex flex-col items-start">
-                        <span className="font-semibold text-lg">{item.name}</span>
-                        <span className={`text-sm mt-1 ${isActive(item.path) ? 'text-white/90' : 'text-gray-500 dark:text-gray-400'}`}>{item.description}</span>
-                      </div>
-                      
-                      <ChevronRight 
-                        size={22} 
-                        className={`transition-all duration-300 ${
-                          isActive(item.path) ? 'text-white' : 'text-gray-400 group-hover:translate-x-1 group-hover:text-blue-500'
-                        }`} 
-                      />
-                    </Link>
-                  </div>
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`flex items-center justify-between w-full px-4 py-3.5 rounded-xl transition-all duration-200 ${
+                      isActive(item.path)
+                        ? 'bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300'
+                        : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
+                    }`}
+                  >
+                    <div>
+                      <span className="font-semibold text-base">{item.name}</span>
+                      <span className={`block text-xs mt-0.5 ${isActive(item.path) ? 'text-indigo-500 dark:text-indigo-400' : 'text-slate-400 dark:text-slate-500'}`}>{item.description}</span>
+                    </div>
+                    <ChevronRight size={18} className="text-slate-400" />
+                  </Link>
                 ))}
               </div>
-
-              {/* Mobile Contact Button */}
-              <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-600">
+              <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800">
                 <Link
                   to="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center w-full px-6 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white font-semibold text-lg rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+                  className="flex items-center justify-center w-full px-6 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-sm"
                 >
-                  📞 문의하기
+                  문의하기
                 </Link>
               </div>
             </div>
@@ -192,7 +162,6 @@ const Navbar: React.FC = () => {
         </>
       )}
 
-      {/* Spacer for fixed navbar (CSS-only header height via --app-header-h) */}
       <div style={{ height: 'var(--app-header-h)' }} />
     </>
   );

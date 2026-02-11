@@ -7,12 +7,15 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      screens: {
+        'xs': '420px',
+      },
       fontFamily: {
-        'sans': ['Inter', 'Geist Sans', 'Space Grotesk', 'Sora', 'system-ui', '-apple-system', 'sans-serif'],
-        'heading': ['Space Grotesk', 'Montserrat', 'Sora', 'Poppins', 'system-ui', 'sans-serif'],
-        'display': ['Space Grotesk', 'Montserrat', 'system-ui', 'sans-serif'],
-        'body': ['Inter', 'Geist Sans', 'Manrope', 'system-ui', 'sans-serif'],
-        'mono': ['JetBrains Mono', 'Monaco', 'Consolas', 'monospace'],
+        'sans': ['Inter', 'sans-serif'],
+        'heading': ['Poppins', 'sans-serif'],
+        'display': ['Poppins', 'sans-serif'],
+        'body': ['Inter', 'sans-serif'],
+        'mono': ['JetBrains Mono', 'monospace'],
       },
       fontSize: {
         'xs': ['0.75rem', { lineHeight: '1rem' }],

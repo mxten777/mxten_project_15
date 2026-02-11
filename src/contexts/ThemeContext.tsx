@@ -91,7 +91,8 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   }, [theme, actualTheme]);
 
   const toggleTheme = () => {
-    setTheme(current => current === 'light' ? 'dark' : 'light');
+    // auto 모드일 때는 실제 표시 테마의 반대로 전환
+    setTheme(() => actualTheme === 'light' ? 'dark' : 'light');
   };
 
   const contextValue: ThemeContextType = {
