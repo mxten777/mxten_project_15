@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ExternalLink, Tag } from 'lucide-react';
@@ -12,6 +12,26 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const thumbnailPath = getThumbnailPath(project.demoUrl || '', project.category);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  // 3D tilt on mouse move
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+    const rotateX = ((y - cy) / cy) * -7;
+    const rotateY = ((x - cx) / cx) * 7;
+    card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02,1.02,1.02)`;
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    if (cardRef.current)
+      cardRef.current.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
+  }, []);
 
   const handleDemoClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -29,7 +49,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       className="group"
     >
       <Link to={`/portfolio/${project.slug}`} className="block h-full">
-        <div className="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-slate-900/50 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+        <div
+          ref={cardRef}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          style={{ transition: 'transform 0.15s ease-out, box-shadow 0.3s ease' }}
+          className="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm card-glow h-full flex flex-col"
+        >
           {/* Thumbnail */}
           <div className="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-800">
             <img
@@ -39,6 +65,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               loading="lazy"
               onError={(e) => handleImageError(e, project.category)}
             />
+            {/* Gradient overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             {project.featured && (
               <div className="absolute top-3 right-3 bg-amber-400 text-amber-900 px-2.5 py-1 rounded-lg text-xs font-bold shadow-sm">
                 Featured

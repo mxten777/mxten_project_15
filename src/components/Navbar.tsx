@@ -1,12 +1,17 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronRight } from 'lucide-react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import ThemeToggle from './ThemeToggle';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  // Scroll progress
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 30 });
 
   const handleScroll = useCallback(() => {
     setScrolled(window.scrollY > 50);
@@ -41,6 +46,12 @@ const Navbar: React.FC = () => {
 
   return (
     <>
+      {/* Scroll progress bar */}
+      <motion.div
+        id="scroll-progress-bar"
+        style={{ scaleX }}
+      />
+
       <nav className={`fixed w-full left-0 right-0 top-0 z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm border-b border-slate-200/60 dark:border-slate-800/60'

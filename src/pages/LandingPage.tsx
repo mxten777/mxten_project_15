@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Briefcase, Layers, Zap, Code2, Palette, Server, Shield, Sparkles } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import ProblemSolutionSection from '../components/ProblemSolutionSection';
 import TrustStatements from '../components/TrustStatements';
 import CTASection from '../components/CTASection';
 import CategoryTabs from '../components/CategoryTabs';
 import { TRUST_METRICS, BUSINESS_GUARANTEES, ROUTES, NEW_PROJECT_CATEGORIES } from '../constants';
 
-// Soft Premium Renewal - 2026.02
+// Premium v2 - 2026.02
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -18,13 +18,98 @@ const fadeUp = {
   }),
 };
 
+// ─── Typing effect hook ───────────────────────────────────────────────────────
+function useTypingEffect(words: string[], speed = 90, pause = 1800) {
+  const [display, setDisplay] = useState('');
+  const [wordIdx, setWordIdx] = useState(0);
+  const [charIdx, setCharIdx] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = words[wordIdx] ?? '';
+    const delay = deleting
+      ? speed / 2
+      : charIdx === current.length ? pause : speed;
+
+    const timer = setTimeout(() => {
+      if (!deleting) {
+        if (charIdx < current.length) {
+          setDisplay(current.slice(0, charIdx + 1));
+          setCharIdx(c => c + 1);
+        } else {
+          setDeleting(true);
+        }
+      } else {
+        if (charIdx > 0) {
+          setDisplay(current.slice(0, charIdx - 1));
+          setCharIdx(c => c - 1);
+        } else {
+          setDeleting(false);
+          setWordIdx(w => (w + 1) % words.length);
+        }
+      }
+    }, delay);
+    return () => clearTimeout(timer);
+  }, [charIdx, deleting, wordIdx, words, speed, pause]);
+
+  return display;
+}
+
+// ─── AnimatedCounter component ────────────────────────────────────────────────
+function AnimatedCounter({ target, suffix = '', duration = 1800 }: { target: number; suffix?: string; duration?: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: '-60px' });
+  const [count, setCount] = useState(0);
+  const startTime = useRef<number | null>(null);
+  const rafRef = useRef<number | undefined>(undefined);
+
+  const animate = useCallback((time: number) => {
+    if (!startTime.current) startTime.current = time;
+    const elapsed = time - startTime.current;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+    setCount(Math.floor(eased * target));
+    if (progress < 1) rafRef.current = requestAnimationFrame(animate);
+  }, [target, duration]);
+
+  useEffect(() => {
+    if (inView) {
+      startTime.current = null;
+      rafRef.current = requestAnimationFrame(animate);
+    }
+    return () => {
+      const id = rafRef.current;
+      if (id !== undefined) cancelAnimationFrame(id);
+    };
+  }, [inView, animate]);
+
+  return <span ref={ref} className="stat-number">{count}{suffix}</span>;
+}
+
+// ─── Hero particles ───────────────────────────────────────────────────────────
+const PARTICLES = Array.from({ length: 22 }, (_, i) => ({
+  id: i,
+  size: Math.random() * 6 + 3,
+  top: Math.random() * 100,
+  left: Math.random() * 100,
+  dur: (Math.random() * 8 + 5).toFixed(1),
+  delay: (Math.random() * 6).toFixed(1),
+  opacity: (Math.random() * 0.35 + 0.15).toFixed(2),
+}));
+
 const LandingPage: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = React.useState<string>(NEW_PROJECT_CATEGORIES.ALL);
+  const [selectedCategory, setSelectedCategory] = useState<string>(NEW_PROJECT_CATEGORIES.ALL);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
+  const yParallax = useTransform(scrollYProgress, [0, 1], ['0%', '28%']);
+  const opacityHero = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
+  const typedWord = useTypingEffect(['스타트업 MVP', '기업 홈페이지', 'SaaS 플랫폼', 'AI 서비스', '예약 시스템']);
 
   const trustStats = [
-    { number: TRUST_METRICS.TOTAL_PROJECTS, unit: '', label: '실전 검증 프로젝트', description: '글로벌 표준을 적용한 실제 배포', icon: Briefcase, color: 'from-indigo-500 to-violet-500' },
-    { number: TRUST_METRICS.ON_TIME_DELIVERY.replace('%', ''), unit: '%', label: '정시 납품률', description: `${String(BUSINESS_GUARANTEES.MVP_WEEKS)}주 이내 MVP 완성`, icon: Zap, color: 'from-emerald-500 to-teal-500' },
-    { number: TRUST_METRICS.CUSTOMER_SATISFACTION.split('/')[0], unit: '/5.0', label: '고객 만족도', description: `${TRUST_METRICS.RESPONSE_TIME} 내 대응`, icon: Layers, color: 'from-amber-500 to-orange-500' },
+    { number: 80, suffix: '+', label: '실전 검증 프로젝트', description: '글로벌 표준을 적용한 실제 배포', icon: Briefcase, color: 'from-indigo-500 to-violet-500' },
+    { number: 100, suffix: '%', label: '정시 납품률', description: `${String(BUSINESS_GUARANTEES.MVP_WEEKS)}주 이내 MVP 완성`, icon: Zap, color: 'from-emerald-500 to-teal-500' },
+    { number: 4.9, suffix: '/5.0', label: '고객 만족도', description: `${TRUST_METRICS.RESPONSE_TIME} 내 대응`, icon: Layers, color: 'from-amber-500 to-orange-500', isFloat: true },
   ] as const;
 
   const techCategories = [
@@ -43,47 +128,72 @@ const LandingPage: React.FC = () => {
   return (
     <div className="bg-white dark:bg-slate-950">
 
-      {/* ===== Hero Section — Soft, Elegant ===== */}
+      {/* ===== Hero Section — Parallax + Typing + Particles ===== */}
       <section
+        ref={heroRef}
         id="hero"
         data-hero-bleed
         className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-indigo-600 via-violet-600 to-purple-700 dark:from-indigo-900 dark:via-violet-900 dark:to-purple-950"
       >
-        {/* Soft ambient glow */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 -right-32 w-[600px] h-[600px] bg-violet-400/20 rounded-full blur-[160px]" />
-          <div className="absolute bottom-1/4 -left-32 w-[500px] h-[500px] bg-indigo-400/15 rounded-full blur-[140px]" />
+        {/* Parallax background blobs */}
+        <motion.div style={{ y: yParallax }} className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 -right-32 w-[700px] h-[700px] bg-violet-400/20 rounded-full blur-[180px]" />
+          <div className="absolute bottom-1/4 -left-32 w-[600px] h-[600px] bg-indigo-400/15 rounded-full blur-[160px]" />
+          <div className="absolute top-3/4 right-1/3 w-[400px] h-[400px] bg-fuchsia-500/10 rounded-full blur-[120px]" />
+        </motion.div>
+
+        {/* Floating particles */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {PARTICLES.map(p => (
+            <div
+              key={p.id}
+              className="hero-particle absolute rounded-full bg-white"
+              style={{
+                width: p.size,
+                height: p.size,
+                top: `${p.top}%`,
+                left: `${p.left}%`,
+                opacity: Number(p.opacity),
+                '--dur': `${p.dur}s`,
+                '--delay': `${p.delay}s`,
+              } as React.CSSProperties}
+            />
+          ))}
         </div>
 
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 text-center py-32">
+        <motion.div
+          style={{ opacity: opacityHero }}
+          className="relative z-10 w-full max-w-5xl mx-auto px-6 text-center py-32"
+        >
           <motion.div initial="hidden" animate="visible" className="space-y-8">
 
             {/* Pill badge */}
             <motion.div custom={0} variants={fadeUp}>
               <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white/95 text-sm font-semibold">
-                <Sparkles className="w-4 h-4" />
+                <Sparkles className="w-4 h-4 text-amber-300" />
                 4주 구축 · 80+ 실전 검증
               </span>
             </motion.div>
 
-            {/* Headline */}
-            <motion.h1
-              custom={1}
-              variants={fadeUp}
-              className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1]"
-            >
-              <span className="text-white">비즈니스 아이디어를</span>
-              <br />
-              <span className="bg-gradient-to-r from-amber-200 via-yellow-200 to-amber-300 bg-clip-text text-transparent">
-                4주 만에
-              </span>
-              <br />
-              <span className="text-white">실제 제품으로</span>
-            </motion.h1>
+            {/* Headline with typing */}
+            <motion.div custom={1} variants={fadeUp}>
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1]">
+                <span className="text-white">비즈니스 아이디어를</span>
+                <br />
+                <span className="text-gradient-animated">4주 만에</span>
+                <br />
+                <span className="text-white">실제 </span>
+                <span className="relative inline-block">
+                  <span className="text-amber-200">{typedWord}</span>
+                  <span className="typing-cursor text-amber-200" />
+                </span>
+                <span className="text-white">으로</span>
+              </h1>
+            </motion.div>
 
             {/* Tech pills */}
             <motion.div custom={2} variants={fadeUp} className="flex flex-wrap justify-center gap-3">
-              {['React', 'TypeScript', 'Firebase'].map((t) => (
+              {['React 19', 'TypeScript 5.8', 'Firebase', 'Framer Motion'].map((t) => (
                 <span key={t} className="px-4 py-2 rounded-xl bg-white/10 backdrop-blur-sm border border-white/15 text-white font-medium text-sm">
                   {t}
                 </span>
@@ -97,6 +207,20 @@ const LandingPage: React.FC = () => {
               <br className="hidden sm:block" />
               AI 보조 · 사람 검증으로 운영 가능한 품질
             </motion.p>
+
+            {/* Mini stats in hero */}
+            <motion.div custom={3.5} variants={fadeUp} className="hidden sm:flex justify-center gap-8 py-2">
+              {[
+                { val: '80+', lbl: '완성 프로젝트' },
+                { val: '4주', lbl: '평균 구축 기간' },
+                { val: '100%', lbl: '납품 성공률' },
+              ].map(s => (
+                <div key={s.lbl} className="text-center">
+                  <div className="text-2xl font-extrabold text-white">{s.val}</div>
+                  <div className="text-xs text-white/60 mt-0.5">{s.lbl}</div>
+                </div>
+              ))}
+            </motion.div>
 
             {/* CTA Buttons */}
             <motion.div custom={4} variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
@@ -117,11 +241,18 @@ const LandingPage: React.FC = () => {
             </motion.div>
 
           </motion.div>
+        </motion.div>
+
+        {/* Wave bottom */}
+        <div className="wave-section-top absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-16 md:h-20 fill-slate-50 dark:fill-slate-900">
+            <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"/>
+          </svg>
         </div>
       </section>
 
       {/* ===== Tech Stack — Clean Cards ===== */}
-      <section className="py-24 md:py-32 bg-slate-50/50 dark:bg-slate-900/50">
+      <section className="py-24 md:py-32 bg-slate-50 dark:bg-slate-900">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -169,7 +300,14 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ===== Trust Stats — Soft Cards ===== */}
+      {/* Wave divider */}
+      <div className="relative bg-white dark:bg-slate-950 -mt-1">
+        <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 md:h-16 fill-slate-50 dark:fill-slate-900">
+          <path d="M1440,0 C1080,60 360,0 0,60 L0,0 Z"/>
+        </svg>
+      </div>
+
+      {/* ===== Trust Stats — Animated Counter ===== */}
       <section className="py-24 md:py-32 bg-white dark:bg-slate-950">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
@@ -202,24 +340,21 @@ const LandingPage: React.FC = () => {
                   transition={{ duration: 0.5, delay: index * 0.15 }}
                   className="group text-center"
                 >
-                  <div className="bg-slate-50 dark:bg-slate-900 rounded-3xl p-10 border border-slate-100 dark:border-slate-800 hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-slate-900/50 hover:-translate-y-1 transition-all duration-300">
+                  <div className="bg-slate-50 dark:bg-slate-900 rounded-3xl p-10 border border-slate-100 dark:border-slate-800 card-glow hover:-translate-y-1 transition-all duration-300">
                     {/* Icon */}
                     <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${stat.color} text-white mb-6 shadow-lg`}>
                       <Icon className="w-7 h-7" />
                     </div>
 
-                    {/* Number */}
-                    <div className="mb-3">
-                      <motion.span
-                        className="text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white"
-                        initial={{ scale: 0.5, opacity: 0 }}
-                        whileInView={{ scale: 1, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: index * 0.15 + 0.2, type: "spring" }}
-                      >
-                        {stat.number}
-                      </motion.span>
-                      <span className="text-2xl font-bold text-slate-400 dark:text-slate-500 ml-1">{stat.unit}</span>
+                    {/* Animated Number */}
+                    <div className="mb-3 flex items-end justify-center gap-1">
+                      <span className="text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white leading-none">
+                        {'isFloat' in stat && stat.isFloat
+                          ? '4.9'
+                          : <AnimatedCounter target={stat.number as number} duration={1600} />
+                        }
+                      </span>
+                      <span className="text-2xl font-bold text-slate-400 dark:text-slate-500 mb-1">{stat.suffix}</span>
                     </div>
 
                     <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{stat.label}</h3>
@@ -229,14 +364,65 @@ const LandingPage: React.FC = () => {
               );
             })}
           </div>
+
+          {/* Mini progress indicators */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
+          >
+            {[
+              { label: 'React 사용률', value: 100 },
+              { label: 'TypeScript 적용률', value: 94 },
+              { label: 'TailwindCSS 사용률', value: 88 },
+              { label: '모바일 최적화', value: 100 },
+            ].map((item) => (
+              <div key={item.label} className="text-center">
+                <div className="relative w-16 h-16 mx-auto mb-3">
+                  <svg viewBox="0 0 36 36" className="w-16 h-16 -rotate-90">
+                    <circle cx="18" cy="18" r="15.9" fill="none" stroke="#e2e8f0" strokeWidth="2.5" className="dark:stroke-slate-800" />
+                    <motion.circle
+                      cx="18" cy="18" r="15.9"
+                      fill="none"
+                      stroke="url(#grad)"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeDasharray="100"
+                      strokeDashoffset="100"
+                      whileInView={{ strokeDashoffset: 100 - item.value }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.2, delay: 0.5, ease: 'easeOut' }}
+                    />
+                    <defs>
+                      <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#6366f1"/>
+                        <stop offset="100%" stopColor="#a78bfa"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <span className="absolute inset-0 flex items-center justify-center text-sm font-bold text-slate-900 dark:text-white">{item.value}%</span>
+                </div>
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">{item.label}</p>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
       {/* ===== Problem-Solution ===== */}
       <ProblemSolutionSection />
 
+      {/* Wave before case studies */}
+      <div className="relative bg-slate-50 dark:bg-slate-900 -mt-1">
+        <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-10 md:h-14 fill-white dark:fill-slate-950">
+          <path d="M0,0 C480,60 960,0 1440,60 L1440,0 Z"/>
+        </svg>
+      </div>
+
       {/* ===== Case Studies — Soft Cards ===== */}
-      <section className="py-24 md:py-32 bg-slate-50/50 dark:bg-slate-900/50">
+      <section className="py-24 md:py-32 bg-slate-50 dark:bg-slate-900">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -266,7 +452,7 @@ const LandingPage: React.FC = () => {
                 transition={{ duration: 0.5, delay: index * 0.15 }}
                 className="group"
               >
-                <div className={`bg-white dark:bg-slate-900 rounded-2xl p-8 border ${project.accentColor} shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col`}>
+                <div className={`bg-white dark:bg-slate-900 rounded-2xl p-8 border ${project.accentColor} shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col card-glow`}>
                   {/* Header */}
                   <div className="flex items-center gap-3 mb-6">
                     <span className="text-3xl">{project.emoji}</span>
@@ -324,6 +510,13 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Wave before category tabs */}
+      <div className="relative bg-white dark:bg-slate-950 -mt-1">
+        <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-10 md:h-14 fill-slate-50 dark:fill-slate-900">
+          <path d="M1440,0 C960,60 480,0 0,60 L0,0 Z"/>
+        </svg>
+      </div>
+
       {/* ===== Category Tabs ===== */}
       <section className="py-20 bg-white dark:bg-slate-950">
         <div className="max-w-6xl mx-auto px-6">
@@ -334,10 +527,10 @@ const LandingPage: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-4">
-              분야별 전문 프로젝트
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4 leading-tight">
+              분야별 <span className="text-gradient-animated">전문 프로젝트</span>
             </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400 mb-10">
+            <p className="text-lg text-slate-500 dark:text-slate-400 mb-10 max-w-xl mx-auto">
               귀사의 업종에 맞는 포트폴리오를 확인하세요
             </p>
 
@@ -351,7 +544,7 @@ const LandingPage: React.FC = () => {
           <div className="text-center mt-10">
             <Link
               to={ROUTES.PORTFOLIO}
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-sm rounded-xl hover:opacity-90 hover:-translate-y-0.5 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-sm rounded-xl hover:opacity-90 hover:-translate-y-0.5 transition-all duration-300 shadow-md hover:shadow-lg"
             >
               전체 포트폴리오 보기
               <ArrowRight className="w-4 h-4" />
