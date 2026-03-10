@@ -5,31 +5,79 @@
   <!-- 메인 페이지 -->
   <url>
     <loc>https://www.baikalsys.kr/</loc>
-    <lastmod>2026-03-04</lastmod>
+    <lastmod>2026-03-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- 포트폴리오 페이지 -->
+  <!-- 회사 소개 -->
   <url>
-    <loc>https://www.baikalsys.kr/portfolio</loc>
-    <lastmod>2026-03-04</lastmod>
+    <loc>https://www.baikalsys.kr/about</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- AI 플랫폼 개발 -->
+  <url>
+    <loc>https://www.baikalsys.kr/ai-platform</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- RAG 시스템 -->
+  <url>
+    <loc>https://www.baikalsys.kr/rag</loc>
+    <lastmod>2026-03-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- AI RPA -->
+  <url>
+    <loc>https://www.baikalsys.kr/rpa</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Private AI -->
+  <url>
+    <loc>https://www.baikalsys.kr/private-ai</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- AI 자동화 SaaS -->
+  <url>
+    <loc>https://www.baikalsys.kr/ai-saas</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 포트폴리오 -->
+  <url>
+    <loc>https://www.baikalsys.kr/portfolio</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- 문의 페이지 -->
   <url>
     <loc>https://www.baikalsys.kr/contact</loc>
-    <lastmod>2026-03-04</lastmod>
+    <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
 
-  <!-- 캠페인 페이지 -->
+  <!-- 캠페인 -->
   <url>
     <loc>https://www.baikalsys.kr/campaign</loc>
-    <lastmod>2026-03-04</lastmod>
+    <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

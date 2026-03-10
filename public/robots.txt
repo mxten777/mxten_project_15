@@ -1,13 +1,30 @@
+# BAIKAL Systems (바이칼시스템즈) - robots.txt
+# https://www.baikalsys.kr
+
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json$
+Crawl-delay: 1
 
-# Naver crawler
+# Naver crawler (Yeti)
 User-agent: Yeti
 Allow: /
+Disallow: /admin/
+Disallow: /api/
 
 # Google crawler
 User-agent: Googlebot
 Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Bing crawler
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
 
 # Sitemap location
 Sitemap: https://www.baikalsys.kr/sitemap.xml
